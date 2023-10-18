@@ -5,15 +5,12 @@ import getRandomTour from '@/data/tourDetail/getRandomTour'
 import getRelatedTour from '@/data/tourDetail/getRelatedTour'
 import getTourDetail from '@/data/tourDetail/getTourDetail'
 import getTourDetailHeader from '@/data/tourDetail/getTourDetailHeader'
-import { GET_ALL_REVIEWS, GET_REVIEWS } from '@/graphql/customersReview/queries'
+import { GET_ALL_REVIEWS } from '@/graphql/customersReview/queries'
 import { GET_TOUR_META_DATA } from '@/graphql/metaData/queries'
 import { GET_RANDOM_TOUR, GET_TOUR_DETAIL } from '@/graphql/tourDetail/queries'
 import TourDetail from '@/pageComponent/TourDetail'
 import getDataFormBookTour from '@/data/formBookTour/getDataFormBookTour'
 import { GET_DATA_FORM_BOOKTOUR } from '@/graphql/formBookTour/queries'
-import { Suspense } from 'react'
-import Loader from '@/components/Common/Loader'
-import dynamic from 'next/dynamic'
 import { notFound } from 'next/navigation'
 
 export async function generateMetadata({ params: { slug, lang } }) {
@@ -25,10 +22,6 @@ export async function generateMetadata({ params: { slug, lang } }) {
   return getMeta(title, excerpt, featuredImage)
 }
 
-// const TourDetailDynamic = dynamic(() => import('@/pageComponent/TourDetail'), {
-//   ssr: false,
-//   loading: () => <Loader />
-// })
 export default async function page({ params: { lang, slug } }) {
   const idEnBook = 'cG9zdDoxNDIy'
   const idFrBook = 'cG9zdDoxNDIy'
