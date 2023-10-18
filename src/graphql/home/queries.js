@@ -26,6 +26,9 @@ const GET_HOME_PAGE = `query getHomePageData($id:ID!) {
         banner {
           fieldGroupName
           text
+          background {
+            sourceUrl
+          }
         }
         survey {
           fieldGroupName

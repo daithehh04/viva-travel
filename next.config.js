@@ -9,7 +9,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'viva-cms.okhub.tech'
+        hostname: 'viva-cms-en.okhub.tech'
       }
     ]
   },
