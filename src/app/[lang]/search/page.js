@@ -23,7 +23,6 @@ async function page({ params: { lang } }) {
   const resListBlog = await getDataPost(lang, GET_ALL_POST)
   const listBlog = resListBlog?.data?.posts?.nodes
   let searchInfo = await getDataPost(lang, GET_SEARCH_INFO)
-
   searchInfo = searchInfo?.data?.page?.translation?.search
 
   return (

@@ -37,10 +37,10 @@ function BlogItem({ className, data, lang, heightImage }) {
         <h4 className='  md:text-[1.25vw] text-[3.73333vw] line-clamp-2 font-[700] leading-[1.4] md:mt-[0.78vw] mt-[1.07vw] title max-lg:leading-normal'>
           <a className='title__ourBlog '>{data?.title}</a>
         </h4>
-        <div
+        <p
           className='md:text-[1.1vw] lg:text-[0.875vw] text-ellipsis line-clamp-2 opacity-60 text-[2.66667vw] font-[500] desc leading-normal md:mt-[0.5vw] mt-[1.07vw]'
           dangerouslySetInnerHTML={{ __html: `${data?.excerpt}` }}
-        ></div>
+        ></p>
       </div>
     </Link>
   )
