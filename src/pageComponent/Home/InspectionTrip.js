@@ -49,7 +49,7 @@ function InspectionTrip({ data, lang }) {
               loop: true
             }
           }}
-          initialSlide={Math.floor(data?.slideTrip.length / 2)}
+          initialSlide={Math.floor(data?.slideTrip?.length / 2)}
           slidesPerView={1.2}
           spaceBetween={0}
           loop={true}
