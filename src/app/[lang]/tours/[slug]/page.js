@@ -54,7 +54,7 @@ export default async function page({ params: { lang, slug } }) {
   const randomTour = res?.data?.allTours?.nodes.filter((item, index) => item?.translation?.id !== tourId)
 
   const result2 = await getRelatedTour(country, 'COUNTRIES', lang)
-  const relatedTours = result2?.data?.allTours?.nodes?.filter((item) => item.translation.id !== tourId)
+  const relatedTours = result2?.data?.allTours?.nodes?.filter((item) => item?.translation?.id !== tourId)
   if (!tourId) {
     <NotFound lang={lang}/>
   }
