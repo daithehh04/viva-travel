@@ -27,7 +27,7 @@ function TourItemMobile({ data, lang, loading }) {
             src={
               tourData?.gallery
                 ? tourData?.gallery[0]?.sourceUrl
-                : 'https://viva-cms.okhub.tech/wp-content/uploads/2023/09/blogDetail_Banner.png'
+                : 'https://viva-cms-en.okhub.tech/wp-content/uploads/2023/10/Tourists-in-Angkor-Wat-01-scaled.jpg'
             }
             width={1000}
             height={1000}
