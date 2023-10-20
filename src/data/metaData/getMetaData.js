@@ -13,6 +13,5 @@ export default async function getMetaDataTour(query, lang, slug) {
   if (!res.ok) {
     throw new Error('Failed to fetch data')
   }
-
   return res.json()
 }

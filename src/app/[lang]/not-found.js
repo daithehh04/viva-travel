@@ -5,7 +5,7 @@ import notFoundImg from '@/assets/images/notFound/notFoundImg.png'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export default function NotFound() {
+export default function NotFound({ params: { lang }}) {
   return (
     <div className='not-found w-[100vw] h-[100vh] flex items-center text-[40px] justify-center fixed top-0 left-0 z-[10]'>
       <Image
@@ -14,11 +14,11 @@ export default function NotFound() {
         width={1000}
         height={1000}
         quality={100}
-        className='w-full h-full absolute top-0 left-0 z-20 object-cover'
+        className='absolute top-0 left-0 z-20 object-cover w-full h-full'
       />
 
       <div className='relative z-30 md:w-[43.625vw] w-[78.4vw]'>
-        <div className='w-full flex items-center'>
+        <div className='flex items-center w-full'>
           <div className='nf-404 md:text-[20.625vw] text-[37.06587vw] font-optima capitalize font-medium leading-[1.1]'>
             4
           </div>
@@ -38,7 +38,7 @@ export default function NotFound() {
         </div>
         <Link
           className='btn-primary w-fit h-fit px-[1.25vw] py-[2.875vw] m-auto md:mt-[1.94vw] mt-[6.4vw]'
-          href={'/'}
+          href={`/${lang}`}
         >
           Back to home
         </Link>

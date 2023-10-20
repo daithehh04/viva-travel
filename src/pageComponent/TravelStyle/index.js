@@ -10,7 +10,7 @@ import {
   DATA_TAXONOMIES_DURATION,
   DATA_TAXONOMIES_TOUR_STYLE
 } from '@/graphql/filter/queries'
-import { notFound } from 'next/navigation'
+import NotFound from '@/components/Common/NotFound'
 
 async function index({ lang, slug }) {
   const getPageInfo = await getDataWithTaxonomy(
@@ -22,7 +22,7 @@ async function index({ lang, slug }) {
   )
 
   if (!getPageInfo?.data?.tourStyle?.translation?.banner) {
-    notFound()
+    return <NotFound lang={lang}/>
   }
 
   const dataTaxonomiesCountry = await getDataPost(lang, DATA_TAXONOMIES_COUNTRY)

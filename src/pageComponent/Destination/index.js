@@ -7,7 +7,6 @@ import FilterPopup from './FilterPopup'
 import {
   DATA_COUNTRY,
   DATA_SLIDE_OTHER_TOUR,
-  DATA_SLIDE_TOUR,
   GET_DATA_BEST_SELLER_OURTOUR
 } from '@/graphql/country/queries'
 import getDataWithTaxonomy from '@/data/getDataWithTaxonomy'
@@ -20,6 +19,7 @@ import {
 } from '@/graphql/filter/queries'
 import { GET_ALL_REVIEWS } from '@/graphql/customersReview/queries'
 import { notFound } from 'next/navigation'
+import NotFound from '@/components/Common/NotFound'
 async function index({ lang, slug }) {
   const dataCountry = await getDataWithTaxonomy(
     {
@@ -28,14 +28,14 @@ async function index({ lang, slug }) {
     },
     DATA_COUNTRY
   )
-  const dataOtherTrip = await getDataWithTaxonomy(
-    {
-      taxonomyValue: slug,
-      taxonomyName: 'COUNTRIES',
-      lang: lang
-    },
-    DATA_SLIDE_TOUR
-  )
+  // const dataOtherTrip = await getDataWithTaxonomy(
+  //   {
+  //     taxonomyValue: slug,
+  //     taxonomyName: 'COUNTRIES',
+  //     lang: lang
+  //   },
+  //   DATA_SLIDE_TOUR
+  // )
   const dataOtherTypeTrip = await getDataWithTaxonomy(
     {
       taxonomyValue: slug,
@@ -82,7 +82,7 @@ async function index({ lang, slug }) {
   }
 
   if (!dataCountry?.data?.countries?.translation) {
-    notFound()
+    <NotFound lang={lang}/>
   }
   return (
     <div>

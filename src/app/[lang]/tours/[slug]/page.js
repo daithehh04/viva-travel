@@ -12,6 +12,7 @@ import TourDetail from '@/pageComponent/TourDetail'
 import getDataFormBookTour from '@/data/formBookTour/getDataFormBookTour'
 import { GET_DATA_FORM_BOOKTOUR } from '@/graphql/formBookTour/queries'
 import { notFound } from 'next/navigation'
+import NotFound from '@/components/Common/NotFound'
 
 export async function generateMetadata({ params: { slug, lang } }) {
   const res = await getMetaDataTour(GET_TOUR_META_DATA, lang, slug)
@@ -55,7 +56,7 @@ export default async function page({ params: { lang, slug } }) {
   const result2 = await getRelatedTour(country, 'COUNTRIES', lang)
   const relatedTours = result2?.data?.allTours?.nodes?.filter((item) => item.translation.id !== tourId)
   if (!tourId) {
-    notFound()
+    <NotFound lang={lang}/>
   }
   return (
     <TourDetail
