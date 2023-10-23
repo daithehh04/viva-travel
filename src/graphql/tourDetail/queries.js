@@ -66,10 +66,16 @@ export const GET_TOUR_DETAIL = `query GetTourDetail($slug: ID!, $language: Langu
             }
           }
           accommodation {
-            row {
+            row{
               cityOrProvince
-              superior
-              deluxe
+              deluxee{
+                name
+                link
+              }
+              superiorr{
+                name
+                link
+              }
               noOfNights
             }
           }

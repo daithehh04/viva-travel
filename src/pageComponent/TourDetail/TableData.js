@@ -1,8 +1,9 @@
 'use client'
 
-export default function TableData({ data, header = [] }) {
-  const headerData = Object.values(header)
+import Link from "next/link"
 
+export default function TableData({ data, header = [],type }) {
+  const headerData = Object.values(header)
   return (
     <div className='overflow-auto w-full hidden-scroll max-lg:px-[4.27vw]'>
       <table className='tour-detail-table table-auto md:w-full w-[150vw] border-separate border border-[#EBEBEB] rounded-2xl border-solid bg-white'>
@@ -30,15 +31,14 @@ export default function TableData({ data, header = [] }) {
                 className='md:h-[3vw] h-[8vw]'
               >
                 {values?.map((rowItem, rowIndex) => {
-                  return (
-                    <td
+                  return (<td
                       className={`break-all max-w-[18.75vw] min-w-[5vw] px-[1vw] lg:text-[1vw] md:text-[12px]  text-[2.93vw] leading-normal opacity-80 text-textColor border border-[#EBEBEB] border-solid text-center align-middle ${
                         (index === data?.length - 1 && rowIndex === 0 && 'rounded-bl-2xl') || ''
                       } ${(index === data?.length - 1 && rowIndex === values?.length - 1 && 'rounded-br-2xl') || ''}`}
                       key={rowIndex}
-                      dangerouslySetInnerHTML={{ __html: `${rowItem}` }}
-                    ></td>
-                  )
+                    >
+                      {typeof rowItem === 'object' ? (<Link href={`${rowItem?.link}`}>{rowItem?.name}</Link>) : (<p dangerouslySetInnerHTML={{ __html: `${rowItem}` }}></p>)}
+                  </td>)
                 })}
               </tr>
             )
