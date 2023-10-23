@@ -432,10 +432,10 @@ export default function AboutTour(props) {
               <div className='text-textColor lg:text-[1vw] md:text-[14px] text-[3.73vw] text-justify leading-normal opacity-80 flex flex-col md:gap-[0.5vw] gap-[4.27vw]'>
                 {overview?.map((item, index) => {
                   return (
-                    <p
+                    <div
                       key={index}
                       dangerouslySetInnerHTML={{ __html: item.text }}
-                    ></p>
+                    ></div>
                   )
                 })}
               </div>
@@ -495,7 +495,7 @@ export default function AboutTour(props) {
                               alt='inclusion'
                               className='md:mt-[0.3vw] mt-[0.9vw] md:w-[0.875vw] w-[3.2vw] md:h-[0.875vw] h-[3.2vw]'
                             />
-                            <span className='opacity-80'>{item.text}</span>
+                            <span className='opacity-80' dangerouslySetInnerHTML={{ __html: `${item.text}` }}></span>
                           </div>
                         )
                       })}
@@ -524,7 +524,7 @@ export default function AboutTour(props) {
                               alt='exclusion'
                               className='md:mt-[0.3vw] mt-[0.9vw] md:w-[0.875vw] w-[3.2vw] md:h-[0.875vw] h-[3.2vw]'
                             />
-                            <span className='opacity-80'>{item.text}</span>
+                            <span className='opacity-80' dangerouslySetInnerHTML={{ __html: `${item.text}` }}></span>
                           </div>
                         )
                       })}

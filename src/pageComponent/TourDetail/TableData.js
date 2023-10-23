@@ -15,9 +15,8 @@ export default function TableData({ data, header = [] }) {
                   className={`${
                     index === 0 ? 'rounded-tl-2xl' : index === headerData?.length - 1 ? 'rounded-tr-2xl' : ''
                   } lg:text-[1vw] md:text-[1.3vw] text-[3.73vw] font-bold leading-normal border border-[#EBEBEB] border-solid align-middle`}
-                >
-                  {item}
-                </th>
+                  dangerouslySetInnerHTML={{ __html: `${item}` }}
+                ></th>
               )
             })}
           </tr>
@@ -37,9 +36,8 @@ export default function TableData({ data, header = [] }) {
                         (index === data?.length - 1 && rowIndex === 0 && 'rounded-bl-2xl') || ''
                       } ${(index === data?.length - 1 && rowIndex === values?.length - 1 && 'rounded-br-2xl') || ''}`}
                       key={rowIndex}
-                    >
-                      {rowItem}
-                    </td>
+                      dangerouslySetInnerHTML={{ __html: `${rowItem}` }}
+                    ></td>
                   )
                 })}
               </tr>
