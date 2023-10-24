@@ -95,7 +95,7 @@ export default function TourDetailStep({ data: tourDetailData, icons }) {
           )
         })}
         {open && <div>
-          <div className='w-[80%] h-[75vh] fixed top-[50%] left-[50%] -translate-y-1/2 -translate-x-1/2 z-[100]'>
+          <div className='w-[80%] h-[75vh] fixed top-[50%] left-[50%] -translate-y-1/2 -translate-x-1/2 z-[100] max-md:h-[64vh]'>
             { <SlideDayTour data={album}/> }
           </div>
           <div className='fixed inset-0 z-[90]' style={{background: 'rgba(0,0,0,0.4)'}} onClick={() => setOpen(false)}></div>
