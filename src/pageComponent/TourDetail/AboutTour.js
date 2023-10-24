@@ -215,7 +215,6 @@ export default function AboutTour(props) {
 
   const [openModal, setOpenModal] = useState()
   const [openPopup, setOpenPopUp] = useState()
-  console.log(openPopup);
   const router = useRouter()
   const mapRef = useRef()
   const aboutTourRef = useRef()
