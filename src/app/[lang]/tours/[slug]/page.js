@@ -30,6 +30,7 @@ export default async function page({ params: { lang, slug } }) {
 
   const headerReq = await getTourDetailHeader(lang)
   const tourReq = await getTourDetail(GET_TOUR_DETAIL, slug, lang)
+  console.log(tourReq);
   const randomTourReq = await getRandomTour(GET_RANDOM_TOUR, lang)
   const reviewReq = await getDataPost(lang, GET_ALL_REVIEWS)
   const booktourReq =

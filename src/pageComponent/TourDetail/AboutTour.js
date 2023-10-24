@@ -301,6 +301,13 @@ export default function AboutTour(props) {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [activeIcon, accomRef, briefRef, overviewRef, roleRef, tourDetailRef])
+
+  imageMapRef?.current?.addEventListener('click',()=>{
+    // if(imageMapRef){
+    //   imageMapRef?.current?.style?.display = 'none'
+    // }
+    // // alert('ok')
+  })
   return (
     <section className='overflow-hidden tour-detail-main'>
       <div className=''>
@@ -538,6 +545,7 @@ export default function AboutTour(props) {
               className='max-lg:mx-[-4.27vw]'
             >
               <TableData
+                type={true}
                 data={accommodation?.row}
                 header={contentHeader?.accommodationTableHeader}
               />
