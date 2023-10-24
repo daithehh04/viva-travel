@@ -10,11 +10,23 @@ import { Skeleton } from '@mui/material'
 
 function TourItemMobile({ data, lang, loading }) {
   const tourData = data?.translation?.tourDetail?.banner
+  const checkBestTour = data?.translation?.bestSeller?.nodes || data?.bestSeller?.nodes
   const price = data?.translation?.tourDetail?.priceTour
   let listRate = null
   if (tourData?.rate) listRate = new Array(Math.round(tourData?.rate)).fill(0)
   const pathName = usePathname()
   const isPromotion = pathName.includes('hot-deals')
+  let bestTour = false
+  if(checkBestTour?.length > 0) {
+    bestTour = true
+  }
+  let tag = 'Best Tour'
+  if(lang === 'fr') {
+    tag = 'Meilleur vendeur'
+  }
+  if (lang === 'it') {
+    tag = 'Miglior venditore'
+  }
   return (
     <Link
       href={`/${lang}/${isPromotion ? 'hot-deals' : 'tours'}/${encodeURIComponent(data?.translation?.slug)}`}
@@ -22,17 +34,20 @@ function TourItemMobile({ data, lang, loading }) {
     >
       <div className='h-full w-[45%] rounded-[1.067vw]'>
         {!loading ? (
-          <Image
-            alt='tour data'
-            src={
-              tourData?.gallery
-                ? tourData?.gallery[0]?.sourceUrl
-                : 'https://viva-cms-en.okhub.tech/wp-content/uploads/2023/10/Tourists-in-Angkor-Wat-01-scaled.jpg'
-            }
-            width={1000}
-            height={1000}
-            className='h-[100%] w-[100%] object-cover rounded-[1.067vw]'
-          />
+          <div className='relative w-full h-full'>
+            <Image
+              alt='tour data'
+              src={
+                tourData?.gallery
+                  ? tourData?.gallery[0]?.sourceUrl
+                  : 'https://viva-cms-en.okhub.tech/wp-content/uploads/2023/10/Tourists-in-Angkor-Wat-01-scaled.jpg'
+              }
+              width={1000}
+              height={1000}
+              className='h-[100%] w-[100%] object-cover rounded-[1.067vw]'
+            />
+            {bestTour ? <span className='absolute top-3 left-3 tag-best_tour text-[2.667vw] w-max px-2 py-1 text-[#fff] bg-primaryColor block'>{tag}</span> : ""}
+          </div>
         ) : (
           <Skeleton
             variant='rounded'
