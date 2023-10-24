@@ -7,6 +7,7 @@ import mapIcon from '@/assets/images/tourDetail/mapIcon.png'
 import Image from 'next/image'
 import Button from '@/components/Common/Button'
 import ModalCustom from '@/components/Common/ModalCustom'
+import imageTest from '@/assets/images/banner-about.png'
 
 export default function PriceMb({ data, onClick }) {
   const [openModal, setOpenModal] = useState(false)
@@ -28,11 +29,11 @@ export default function PriceMb({ data, onClick }) {
           className='w-[90vw] h-[80vh]'
         >
           <Image
-            src={data?.map?.sourceUrl}
+            src={data?.map?.sourceUrl || imageTest}
             alt={data?.map?.altText}
             width={1000}
             height={1000}
-            className='w-full h-full object-cover rounded-lg'
+            className='w-full h-full object-contain rounded-lg'
           />
         </ModalCustom>
       )}
