@@ -4,10 +4,11 @@ import Image from 'next/image'
 import line from '@/assets/images/tourDetail/line.png'
 import inclusion from '@/assets/images/tourDetail/inclusion.svg'
 import exclusion from '@/assets/images/tourDetail/exclusion.svg'
-
+import imageTest from '@/assets/images/banner-about.png'
 import TableData from './TableData'
 import ReviewItem from '@/components/Common/ReviewItem'
 import SlideTour from '@/components/Common/SlideTour'
+import closeImg from '@/assets/images/close.svg'
 import { useEffect, useRef, useState } from 'react'
 import TourDetailStep from './TourDetailStep'
 import scrollDown from '@/helpers/scrollDown'
@@ -213,6 +214,8 @@ export default function AboutTour(props) {
   ]
 
   const [openModal, setOpenModal] = useState()
+  const [openPopup, setOpenPopUp] = useState()
+  console.log(openPopup);
   const router = useRouter()
   const mapRef = useRef()
   const aboutTourRef = useRef()
@@ -575,6 +578,7 @@ export default function AboutTour(props) {
               height={1000}
               className='md:block hidden w-full md:h-[30vw] h-[130vw] object-contain rounded shadow-[0_2px_50px_0_rgba(0,0,0,0.04)'
               ref={imageMapRef}
+              onClick={()=>setOpenPopUp(true)}
             />
           </div>
         </div>
@@ -643,6 +647,24 @@ export default function AboutTour(props) {
         />
       )}
 
+      {openPopup && (
+        <div className='fixed max-md:hidden w-[80vw] h-[90vh] top-1/2 left-1/2 -translate-x-1/2 z-20 -translate-y-1/2'>
+            <Image
+              src={closeImg}
+              alt='close'
+              width={20}
+              height={20}
+              className='absolute md:top-[4.53vw] top-[2.5vw] right-[4.53vw] 
+              max-md:w-[4vw] max-md:right-[10vw] max-md:top-[5vw] max-md:h-[4vw]'
+              onClick={() => setOpenPopUp(false)}
+            />
+            <Image 
+              src={data?.map?.image?.sourceUrl || imageTest}
+              alt={data?.map?.image?.altText} 
+              className='object-cover shadow-[0_2px_50px_0_rgba(0,0,0,0.04)'
+            />
+        </div>
+      )}
       {openModal && (
         <ModalCustom
           openModal={openModal}
