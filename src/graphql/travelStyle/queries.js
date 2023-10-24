@@ -27,6 +27,11 @@ const GET_INFO_PAGE_TRAVEL_STYLE = `query getInfoPageTravelStyle($taxonomyValue:
               translation(language: $language) {
                 id
                 slug
+                bestSeller {
+                  nodes {
+                    name
+                  }
+                }
                 tourDetail {
                   priceTour
                   banner {

@@ -58,6 +58,11 @@ const DATA_BEST_TOUR = gql`
           excerpt
           title
           slug
+          bestSeller {
+            nodes {
+              name
+            }
+          }
           tourStyle {
             nodes {
               slug
@@ -107,6 +112,11 @@ const DATA_BEST_TOUR_HOME_PAGE = gql`
           excerpt
           title
           slug
+          bestSeller {
+            nodes {
+              name
+            }
+          }
           tourStyle {
             nodes {
               slug
@@ -138,6 +148,11 @@ const DATA_SEARCH_TEXT_TOUR = gql`
         translation(language: $language) {
           title
           slug
+          bestSeller {
+            nodes {
+              name
+            }
+          }
           tourStyle {
             nodes {
               slug
