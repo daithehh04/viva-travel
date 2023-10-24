@@ -5,14 +5,14 @@ import coconut from '@/assets/images/coconut.svg'
 // import coconut2 from '@/assets/images/coconut2.svg'
 import coconut2 from '@/assets/images/coconut2.png'
 import Image from 'next/image'
-import { LanguageSharp } from '@mui/icons-material'
 
 function TravelStyle({ data, title, desc, lang }) {
   const [row1, setRow1] = useState([])
   const [row2, setRow2] = useState([])
   const [row3, setRow3] = useState([])
+  const dataStyle = data?.filter((item) => item !== null)
   useEffect(() => {
-    const len = data?.length
+    const len = dataStyle?.length
     const quantityOnRow = Math.floor(len / 3)
     const residual = len % 3
     const arrRow1 = []
@@ -26,8 +26,7 @@ function TravelStyle({ data, title, desc, lang }) {
       bonusRow1 = 1
       bonusRow2 = 2
     }
-
-    data?.forEach((item, index) => {
+    dataStyle?.forEach((item, index) => {
       if (index < quantityOnRow + bonusRow1) arrRow1.push(item)
       else if (index < quantityOnRow * 2 + bonusRow2) {
         arrRow2.push(item)
@@ -38,7 +37,7 @@ function TravelStyle({ data, title, desc, lang }) {
     setRow1(arrRow1)
     setRow2(arrRow2)
     setRow3(arrRow3)
-  }, [data])
+  }, [dataStyle])
 
   return (
     <div className='pt-[10.62vw] pb-[4.87vw] relative max-md:hidden'>

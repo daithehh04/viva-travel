@@ -5,6 +5,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 function TravelStyleItem({ data, lang }) {
+  let view = 'View more'
+  if(lang ==='fr') {
+    view = 'Voir plus'
+  }
+  if(lang === 'it') {
+    view = 'Visualizza altro'
+  }
   return (
     <div
       data-aos-once='true'
@@ -41,7 +48,7 @@ function TravelStyleItem({ data, lang }) {
           href={`/${lang}/travel-style/${data?.slug}`}
           className='w-[5.9375vw] h-[5.9375vw] rounded-full bg-primaryColor text-textColor text-[0.875vw] font-[500] flex items-center justify-center max-lg:max-lg:text-[1.1vw] cursor-pointer'
         >
-          View more
+          {view}
         </Link>
       </div>
       <div className='overlay-travel'></div>
