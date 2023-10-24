@@ -26,7 +26,7 @@ export default function PriceMb({ data, onClick }) {
         <ModalCustom
           openModal={openModal}
           setOpenModal={setOpenModal}
-          className='w-[90vw] h-[80vh]'
+          className='w-[90vw]'
         >
           <Image
             src={data?.map?.sourceUrl || imageTest}
