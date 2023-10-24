@@ -10,8 +10,8 @@ function TravelStyle({ data, title, desc, lang }) {
   const [row1, setRow1] = useState([])
   const [row2, setRow2] = useState([])
   const [row3, setRow3] = useState([])
-  const dataStyle = data?.filter((item) => item !== null)
   useEffect(() => {
+    const dataStyle = data?.filter((item) => item !== null)
     const len = dataStyle?.length
     const quantityOnRow = Math.floor(len / 3)
     const residual = len % 3
@@ -37,7 +37,7 @@ function TravelStyle({ data, title, desc, lang }) {
     setRow1(arrRow1)
     setRow2(arrRow2)
     setRow3(arrRow3)
-  }, [dataStyle])
+  }, [data])
 
   return (
     <div className='pt-[10.62vw] pb-[4.87vw] relative max-md:hidden'>
