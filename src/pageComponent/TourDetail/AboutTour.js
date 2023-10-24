@@ -576,7 +576,7 @@ export default function AboutTour(props) {
               alt={data?.map?.image?.altText}
               width={1000}
               height={1000}
-              className='md:block hidden w-full md:h-[30vw] h-[130vw] object-contain rounded shadow-[0_2px_50px_0_rgba(0,0,0,0.04)'
+              className='md:block hidden w-full md:h-[30vw] h-[130vw] object-cover rounded shadow-[0_2px_50px_0_rgba(0,0,0,0.04)'
               ref={imageMapRef}
               onClick={()=>setOpenPopUp(true)}
             />
