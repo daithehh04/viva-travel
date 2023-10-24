@@ -47,6 +47,12 @@ export const GET_TOUR_DETAIL = `query GetTourDetail($slug: ID!, $language: Langu
                   sourceUrl
                 }
               }
+              icons {
+                img {
+                  sourceUrl
+                }
+                text
+              }
               gallery {
                 altText
                 sourceUrl
@@ -167,7 +173,6 @@ export const GET_RELATED_TOUR = `query($language: LanguageCodeEnum!, $taxonomyVa
               altText
               sourceUrl
             }
-           
             icons
             }
           }
