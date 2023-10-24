@@ -5,7 +5,7 @@ function AboutItem({ data, slug, onCloseMenu, lang }) {
   return (
     <Link
       href={`/${lang}/${slug}`}
-      className='relative w-[26.25vw] h-fit'
+      className='relative w-[26.25vw] h-fit ourTour_menu'
       onClick={onCloseMenu}
     >
       <Image
@@ -26,7 +26,7 @@ function AboutItem({ data, slug, onCloseMenu, lang }) {
         <span className='text-[2vw] text-white uppercase font-optima mt-[0.68vw] block font-[600]'>{data?.title}</span>
       </div>
       <div
-        className='absolute bottom-0 left-0 right-0 h-[10.9375vw] rounded-[0.625vw]'
+        className='absolute bottom-0 left-0 right-0 h-[10.9375vw] rounded-[0.625vw] bg-menuOverlaySty'
         style={{
           background:
             'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.37) 41.89%, rgba(0, 0, 0, 0.81) 100%)'

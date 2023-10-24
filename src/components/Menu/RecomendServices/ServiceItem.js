@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
-function ServiceItem({ data, lang,onCloseMenu }) {
+function ServiceItem({ data, lang, onCloseMenu }) {
   return (
     <Link href={`/${lang}/blog/${data?.slug}`} onClick={onCloseMenu} className='flex-1'>
-      <div className='relative h-[19vw] max-md:h-[36vw] max-md:w-[52.53vw] max-lg:w-full max-md:flex-shrink-0'>
+      <div className='relative h-[19vw] ourTour_menu max-md:h-[36vw] max-md:w-[52.53vw] max-lg:w-full max-md:flex-shrink-0'>
         {data?.recommendservice?.recommendservice?.image && (
           <Image
             src={data?.recommendservice?.recommendservice?.image?.sourceUrl}
