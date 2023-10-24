@@ -1,4 +1,4 @@
-GET_TOUR_DETAIL = `query GetTourDetail($slug: ID!, $language: LanguageCodeEnum!) {
+export const GET_TOUR_DETAIL = `query GetTourDetail($slug: ID!, $language: LanguageCodeEnum!) {
   tours(id: $slug, idType: URI) {
     translation(language: $language) {
       id
