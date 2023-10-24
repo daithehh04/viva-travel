@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { useState } from 'react'
 import SlideDayTour from './SlideDayTour'
 
-export default function TourDetailStep({ data: tourDetailData, icons }) {
+export default function TourDetailStep({ data: tourDetailData }) {
   let arrImg = []
   const [album,setAlbum] = useState([])
   const [open,setOpen] = useState(false)
@@ -24,6 +24,7 @@ export default function TourDetailStep({ data: tourDetailData, icons }) {
     <>
       <div>
         {tourDetailData?.map((tour, indexTour) => {
+          const icons = tour?.icons
           return (
             <div
               className='mb-[2.13vw] md:mb-[0]'
@@ -53,19 +54,21 @@ export default function TourDetailStep({ data: tourDetailData, icons }) {
                   })}
                 </div>
                 {/* icon */}
-                <div className='flex md:gap-[0.625vw] gap-[2.13vw]'>
+                <div className='flex md:gap-[1.5vw] gap-[3.13vw]'>
                   {icons &&
                     icons?.length > 0 &&
                     icons?.map((icon, index) => {
                       return (
-                        <Image
-                          alt={icon}
-                          src={iconsTour[icon]}
-                          key={index}
+                        <div key={index} className='flex items-center gap-[0.5vw] max-md:gap-[1.5vw]'>
+                          <Image
+                          alt='icon'
+                          src={icon?.img?.sourceUrl}
                           width={40}
                           height={40}
                           className='md:w-[2.375vw] w-[8vw] md:h-[2.375vw] h-[8vw] md:p-[0.55vw] p-[1.8vw] bg-[#FFF2BD] md:rounded-[5px] rounded-[4px]'
-                        />
+                          />
+                          <span className='lg:text-[1vw] md:text-[1.4vw] text-[3.733vw] leading-normal'>{icon?.text}</span>
+                        </div>
                       )
                     })}
                 </div>
@@ -95,7 +98,7 @@ export default function TourDetailStep({ data: tourDetailData, icons }) {
           )
         })}
         {open && <div>
-          <div className='w-[80%] h-[75vh] fixed top-[50%] left-[50%] -translate-y-1/2 -translate-x-1/2 z-[100] max-md:h-[64vh]'>
+          <div className='w-[80%] h-[75vh] fixed top-[50%] left-[50%] -translate-y-1/2 -translate-x-1/2 z-[100] max-md:h-[64vw] max-md:w-[90%]'>
             { <SlideDayTour data={album}/> }
           </div>
           <div className='fixed inset-0 z-[90]' style={{background: 'rgba(0,0,0,0.4)'}} onClick={() => setOpen(false)}></div>

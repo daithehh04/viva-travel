@@ -5,7 +5,7 @@ function AboutItem({ data, slug, onCloseMenu, lang }) {
   return (
     <Link
       href={`/${lang}/${slug}`}
-      className='relative w-[26.25vw] h-fit ourTour_menu'
+      className='relative w-[26.25vw] h-fit ourTour_menu rounded-[0.625vw]'
       onClick={onCloseMenu}
     >
       <Image

@@ -6,10 +6,10 @@ function DestinationItem({ tour, lang, onCloseMenu }) {
   return (
     <Link
       href={`/${lang}/our-tours/${encodeURIComponent(tour?.slug)}`}
-      className='h-[16vw] relative ourTour_menu '
+      className='h-[16vw] relative ourTour_menu rounded-[0.625vw]'
       onClick={onCloseMenu}
     >
-      <div className='bgImg-MenuOurTour  absolute z-[1]'></div>
+      <div className='bgImg-MenuOurTour  absolute z-[1] rounded-[0.625vw]'></div>
       {tour?.country?.thumb?.sourceUrl ? (
         <Image
           src={tour?.country?.thumb?.sourceUrl}
