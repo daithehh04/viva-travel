@@ -48,6 +48,11 @@ const GET_HOME_PAGE = `query getHomePageData($id:ID!) {
             ... on Tours {
               id
               slug
+              bestSeller {
+                nodes {
+                  name
+                }
+              }
               tourDetail {
                 priceTour
                 banner {

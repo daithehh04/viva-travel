@@ -203,6 +203,20 @@ export default function Navbar({
     }
   }
 
+  let book = 'Book Tour'
+  let hot = 'Hot'
+  let listTour ='Tour List'
+  if(lang === 'fr') {
+    book = 'Visite guidée'
+    hot ='épicé'
+    listTour = 'Liste des tournées'
+  }
+  if (lang === 'it') {
+    book = 'Prenota il tour'
+    hot ='forte'
+    listTour ='Elenco dei tour'
+  }
+
   return (
     <DataProvider>
       <div className='nav-container'>
@@ -240,7 +254,7 @@ export default function Navbar({
                     </div>
                   </div>
                   <span className='icon-hot absolute top-[-12px] right-[-6px] px-[10px] rounded-[99px] bg-primaryColor text-[12px]'>
-                    Hot
+                    {hot}
                   </span>
                 </div>
                 <div
@@ -330,7 +344,7 @@ export default function Navbar({
                   alt='img'
                   className='w-[1.25vw] object-cover mr-[0.75vw]'
                 />
-                Book tour
+                {book}
               </Button>
             </div>
             <div className='flex-shrink-0 max-lg:hidden'>
@@ -389,7 +403,7 @@ export default function Navbar({
               alt='img'
               className='w-[4.26vw] h-[4.26vw]'
             />
-            <span className='text-[3.46vw] font-[500]'>Tours List</span>
+            <span className='text-[3.46vw] font-[500]'>{listTour}</span>
           </Link>
           <div
             onClick={() => setOpenModal(true)}
@@ -402,7 +416,7 @@ export default function Navbar({
               alt='img'
               className='w-[4.26vw] h-[4.26vw]'
             />
-            <span className='text-[3.46vw] font-[500]'>Book tour</span>
+            <span className='text-[3.46vw] font-[500]'>{book}</span>
           </div>
         </div>
 

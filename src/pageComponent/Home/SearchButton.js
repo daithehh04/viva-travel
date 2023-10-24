@@ -25,12 +25,19 @@ export default function SearchButton({ lang }) {
   function handleClosePopup() {
     setPopup(false)
   }
+  let search = 'Search'
+  if(lang === 'fr') {
+    search = 'Recherche'
+  }
+  if(lang === 'it') {
+    search = 'Ricerca'
+  }
 
   return (
     <div ref={searchRef}>
-      <div className='fixed right-0 bottom-0 max-lg:hidden z-[45]'>
+      <div className='fixed right-0 bottom-[50%] max-lg:hidden z-[45]'>
         <Button
-          className='py-[1.06vw] px-[2.4vw] bg-primaryColor rounded-tl-[1vw] flex items-center text-[1vw] font-[500] gap-x-[0.75vw] cursor-pointer'
+          className='py-[1vw] px-[1.5vw] bg-primaryColor flex items-center text-[1vw] font-[500] gap-x-[0.75vw] cursor-pointer'
           onClick={handleOpenPopup}
         >
           <Image
@@ -40,7 +47,7 @@ export default function SearchButton({ lang }) {
             alt='search'
             className='w-[1.25vw] h-[1.25vw]'
           />
-          Search
+          {/* {search} */}
         </Button>
       </div>
       {popup && (

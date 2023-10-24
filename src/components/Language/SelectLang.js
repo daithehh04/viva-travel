@@ -26,10 +26,18 @@ function SelectLang({ lang }) {
   const handleChange = (event) => {
     setLng(event.target.value)
   }
+
+  let chooseLang = 'Choose language'
+  if(lang === 'fr') {
+    chooseLang ='Choisissez la langue'
+  }
+  if(lang === 'it') {
+    chooseLang = 'Scegli la lingua'
+  }
   return (
     <div className='select-lang'>
       <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'start' }}>
-        <span className='text-[0.75vw] text-[#2E2E2E] max-lg:hidden'>Choose language</span>
+        <span className='text-[0.75vw] text-[#2E2E2E] max-lg:hidden'>{chooseLang}</span>
         <FormControl
           sx={{
             m: 1,

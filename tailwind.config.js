@@ -29,7 +29,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Helvetica', 'Arial', 'sans-serif'],
-        optima: ['Optima'],
+        optima: ['VNF-Optima'],
         manrope: ['Manrope'],
         viva: ['Viva Travel']
       }

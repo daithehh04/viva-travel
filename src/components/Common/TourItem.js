@@ -10,11 +10,23 @@ import { Skeleton } from '@mui/material'
 
 function TourItem({ data, menu, lang, loading, className, onCloseMenu }) {
   const tourData = data?.translation?.tourDetail?.banner || data?.tourDetail?.banner
+  const checkBestTour = data?.translation?.bestSeller?.nodes || data?.bestSeller?.nodes
   const price = data?.translation?.tourDetail?.priceTour
   let icons = null
   if (tourData?.rate) icons = new Array(Math.round(tourData?.rate)).fill(0)
   const pathName = usePathname()
   const isPromotion = pathName.includes('hot-deals')
+  let bestTour = false
+  if(checkBestTour?.length > 0) {
+    bestTour = true
+  }
+  let tag = 'Best Tour'
+  if(lang === 'fr') {
+    tag = 'Meilleur vendeur'
+  }
+  if (lang === 'it') {
+    tag = 'Miglior venditore'
+  }
   return (
     <Link
       onClick={onCloseMenu}
@@ -26,14 +38,17 @@ function TourItem({ data, menu, lang, loading, className, onCloseMenu }) {
       } flex md:rounded-[1vw] rounded-[2.75vw] relative max-lg:flex-shrink-0 tour-item cursor-pointer`}
     >
       {!loading ? (
-        <Image
-          src={tourData?.gallery ? tourData?.gallery[0]?.sourceUrl : imgTour}
-          width={1000}
-          height={1000}
-          priority
-          alt='img tour'
-          className='h-full object-cover w-full md:rounded-[1vw] rounded-[2.75vw] img-tour'
-        />
+        <div className='relative w-full h-full'>
+          <Image
+            src={tourData?.gallery ? tourData?.gallery[0]?.sourceUrl : imgTour}
+            width={1000}
+            height={1000}
+            priority
+            alt='img tour'
+            className='h-full object-cover w-full md:rounded-[1vw] rounded-[2.75vw] img-tour'
+          />
+          {bestTour ? <span className='absolute top-4 left-4 tag-best_tour text-[0.75vw] w-max px-3 py-1 text-[#fff] bg-primaryColor block'>{tag}</span> : ""}
+        </div>
       ) : (
         <Skeleton
           variant='rounded'

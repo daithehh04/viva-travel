@@ -12,7 +12,7 @@ export default function Price({ type, className, data, onClick }) {
       <div
         className={`${
           className || ''
-        } relative hidden md:block w-full px-[5.5vw] py-[1.75vw] shadow-[0_2px_50px_0_rgba(0,0,0,0.03)] bg-white rounded-lg`}
+        } relative hidden md:block w-full px-[4.5vw] py-[1.5vw] shadow-[0_2px_50px_0_rgba(0,0,0,0.03)] bg-white rounded-lg`}
       >
         <div className='flex mb-[1vw] gap-[0.62vw] font-bold leading-normal items-center'>
           <span className='text-[1vw] max-lg:text-[1.5vw]'>{data?.price?.header}:</span>

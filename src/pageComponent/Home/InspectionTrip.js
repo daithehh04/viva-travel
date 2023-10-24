@@ -63,22 +63,37 @@ function InspectionTrip({ data, lang }) {
           className='relative flex flex-col'
         >
           {data?.slideTrip?.map((item, index) => {
+            const checkBestTour = item?.bestSeller?.nodes
+            let bestTour = false
+            if(checkBestTour?.length > 0) {
+              bestTour = true
+            }
+            let tag = 'Best Tour'
+            if(lang === 'fr') {
+              tag = 'Meilleur vendeur'
+            }
+            if (lang === 'it') {
+              tag = 'Miglior venditore'
+            }
             return (
               <SwiperSlide key={index}>
                 {({ isActive }) => (
                   <Link href={`/${lang}/tours/${item?.slug}`}>
                     <div className='h-[28.75vw] rounded-[1vw] itemSlideTrip tour-item max-md:rounded-[2.13vw] relative max-md:h-[53.33vw] max-md:ml-[3.2vw]'>
-                      <Image
-                        src={
-                          item?.tourDetail?.banner?.gallery
-                            ? item?.tourDetail?.banner?.gallery[0]?.sourceUrl
-                            : 'https://viva-cms.okhub.tech/wp-content/uploads/2023/09/blogDetail_Banner.png'
-                        }
-                        width={1000}
-                        height={500}
-                        alt='img'
-                        className='rounded-[1vw] max-md:rounded-[2.13vw] h-full w-full object-cover'
-                      />
+                      <div className='w-full h-full'>
+                        <Image
+                          src={
+                            item?.tourDetail?.banner?.gallery
+                              ? item?.tourDetail?.banner?.gallery[0]?.sourceUrl
+                              : 'https://viva-cms.okhub.tech/wp-content/uploads/2023/09/blogDetail_Banner.png'
+                          }
+                          width={1000}
+                          height={500}
+                          alt='img'
+                          className='rounded-[1vw] max-md:rounded-[2.13vw] h-full w-full object-cover'
+                        />
+                        {bestTour ? <span className='absolute top-[1vw] left-[1vw] tag-best_tour text-[1vw] w-max px-3 py-1 text-[#fff] bg-primaryColor block'>{tag}</span> : ""}
+                      </div>
                       <div className='info absolute bottom-0 px-[2vw] pb-[2vw] max-md:pb-[4.13vw] max-md:px-[4vw] z-10'>
                         <a className='text-[1.5vw] title-tour text-[#fff] font-bold leading-[1.3] tracking-[-0.03rem] w-[20.3125vw] max-md:text-[2.93vw] max-md:w-[61.33vw] max-lg:text-[1.6vw]'>
                           {item?.tourDetail?.banner?.title}
