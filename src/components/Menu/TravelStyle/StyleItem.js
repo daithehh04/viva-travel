@@ -3,11 +3,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-function StyleItem({id, title, image, lang,onCloseMenu}) {
+function StyleItem({ id, title, image, lang, onCloseMenu }) {
   return (
     <Link
       href={`/${lang}/travel-style/${id}`}
-      className='flex items-center gap-x-[1.32vw]'
+      className='flex box_item_menu items-center gap-x-[1.32vw]'
       onClick={onCloseMenu}
     >
       <Image
@@ -17,7 +17,7 @@ function StyleItem({id, title, image, lang,onCloseMenu}) {
         alt={image?.altText}
         className='w-[4.1vw] h-[4.1vw] object-contain'
       />
-      <h3 className='uppercase text-[1.0375vw] font-[500] leading-[1.2] text-textColor'>{title}</h3>
+      <h3 className='uppercase text_menu text-[1.0375vw] font-[500] leading-[1.2] text-textColor'>{title}</h3>
     </Link>
   )
 }
