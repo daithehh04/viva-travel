@@ -215,7 +215,6 @@ export default function AboutTour(props) {
 
   const [openModal, setOpenModal] = useState()
   const [openPopup, setOpenPopUp] = useState()
-  console.log(openPopup);
   const router = useRouter()
   const mapRef = useRef()
   const aboutTourRef = useRef()
@@ -661,7 +660,10 @@ export default function AboutTour(props) {
             <Image 
               src={data?.map?.image?.sourceUrl || imageTest}
               alt={data?.map?.image?.altText} 
-              className='object-cover shadow-[0_2px_50px_0_rgba(0,0,0,0.04)'
+              width={1000}
+              height={1000}
+              quality={100}
+              className='object-cover w-full h-full shadow-[0_2px_50px_0_rgba(0,0,0,0.04)'
             />
         </div>
       )}
