@@ -2,20 +2,36 @@
 
 import { iconsTour } from '@/lib/Icons'
 import Image from 'next/image'
+import { useState } from 'react'
+import SlideDayTour from './SlideDayTour'
 
 export default function TourDetailStep({ data: tourDetailData, icons }) {
+  let arrImg = []
+  const [album,setAlbum] = useState([])
+  const [open,setOpen] = useState(false)
+  const handleClick = (url,index) => {
+    tourDetailData[index]?.place?.map((item,index) => {
+      arrImg.push(item?.image?.sourceUrl)
+    })
+    if(arrImg[0] !== url) {
+      arrImg.map(item => item !== url )
+      arrImg.unshift(url)
+    }
+    setAlbum(arrImg)
+    setOpen(true)
+  }
   return (
     <>
       <div>
-        {tourDetailData?.map((tour, index) => {
+        {tourDetailData?.map((tour, indexTour) => {
           return (
             <div
               className='mb-[2.13vw] md:mb-[0]'
-              key={index}
+              key={indexTour}
             >
               <div className='flex font-medium leading-normal md:h-[2.375vw] h-[11.2vw] md:items-center md:gap-[1.625vw] gap-[2.67vw]'>
                 <div className='bg-primaryColor md:h-[2.375vw] h-[5.86vw] md:w-[2.375vw] w-[10vw] md:text-[1vw] text-[2.66vw] rounded-full flex items-center justify-center mt-[1vw] md:mt-0'>
-                  {index + 1}
+                  {indexTour + 1}
                 </div>
                 <div className='lg:text-[1.125vw] md:text-[1.4vw] text-[3.733vw]' dangerouslySetInnerHTML={{ __html: `${tour?.heading}` }}></div>
               </div>
@@ -67,6 +83,7 @@ export default function TourDetailStep({ data: tourDetailData, icons }) {
                           width={40}
                           height={40}
                           className='md:w-[3vw] w-[10.67vw] md:h-[3vw] h-[10.67vw] object-cover'
+                          onClick={() => handleClick(item?.image?.sourceUrl,indexTour)}
                         />
                         <span>{item?.placeName}</span>
                       </div>
@@ -77,6 +94,13 @@ export default function TourDetailStep({ data: tourDetailData, icons }) {
             </div>
           )
         })}
+        {open && <div>
+          <div className='w-[80%] h-[75vh] fixed top-[50%] left-[50%] -translate-y-1/2 -translate-x-1/2 z-[100]'>
+            { <SlideDayTour data={album}/> }
+          </div>
+          <div className='fixed inset-0 z-[90]' style={{background: 'rgba(0,0,0,0.4)'}} onClick={() => setOpen(false)}></div>
+        </div>
+        }
       </div>
     </>
   )
