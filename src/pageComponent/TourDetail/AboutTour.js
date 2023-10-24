@@ -304,7 +304,7 @@ export default function AboutTour(props) {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [activeIcon, accomRef, briefRef, overviewRef, roleRef, tourDetailRef])
 
-  imageMapRef?.current?.addEventListener('click',()=>{
+  imageMapRef?.current?.addEventListener('click', () => {
     // if(imageMapRef){
     //   imageMapRef?.current?.style?.display = 'none'
     // }
@@ -348,9 +348,8 @@ export default function AboutTour(props) {
                             </svg>
 
                             <span
-                              className={`${
-                                activeIcon === index && 'text-[#138140]'
-                              } md:text-[1.125vw] text-[2.67vw] font-medium leading-normal md:max-w-[9vw] max-w-[18vw] line-clamp-1 md:line-clamp-none text-center`}
+                              className={`${activeIcon === index && 'text-[#138140]'
+                                } md:text-[1.125vw] text-[2.67vw] font-medium leading-normal md:max-w-[9vw] max-w-[18vw] line-clamp-1 md:line-clamp-none text-center`}
                             >
                               {step.title}
                             </span>
@@ -575,9 +574,9 @@ export default function AboutTour(props) {
               alt={data?.map?.image?.altText}
               width={1000}
               height={1000}
-              className='md:block hidden w-full md:h-[30vw] h-[130vw] object-cover rounded shadow-[0_2px_50px_0_rgba(0,0,0,0.04)'
+              className='md:block hidden w-full md:h-[30vw] h-[130vw] object-cover rounded shadow-lg'
               ref={imageMapRef}
-              onClick={()=>setOpenPopUp(true)}
+              onClick={() => setOpenPopUp(true)}
             />
           </div>
         </div>
@@ -592,9 +591,8 @@ export default function AboutTour(props) {
                 return (
                   <div
                     key={index}
-                    className={`${(index === 0 && ' max-md:ml-[4.27vw]') || ''} ${
-                      (index === reviews?.length - 1 && ' max-md:mr-[4.27vw]') || ''
-                    }`}
+                    className={`${(index === 0 && ' max-md:ml-[4.27vw]') || ''} ${(index === reviews?.length - 1 && ' max-md:mr-[4.27vw]') || ''
+                      }`}
                   >
                     <ReviewItem
                       className='hidden our-tours-item md:flex'
@@ -647,7 +645,8 @@ export default function AboutTour(props) {
       )}
 
       {openPopup && (
-        <div className='fixed max-md:hidden w-[80vw] h-[90vh] top-1/2 left-1/2 -translate-x-1/2 z-20 -translate-y-1/2'>
+        <div className='fixed max-md:hidden bg-black bg-opacity-25 backdrop-blur-[4px] w-[100vw] h-[100vh] top-1/2 left-1/2 -translate-x-1/2 z-20 -translate-y-1/2'>
+          <div className='w-[80vw] h-[90vh] top-1/2 left-1/2 -translate-x-1/2 absolute -translate-y-1/2'>
             <Image
               src={closeImg}
               alt='close'
@@ -657,14 +656,15 @@ export default function AboutTour(props) {
               max-md:w-[4vw] max-md:right-[10vw] max-md:top-[5vw] max-md:h-[4vw]'
               onClick={() => setOpenPopUp(false)}
             />
-            <Image 
+            <Image
               src={data?.map?.image?.sourceUrl || imageTest}
-              alt={data?.map?.image?.altText} 
+              alt={data?.map?.image?.altText}
               width={1000}
               height={1000}
               quality={100}
-              className='object-cover w-full h-full shadow-[0_2px_50px_0_rgba(0,0,0,0.04)'
+              className='object-contain w-full h-full shadow-lg'
             />
+          </div>
         </div>
       )}
       {openModal && (

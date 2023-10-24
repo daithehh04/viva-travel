@@ -22,7 +22,7 @@ const ModalCustom = ({ children, openModal, setOpenModal, className, handleBefor
           width={20}
           height={20}
           className='md:hidden absolute md:top-[4.53vw] top-[2.5vw] right-[4.53vw] 
-          max-md:w-[4vw] max-md:right-[10vw] max-md:top-[10vw] max-md:h-[4vw]'
+          max-md:w-[4vw] max-md:right-[10vw] max-md:top-[6vw] max-md:h-[4vw]'
           onClick={() => setOpenModal(false)}
         />
 
