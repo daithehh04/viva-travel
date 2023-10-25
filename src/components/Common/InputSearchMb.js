@@ -32,9 +32,16 @@ function InputSearchMb({lang, dataFilter,onCloseNav}) {
     }
   })
   const allTours = data?.allTours?.nodes
+  let noResult = 'No result for this search !!'
+  if(lang === 'fr') {
+    noResult = 'Aucun résultat pour cette recherche !!'
+  }
+  if(lang === 'it') {
+    noResult ='Nessun risultato per questa ricerca!!'
+  }
   return (
     <div className='ml-[3.73vw] mr-[5.33vw] relative'>
-      <Image src={imgInput} width={100} height={46} alt='input' className='w-full h-[9.3vw] object-contain' onClick={handleOpen}/>
+      <div className='input-search__mobile w-full h-[9.3vw]' onClick={handleOpen}></div>
       <div
         className='fixed inset-0 bg-white home-search__mb !z-[200] overflow-hidden w-full'
         ref={refMenu}
@@ -51,7 +58,7 @@ function InputSearchMb({lang, dataFilter,onCloseNav}) {
           ) : (
             <div className='flex flex-col gap-[3.2vw] max-h-[54.4vw] overflow-y-auto content'>
               {allTours?.length === 0 ? (
-                <h4 className='text-[3.2vw]'>No result for this search !!</h4>
+                <h4 className='text-[3.2vw]'>{noResult}</h4>
               ) : (
                 allTours?.map((tour, index) => (
                   <Link

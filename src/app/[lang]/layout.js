@@ -103,7 +103,7 @@ export default async function RootLayout({ children, params }) {
   return (
     <html lang={params.lang}>
       <body suppressHydrationWarning={true}>
-        {/* <ApolloClientProvider>
+        <ApolloClientProvider>
           <ThemeRegistry>
             <Suspense fallback={<Loader />}>
               <Navbar
@@ -131,8 +131,8 @@ export default async function RootLayout({ children, params }) {
               <Footer lang={params.lang} />
             </Suspense>
           </ThemeRegistry>
-        </ApolloClientProvider> */}
-        <div className='flex items-center justify-center w-full h-screen overflow-hidden'>
+        </ApolloClientProvider>
+        {/* <div className='flex items-center justify-center w-full h-screen overflow-hidden'>
           <div className='relative w-[25vw] h-[25vw]'>
             <h1 className='text-[2vw] font-bold absolute bottom-[-2vw] left-1/2 -translate-x-1/2 w-fit whitespace-nowrap'>
               Something big is coming ...
@@ -150,7 +150,7 @@ export default async function RootLayout({ children, params }) {
             src={logoSrc}
             alt='logo viva'
           />
-        </div>
+        </div> */}
       </body>
     </html>
   )

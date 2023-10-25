@@ -6,8 +6,21 @@
   border-bottom: 2px solid rgba(0, 0, 0, 0.1);
 }
 
+.input-search__mobile {
+  background-image: url('../../assets/images/img-input-h.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+}
+
 .nav-mb-special {
   background-color: transparent !important;
+  .input-search__mobile {
+    background-image: url('../../assets/images/img-input-trans.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+  }
   .bg-trans {
     background-color: transparent;
   }
