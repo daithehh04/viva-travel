@@ -36,7 +36,7 @@ function TourItemMobile({ data, lang, loading }) {
         {!loading ? (
           <div className='relative w-full h-full'>
             <Image
-              alt={tourData?.gallery[0]?.altText || 'img-tour'}
+              alt={tourData?.gallery ? tourData?.gallery[0]?.altText || 'img tour' : 'img tour'}
               src={
                 tourData?.gallery
                   ? tourData?.gallery[0]?.sourceUrl
