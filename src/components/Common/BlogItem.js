@@ -15,7 +15,7 @@ function BlogItem({ className, data, lang, heightImage }) {
             src={data?.featuredImage?.node?.sourceUrl || data?.translation?.featuredImage?.node?.sourceUrl}
             width={1000}
             height={1000}
-            alt='img'
+            alt={data?.featuredImage?.node?.altText || data?.translation?.featuredImage?.node?.altText || 'img blog'}
             className={`md:!h-[16.3125vw] h-[52.26667vw] object-cover md:rounded-[0.5vw] rounded-[2.13333vw] ${className} ${heightImage}`}
           />
           <span className='absolute md:top-[1.62vw] top-[3.69vw] md:left-[-0.375vw] left-[-1.67vw] md:px-[1vw] md:py-[0.25vw] px-[4.27vw] py-[1.07vw] bg-primaryColor md:text-[1vw] lg:text-[0.75vw] text-[2.66667vw] font-[500] rounded-r-[0.25vw] tip-review'>

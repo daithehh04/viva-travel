@@ -54,7 +54,7 @@ function Banner({ data, dataFilter, lang }) {
         src={data?.background?.sourceUrl || banner}
         width={1600}
         height={1000}
-        alt={data?.background?.altText || 'banner'}
+        alt={data?.background?.altText || data?.background?.title || 'banner'}
         priority
         className='absolute inset-0 object-cover w-full h-full bg-blend-multiply'
       />

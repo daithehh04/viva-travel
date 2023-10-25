@@ -24,7 +24,7 @@ function TravelStyleItem({ data, lang }) {
         src={data?.banner?.travelStyleInfo?.imageHomePage?.sourceUrl}
         width={500}
         height={500}
-        alt={data?.banner?.travelStyleInfo?.image?.imageHomePage?.altText}
+        alt={data?.banner?.travelStyleInfo?.image?.imageHomePage?.altText || 'travel style'}
         className='h-[30.0625vw] w-full object-cover rounded-[1vw]'
       />
       <div className='info absolute top-0 pt-[2vw] px-[2.5vw] z-10'>

@@ -7,6 +7,13 @@ import FilterBanner from './FilterBanner'
 
 function Banner({ data, dataFilter, slug, lang }) {
   const scrollRef = useRef()
+  let explore = 'Explore now'
+  if(lang === 'fr') {
+    explore ='Explorez maintenant'
+  }
+  if(lang === 'it') {
+    explore = 'Esplora ora'
+  }
   return (
     <Box
       sx={{
@@ -58,7 +65,7 @@ function Banner({ data, dataFilter, slug, lang }) {
               />
             </svg>
             <span className='md:block hidden text-center font-manrope text-[0.875vw] not-italic font-semibold tracking-[0.04375vw] uppercase text-[#fff] '>
-              Explore now
+              {explore}
             </span>
           </div>
         </div>
@@ -66,11 +73,11 @@ function Banner({ data, dataFilter, slug, lang }) {
           src={data?.img?.sourceUrl}
           width={1500}
           height={1000}
-          alt='banner'
+          alt={data?.img?.altText || 'img-destination'}
           className='absolute inset-0 object-cover w-full h-full z-[-1]'
         />
         <div
-          className='w-full h-full absolute top-0 left-0 z-100'
+          className='absolute top-0 left-0 w-full h-full z-100'
           style={{ background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 45.44%, rgba(0, 0, 0, 0.35) 69.74%)' }}
         ></div>
 

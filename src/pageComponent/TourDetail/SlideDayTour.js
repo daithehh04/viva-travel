@@ -36,7 +36,7 @@ function SlideDayTour({ data }) {
           return (
             <SwiperSlide key={index}>
               {({ isActive }) => (
-                <Image src={item} width={1000} height={1000} alt='img' className='object-cover w-full h-full' />
+                <Image src={item} width={1000} height={1000} alt={item} className='object-cover w-full h-full' />
               )}
             </SwiperSlide>
           )

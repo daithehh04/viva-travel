@@ -54,7 +54,7 @@ export default function TourDetailBanner({ data = {}, headerData, price }) {
               <div className='w-full h-full'>
                 <Image
                   src={video?.overlayImage?.sourceUrl || videoBG}
-                  alt={video?.overlayImage?.altText || 'Travel'}
+                  alt={video?.overlayImage?.altText || video?.overlayImage?.title || 'Travel'}
                   width={1000}
                   height={1000}
                   priority
@@ -90,7 +90,7 @@ export default function TourDetailBanner({ data = {}, headerData, price }) {
             >
               <Image
                 src={img?.sourceUrl}
-                alt={img?.altText}
+                alt={img?.altText || img?.title || 'img'}
                 width={1000}
                 height={1000}
                 priority
@@ -241,7 +241,7 @@ export default function TourDetailBanner({ data = {}, headerData, price }) {
               <div key={index}>
                 <Image
                   src={img?.sourceUrl}
-                  alt={img?.altText}
+                  alt={img?.altText || img?.title || 'img'}
                   priority
                   width={1000}
                   height={1000}

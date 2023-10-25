@@ -21,7 +21,7 @@ function Banner({ data }) {
     >
       <div className='travel-style-banner relative h-[100%] flex justify-center items-center'>
         <Image
-          alt='imageSrc'
+          alt={data?.banner?.altText || data?.mobileImage?.altText || 'img-travel-style'}
           src={imageSrc}
           quality={100}
           fill

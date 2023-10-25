@@ -89,7 +89,7 @@ function InspectionTrip({ data, lang }) {
                           }
                           width={1000}
                           height={500}
-                          alt='img'
+                          alt={item?.tourDetail?.banner?.gallery[0]?.altText || item?.tourDetail?.banner?.gallery[0]?.title || 'img-tour'}
                           className='rounded-[1vw] max-md:rounded-[2.13vw] h-full w-full object-cover'
                         />
                         {bestTour ? <span className='absolute top-[1vw] left-[1vw] tag-best_tour text-[1vw] w-max px-3 py-1 text-[#fff] bg-primaryColor block'>{tag}</span> : ""}
