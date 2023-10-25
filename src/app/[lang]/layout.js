@@ -43,6 +43,7 @@ import Loader from '@/components/Common/Loader'
 import SearchButton from '@/pageComponent/Home/SearchButton'
 import logoSrc from '../../assets/images/logoF.png'
 import src from '../../assets/images/maintenance.jpg'
+import Image from 'next/image'
 
 const idEnBook = 'cG9zdDoxNDIy'
 const idFrBook = 'cG9zdDoxNDIy'
