@@ -82,7 +82,7 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
   })
   var allTours = dataAllTours?.data?.allTours?.nodes
   const loading = dataAllTours?.loading
-  console.log(budget)
+  // console.log(budget)
   if(budget === "Budget") { 
     allTours = dataAllTours?.data?.allTours?.nodes
    } else if (budget) {

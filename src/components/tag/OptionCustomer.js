@@ -42,7 +42,7 @@ export default function OptionCustomer({ icon, list, defaultValue, onSelect }) {
       target: { value }
     } = event
     if(value === placeholderDefault) {
-      console.log(value, placeholderDefault)
+      // console.log(value, placeholderDefault)
       setPersonName(value)
       onSelect(null)
     } else {
