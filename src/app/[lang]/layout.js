@@ -41,6 +41,8 @@ import {
 import { Suspense } from 'react'
 import Loader from '@/components/Common/Loader'
 import SearchButton from '@/pageComponent/Home/SearchButton'
+import logoSrc from '../../assets/images/logoF.png'
+import src from '../../assets/images/maintenance.jpg'
 
 const idEnBook = 'cG9zdDoxNDIy'
 const idFrBook = 'cG9zdDoxNDIy'
@@ -100,7 +102,7 @@ export default async function RootLayout({ children, params }) {
   return (
     <html lang={params.lang}>
       <body suppressHydrationWarning={true}>
-        <ApolloClientProvider>
+        {/* <ApolloClientProvider>
           <ThemeRegistry>
             <Suspense fallback={<Loader />}>
               <Navbar
@@ -128,7 +130,26 @@ export default async function RootLayout({ children, params }) {
               <Footer lang={params.lang} />
             </Suspense>
           </ThemeRegistry>
-        </ApolloClientProvider>
+        </ApolloClientProvider> */}
+        <div className='flex items-center justify-center w-full h-screen overflow-hidden'>
+          <div className='relative w-[25vw] h-[25vw]'>
+            <h1 className='text-[2vw] font-bold absolute bottom-[-2vw] left-1/2 -translate-x-1/2 w-fit whitespace-nowrap'>
+              Something big is coming ...
+            </h1>
+            <Image
+              className='object-contain z-[5]'
+              src={src}
+              alt='bao tri'
+              fill
+              sizes='100vw'
+            />
+          </div>
+          <Image
+            className='absolute top-[2vw] left-[2vw] w-[5vw] h-[5vw] object-contain'
+            src={logoSrc}
+            alt='logo viva'
+          />
+        </div>
       </body>
     </html>
   )
