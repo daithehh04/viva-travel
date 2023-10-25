@@ -2,6 +2,7 @@
 import Image from 'next/image'
 
 import searchIcon from '@/assets/images/search-mb.svg'
+import imgInput from '@/assets/images/img-input-h.svg'
 import arrIcon from '@/assets/images/right-arr.svg'
 import HomeSearch from '../Menu/HomeSearch'
 import { useRef } from 'react'
@@ -33,30 +34,7 @@ function InputSearchMb({lang, dataFilter,onCloseNav}) {
   const allTours = data?.allTours?.nodes
   return (
     <div className='ml-[3.73vw] mr-[5.33vw] relative'>
-      <input
-        type='text'
-        className='rounded-full search-mb w-full h-[9.3vw] border border-solid border-[#ccc] outline-none pl-[9.6vw] text-[3.2vw]'
-        placeholder='Search'
-        onFocus={handleOpen}
-      />
-      <Image
-        src={searchIcon}
-        width={50}
-        height={50}
-        alt='icon'
-        onClick={handleOpen}
-        className='w-[3.73vw] h-[3.73vw] absolute left-[4.27vw] top-[50%] -translate-y-1/2'
-      />
-      <div className='search-mb-btn w-[7.46vw] h-[7.46vw] rounded-full flex items-center justify-center bg-[#eee] cursor-pointer absolute right-[1.07vw] top-[50%] -translate-y-1/2'>
-        <Image
-          src={arrIcon}
-          width={50}
-          height={50}
-          alt='icon'
-          className='w-[2.13vw] h-[2.13vw] relative z-10'
-          onClick={handleOpen}
-        />
-      </div>
+      <Image src={imgInput} width={100} height={46} alt='input' className='w-full h-[9.3vw] object-contain' onClick={handleOpen}/>
       <div
         className='fixed inset-0 bg-white home-search__mb !z-[200] overflow-hidden w-full'
         ref={refMenu}
