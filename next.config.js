@@ -14,7 +14,7 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'viva-cms.okhub.tech'
-      },
+      }
     ]
   },
   experimental: {
