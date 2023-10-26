@@ -30,6 +30,8 @@ const SUBMIT_FORM = gql`
 `
 
 function BookTour({ data, setOpenModal }) {
+  console.log(data);
+
   const [mutate, { loading }] = useMutation(SUBMIT_FORM)
   const [openNoti, setOpenNoti] = useState(false)
   const [msg, setMsg] = useState('')
@@ -429,7 +431,7 @@ function BookTour({ data, setOpenModal }) {
                             type='radio'
                             name='confirm'
                             value='true'
-                            // parse={(value) => value === 'true'}
+                          // parse={(value) => value === 'true'}
                           />{' '}
                           {dataParticipant?.ready?.confirm}
                         </label>
@@ -438,7 +440,7 @@ function BookTour({ data, setOpenModal }) {
                             type='radio'
                             name='confirm'
                             value='false'
-                            // parse={(value) => value === 'true'}
+                          // parse={(value) => value === 'true'}
                           />{' '}
                           {dataParticipant?.ready?.refuse}
                         </label>
