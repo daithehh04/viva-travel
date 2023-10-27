@@ -1,20 +1,18 @@
 'use client'
-
-import { iconsTour } from '@/lib/Icons'
 import Image from 'next/image'
 import { useState } from 'react'
 import SlideDayTour from './SlideDayTour'
 
 export default function TourDetailStep({ data: tourDetailData }) {
   let arrImg = []
-  const [album,setAlbum] = useState([])
-  const [open,setOpen] = useState(false)
-  const handleClick = (url,index) => {
-    tourDetailData[index]?.place?.map((item,index) => {
+  const [album, setAlbum] = useState([])
+  const [open, setOpen] = useState(false)
+  const handleClick = (url, index) => {
+    tourDetailData[index]?.place?.map((item, index) => {
       arrImg.push(item?.image?.sourceUrl)
     })
-    if(arrImg[0] !== url) {
-      arrImg.map(item => item !== url )
+    if (arrImg[0] !== url) {
+      arrImg.map(item => item !== url)
       arrImg.unshift(url)
     }
     setAlbum(arrImg)
@@ -61,11 +59,11 @@ export default function TourDetailStep({ data: tourDetailData }) {
                       return (
                         <div key={index} className='flex items-center gap-[0.5vw] max-md:gap-[1.5vw]'>
                           <Image
-                          alt='icon'
-                          src={icon?.img?.sourceUrl}
-                          width={40}
-                          height={40}
-                          className='md:w-[2.375vw] w-[8vw] md:h-[2.375vw] h-[8vw] md:p-[0.55vw] p-[1.8vw] bg-[#FFF2BD] md:rounded-[5px] rounded-[4px]'
+                            alt='icon'
+                            src={icon?.img?.sourceUrl}
+                            width={40}
+                            height={40}
+                            className='md:w-[2.375vw] w-[8vw] md:h-[2.375vw] h-[8vw] md:p-[0.55vw] p-[1.8vw] bg-[#FFF2BD] md:rounded-[5px] rounded-[4px]'
                           />
                           <span className='lg:text-[1vw] md:text-[1.4vw] text-[3.733vw] leading-normal'>{icon?.text}</span>
                         </div>
@@ -86,7 +84,7 @@ export default function TourDetailStep({ data: tourDetailData }) {
                           width={40}
                           height={40}
                           className='md:w-[3vw] w-[10.67vw] md:h-[3vw] h-[10.67vw] object-cover'
-                          onClick={() => handleClick(item?.image?.sourceUrl,indexTour)}
+                          onClick={() => handleClick(item?.image?.sourceUrl, indexTour)}
                         />
                         <span>{item?.placeName}</span>
                       </div>
@@ -99,9 +97,9 @@ export default function TourDetailStep({ data: tourDetailData }) {
         })}
         {open && <div>
           <div className='w-[80%] h-[75vh] fixed top-[50%] left-[50%] -translate-y-1/2 -translate-x-1/2 z-[100] max-md:h-[64vw] max-md:w-[90%]'>
-            { <SlideDayTour data={album}/> }
+            {<SlideDayTour data={album} />}
           </div>
-          <div className='fixed inset-0 z-[90]' style={{background: 'rgba(0,0,0,0.4)'}} onClick={() => setOpen(false)}></div>
+          <div className='fixed inset-0 z-[90]' style={{ background: 'rgba(0,0,0,0.4)' }} onClick={() => setOpen(false)}></div>
         </div>
         }
       </div>

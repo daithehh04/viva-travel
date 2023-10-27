@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 
-export default function TableData({ data, header = [],type }) {
+export default function TableData({ data, header = [], type }) {
   const headerData = Object.values(header)
   return (
     <div className='overflow-auto w-full hidden-scroll max-lg:px-[4.27vw]'>
@@ -13,9 +13,8 @@ export default function TableData({ data, header = [],type }) {
               return (
                 <th
                   key={index}
-                  className={`${
-                    index === 0 ? 'rounded-tl-2xl' : index === headerData?.length - 1 ? 'rounded-tr-2xl' : ''
-                  } lg:text-[1vw] md:text-[1.3vw] text-[3.73vw] font-bold leading-normal border border-[#EBEBEB] border-solid align-middle`}
+                  className={`${index === 0 ? 'rounded-tl-2xl' : index === headerData?.length - 1 ? 'rounded-tr-2xl' : ''
+                    } lg:text-[1vw] md:text-[1.3vw] text-[3.73vw] font-bold leading-normal border border-[#EBEBEB] border-solid align-middle`}
                   dangerouslySetInnerHTML={{ __html: `${item}` }}
                 ></th>
               )
@@ -32,12 +31,11 @@ export default function TableData({ data, header = [],type }) {
               >
                 {values?.map((rowItem, rowIndex) => {
                   return (<td
-                      className={`break-all max-w-[18.75vw] min-w-[5vw] px-[1vw] lg:text-[1vw] md:text-[12px]  text-[2.93vw] leading-normal opacity-80 text-textColor border border-[#EBEBEB] border-solid text-center align-middle ${
-                        (index === data?.length - 1 && rowIndex === 0 && 'rounded-bl-2xl') || ''
+                    className={`break-all max-w-[18.75vw] min-w-[5vw] px-[1vw] lg:text-[1vw] md:text-[12px]  text-[2.93vw] leading-normal opacity-80 text-textColor border border-[#EBEBEB] border-solid text-center align-middle ${(index === data?.length - 1 && rowIndex === 0 && 'rounded-bl-2xl') || ''
                       } ${(index === data?.length - 1 && rowIndex === values?.length - 1 && 'rounded-br-2xl') || ''}`}
-                      key={rowIndex}
-                    >
-                      {typeof rowItem === 'object' ? (<Link href={`${rowItem?.link}`}>{rowItem?.name}</Link>) : (<p dangerouslySetInnerHTML={{ __html: `${rowItem}` }}></p>)}
+                    key={rowIndex}
+                  >
+                    {typeof rowItem === 'object' ? (<Link href={`${rowItem?.link}`}>Link</Link>) : (<p dangerouslySetInnerHTML={{ __html: `${rowItem}` }}></p>)}
                   </td>)
                 })}
               </tr>

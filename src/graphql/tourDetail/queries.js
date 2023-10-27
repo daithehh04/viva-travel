@@ -1,6 +1,7 @@
 export const GET_TOUR_DETAIL = `query GetTourDetail($slug: ID!, $language: LanguageCodeEnum!) {
   tours(id: $slug, idType: URI) {
     translation(language: $language) {
+      content
       id
       slug
       tourDetail {
@@ -74,12 +75,8 @@ export const GET_TOUR_DETAIL = `query GetTourDetail($slug: ID!, $language: Langu
           accommodation {
             row{
               cityOrProvince
+              superiorr
               deluxee{
-                name
-                link
-              }
-              superiorr{
-                name
                 link
               }
               noOfNights

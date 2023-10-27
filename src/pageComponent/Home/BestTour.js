@@ -53,7 +53,7 @@ function BestTour({
         >
           {finalData?.bestTour?.title}
         </h2>
-        <div  
+        <div
           data-aos-once='true'
           data-aos-disabled='true'
           data-aos='fade-up'
@@ -71,11 +71,10 @@ function BestTour({
 
       {/* {!loading ? ( */}
       <div
-        className={`${
-          allTours?.length === 0
-            ? `w-full block md:mt-[1.88vw] mt-[7.73vw]`
-            : 'grid grid-cols-4 relative gap-[2.5vw] md:mt-[1.88vw] mt-[7.73vw] max-md:grid-cols-1 w-[83.75%] ml-auto mr-auto max-md:w-full'
-        }`}
+        className={`${allTours?.length === 0
+          ? `w-full block md:mt-[1.88vw] mt-[7.73vw]`
+          : 'grid grid-cols-4 relative gap-[2.5vw] md:mt-[1.88vw] mt-[7.73vw] max-md:grid-cols-1 w-[83.75%] ml-auto mr-auto max-md:w-full'
+          }`}
       >
         <div className='md:hidden bg-tourMobile'></div>
         {allTours?.length !== 0 ? (
@@ -118,7 +117,7 @@ function BestTour({
               <span className='text-white text-justify font-optima text-[1.5vw] block font-medium leading-[150%]'>
                 Other tours
               </span>
-              <div className='flex justify-center max-md:hidden max-md:mt-[8.53vw]'>
+              <div className='flex justify-center max-md:hidden mt-[1.25vw] max-md:mt-[8.53vw]'>
                 <Link
                   href={`/${lang}/search`}
                   className='btn-secondary'
