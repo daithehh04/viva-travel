@@ -155,34 +155,47 @@ query getTourStyle($language: LanguageCodeEnum!, $taxonomyValue: String, $taxono
 `
 
 const GET_DATA_BEST_SELLER_OURTOUR = `
-query($language:LanguageCodeEnum!){
-  bestSeller(id:"dGVybToyODU="){
-    tours{
-      nodes{
-        translation(language:$language){
+query getTourStyle($language: LanguageCodeEnum!, $taxonomyValue: String, $taxonomyName: TaxonomyEnum) {
+  allTours(
+    first: 50,
+    where: {
+      taxQuery: {
+        taxArray: [
+        { terms: [$taxonomyValue], taxonomy: $taxonomyName, field: SLUG, operator: IN },
+        { taxonomy: BESTSELLER, operator: IN, terms:"best-seller-tours", field: SLUG }]
+        relation: AND
+      }
+    }
+  ) {
+    nodes {
+      translation(language: $language) {
           slug
           bestSeller {
             nodes {
               name
             }
           }
+          countries {
+            nodes {
+              name
+            }
+          }
           tourDetail {
             priceTour
-              banner {
-                gallery {
-                  sourceUrl
-                }
-                icons
-                location
-                rate
-                title
-              }
+            banner {
+              location
+              rate
+            title
+            gallery {
+              sourceUrl
             }
+            }
+          }
         }
-      }
     }
   }
-}`
+}
+`
 
 const GET_META_DATA = `query ($slug: ID!, $language: LanguageCodeEnum!) {
   countries(id: $slug, idType: SLUG) {

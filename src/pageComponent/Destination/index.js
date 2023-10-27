@@ -51,7 +51,22 @@ async function index({ lang, slug }) {
   const dataReviews = reviewsList?.filter((item) =>
     item?.customerReview?.tours?.countries?.nodes?.some((subItem) => subItem?.slug === slug)
   )
-  const dataBestSeller = await getDataPost(lang, GET_DATA_BEST_SELLER_OURTOUR)
+  // const dataBestSeller = await getDataPost(lang, GET_DATA_BEST_SELLER_OURTOUR)
+  const dataBestSeller = await getDataWithTaxonomy(
+    {
+      taxonomyValue: slug,
+      taxonomyName: 'COUNTRIES',
+      lang: lang
+    },
+    GET_DATA_BEST_SELLER_OURTOUR
+  )
+  // const dataBestToursHomePage = useQuery(DATA_BEST_TOUR_HOME_PAGE, {
+  //   variables: {
+  //     language: lang,
+  //     countrySlug: slug,
+  //     bestSellerSlug: ['best-seller-tours']
+  //   }
+  // })
   const data = dataCountry?.data?.countries?.translation
   // ==== Get name filter ====
   const dataTaxonomiesStyleTour = await getDataPost(lang, DATA_TAXONOMIES_TOUR_STYLE)
@@ -100,7 +115,7 @@ async function index({ lang, slug }) {
       <SectionActions />
       <SlideDestination
         // data={dataOtherTrip?.data?.allTours?.nodes}
-        data={dataBestSeller?.data?.bestSeller?.tours?.nodes}
+        data={dataBestSeller?.data?.allTours?.nodes}
         dataOtherType={dataOtherTypeTrip?.data?.allTours?.nodes}
         dataTitle={data}
         lang={lang}
