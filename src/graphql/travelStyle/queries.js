@@ -5,6 +5,7 @@ const GET_INFO_PAGE_TRAVEL_STYLE = `query getInfoPageTravelStyle($taxonomyValue:
     translation(language: $language) {
       slug
       banner {
+        tourstylename
         banner {
           desc
           heading
@@ -19,7 +20,7 @@ const GET_INFO_PAGE_TRAVEL_STYLE = `query getInfoPageTravelStyle($taxonomyValue:
             sourceUrl
           }
         }
-        tourStyleName
+        
         hotTour {
           title
           hotTour {
