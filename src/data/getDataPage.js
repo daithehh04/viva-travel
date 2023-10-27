@@ -1,6 +1,6 @@
-export const idIt = 'cG9zdDoyOTk='
+export const idFr = 'cG9zdDoyOTk='
 export const idEn = 'cG9zdDoxOQ=='
-export const idFr = 'cG9zdDozMDE='
+export const idIt = 'cG9zdDozMDE='
 
 export default async function getDataPage(slug, query) {
   const res = await fetch(process.env.NEXT_PUBLIC_API, {
