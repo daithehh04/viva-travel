@@ -42,7 +42,7 @@ export default function Home({
       language: lng,
       countrySlug: !destination ? arrSlugTaxonomiesCountry : destination,
       styleTourSlug: !travelStyle || travelStyle.length === 0 ? arrSlugTaxonomiesStyleTravel : travelStyle,
-      bestSellerSlug: ['BestSeller']
+      bestSellerSlug: ['best-seller-tours']
     }
   })
 

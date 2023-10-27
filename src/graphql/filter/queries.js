@@ -100,7 +100,7 @@ const DATA_BEST_TOUR_HOME_PAGE = gql`
           taxArray: [
             { taxonomy: COUNTRIES, operator: IN, terms: $countrySlug, field: NAME }
             { taxonomy: TOURSTYLE, operator: IN, terms: $styleTourSlug, field: SLUG }
-            { taxonomy: BESTSELLER, operator: IN, terms: $bestSellerSlug, field: NAME }
+            { taxonomy: BESTSELLER, operator: IN, terms: $bestSellerSlug, field: SLUG }
           ]
         }
         orderby: { field: DATE, order: DESC }
