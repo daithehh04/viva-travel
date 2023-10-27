@@ -17,7 +17,14 @@ import 'slick-carousel/slick/slick-theme.css'
 
 export default function TourDetailBanner({ data = {}, headerData, price }) {
   const { gallery, location, rate, video, title } = data
-  const listGallery = gallery ? gallery.concat(gallery) : []
+  let listGallery = gallery ?? [];
+  if (gallery === null || gallery === undefined) {
+    listGallery = [];
+  } else if (gallery.length === 1) {
+    listGallery.push(...Array.from({ length: gallery.length * 3 }, () => gallery[0]));
+  } else if (gallery.length < 4 && gallery.length > 1) {
+    listGallery.push(...gallery);
+  }
   const icons = new Array(Math.ceil(data?.rate || 5)).fill(0)
   const outsideRef = useRef()
   const [isPlay, setIsPlay] = useState(false)

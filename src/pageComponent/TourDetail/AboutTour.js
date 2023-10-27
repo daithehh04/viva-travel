@@ -24,11 +24,12 @@ import vw from '@/helpers/convertToVw'
 import Link from 'next/link'
 
 export default function AboutTour(props) {
-  const { type, data, headerData = {}, relatedTours = [], lang, dataBookTour, price } = props
+  const { type, data, headerData = {}, relatedTours = [], lang, dataBookTour, price, tourContent } = props
   const { contentHeader, relatedTourHeader, bannerHeaders } = headerData
   const { reviews, banner, content = {} } = data || []
 
   const { accommodation, brief, inclusionAndExclusion, overview, tourDetailed } = content
+
   const [activeIcon, setActiveIcon] = useState(0)
   //check mobile
   const theme = createTheme({
@@ -550,6 +551,8 @@ export default function AboutTour(props) {
                 data={accommodation?.row}
                 header={contentHeader?.accommodationTableHeader}
               />
+
+              <div className='md:mt-[3.5vw]' dangerouslySetInnerHTML={{ __html: tourContent }}></div>
             </div>
           </div>
 

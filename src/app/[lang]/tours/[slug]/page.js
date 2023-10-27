@@ -36,8 +36,8 @@ export default async function page({ params: { lang, slug } }) {
     lang === 'en'
       ? await getDataFormBookTour(GET_DATA_FORM_BOOKTOUR, idEnBook, lang)
       : lang === 'it'
-      ? await getDataFormBookTour(GET_DATA_FORM_BOOKTOUR, idItBook, lang)
-      : await getDataFormBookTour(GET_DATA_FORM_BOOKTOUR, idFrBook, lang)
+        ? await getDataFormBookTour(GET_DATA_FORM_BOOKTOUR, idItBook, lang)
+        : await getDataFormBookTour(GET_DATA_FORM_BOOKTOUR, idFrBook, lang)
 
   const [headerData, result, res, result4, dataBookTour] = await Promise.all([
     headerReq,
@@ -49,6 +49,7 @@ export default async function page({ params: { lang, slug } }) {
 
   const tourDetailData = result?.data?.tours?.translation?.tourDetail || {}
   const tourId = result?.data?.tours?.translation?.id
+  const tourContent = result?.data?.tours?.translation?.content
   const country = result?.data?.tours?.translation?.countries?.nodes[0]?.slug
   const reviewsList = result4?.data?.allCustomerReview?.nodes
   const randomTour = res?.data?.allTours?.nodes.filter((item, index) => item?.translation?.id !== tourId)
@@ -56,11 +57,12 @@ export default async function page({ params: { lang, slug } }) {
   const result2 = await getRelatedTour(country, 'COUNTRIES', lang)
   const relatedTours = result2?.data?.allTours?.nodes?.filter((item) => item?.translation?.id !== tourId)
   if (!tourId) {
-    <NotFound lang={lang}/>
+    <NotFound lang={lang} />
   }
   return (
     <TourDetail
       data={tourDetailData}
+      tourContent={tourContent}
       headerData={headerData?.data?.page?.translation?.tourDetailHeading}
       relatedTours={!relatedTours || relatedTours?.length === 0 ? randomTour : relatedTours}
       tourId={tourId}
