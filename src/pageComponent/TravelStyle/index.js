@@ -22,7 +22,7 @@ async function index({ lang, slug }) {
   )
 
   if (!getPageInfo?.data?.tourStyle?.translation?.banner) {
-    return <NotFound lang={lang}/>
+    return <NotFound lang={lang} />
   }
 
   const dataTaxonomiesCountry = await getDataPost(lang, DATA_TAXONOMIES_COUNTRY)
@@ -33,7 +33,7 @@ async function index({ lang, slug }) {
     <div>
       <Banner data={getPageInfo?.data?.tourStyle?.translation?.banner?.banner} />
       <TourSlide
-        tourStyleName={getPageInfo?.data?.tourStyle?.translation?.banner?.tourStyleName}
+        tourStyleName={getPageInfo?.data?.tourStyle?.translation?.banner?.tourstylename}
         lang={lang}
         slug={getPageInfo?.data?.tourStyle?.translation?.slug}
         dataTaxonomiesCountry={dataTaxonomiesCountry}
