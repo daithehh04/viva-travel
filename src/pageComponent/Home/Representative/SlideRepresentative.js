@@ -25,15 +25,8 @@ function SlideRepresent({ data, dataInfo }) {
 
   handleNextSlide()
   useEffect(() => {
-<<<<<<< HEAD
     if(data?.length < 20) {
       let newArr = [...data, ...data, ...data]
-=======
-    if (data?.length < 20) {
-      let newArr = Array.from(Array(10)).map((item) => data[0])
-
-      newArr = [...data, ...newArr]
->>>>>>> 9f06bfdcf3d467a3fc5d8234af38c48a01f9ca33
       setSlideData(newArr)
       handleNextSlide()
     }
