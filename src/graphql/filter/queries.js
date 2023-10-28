@@ -109,7 +109,6 @@ const DATA_BEST_TOUR_HOME_PAGE = gql`
       nodes {
         translation(language: $language) {
           id
-          excerpt
           title
           slug
           bestSeller {

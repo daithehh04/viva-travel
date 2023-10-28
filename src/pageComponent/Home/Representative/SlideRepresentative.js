@@ -7,6 +7,7 @@ import Image from 'next/image'
 import icon from '@/assets/images/route-square.svg'
 import callIcon from '@/assets/images/call-calling.svg'
 import directIcon from '@/assets/images/direct.svg'
+import Link from 'next/link'
 
 function SlideRepresent({ data, dataInfo }) {
   const [indexSlider, setIndexSlider] = useState(0)
@@ -25,7 +26,7 @@ function SlideRepresent({ data, dataInfo }) {
 
   useEffect(() => {
     if (data?.length < 20) {
-      let newArr = Array.from(Array(10)).map((item) => data[0])
+      let newArr = Array.from(Array(2)).map((item) => data[0])
 
       newArr = [...data, ...newArr]
       setSlideData(newArr)
@@ -64,7 +65,7 @@ function SlideRepresent({ data, dataInfo }) {
         onBeforeInit={(swiper) => {
           swiperRef.current = swiper
         }}
-        className='relative flex flex-col'
+        className='relative flex flex-col cursor-grab'
       >
         {slideData?.map((item, index) => {
           return (
@@ -76,36 +77,36 @@ function SlideRepresent({ data, dataInfo }) {
                     width={500}
                     height={500}
                     alt={item?.img?.altText}
-                    className='w-full h-full block object-cover rounded-[1.6vw] presentative-img'
+                    className='w-full h-[54.4vw] md:h-[29.14588vw] block object-cover rounded-[1.6vw] presentative-img'
                   />
-                  <div className='hidden md:flex contact absolute top-0 right-0 pt-[1.5vw] pr-[1.42vw]  flex-col gap-[0.75vw]'>
-                    <div className='flex gap-[0.5vw] flex-row-reverse items-center'>
-                      <div className='iconContact w-[2.5vw] h-[2.5vw] rounded-full bg-[#444340] flex items-center justify-center'>
+                  <div className='flex contact absolute top-0 right-0 pt-[1.5vw] pr-[1.42vw]  flex-col gap-[0.75vw]'>
+                    <div className='flex gap-[0.5vw] flex-row-reverse items-center contactInfoSlide'>
+                      <a href={`tel:${item?.telephone}`}  className='iconContact w-[2.5vw] h-[2.5vw] max-md:w-[5vw] max-md:h-[5vw] rounded-full bg-[#444340] flex items-center justify-center'>
                         <Image
                           src={callIcon}
                           width={50}
                           height={50}
                           alt='img'
-                          className='w-[1.5vw] h-[1.5vw] object-cover cursor-pointer '
+                          className='w-[1.5vw] h-[1.5vw] max-md:w-[3.5vw] max-md:h-[3.5vw] object-cover cursor-pointer '
                         />
-                      </div>
-                      <span className='bg-[#444340] text-[#FFD220] md:text-[1vw] md:px-[0.5vw] rounded-[0.67vw] contactInfo md:py-[0.2vw]'>
+                      </a>
+                      <a href={`tel:${item?.telephone}`} className='bg-[#444340] max-md:hidden text-[#FFD220] md:text-[1vw] md:px-[0.5vw] rounded-[0.67vw] contactInfo md:py-[0.2vw]'>
                         {item?.telephone}
-                      </span>
+                      </a>
                     </div>
                     <div className='flex gap-[0.5vw] flex-row-reverse items-center'>
-                      <div className='iconContact w-[2.5vw] h-[2.5vw] rounded-full bg-[#444340] flex items-center justify-center'>
+                      <a href={`mailto:${item?.email}`} className='iconContact w-[2.5vw] h-[2.5vw] max-md:w-[5vw] max-md:h-[5vw] rounded-full bg-[#444340] flex items-center justify-center'>
                         <Image
                           src={directIcon}
                           width={50}
                           height={50}
                           alt='img'
-                          className='w-[1.5vw] h-[1.5vw] object-cover  cursor-pointer'
+                          className='w-[1.5vw] h-[1.5vw] max-md:w-[3.5vw] max-md:h-[3.5vw] object-cover  cursor-pointer'
                         />
-                      </div>
-                      <span className='bg-[#444340] text-[#FFD220] md:text-[1vw] md:px-[0.5vw] rounded-[0.67vw] contactInfo md:py-[0.2vw]'>
+                      </a>
+                      <a href={`mailto:${item?.email}`} className='bg-[#444340] text-[#FFD220] md:text-[1vw] md:px-[0.5vw] rounded-[0.67vw] contactInfo md:py-[0.2vw]'>
                         {item?.email}
-                      </span>
+                      </a>
                     </div>
                   </div>
                   <div className='info absolute bottom-0 md:pb-[1.77vw] pb-[3.544vw] md:pl-[1.79vw] pl-[3.5vw]'>

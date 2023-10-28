@@ -18,7 +18,7 @@ async function Footer({ lang }) {
     <footer className='footer max-md:pb-[24.5vw] pb-[4.75vw] pt-[2.62vw] max-md:pt-[16.27vw]'>
       <div className='pointer-events-none select-none'>
         <SlidePartners data={logoPartner} />
-        <SlidePartners data={logoPartner} reverse={true} />
+        {/* <SlidePartners data={logoPartner} reverse={true} /> */}
       </div>
       <div className='flex max-md:flex-col max-md:items-center w-[83.75%] mx-auto gap-x-[2vw] items-start pt-[4.62vw] max-md:pt-[10.67vw]'>
         {/* column 1 */}

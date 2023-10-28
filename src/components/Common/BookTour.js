@@ -30,7 +30,6 @@ const SUBMIT_FORM = gql`
 `
 
 function BookTour({ data, setOpenModal }) {
-  console.log(data);
 
   const [mutate, { loading }] = useMutation(SUBMIT_FORM)
   const [openNoti, setOpenNoti] = useState(false)
