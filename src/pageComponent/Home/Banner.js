@@ -7,6 +7,13 @@ import { useRef } from 'react'
 
 function Banner({ data, dataFilter, lang }) {
   const scrollRef = useRef()
+  let explore = 'Explore now'
+  if(lang === 'fr') {
+    explore = 'Explorez maintenant'
+  }
+  if(lang === 'it') {
+    explore = 'Esplora ora'
+  }
   return (
     <div className='h-[100vh] relative banner max-lg:h-[84.8vw]'>
       <div className='relative z-40 wrapper-banner'>
@@ -45,8 +52,8 @@ function Banner({ data, dataFilter, lang }) {
               strokeWidth='2'
             />
           </svg>
-          <span className='md:block hidden text-center font-manrope text-[0.875vw] not-italic font-semibold tracking-[0.04375vw] uppercase text-[#fff] '>
-            Explore now
+          <span className='md:block hidden text-center font-manrope text-[0.875vw] not-italic font-semibold tracking-[0.04375vw] uppercase text-[#fff] relative z-[99]' style={{textShadow: '1px 1px 2px #000, 0 0 1em #000, 0 0 0.2em #000'}}>
+            {explore}
           </span>
         </div>
       </div>

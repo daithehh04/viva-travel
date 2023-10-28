@@ -116,7 +116,7 @@ export default function Navbar({
     let lastScrolledPos = 0
     function headerSticky() {
       if (lastScrolledPos >= window.scrollY) {
-        nav.classList.remove('header-hide')
+        // nav.classList.remove('header-hide')
         if (menuItems) {
           menuItems.forEach((item) => {
             item.style.display = 'block'
@@ -124,7 +124,7 @@ export default function Navbar({
           })
         }
       } else {
-        nav.classList.add('header-hide')
+        // nav.classList.add('header-hide')
         if (menuItems) {
           menuItems.forEach((item) => {
             item.style.display = 'none'
@@ -144,6 +144,12 @@ export default function Navbar({
         nav.classList.remove('nav-mb-special')
         item.classList.add('show')
         refOverlay.current.classList.add('active')
+        if (menuItems) {
+          menuItems.forEach((item) => {
+            item.style.display = 'block'
+            refOverlay.current.style.display = 'block'
+          })
+        }
         menuItems[index].style.transition = 'all 0.5s'
       })
       item.addEventListener('mouseout', function () {
@@ -251,9 +257,7 @@ export default function Navbar({
                       />
                     </div>
                   </div>
-                  <span className='icon-hot absolute top-[-12px] right-[-6px] px-[10px] rounded-[99px] bg-primaryColor text-[12px]'>
-                    {hot}
-                  </span>
+                  
                 </div>
                 <div
                   className='capitalize text-[1vw] nav-link cursor-pointer'
@@ -270,7 +274,7 @@ export default function Navbar({
                 </div>
                 <Link
                   href={`/${lang}/hot-deals`}
-                  className='capitalize text-[1vw] nav-link cursor-pointer'
+                  className='capitalize text-[1vw] nav-link cursor-pointer relative'
                   menu={dataHome?.nav3}
                   onClick={handleCloseMenu}
                 >
@@ -285,6 +289,9 @@ export default function Navbar({
                       onCloseMenu={handleCloseMenu}
                     />
                   </div>
+                  <span className='icon-hot absolute top-[-12px] right-[-6px] px-[10px] rounded-[99px] bg-primaryColor text-[12px]'>
+                    {hot}
+                  </span>
                 </Link>
                 <Link
                   href={`/${lang}/check-visa`}

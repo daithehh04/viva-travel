@@ -65,6 +65,7 @@ function BestTour({
             onSelectBudget={(data) => setBudget(data)}
             onSelectDuration={(data) => setDuration(data)}
             className={'filterMobile'}
+            lang={lang}
           />
         </div>
       </div>

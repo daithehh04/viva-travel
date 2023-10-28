@@ -1,9 +1,10 @@
-.nav-active {
+.navbar {
   background-color: #fff;
   z-index: 99;
   position: fixed !important;
   top: 0;
   border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  transition: all .3s;
 }
 
 .input-search__mobile {

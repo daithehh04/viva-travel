@@ -15,7 +15,8 @@ function FilterTour({
   onSelectBudget,
   onSelectDuration,
   travelStyleSlug,
-  className
+  className,
+  lang
 }) {
   const [destination, setDestination] = useState('')
   const [travelStyle, setTravelStyle] = useState(travelStyleSlug || '')
@@ -39,13 +40,33 @@ function FilterTour({
     onSelectBudget(event.target.value)
   }
 
+  const option = {
+    destination: 'Destination',
+    budget : 'Budget',
+    style: 'Travel Style',
+    duration: 'Duration',
+    day: 'day'
+  }
+  if(lang === 'fr') {
+    option.duration = 'Durée'
+    option.style ='Style de voyage'
+    option.day ='Jour'
+  }
+  if(lang === 'it') {
+    option.style = 'Stile di viaggio'
+    option.duration ='Durata'
+    option.budget = 'Bilancio'
+    option.destination = 'Destinazione'
+    option.day ='Giorno'
+  }
+
   return (
     <div
       className={`flex max-md:grid max-md:grid-cols-2 max-md:gap-[2.67vw] md:gap-x-[1.87vw] gap-y-[3.2vw] gap-x-[2.67vw] md:flex-nowrap flex-wrap md:justify-normal justify-between ${className}`}
     >
       <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full'>
         <div className='bg-mobile md:hidden'></div>
-        <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>Destination</span>
+        <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>{option.destination}</span>
         <div className='flex items-center select-mobile'>
           <Image
             src={locationIcon}
@@ -81,13 +102,25 @@ function FilterTour({
               }
             }}
           >
-            <MenuItem value=''>
+            <MenuItem value=''
+              sx={{
+                '&.Mui-selected': {
+                  backgroundColor: 'rgba(255, 210, 32, 0.7)'
+                }
+              }}
+            >
               <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
-                Destination
+              {option.destination}
               </span>
             </MenuItem>
             {dataFilter?.countries?.map((item, index) => (
-              <MenuItem value={item?.name} key={index}>
+              <MenuItem value={item?.name} key={index}
+              sx={{
+                '&.Mui-selected': {
+                  backgroundColor: 'rgba(255, 210, 32, 0.7)'
+                }
+              }}
+              >
                 <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
                   {item?.name}
                 </span>
@@ -100,7 +133,7 @@ function FilterTour({
 
       <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full pl-0 md:pl-[1.87vw]'>
         <div className='bg-mobile md:hidden'></div>
-        <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>Travel Style</span>
+        <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>{option.style}</span>
         <div className='flex items-center select-mobile'>
           <Image
             src={styleIcon}
@@ -122,6 +155,7 @@ function FilterTour({
               onChange={handleChangeTravelStyle}
               displayEmpty
               inputprops={{ 'aria-label': 'Without label' }}
+              className='select-com'
               sx={{
                 height: '2.5rem',
                 '& .MuiOutlinedInput-notchedOutline': {
@@ -133,16 +167,31 @@ function FilterTour({
                 '& .MuiSelect-outlined': {
                   padding: 0,
                   paddingLeft: '0.62vw'
-                }
+                },
+                
               }}
             >
-              <MenuItem value=''>
+              <MenuItem value=''
+                sx={{
+                  '&.Mui-selected': {
+                    backgroundColor: 'rgba(255, 210, 32, 0.7)'
+                  }
+                }}
+              >
                 <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
-                  Travel Style
+                {option.style}
                 </span>
               </MenuItem>
               {dataFilter?.style?.map((item, index) => (
-                <MenuItem value={item?.slug} key={index}>
+                <MenuItem 
+                  value={item?.slug} key={index}
+                  className='item-select'
+                  sx={{
+                    '&.Mui-selected': {
+                      backgroundColor: 'rgba(255, 210, 32, 0.7)'
+                    }
+                  }}
+                >
                   <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
                     {item?.name}
                   </span>
@@ -155,7 +204,7 @@ function FilterTour({
 
       <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full pl-0 md:pl-[1.87vw]'>
         <div className='bg-mobile md:hidden'></div>
-        <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>Duration</span>
+        <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>{option.duration}</span>
         <div className='flex items-center select-mobile'>
           <Image
             src={calendar}
@@ -191,15 +240,27 @@ function FilterTour({
                 }
               }}
             >
-              <MenuItem value=''>
+              <MenuItem value=''
+                sx={{
+                  '&.Mui-selected': {
+                    backgroundColor: 'rgba(255, 210, 32, 0.7)'
+                  }
+                }}
+              >
                 <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
-                  Duration
+                {option.duration}
                 </span>
               </MenuItem>
               {dataFilter?.duration?.map((item, index) => (
-                <MenuItem value={item?.name} key={index}>
+                <MenuItem value={item?.name} key={index}
+                sx={{
+                  '&.Mui-selected': {
+                    backgroundColor: 'rgba(255, 210, 32, 0.7)'
+                  }
+                }}
+                >
                   <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
-                    {item?.name} day
+                    {item?.name} {option.day}
                   </span>
                 </MenuItem>
               ))}
@@ -210,7 +271,7 @@ function FilterTour({
 
       <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full pl-0 md:pl-[1.87vw]'>
         <div className='bg-mobile md:hidden'></div>
-        <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>Budget</span>
+        <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>{option.budget}</span>
         <div className='flex items-center select-mobile'>
           <Image
             src={wallet}
@@ -246,13 +307,25 @@ function FilterTour({
                 }
               }}
             >
-              <MenuItem value=''>
+              <MenuItem value=''
+                sx={{
+                  '&.Mui-selected': {
+                    backgroundColor: 'rgba(255, 210, 32, 0.7)'
+                  }
+                }}
+              >
                 <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
-                  Budget
+                {option.budget}
                 </span>
               </MenuItem>
               {dataFilter?.budget?.map((item, index) => (
-                <MenuItem value={item?.name} key={index}>
+                <MenuItem value={item?.name} key={index}
+                sx={{
+                  '&.Mui-selected': {
+                    backgroundColor: 'rgba(255, 210, 32, 0.7)'
+                  }
+                }}
+                >
                   <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
                     {item?.name}$
                   </span>
