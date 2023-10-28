@@ -46,6 +46,7 @@ export default function Home({
     }
   })
 
+
   const loading = dataBestToursHomePage?.loading
   var allTours = dataBestToursHomePage?.data?.allTours?.nodes
   if (budget) {

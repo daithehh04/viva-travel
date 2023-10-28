@@ -24,6 +24,7 @@ function BestTour({
   if (!allTours) {
     allTours = tourAll
   }
+
   const [destination, setDestination] = useState('')
   const [travelStyle, setTravelStyle] = useState('')
   const [budget, setBudget] = useState('')

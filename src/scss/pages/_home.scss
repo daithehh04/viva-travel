@@ -177,6 +177,11 @@
           scale: 1.1;
         }
       }
+      .contactInfoSlide:hover .contactInfo{
+        transform: translateX(0);
+        visibility: visible;
+        opacity: 1;
+      }
       .iconContact:hover {
         transform: translateX(0);
       }
