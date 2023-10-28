@@ -16,6 +16,7 @@ async function Footer({ lang }) {
   const col4 = footerData?.column4
   return (
     <footer className='footer max-md:pb-[24.5vw] pb-[4.75vw] pt-[2.62vw] max-md:pt-[16.27vw]'>
+      <h3 className='md:px-[8.06vw] px-[4.27vw] md:w-[75%] text-textColor font-semibold max-md:mb-[6vw] md:text-[3vw] text-[5.8vw] capitalize font-optima'>{footerData?.textDescription}</h3>
       <div className='pointer-events-none select-none'>
         <SlidePartners data={logoPartner} />
         {/* <SlidePartners data={logoPartner} reverse={true} /> */}
