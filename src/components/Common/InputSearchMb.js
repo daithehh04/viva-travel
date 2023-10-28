@@ -14,7 +14,7 @@ import Link from 'next/link'
 import FilterBanner from '@/pageComponent/Home/FilterBanner'
 import Loading from './Loading'
 
-function InputSearchMb({lang, dataFilter,onCloseNav}) {
+function InputSearchMb({ lang, dataFilter, onCloseNav }) {
   const { dataInput } = useData();
   const refMenu = useRef()
   const handleOpen = (e) => {
@@ -33,17 +33,17 @@ function InputSearchMb({lang, dataFilter,onCloseNav}) {
   })
   const allTours = data?.allTours?.nodes
   let noResult = 'No result for this search !!'
-  if(lang === 'fr') {
+  if (lang === 'fr') {
     noResult = 'Aucun résultat pour cette recherche !!'
   }
-  if(lang === 'it') {
-    noResult ='Nessun risultato per questa ricerca!!'
+  if (lang === 'it') {
+    noResult = 'Nessun risultato per questa ricerca!!'
   }
   return (
     <div className='ml-[3.73vw] mr-[5.33vw] relative'>
       <div className='input-search__mobile w-full h-[9.3vw]' onClick={handleOpen}></div>
       <div
-        className='fixed inset-0 bg-white home-search__mb !z-[200] overflow-hidden w-full'
+        className='fixed inset-0 bg-white home-search__mb !z-[200] overflow-auto w-full'
         ref={refMenu}
       >
         <HomeSearch

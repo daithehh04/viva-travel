@@ -11,6 +11,7 @@ async function Footer({ lang }) {
   const footerData = data?.data?.page?.translation?.home?.footer
   const logoPartner = footerData?.logoPartner
   const col1 = footerData?.column1
+  console.log();
   const col2 = footerData?.column2
   const col3 = footerData?.column3
   const col4 = footerData?.column4
@@ -38,7 +39,8 @@ async function Footer({ lang }) {
               className='text-[1vw] max-lg:whitespace-nowrap max-lg:text-[1.4vw] max-md:text-[3.73vw] mt-[0.5vw] max-md:mt-[1.07vw]'
             >
               <strong>{item?.title}: </strong>
-              {item?.content}
+
+              <Link href={`${typeof parseInt(col1?.contact[0]?.content.split(" ").join("").slice(1)) === 'number' ? `tel:${item?.content}` : `mailto:${item?.content}`}`} >{item?.content}</Link>
             </div>
           ))}
           <div className='flex items-center gap-[0.89vw] mt-[1.25vw] max-md:gap-[4.27vw] max-md:mt-[3.2vw]'>
