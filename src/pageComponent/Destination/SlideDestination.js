@@ -49,7 +49,7 @@ function SlideDestination({ data, dataOtherType, dataTitle, lang }) {
                     lang={lang}
                   />
                 ) : index === 7 && data?.length >= 8 ? (
-                  <div className='h-[24.5vw] rounded-[1vw] relative hidden md:flex  justify-center items-center lastItem'>
+                  <div className='lg:h-[24.5vw] md:h-[28vw] h-[62.7vw] rounded-[1vw] relative hidden md:flex  justify-center items-center lastItem'>
                     <div className='absolute flex flex-col items-center justify-center'>
                       <div className='inline-flex gap-[0.3125vw] justify-center items-center'>
                         <span className='text-justify font-optima text-[2vw] font-normal leading-[130%] text-white'>

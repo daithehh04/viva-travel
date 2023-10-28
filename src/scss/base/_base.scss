@@ -67,39 +67,39 @@ body {
   filter: invert(1);
 }
 
-.text_menu{
+.text_menu {
   transition: all 0.3s;
   position: relative;
   transition: background-size 350ms;
   background: linear-gradient(0deg, black, black) no-repeat right bottom/0 1px;
-  &:hover{
+  &:hover {
     transform: scale(1.03);
   }
 }
-.text_menu_tour{
+.text_menu_tour {
   transition: all 0.3s;
   position: relative;
   transition: background-size 350ms;
   background: linear-gradient(0deg, white, white) no-repeat right bottom/0 1px;
-  &:hover{
+  &:hover {
     transform: scale(1.03);
   }
 }
 
-.box_item_menu{
+.box_item_menu {
   &:hover .text_menu {
     background-size: 100% 1px;
     background-position-x: left;
   }
-  
 }
 
-.ourTour_menu{
+.ourTour_menu {
   overflow: hidden;
-  .bg-menuOverlaySty,.bgImg-MenuOurTour{
+  .bg-menuOverlaySty,
+  .bgImg-MenuOurTour {
     transition: all 0.3s;
   }
-  img{
+  img {
     transition: all 0.3s;
     overflow: hidden;
   }
@@ -111,10 +111,14 @@ body {
     background-size: 100% 1px;
     background-position-x: left;
   }
-  &:hover .bg-menuOverlaySty{
+  &:hover .bg-menuOverlaySty {
     border-radius: 0;
   }
-  &:hover .bgImg-MenuOurTour{
+  &:hover .bgImg-MenuOurTour {
     border-radius: 0;
   }
+}
+
+.modalConfirm > img {
+  top: 4.53vw;
 }

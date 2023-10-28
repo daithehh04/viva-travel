@@ -11,7 +11,7 @@ import Select from '@mui/material/Select'
 import { useRef, useState } from 'react'
 import Button from '@/components/Common/Button'
 import { useRouter } from 'next/navigation'
-function FilterBanner({ lang, dataFilter,onClose }) {
+function FilterBanner({ lang, dataFilter, onClose }) {
   const refLink = useRef()
   const [destination, setDestination] = useState('')
   const [travelStyle, setTravelStyle] = useState('')
@@ -34,18 +34,18 @@ function FilterBanner({ lang, dataFilter,onClose }) {
 
   function handleSearch(e) {
     const arrParams = []
-    if(destination || travelStyle || duration || budget) {
-      if(destination) {
-        arrParams.push({'country': destination})
+    if (destination || travelStyle || duration || budget) {
+      if (destination) {
+        arrParams.push({ 'country': destination })
       }
-      if(travelStyle) {
-        arrParams.push({'style':travelStyle})
+      if (travelStyle) {
+        arrParams.push({ 'style': travelStyle })
       }
-      if(duration) {
-        arrParams.push({'duration':duration})
+      if (duration) {
+        arrParams.push({ 'duration': duration })
       }
-      if(budget) {
-        arrParams.push({'budget':budget})
+      if (budget) {
+        arrParams.push({ 'budget': budget })
       }
       const resultObject = {};
       arrParams.forEach(obj => {
@@ -57,46 +57,46 @@ function FilterBanner({ lang, dataFilter,onClose }) {
       });
       const queryString = new URLSearchParams(resultObject).toString();
       var link = `/search?&${queryString}`
-      if(lang !== 'en') {
+      if (lang !== 'en') {
         link = `/${lang}/search?&${queryString}`
       }
       router.push(link)
     } else {
       var linkSearch = `/search`
-      if(lang !== 'en') {
+      if (lang !== 'en') {
         linkSearch = `/${lang}/search`
       }
       router.push(linkSearch)
     }
-    if(onClose) {
+    if (onClose) {
       onClose()
     }
   }
   const option = {
     destination: 'Destination',
-    budget : 'Budget',
+    budget: 'Budget',
     style: 'Travel Style',
     duration: 'Duration',
     day: 'day'
   }
-  if(lang === 'fr') {
+  if (lang === 'fr') {
     option.duration = 'Durée'
-    option.style ='Style de voyage'
-    option.day ='Jour'
+    option.style = 'Style de voyage'
+    option.day = 'Jour'
   }
-  if(lang === 'it') {
+  if (lang === 'it') {
     option.style = 'Stile di viaggio'
-    option.duration ='Durata'
+    option.duration = 'Durata'
     option.budget = 'Bilancio'
     option.destination = 'Destinazione'
-    option.day ='Giorno'
+    option.day = 'Giorno'
   }
   return (
-    <div className='flex gap-x-[1.75vw] max-lg:flex-col'>
-      <div className='max-md:w-[91.46%] max-md:m-auto flex max-md:grid max-md:grid-cols-2 max-md:gap-[2.67vw] md:gap-x-[1.87vw] gap-y-[3.2vw] gap-x-[2.67vw] md:flex-nowrap flex-wrap md:justify-normal justify-between'>
+    <div className='flex gap-x-[1.75vw] max-lg:flex-col '>
+      <div className='max-md:w-[91.46%] filterbanner-tablet max-md:m-auto flex max-md:grid max-md:grid-cols-2 max-md:gap-[2.67vw] md:gap-x-[1.87vw] gap-y-[3.2vw] gap-x-[2.67vw] md:flex-nowrap flex-wrap md:justify-normal justify-between'>
         <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full'>
-          <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>{option.destination}</span>
-          <div className='flex items-center select-mobile max-lg:bg-[#F6F6F6] max-md:h-[10.67vw]'>
+          <span className='text-[#9B9B9B] uppercase max-md:text-[0.875vw] text-[1.875vw] md:block hidden'>{option.destination}</span>
+          <div className='flex items-center select-mobile max-lg:bg-[#F6F6F6] max-md:h-[10.67vw] '>
             <Image
               src={locationIcon}
               width={100}
@@ -139,12 +139,12 @@ function FilterBanner({ lang, dataFilter,onClose }) {
                     }
                   }}
                 >
-                  <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
+                  <span className='md:text-[1.5vw] lg:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
                     {option.destination}
                   </span>
                 </MenuItem>
                 {dataFilter?.countries?.map((item, index) => (
-                  <MenuItem 
+                  <MenuItem
                     className='select-item'
                     value={item?.slug} key={index}
                     sx={{
@@ -153,7 +153,7 @@ function FilterBanner({ lang, dataFilter,onClose }) {
                       }
                     }}
                   >
-                    <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
+                    <span className='md:text-[1.5vw] lg:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
                       {item?.name}
                     </span>
                   </MenuItem>
@@ -164,7 +164,7 @@ function FilterBanner({ lang, dataFilter,onClose }) {
         </div>
 
         <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full pl-0 md:pl-[1.87vw]'>
-          <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>{option.style}</span>
+          <span className='text-[#9B9B9B] uppercase  max-md:text-[0.875vw] text-[1.875vw] md:block hidden'>{option.style}</span>
           <div className='flex items-center select-mobile max-lg:bg-[#F6F6F6] max-md:h-[10.67vw]'>
             <Image
               src={styleIcon}
@@ -200,25 +200,25 @@ function FilterBanner({ lang, dataFilter,onClose }) {
                   }
                 }}
               >
-                <MenuItem value='' 
+                <MenuItem value=''
                   sx={{
                     '&.Mui-selected': {
                       backgroundColor: 'rgba(255, 210, 32, 0.7)'
                     }
                   }}>
-                  <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
-                  {option.style}
+                  <span className='md:text-[1.5vw] lg:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
+                    {option.style}
                   </span>
                 </MenuItem>
                 {dataFilter?.style?.map((item, index) => (
                   <MenuItem value={item?.slug} key={index}
-                  sx={{
-                    '&.Mui-selected': {
-                      backgroundColor: 'rgba(255, 210, 32, 0.7)'
-                    }
-                  }}
+                    sx={{
+                      '&.Mui-selected': {
+                        backgroundColor: 'rgba(255, 210, 32, 0.7)'
+                      }
+                    }}
                   >
-                    <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
+                    <span className='md:text-[1.5vw] lg:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
                       {item?.name}
                     </span>
                   </MenuItem>
@@ -229,7 +229,7 @@ function FilterBanner({ lang, dataFilter,onClose }) {
         </div>
 
         <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full pl-0 md:pl-[1.87vw]'>
-          <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>{option.duration}</span>
+          <span className='text-[#9B9B9B] uppercase  max-md:text-[0.875vw] text-[1.875vw] md:block hidden'>{option.duration}</span>
           <div className='flex items-center select-mobile max-lg:bg-[#F6F6F6] max-md:h-[10.67vw]'>
             <Image
               src={calendar}
@@ -272,19 +272,19 @@ function FilterBanner({ lang, dataFilter,onClose }) {
                     }
                   }}
                 >
-                  <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
-                  {option.duration}
+                  <span className='md:text-[1.5vw] lg:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
+                    {option.duration}
                   </span>
                 </MenuItem>
                 {dataFilter?.duration?.map((item, index) => (
                   <MenuItem value={item?.name} key={index}
-                  sx={{
-                    '&.Mui-selected': {
-                      backgroundColor: 'rgba(255, 210, 32, 0.7)'
-                    }
-                  }}
+                    sx={{
+                      '&.Mui-selected': {
+                        backgroundColor: 'rgba(255, 210, 32, 0.7)'
+                      }
+                    }}
                   >
-                    <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
+                    <span className='md:text-[1.5vw] lg:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
                       {item?.name} {option.day}
                     </span>
                   </MenuItem>
@@ -295,7 +295,7 @@ function FilterBanner({ lang, dataFilter,onClose }) {
         </div>
 
         <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full pl-0 md:pl-[1.87vw]'>
-          <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>{option.budget}</span>
+          <span className='text-[#9B9B9B] uppercase  max-md:text-[0.875vw] text-[1.875vw] md:block hidden'>{option.budget}</span>
           <div className='flex items-center select-mobile max-lg:bg-[#F6F6F6] max-md:h-[10.67vw]'>
             <Image
               src={wallet}
@@ -338,19 +338,19 @@ function FilterBanner({ lang, dataFilter,onClose }) {
                     }
                   }}
                 >
-                  <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
-                  {option.budget}
+                  <span className='md:text-[1.5vw] lg:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
+                    {option.budget}
                   </span>
                 </MenuItem>
                 {dataFilter?.budget?.map((item, index) => (
                   <MenuItem value={item?.name} key={index}
-                  sx={{
-                    '&.Mui-selected': {
-                      backgroundColor: 'rgba(255, 210, 32, 0.7)'
-                    }
-                  }}
+                    sx={{
+                      '&.Mui-selected': {
+                        backgroundColor: 'rgba(255, 210, 32, 0.7)'
+                      }
+                    }}
                   >
-                    <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
+                    <span className='md:text-[1.5vw] lg:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
                       {item?.name}$
                     </span>
                   </MenuItem>
