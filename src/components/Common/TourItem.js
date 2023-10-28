@@ -17,11 +17,11 @@ function TourItem({ data, menu, lang, loading, className, onCloseMenu }) {
   const pathName = usePathname()
   const isPromotion = pathName.includes('hot-deals')
   let bestTour = false
-  if(checkBestTour?.length > 0) {
+  if (checkBestTour?.length > 0) {
     bestTour = true
   }
   let tag = 'Best Tour'
-  if(lang === 'fr') {
+  if (lang === 'fr') {
     tag = 'Meilleur vendeur'
   }
   if (lang === 'it') {
@@ -32,11 +32,10 @@ function TourItem({ data, menu, lang, loading, className, onCloseMenu }) {
     <Link
       onClick={onCloseMenu}
       href={`/${lang}/${isPromotion || menu ? 'hot-deals' : 'tours'}/${encodeURIComponent(data?.translation?.slug)}`}
-      className={`${
-        menu
+      className={`${menu
           ? 'lg:h-[13.5vw] md:w-[30vw] md:h-[35vw] w-[52.5vw] h-[67.23vw]'
           : 'lg:h-[24.5vw] md:h-[28vw] h-[62.7vw] w-full'
-      } flex md:rounded-[1vw] rounded-[2.75vw] relative max-lg:flex-shrink-0 tour-item cursor-pointer`}
+        } flex md:rounded-[1vw] rounded-[2.75vw] relative max-lg:flex-shrink-0 tour-item cursor-pointer`}
     >
       {!loading ? (
         <div className='relative w-full h-full'>
@@ -91,11 +90,9 @@ function TourItem({ data, menu, lang, loading, className, onCloseMenu }) {
             href={`/${lang}/${isPromotion || menu ? 'hot-deals' : 'tours'}/${encodeURIComponent(
               data?.translation?.slug
             )}`}
-            className={`text-white ${
-              !loading ? 'title-tour' : ''
-            } max-lg:text-[1.6vw] !line-clamp-2 text-[1.125vw] max-md:text-[2.93vw] font-bold tracking-tight leading-[1.2] mt-[0.25vw] ${
-              className || ''
-            }`}
+            className={`text-white ${!loading ? 'title-tour' : ''
+              } max-lg:text-[1.6vw] !line-clamp-2 text-[1.125vw] max-md:text-[2.93vw] font-bold tracking-tight leading-[1.2] mt-[0.25vw] ${className || ''
+              }`}
           >
             {!loading ? (
               tourData?.title
@@ -108,7 +105,7 @@ function TourItem({ data, menu, lang, loading, className, onCloseMenu }) {
           </Link>
         </h3>
         {/* icons*/}
-        <div className='flex gap-[0.25vw] mt-[1.33vw]'>
+        <div className='flex md:gap-[0.25vw] gap-[1vw] mt-[1.33vw]'>
           {tourData?.icons?.map((icon, index) => {
             return (
               <div

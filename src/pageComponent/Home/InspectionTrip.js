@@ -65,11 +65,11 @@ function InspectionTrip({ data, lang }) {
           {data?.slideTrip?.map((item, index) => {
             const checkBestTour = item?.bestSeller?.nodes
             let bestTour = false
-            if(checkBestTour?.length > 0) {
+            if (checkBestTour?.length > 0) {
               bestTour = true
             }
             let tag = 'Best Tour'
-            if(lang === 'fr') {
+            if (lang === 'fr') {
               tag = 'Meilleur vendeur'
             }
             if (lang === 'it') {
@@ -92,7 +92,7 @@ function InspectionTrip({ data, lang }) {
                           alt={item?.tourDetail?.banner?.gallery[0]?.altText || item?.tourDetail?.banner?.gallery[0]?.title || 'img-tour'}
                           className='rounded-[1vw] max-md:rounded-[2.13vw] h-full w-full object-cover'
                         />
-                        {bestTour ? <span className='absolute top-[1vw] left-[1.5vw] tag-best_tour text-[1.1vw] font-[500] w-max px-[1vw] py-[0.5vw] text-[#2b2b2b] bg-primaryColor block'>{tag}</span> : ""}
+                        {bestTour ? <span className='absolute md:top-[1vw] md:left-[1.5vw] top-[0.75rem] left-[0.75rem] tag-best_tour md:text-[1.1vw] text-[2.6667vw] font-[500] w-max md:px-[1vw] md:py-[0.5rem] px-[0.5rem] py-[0.25rem] text-[#2b2b2b] bg-primaryColor block'>{tag}</span> : ""}
                       </div>
                       <div className='info absolute bottom-0 px-[2vw] pb-[2vw] max-md:pb-[4.13vw] max-md:px-[4vw] z-10'>
                         <a className='text-[1.5vw] title-tour text-[#fff] font-bold leading-[1.3] tracking-[-0.03rem] w-[20.3125vw] max-md:text-[2.93vw] max-md:w-[61.33vw] max-lg:text-[1.6vw]'>
