@@ -111,7 +111,7 @@ function Banner({ data, dataFilter, lang }) {
             ))}
           </Select>
         </FormControl>
-        <p className='text-white xl:text-[1vw] md:text-[1.5vw] text-[3.73333vw] leading-[1.5]  leading-[1.5] md:mb-[1vw] md:mt-[1.5vw] mb-[2.13333vw] mt-[6.4vw]'>
+        <p className='text-white xl:text-[1vw] md:text-[1.5vw] text-[3.73333vw] leading-[1.5] md:mb-[1vw] md:mt-[1.5vw] mb-[2.13333vw] mt-[6.4vw]'>
           {dataBanner?.countrychoice}
         </p>
         <FormControl
