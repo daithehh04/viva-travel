@@ -92,7 +92,7 @@ function InspectionTrip({ data, lang }) {
                           alt={item?.tourDetail?.banner?.gallery[0]?.altText || item?.tourDetail?.banner?.gallery[0]?.title || 'img-tour'}
                           className='rounded-[1vw] max-md:rounded-[2.13vw] h-full w-full object-cover'
                         />
-                        {bestTour ? <span className='absolute top-[1vw] left-[1vw] tag-best_tour text-[1vw] w-max px-3 py-1 text-[#fff] bg-primaryColor block'>{tag}</span> : ""}
+                        {bestTour ? <span className='absolute top-[1vw] left-[1.5vw] tag-best_tour text-[1.1vw] font-[500] w-max px-[1vw] py-[0.5vw] text-[#2b2b2b] bg-primaryColor block'>{tag}</span> : ""}
                       </div>
                       <div className='info absolute bottom-0 px-[2vw] pb-[2vw] max-md:pb-[4.13vw] max-md:px-[4vw] z-10'>
                         <a className='text-[1.5vw] title-tour text-[#fff] font-bold leading-[1.3] tracking-[-0.03rem] w-[20.3125vw] max-md:text-[2.93vw] max-md:w-[61.33vw] max-lg:text-[1.6vw]'>

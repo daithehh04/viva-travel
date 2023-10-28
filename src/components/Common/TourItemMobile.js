@@ -46,7 +46,7 @@ function TourItemMobile({ data, lang, loading }) {
               height={1000}
               className='h-[100%] w-[100%] object-cover rounded-[1.067vw]'
             />
-            {bestTour ? <span className='absolute top-3 left-3 tag-best_tour text-[2.667vw] w-max px-2 py-1 text-[#fff] bg-primaryColor block'>{tag}</span> : ""}
+            {bestTour ? <span className='absolute top-3 left-3 tag-best_tour text-[2.667vw] w-max px-2 py-1 text-[#2b2b2b] bg-primaryColor block'>{tag}</span> : ""}
           </div>
         ) : (
           <Skeleton
