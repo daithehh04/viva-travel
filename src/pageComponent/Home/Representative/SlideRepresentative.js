@@ -26,7 +26,7 @@ function SlideRepresent({ data, dataInfo }) {
 
   useEffect(() => {
     if (data?.length < 20) {
-      let newArr = Array.from(Array(2)).map((item) => data[0])
+      let newArr = Array.from(Array(10)).map((item) => data[0])
 
       newArr = [...data, ...newArr]
       setSlideData(newArr)
@@ -81,7 +81,7 @@ function SlideRepresent({ data, dataInfo }) {
                   />
                   <div className='flex contact absolute top-0 right-0 pt-[1.5vw] pr-[1.42vw]  flex-col gap-[0.75vw]'>
                     <div className='flex gap-[0.5vw] flex-row-reverse items-center contactInfoSlide'>
-                      <a href={`tel:${item?.telephone}`}  className='iconContact w-[2.5vw] h-[2.5vw] max-md:w-[5vw] max-md:h-[5vw] rounded-full bg-[#444340] flex items-center justify-center'>
+                      <a href={`tel:${item?.telephone}`} className='iconContact w-[2.5vw] h-[2.5vw] max-md:w-[5vw] max-md:h-[5vw] rounded-full bg-[#444340] flex items-center justify-center'>
                         <Image
                           src={callIcon}
                           width={50}

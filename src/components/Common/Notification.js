@@ -122,7 +122,7 @@ export default function Notification(props) {
     <ModalCustom
       openModal={openNoti}
       setOpenModal={setOpenNoti}
-      className={`${isConfirm ? 'md:w-[40vw] w-[80vw] h-fit' : 'md:w-[24.125vw] w-[70vw] h-fit'}`}
+      className={`${isConfirm ? 'md:w-[40vw] w-[80vw] modalConfirm h-fit' : 'md:w-[24.125vw] w-[70vw] h-fit'}`}
     >
       {isSuccess && <Success />}
       {isError && <Error />}

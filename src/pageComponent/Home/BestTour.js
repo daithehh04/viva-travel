@@ -104,12 +104,12 @@ function BestTour({
           </div>
         )}
         {allTours?.length > 7 && !loading ? (
-          <div className='h-[24.5vw] rounded-[1vw] relative hidden md:flex  justify-center items-center lastItem'>
+          <div className='lg:h-[24.5vw] md:h-[28vw] h-[62.7vw] rounded-[1vw] relative hidden md:flex  justify-center items-center lastItem'>
             <Image
               src={imgTour}
               alt='img-tour'
               fill
-              className='object-cover h-full '
+              className='object-cover h-full rounded-[1vw]'
             />
             <div className='absolute flex flex-col items-center justify-center'>
               <div className='inline-flex gap-[0.3125vw] justify-center items-center'>
