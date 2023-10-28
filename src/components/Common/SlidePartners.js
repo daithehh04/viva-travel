@@ -23,7 +23,7 @@ function SlidePartners({ data:slidePartners, reverse }) {
         autoplay={{
           delay: 400,
           disableOnInteraction: false,
-          pauseOnMouseEnter: false,
+          pauseOnMouseEnter: true,
           stopOnLastSlide: false,
           waitForTransition: true
         }}

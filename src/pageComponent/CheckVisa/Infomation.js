@@ -25,13 +25,19 @@ function Infomation({ data, lang, dataBookTour }) {
   })
   const onlySmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
 
+  let choose = 'Choose country !!!'
+  if(lang === 'fr') {
+    choose = 'choisissez un pays !!!'
+  } 
+  if(lang === 'it') {
+    choose = 'scegli il paese !!!'
+  }
+
   return (
     <div className='relative w-full'>
-      <div className='w-full md:mt-[6.13vw] mt-[11.47vw] md:px-[8.13vw] px-[4.27vw] '>
+      <div className='w-full md:mt-[6.13vw] mt-[11.47vw] md:px-[8.13vw] px-[4.27vw]'>
         {isFreeVisa === undefined ? (
-          <h2 className='text-[#bf4242] font-optima md:text-[2.5vw] text-[5.86667vw] font-semibold leading-[110%] md:mb-[1.5vw] mb-[2.13vw]'>
-            Choose country !!!
-          </h2>
+          <h2 className='text-[#bf4242] font-optima md:text-[2.5vw] text-[5.86667vw] font-semibold leading-[110%] md:mb-[1.5vw] mb-[2.13vw]'> {choose}</h2>
         ) : (
           ''
         )}

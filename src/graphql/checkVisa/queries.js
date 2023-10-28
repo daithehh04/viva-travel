@@ -2,7 +2,7 @@ import { gql } from "@apollo/client"
 
 const COUNTRY_TO = `
 query {
-  allToCountry {
+  allToCountry(first: 50) {
     nodes {
       name
       slug
@@ -12,7 +12,7 @@ query {
 
 const COUNTRY_FROM = `
 query {
-  allFromCountry {
+  allFromCountry(first: 50) {
     nodes {
       name
       slug

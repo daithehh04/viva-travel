@@ -15,7 +15,7 @@ function TouristRepresentative({ data }) {
   }, [])
   return (
     <div className='tourist-representative pt-[4.69vw] pb-[8.42vw] max-md:pt-[13.81vw]'>
-      <div className='flex md:flex-row flex-col items-center content mb-[6.4vw] md:mb-0'>
+      <div className='flex md:flex-row flex-col items-center content pb-[6.4vw] md:pb-[3.2vw]'>
         <h2
           className='heading-1 md:w-[28.9375vw] w-full '
           data-aos-once='true'

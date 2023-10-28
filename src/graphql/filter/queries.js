@@ -41,7 +41,7 @@ query durationTaxonomies {
 const DATA_BEST_TOUR = gql`
   query GetFilterTour($language: LanguageCodeEnum!, $countrySlug: [String!], $styleTourSlug: [String!]) {
     allTours(
-      first: 50
+      first: 100,
       where: {
         taxQuery: {
           taxArray: [
@@ -94,7 +94,7 @@ const DATA_BEST_TOUR_HOME_PAGE = gql`
     $bestSellerSlug: [String!]
   ) {
     allTours(
-      first: 50
+      first: 100,
       where: {
         taxQuery: {
           taxArray: [
@@ -142,7 +142,7 @@ const DATA_BEST_TOUR_HOME_PAGE = gql`
 
 const DATA_SEARCH_TEXT_TOUR = gql`
   query SearchTour($title: String, $language: LanguageCodeEnum!) {
-    allTours(first: 50, where: { search: $title }) {
+    allTours(first: 100, where: { search: $title }) {
       nodes {
         translation(language: $language) {
           title

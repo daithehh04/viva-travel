@@ -1,16 +1,18 @@
 'use client'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { createTheme, FormControl, MenuItem, Select, useMediaQuery } from '@mui/material'
 import { Button } from '@mui/base'
 import { CHECK_VISA } from '@/graphql/checkVisa/queries'
 import { useQuery } from '@apollo/client'
 import { useData } from './DataContext'
+import scrollDown from '@/helpers/scrollDown'
 function Banner({ data, dataFilter, lang }) {
   const [nationality, setNationality] = useState('')
   const [country, setCountry] = useState('')
   const { dataB, setDataB } = useData(null)
 
+  const refScroll = useRef()
   const theme = createTheme({
     breakpoints: {
       values: {
@@ -25,7 +27,6 @@ function Banner({ data, dataFilter, lang }) {
   const handleChangeCountry = (e) => {
     setCountry(e.target.value)
   }
-
   const dataVisa = useQuery(CHECK_VISA, {
     variables: {
       language: lang?.toUpperCase(),
@@ -33,11 +34,12 @@ function Banner({ data, dataFilter, lang }) {
       countryTo: country
     }
   })
-  if (dataVisa) {
-    var dataCheckVisa = dataVisa?.data?.allVisa?.nodes
-  }
 
   const handleCheck = function () {
+    scrollDown(refScroll,'start')
+    if (dataVisa) {
+      var dataCheckVisa = dataVisa?.data?.allVisa?.nodes
+    }
     if (dataCheckVisa) {
       const isFreeVisa = dataCheckVisa[0]?.checkVisa?.freeVisa
       if (isFreeVisa?.toLowerCase() === 'no') {
@@ -56,11 +58,10 @@ function Banner({ data, dataFilter, lang }) {
       setDataB(data)
     }
   }
-
   const dataBanner = data?.checkvisa?.banner
-
   return (
-    <div className='md:h-[100vh] h-[216.53333vw] visaBanner relative flex md:items-center'>
+    <div>
+      <div className='md:h-[100vh] h-[216.53333vw] visaBanner relative flex md:items-center'>
       <Image
         alt='banner'
         src={onlySmallScreen ? dataBanner?.imagebannermobile?.sourceUrl : dataBanner?.imagebanner?.sourceUrl}
@@ -145,11 +146,13 @@ function Banner({ data, dataFilter, lang }) {
           className='bg-primaryColor btn-primary md:rounded-[0.75vw] rounded-[2.13333vw] w-fit md:mt-[3.13vw] mt-[8.53vw] px-[7.73vw] py-[3.2vw] md:px-[2.88vw] md:py-[1.25vw]'
           onClick={handleCheck} content={dataBanner?.button}
         >
-          <span className=' font-medium text-textColor '>
+          <span className='font-medium text-textColor'>
             {dataBanner?.button}
           </span>
         </Button>
       </div>
+    </div>
+    <div ref={refScroll}></div>
     </div>
   )
 }

@@ -2,7 +2,7 @@ import { gql } from '@apollo/client'
 
 const GET_TOUR_FILTER = `
 query getTour($language: LanguageCodeFilterEnum) {
-    allTours(where: {language: $language}) {
+    allTours(first: 100,where: {language: $language}) {
       nodes {
         tourDetail {
           priceTour
@@ -22,7 +22,7 @@ query getTour($language: LanguageCodeFilterEnum) {
 
 const DATA_ALL_TOUR = gql`
   query getAllTour($language: LanguageCodeEnum!) {
-    allTours(first: 50) {
+    allTours(first: 100) {
       nodes {
         translation(language: $language) {
           id

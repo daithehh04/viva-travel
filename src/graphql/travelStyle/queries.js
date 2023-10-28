@@ -71,7 +71,7 @@ const GET_INFO_PAGE_TRAVEL_STYLE = `query getInfoPageTravelStyle($taxonomyValue:
 }`
 
 const GET_LIST_TRAVEL_STYLE_NAME = `query getTourStyleName($language: LanguageCodeFilterEnum) {
-  allTourStyle(where: {language: $language}) {
+  allTourStyle(first: 50,where: {language: $language}) {
     nodes {
       id
       name

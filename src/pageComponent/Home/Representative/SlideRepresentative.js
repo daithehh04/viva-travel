@@ -7,11 +7,10 @@ import Image from 'next/image'
 import icon from '@/assets/images/route-square.svg'
 import callIcon from '@/assets/images/call-calling.svg'
 import directIcon from '@/assets/images/direct.svg'
-import Link from 'next/link'
 
 function SlideRepresent({ data, dataInfo }) {
   const [indexSlider, setIndexSlider] = useState(0)
-  const [slideData, setSlideData] = useState([])
+  const [slideData, setSlideData] = useState(data)
   const swiperRef = useRef()
   const handleNextSlide = () => {
     swiperRef.current?.slideNext()
@@ -24,12 +23,12 @@ function SlideRepresent({ data, dataInfo }) {
     setIndexSlider(swiper.activeIndex)
   }
 
+  handleNextSlide()
   useEffect(() => {
-    if (data?.length < 20) {
-      let newArr = Array.from(Array(2)).map((item) => data[0])
-
-      newArr = [...data, ...newArr]
+    if(data?.length < 20) {
+      let newArr = [...data, ...data, ...data]
       setSlideData(newArr)
+      handleNextSlide()
     }
   }, [data])
 
