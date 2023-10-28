@@ -25,6 +25,7 @@ export default function Home({
   dataTaxonomiesDuration,
   dataBookTour
 }) {
+
   const arrDataTaxonomiesBudget = dataTaxonomiesBudget?.data?.allBudget?.nodes
   const arrDataTaxonomiesDuration = dataTaxonomiesDuration?.data?.allDuration?.nodes
   const arrDataTaxonomiesCountry = dataTaxonomiesCountry?.data?.allCountries?.nodes

@@ -306,6 +306,7 @@ const GET_FOOTER = `query getHomePageData($language: LanguageCodeEnum!) {
     translation(language: $language) {
       home {
         footer {
+          textDescription
           logoPartner {
             altText
             sourceUrl
