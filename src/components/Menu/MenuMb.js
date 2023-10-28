@@ -83,9 +83,9 @@ function MenuMb({
             style={
               selected === 1
                 ? {
-                    height: '28vw',
-                    overflow: 'visible'
-                  }
+                  height: '28vw',
+                  overflow: 'visible'
+                }
                 : { height: '0px', overflow: 'hidden' }
             }
           >
@@ -125,9 +125,9 @@ function MenuMb({
             style={
               selected === 2
                 ? {
-                    height: contentEle2.current.scrollHeight,
-                    overflow: 'visible'
-                  }
+                  height: contentEle2.current.scrollHeight,
+                  overflow: 'visible'
+                }
                 : { height: '0px', overflow: 'hidden' }
             }
           >
@@ -168,9 +168,9 @@ function MenuMb({
             style={
               selected === 3
                 ? {
-                    height: contentEle3.current.scrollHeight,
-                    overflow: 'visible'
-                  }
+                  height: contentEle3.current.scrollHeight,
+                  overflow: 'visible'
+                }
                 : { height: '0px', overflow: 'hidden' }
             }
           >
@@ -187,9 +187,8 @@ function MenuMb({
               {hotDeals?.promotionList?.map((item, index) => (
                 <div
                   key={index}
-                  className={`${index === 0 && 'max-md:ml-[4.27vw]'} ${
-                    index === hotDeals?.promotionList?.length - 1 && 'max-md:mr-[4.27vw]'
-                  }`}
+                  className={`${index === 0 && 'max-md:ml-[4.27vw]'} ${index === hotDeals?.promotionList?.length - 1 && 'max-md:mr-[4.27vw]'
+                    }`}
                 >
                   <TourItem data={item} lang={lang} menu={menu} />
                 </div>
@@ -218,9 +217,9 @@ function MenuMb({
             style={
               selected === 4
                 ? {
-                    height: contentEle4.current.scrollHeight,
-                    overflow: 'visible'
-                  }
+                  height: contentEle4.current.scrollHeight,
+                  overflow: 'auto'
+                }
                 : { height: '0px', overflow: 'hidden' }
             }
           >
@@ -238,7 +237,7 @@ function MenuMb({
           >
             {dataHome?.nav4}
           </Link>
-          <SelectLang lang={lang}/>
+          <SelectLang lang={lang} />
         </div>
         {/* Item 6 */}
         <div className='row-menu'>
@@ -255,9 +254,9 @@ function MenuMb({
             style={
               selected === 5
                 ? {
-                    height: contentEle5.current.scrollHeight,
-                    overflow: 'visible'
-                  }
+                  height: contentEle5.current.scrollHeight,
+                  overflow: 'visible'
+                }
                 : { height: '0px', overflow: 'hidden' }
             }
           >
