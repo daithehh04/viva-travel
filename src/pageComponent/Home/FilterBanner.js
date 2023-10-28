@@ -164,7 +164,7 @@ function FilterBanner({ lang, dataFilter, onClose }) {
         </div>
 
         <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full pl-0 md:pl-[1.87vw]'>
-          <span className='text-[#9B9B9B] uppercase  max-md:text-[0.875vw] text-[1.875vw] md:block hidden'>{option.style}</span>
+          <span className='text-[#9B9B9B] uppercase  max-md:text-[0.875vw] md:text-[1.875vw] lg:text-[0.875vw] md:block hidden'>{option.style}</span>
           <div className='flex items-center select-mobile max-lg:bg-[#F6F6F6] max-md:h-[10.67vw]'>
             <Image
               src={styleIcon}
@@ -229,7 +229,7 @@ function FilterBanner({ lang, dataFilter, onClose }) {
         </div>
 
         <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full pl-0 md:pl-[1.87vw]'>
-          <span className='text-[#9B9B9B] uppercase  max-md:text-[0.875vw] text-[1.875vw] md:block hidden'>{option.duration}</span>
+          <span className='text-[#9B9B9B] uppercase  max-md:text-[0.875vw] md:text-[1.875vw] lg:text-[0.875vw] md:block hidden'>{option.duration}</span>
           <div className='flex items-center select-mobile max-lg:bg-[#F6F6F6] max-md:h-[10.67vw]'>
             <Image
               src={calendar}
@@ -295,7 +295,7 @@ function FilterBanner({ lang, dataFilter, onClose }) {
         </div>
 
         <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full pl-0 md:pl-[1.87vw]'>
-          <span className='text-[#9B9B9B] uppercase  max-md:text-[0.875vw] text-[1.875vw] md:block hidden'>{option.budget}</span>
+          <span className='text-[#9B9B9B] uppercase  max-md:text-[0.875vw] md:text-[1.875vw] lg:text-[0.875vw] md:block hidden'>{option.budget}</span>
           <div className='flex items-center select-mobile max-lg:bg-[#F6F6F6] max-md:h-[10.67vw]'>
             <Image
               src={wallet}

@@ -262,21 +262,21 @@ function MenuMb({
           >
             <Link
               href='/about-us/who-we-are'
-              className='text-[2.2vw] text-textColor opacity-70 uppercase'
+              className='text-[2.667vw] text-textColor opacity-70 uppercase'
               onClick={onCloseMenu}
             >
               {titleAboutUs?.whoWeAre}
             </Link>
             <Link
               href='/about-us/responsible-travel'
-              className='text-[2.2vw] text-textColor opacity-70 uppercase'
+              className='text-[2.667vw] text-textColor opacity-70 uppercase'
               onClick={onCloseMenu}
             >
               {titleAboutUs?.ResTravel}
             </Link>
             <Link
               href='/about-us/reviews'
-              className='text-[2.2vw] text-textColor opacity-70 uppercase'
+              className='text-[2.667vw] text-textColor opacity-70 uppercase'
               onClick={onCloseMenu}
             >
               {titleAboutUs?.AboutUs}
