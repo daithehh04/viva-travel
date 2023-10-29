@@ -96,8 +96,8 @@ async function index({ lang, slug }) {
     country: newArrDataTaxonomiesCountry
   }
 
-  if (!dataCountry?.data?.countries?.translation) {
-    <NotFound lang={lang}/>
+  if (!data) {
+    return <NotFound lang={lang}/>
   }
   return (
     <div>
