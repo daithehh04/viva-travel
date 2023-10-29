@@ -99,11 +99,11 @@ function Banner({ data, dataFilter, lang }) {
       <div className='bg-overlayBanner absolute right-0 h-[100vh] w-[47.93vw] top-0 z-[2] md:block hidden'></div>
       <div className='bg-overlayBanner2 absolute w-full md:h-[12.4375vw] h-[26.13333vw] bottom-0 z-[3]'></div>
       <div className='flex flex-col relative z-10 md:pl-[8.13vw] md:pt-0 pt-[27.73vw] md:pr-0 px-[4.27vw]'>
-        <h2 className='font-optima text-white md:text-[2.875vw] text-[5.86667vw] capitalize font-semibold leading-[120%] md:w-[37vw] mb-[6.13vw] md:mb-[2.5vw]'>
+        <h2 className='font-optima text-white md:text-[2.875vw] text-[5.86667vw] capitalize font-semibold leading-[120%] md:w-[37vw] mb-[6.13vw] md:mb-[2.5vw] mt-[3vw]'>
           {dataBanner?.heading}
         </h2>
 
-        <p className='text-white xl:text-[1vw] md:text-[2.5vw] text-[3.73333vw] leading-[1.5] md:mb-[1vw] mb-[2.13333vw]'>
+        <p className='text-white xl:text-[1vw] md:text-[1.5vw] text-[3.73333vw] leading-[1.5] md:mb-[1vw] mb-[2.13333vw]'>
           {dataBanner?.nationalchoice}
         </p>
         <FormControl
