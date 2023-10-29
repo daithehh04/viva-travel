@@ -37,9 +37,7 @@ function Banner({ data, dataFilter, lang }) {
   })
 
   const handleCheck = function () {
-    if(nationality === "" || country === "") {
-      // console.log('choose country');
-    } else {
+    if(nationality !== "" && country !== "") {
       setIsLoading(true)
       setTimeout(() => {
         setIsLoading(false);
@@ -65,7 +63,7 @@ function Banner({ data, dataFilter, lang }) {
           setDataB(data)
         }
       }, 1500);
-    }
+    } 
   }
   const dataBanner = data?.checkvisa?.banner
   let textCountry = 'Country'
