@@ -25,12 +25,12 @@ function Infomation({ data, lang, dataBookTour }) {
   })
   const onlySmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
 
-  let choose = 'Choose country !!!'
+  let choose = 'Not found information about this country !!!'
   if(lang === 'fr') {
-    choose = 'choisissez un pays !!!'
+    choose = 'Aucune information trouvée sur ce pays !!!'
   } 
   if(lang === 'it') {
-    choose = 'scegli il paese !!!'
+    choose = 'Non sono state trovate informazioni su questo paese !!!'
   }
 
   return (
@@ -52,7 +52,7 @@ function Infomation({ data, lang, dataBookTour }) {
               className='object-cover z-[-1]'
             />
             <div
-              className='flex flex-col md:w-[62.1875vw] md:mt-[6.13vw] checkVisa-info'
+              className='flex flex-col md:w-[62.1875vw] checkVisa-info'
               dangerouslySetInnerHTML={{ __html: `${dataB?.contentVisa}` }}
             ></div>
 
