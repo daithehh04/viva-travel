@@ -47,7 +47,7 @@ function TourItem({ data, menu, lang, loading, className, onCloseMenu }) {
             alt={alt}
             className='h-full object-cover w-full md:rounded-[1vw] rounded-[2.75vw] img-tour'
           />
-          {bestTour ? <span className='absolute top-[1vw] left-[1.5vw] tag-best_tour text-[0.75vw] w-max px-[1vw] py-[0.5vw] text-[#2b2b2b] bg-primaryColor block max-md:text-[2.667vw] max-md:px-2'>{tag}</span> : ""}
+          {bestTour ? <span className='absolute top-[1vw] left-[1.5vw] tag-best_tour text-[calc(0.75vw+0.15rem)] w-max px-[1vw] py-[0.5vw] text-[#2b2b2b] font-[500] bg-primaryColor block max-md:text-[2.667vw] max-md:px-2'>{tag}</span> : ""}
         </div>
       ) : (
         <Skeleton

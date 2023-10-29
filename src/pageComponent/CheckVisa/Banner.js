@@ -7,11 +7,12 @@ import { CHECK_VISA } from '@/graphql/checkVisa/queries'
 import { useQuery } from '@apollo/client'
 import { useData } from './DataContext'
 import scrollDown from '@/helpers/scrollDown'
+import Loading from '@/components/Common/Loading'
 function Banner({ data, dataFilter, lang }) {
   const [nationality, setNationality] = useState('')
   const [country, setCountry] = useState('')
   const { dataB, setDataB } = useData(null)
-
+  const [isLoading, setIsLoading] = useState(false);
   const refScroll = useRef()
   const theme = createTheme({
     breakpoints: {
@@ -36,31 +37,50 @@ function Banner({ data, dataFilter, lang }) {
   })
 
   const handleCheck = function () {
-    scrollDown(refScroll,'start')
-    if (dataVisa) {
-      var dataCheckVisa = dataVisa?.data?.allVisa?.nodes
-    }
-    if (dataCheckVisa) {
-      const isFreeVisa = dataCheckVisa[0]?.checkVisa?.freeVisa
-      if (isFreeVisa?.toLowerCase() === 'no') {
-        var contentVisa = dataCheckVisa[0]?.checkVisa?.content
-      }
-      if (isFreeVisa?.toLowerCase() === 'yes') {
-        var descVisa = dataCheckVisa[0]?.checkVisa?.desc
-        var titleVisa = dataCheckVisa[0]?.checkVisa?.title
-      }
-      const data = {
-        isFreeVisa,
-        contentVisa,
-        descVisa,
-        titleVisa
-      }
-      setDataB(data)
+    if(nationality === "" || country === "") {
+      // console.log('choose country');
+    } else {
+      setIsLoading(true)
+      setTimeout(() => {
+        setIsLoading(false);
+        scrollDown(refScroll,'start')
+        if (dataVisa) {
+          var dataCheckVisa = dataVisa?.data?.allVisa?.nodes
+        }
+        if (dataCheckVisa) {
+          const isFreeVisa = dataCheckVisa[0]?.checkVisa?.freeVisa
+          if (isFreeVisa?.toLowerCase() === 'no') {
+            var contentVisa = dataCheckVisa[0]?.checkVisa?.content
+          }
+          if (isFreeVisa?.toLowerCase() === 'yes') {
+            var descVisa = dataCheckVisa[0]?.checkVisa?.desc
+            var titleVisa = dataCheckVisa[0]?.checkVisa?.title
+          }
+          const data = {
+            isFreeVisa,
+            contentVisa,
+            descVisa,
+            titleVisa
+          }
+          setDataB(data)
+        }
+      }, 1500);
     }
   }
   const dataBanner = data?.checkvisa?.banner
+  let textCountry = 'Country'
+  let choose = 'Please choose country !!!'
+  if(lang === 'fr') {
+    textCountry = 'Pays'
+    choose === 'Veuillez choisir un pays !!!'
+  }
+  if(lang === 'it') {
+    textCountry = 'Paese'
+    choose='Per favore scegli il paese !!!'
+  }
+
   return (
-    <div>
+    <div className='relative'>
       <div className='md:h-[100vh] h-[216.53333vw] visaBanner relative flex md:items-center'>
       <Image
         alt='banner'
@@ -100,16 +120,38 @@ function Banner({ data, dataFilter, lang }) {
             }
           }}
         >
-          <Select value={nationality} onChange={handleChangeNation} className='text-white' displayEmpty>
-            <MenuItem value=''>
-              <span className='xl:text-[1vw] md:text-[1.5vw] text-[3.73333vw] leading-[1.5] '>Country</span>
+          <Select value={nationality} 
+            onChange={handleChangeNation} 
+            className='text-white' 
+            displayEmpty
+            sx={{
+              '& .MuiSelect-outlined': {
+                padding: '0.7rem'
+              }
+            }}
+            >
+            <MenuItem value=''
+              sx={{
+                '&.Mui-selected': {
+                  background: 'rgba(255, 210, 32, 0.7)'
+                }
+              }}
+            >
+              <span className='xl:text-[1vw] md:text-[1.5vw] text-[3.73333vw] leading-[1.5] '>{textCountry}</span>
             </MenuItem>
             {dataFilter?.countryFrom?.map((item, index) => (
-              <MenuItem value={item?.slug} key={index}>
+              <MenuItem value={item?.slug} key={index}
+              sx={{
+                '&.Mui-selected': {
+                  background: 'rgba(255, 210, 32, 0.7)'
+                }
+              }}
+              >
                 <span className='xl:text-[1vw] md:text-[1.5vw] text-[3.73333vw] leading-[1.5] '>{item?.name}</span>
               </MenuItem>
             ))}
           </Select>
+          {nationality === "" && <p className='mt-1 text-[#de0b0be6] text-[calc(0.5vw+0.5rem)]'>{choose}</p>}
         </FormControl>
         <p className='text-white xl:text-[1vw] md:text-[1.5vw] text-[3.73333vw] leading-[1.5] md:mb-[1vw] md:mt-[1.5vw] mb-[2.13333vw] mt-[6.4vw]'>
           {dataBanner?.countrychoice}
@@ -126,20 +168,42 @@ function Banner({ data, dataFilter, lang }) {
             }
           }}
         >
-          <Select onChange={handleChangeCountry} value={country} className='text-white' displayEmpty>
-            <MenuItem value=''>
+          <Select 
+            sx={{
+              '& .MuiSelect-outlined': {
+                padding: '0.7rem'
+              }
+            }}
+            onChange={handleChangeCountry} 
+            value={country} 
+            className='text-white' 
+            displayEmpty>
+            <MenuItem value=''
+              sx={{
+                '&.Mui-selected': {
+                  background: 'rgba(255, 210, 32, 0.7)'
+                }
+              }}
+            >
               <span className='xl:text-[1vw] md:text-[1.5vw] text-[3.73333vw]   leading-[1.5] '>
-                Country
+                {textCountry}
               </span>
             </MenuItem>
             {dataFilter?.countryTo?.map((item, index) => (
-              <MenuItem value={item?.slug} key={index}>
+              <MenuItem value={item?.slug} key={index}
+              sx={{
+                '&.Mui-selected': {
+                  background: 'rgba(255, 210, 32, 0.7)'
+                }
+              }}
+              >
                 <span className='xl:text-[1vw] md:text-[1.5vw] text-[3.73333vw]  leading-[1.5] '>
                   {item?.name}
                 </span>
               </MenuItem>
             ))}
           </Select>
+          {country === "" && <p className='mt-1 text-[#de0b0be6] text-[calc(0.5vw+0.5rem)]'>{choose}</p>}
         </FormControl>
 
         <Button
@@ -150,8 +214,14 @@ function Banner({ data, dataFilter, lang }) {
             {dataBanner?.button}
           </span>
         </Button>
+        </div>
       </div>
-    </div>
+      {isLoading && 
+      <div className='fixed inset-0 z-50' style={{background: 'rgba(255,255,255,0.5)'}}>
+        <div className='flex items-center justify-center w-full h-full text-center'>
+          <Loading/>
+        </div>
+      </div>}
     <div ref={refScroll}></div>
     </div>
   )
