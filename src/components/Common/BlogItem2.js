@@ -21,12 +21,12 @@ function BlogItem2({ className, data, lang, isHomePage }) {
             alt={data?.featuredImage?.node?.altText || 'img blog'}
             className='md:h-[19.0625vw] h-[81.33333vw] md:w-full w-[74.93333vw] object-cover md:rounded-[1vw] rounded-[2.13333vw] img-blog_2'
           />
-          <span className='absolute md:top-[1.62vw] top-[6.93vw] md:left-[-0.375vw] left-[-1.375vw] md:px-[1vw] md:py-[0.25vw] py-[1.07vw] px-[4.27vw] bg-[#FFD220] md:text-[0.75vw] text-[2.66667vw] font-[500] rounded-r-[0.25vw] tip-review'>
+          <span className='absolute md:top-[1.62vw] top-[6.93vw] md:left-[-0.375vw] left-[-1.375vw] md:px-[1vw] md:py-[0.25vw] py-[1.07vw] px-[4.27vw] bg-[#FFD220] md:text-[1vw] lg:text-[0.75vw] text-[2.66667vw] font-[500] rounded-r-[0.25vw] tip-review'>
             {data?.blogdetail?.subtitle1}
           </span>
         </div>
         <div className='absolute bottom-0 md:pb-[1vw] pb-[5.3vw] md:pl-[1.13vw] pl-[4.8vw] md:pr-[2vw] pr-[2.4vw] info'>
-          <div className='flex items-center gap-x-[0.64vw] md:mb-0 mb-[1vw]'>
+          <div className='flex items-center gap-x-[0.64vw] md:mb-0 mb-[1vw] md:mt-[0.78vw]'>
             <Image
               src={calendarY}
               width={300}
@@ -41,7 +41,7 @@ function BlogItem2({ className, data, lang, isHomePage }) {
           <h4 className='line-clamp-2'>
             <a
               className='text-[1vw] max-md:text-[3.73333vw] font-[700] leading-[1.4] mt-[0.47vw] max-md:mt-[2.4vw] text-[#fff] title 
-            max-lg:leading-[0.2px]'
+            '
             >
               {data?.title}
             </a>

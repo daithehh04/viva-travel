@@ -20,7 +20,10 @@
 }
 .item-blog_2 {
   .title {
-    display: inline;
+    @media screen and (min-width: 1024px) {
+      display: inline;
+    }
+    display: block;
     position: relative;
     transition: background-size 350ms;
     background: linear-gradient(0deg, $colorPrimary, $colorPrimary) no-repeat right bottom/0 1px;
