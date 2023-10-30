@@ -97,7 +97,7 @@ async function index({ lang, slug }) {
   }
 
   if (!data) {
-    return <NotFound lang={lang}/>
+    return <NotFound lang={lang} />
   }
   return (
     <div>
@@ -112,7 +112,7 @@ async function index({ lang, slug }) {
         slug={slug}
         lang={lang}
       />
-      <SectionActions />
+      <SectionActions listActions={data?.country?.icons} />
       <SlideDestination
         // data={dataOtherTrip?.data?.allTours?.nodes}
         data={dataBestSeller?.data?.allTours?.nodes}

@@ -28,13 +28,13 @@ const Placeholder = ({ item, icon }) => (
   </div>
 )
 
-export default function OptionBudget({ icon, list, defaultValue, onSelect}) {
+export default function OptionBudget({ icon, list, defaultValue, onSelect }) {
   const [personName, setPersonName] = useState('Budget')
   useEffect(() => {
-    if(defaultValue) {
+    if (defaultValue) {
       setPersonName(defaultValue)
     }
-  },[defaultValue])
+  }, [defaultValue])
   const handleChange = (event) => {
     const {
       target: { value }
@@ -79,7 +79,7 @@ export default function OptionBudget({ icon, list, defaultValue, onSelect}) {
                 src={icon}
                 alt='Money Image'
               />
-              <span className='px-2 py-[0.25vw] text-[0.875vw] font-normal'>Budget</span>
+              <span className='px-2 py-[0.25vw] md:text-[0.875vw] text-[3.73vw] font-normal'>Budget</span>
             </div>
           </MenuItem>
           {list?.map((item) => (
