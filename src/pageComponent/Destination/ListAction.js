@@ -6,6 +6,8 @@ function ListAction({ icon, title, desc }) {
       <Image
         src={icon}
         alt='icon'
+        width={100}
+        height={100}
         className='md:w-[5vw] md:h-[5vw] w-[12.8vw] h-[12.8vw]'
       />
       <span className='text-[#171717] text-center font-manrope md:text-[1.25vw] text-[3.2vw] font-extrabold leading-[150%] mt-[1.5vw] '>
