@@ -128,6 +128,11 @@ query ($language: LanguageCodeEnum!) {
       nodes{
         translation(language:$language){
           slug
+          bestSeller {
+            nodes {
+              name
+            }
+          }
           tourDetail {
             priceTour
               banner {
