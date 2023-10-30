@@ -52,7 +52,7 @@ function TravelStyle({ data, title, desc, lang }) {
           {title}
         </h2>
         <p
-          className='w-[36vw] text-[1.125vw] text-textColor text-justify opacity-80 leading-normal max-lg:text-[1.6vw]'
+          className='w-[36vw] text-[1.125vw] text-textColor text-justify opacity-80 leading-normal max-lg:text-[1.6vw] mt-[1.06vw] max-md:hidden'
           data-aos-once='true'
           data-aos-disabled='true'
           data-aos='fade-up'
