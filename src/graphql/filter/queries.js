@@ -55,7 +55,6 @@ const DATA_BEST_TOUR = gql`
       nodes {
         translation(language: $language) {
           id
-          excerpt
           title
           slug
           bestSeller {

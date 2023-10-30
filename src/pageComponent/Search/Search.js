@@ -222,7 +222,7 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
                 loading={loading}
               />
             ) : (
-              <OtherTours lang={lang} />
+              <OtherTours lang={lang} searchInfo={searchInfo}/>
             )}
           </div>
         }
