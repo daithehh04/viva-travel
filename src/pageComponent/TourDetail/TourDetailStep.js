@@ -23,7 +23,7 @@ export default function TourDetailStep({ data: tourDetailData,iconsDefault }) {
     <>
       <div>
         {tourDetailData?.map((tour, indexTour) => {
-          let icons = tour?.icons
+          let icons = iconsDefault2?.concat(tour?.icons)
           return (
             <div
               className='mb-[2.13vw] md:mb-[0]'
