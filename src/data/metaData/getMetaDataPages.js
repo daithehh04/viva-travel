@@ -8,7 +8,7 @@ async function getMetaDataPages(query, lang) {
       query: query,
       variables: { language: lang?.toUpperCase() }
     }),
-    // next: { revalidate: 120 }
+    next: { revalidate: 120 }
   })
   if (!res.ok) {
     throw new Error('Failed to fetch data')

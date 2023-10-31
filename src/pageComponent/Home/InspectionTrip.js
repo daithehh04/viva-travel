@@ -14,7 +14,6 @@ function InspectionTrip({ data, lang, dataSlide }) {
   const handleNextSlide = () => {
     swiperRef.current?.slideNext()
   }
-  handleNextSlide()
 
   const handlePrevSlide = () => {
     swiperRef.current?.slidePrev()
@@ -63,7 +62,7 @@ function InspectionTrip({ data, lang, dataSlide }) {
           }}
           className='relative flex flex-col'
         >
-          {dataSlide?.map((item, index) => {
+          {dataSlide?.concat(dataSlide)?.concat(dataSlide)?.map((item, index) => {
             return (
               <SwiperSlide key={index}>
                 {({ isActive }) => (
