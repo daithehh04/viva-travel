@@ -12,7 +12,7 @@ import TravelStyleMb from './TravelStyle/TravelStyleMb'
 import AboutVideo from '@/components/Common/Video'
 import OurBlogHomePage from '@/components/Common/OurBlogHomePage'
 import AOS from 'aos'
-
+import { GET_DATA_iNSEPECT } from '@/graphql/home/queries'
 import { useQuery } from '@apollo/client'
 import { DATA_BEST_TOUR_HOME_PAGE } from '@/graphql/filter/queries'
 export default function Home({
@@ -23,7 +23,9 @@ export default function Home({
   nextStep,
   dataTaxonomiesBudget,
   dataTaxonomiesDuration,
-  dataBookTour
+  dataBookTour,
+  arrayDesInit,
+  arrayCateInit
 }) {
 
   const arrDataTaxonomiesBudget = dataTaxonomiesBudget?.data?.allBudget?.nodes
@@ -47,6 +49,14 @@ export default function Home({
     }
   })
 
+  const language = lang?.toUpperCase() || 'EN'
+  const res = useQuery(GET_DATA_iNSEPECT, {
+    variables: {
+      language: language,
+      categorySlug: arrayCateInit,
+      destinationSlug: arrayDesInit
+    }
+  })
 
   const loading = dataBestToursHomePage?.loading
   var allTours = dataBestToursHomePage?.data?.allTours?.nodes
@@ -154,6 +164,7 @@ export default function Home({
         <div className='trip-wrapper'>
           <InspectionTrip
             data={inspection}
+            dataSlide={res?.data?.posts?.nodes}
             lang={lang}
           />
         </div>

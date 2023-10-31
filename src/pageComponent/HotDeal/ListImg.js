@@ -7,7 +7,7 @@ import { useState } from 'react'
 export default function Listimg({ data, video }) {
   const [isPlay, setIsPlay] = useState(false)
   return (
-    <div className='md:px-[2vw] px-[5vw] md:py-[2vw] py-[8vw] w-full h-full bg-white border-none'>
+    <div className='md:px-[2vw] px-[5vw] md:py-[2vw] pt-[17vw] pb-[8vw] w-full h-full bg-white border-none'>
       <div className='max-h-full overflow-y-scroll hidden-scroll'>
         <div className='w-full h-full md:flex flex-wrap grid grid-rows-3 grid-cols-2 gap-[4.27vw]'>
           <TourDetailVideo

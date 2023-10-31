@@ -30,18 +30,18 @@ export default function OptionCustomer({ icon, list, defaultValue, onSelect }) {
 
   const [personName, setPersonName] = useState(placeholderDefault)
   useEffect(() => {
-    if(defaultValue) {
+    if (defaultValue) {
       var nameV = list?.filter(item => item.slug === defaultValue)
       var nameDef = nameV[0]?.name
       setPersonName(nameDef)
     }
-  },[list,defaultValue])
+  }, [list, defaultValue])
 
   const handleChange = (event) => {
     const {
       target: { value }
     } = event
-    if(value === placeholderDefault) {
+    if (value === placeholderDefault) {
       // console.log(value, placeholderDefault)
       setPersonName(value)
       onSelect(null)
@@ -90,7 +90,7 @@ export default function OptionCustomer({ icon, list, defaultValue, onSelect }) {
                 src={icon}
                 alt='Money Image'
               />
-              <span className='px-2 py-[0.25vw] text-[0.875vw] font-normal'>{placeholderDefault}</span>
+              <span className='px-2 py-[0.25vw] text-[0.875vw] font-normal max-md:text-[3.73vw]'>{placeholderDefault}</span>
             </div>
           </MenuItem>
           {list?.map((item) => (

@@ -1,3 +1,4 @@
+import { gql } from '@apollo/client'
 const DATA_HEADER = `
 query homePage($id:ID!){
     page (id: $id) {
@@ -407,4 +408,67 @@ const GET_INFO_CONTACT = `query getInfoContact($language: LanguageCodeEnum!) {
     }
   }
 }`
-export { DATA_HEADER, GET_HOME_PAGE, GET_NEXT_STEP, GET_FOOTER, GET_META_DATA, GET_SOCIAL_MOBILE, GET_INFO_CONTACT }
+
+const GET_DATA_iNSEPECT = gql`query getDataInsepect(
+    $language: LanguageCodeEnum!
+    $categorySlug: [String!] 
+    $destinationSlug: [String!]
+  ) {
+  posts(
+    where: {
+      taxQuery:
+      {
+        taxArray: [{ taxonomy: CATEGORY, operator: IN, terms: $categorySlug, field: SLUG },
+        { taxonomy: DESTINATION, operator: IN, terms: $destinationSlug, field: SLUG }]
+      }
+  }
+  ) {
+    nodes {
+      translation(language: $language) {
+        id
+        title
+        slug
+        featuredImage{
+          node{
+            sourceUrl
+          }
+        }
+        blogdetail {
+          heading
+          time
+        }
+        categories {
+          nodes {
+            name
+          }
+        }
+        destination {
+          nodes{
+            name
+          }
+        }
+      }
+    }
+  }
+}`
+
+const GET_INITIAL_FILTER = `
+query($language : LanguageCodeFilterEnum!){
+  allDestination (where:{language: $language}){
+    nodes{
+      taxonomyName
+      slug
+      name
+    }
+  }
+  
+  categories (where:{language: $language}){
+    nodes{
+      taxonomyName
+      slug
+      name
+    }
+  }
+}
+`
+export { DATA_HEADER, GET_HOME_PAGE, GET_NEXT_STEP, GET_FOOTER, GET_META_DATA, GET_SOCIAL_MOBILE, GET_INFO_CONTACT, GET_DATA_iNSEPECT, GET_INITIAL_FILTER }
