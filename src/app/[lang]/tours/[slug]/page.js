@@ -57,7 +57,7 @@ export default async function page({ params: { lang, slug } }) {
   const result2 = await getRelatedTour(country, 'COUNTRIES', lang)
   const relatedTours = result2?.data?.allTours?.nodes?.filter((item) => item?.translation?.id !== tourId)
   if (!tourId) {
-    <NotFound lang={lang} />
+    return <NotFound lang={lang} />
   }
   return (
     <TourDetail
