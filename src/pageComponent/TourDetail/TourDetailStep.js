@@ -3,7 +3,8 @@ import Image from 'next/image'
 import { useState } from 'react'
 import SlideDayTour from './SlideDayTour'
 
-export default function TourDetailStep({ data: tourDetailData }) {
+export default function TourDetailStep({ data: tourDetailData,iconsDefault }) {
+  const iconsDefault2 = iconsDefault
   let arrImg = []
   const [album, setAlbum] = useState([])
   const [open, setOpen] = useState(false)
@@ -22,7 +23,7 @@ export default function TourDetailStep({ data: tourDetailData }) {
     <>
       <div>
         {tourDetailData?.map((tour, indexTour) => {
-          const icons = tour?.icons
+          let icons = tour?.icons
           return (
             <div
               className='mb-[2.13vw] md:mb-[0]'

@@ -9,12 +9,13 @@ import calendarIcon from '@/assets/images/calendarY.svg'
 import restaurantIcon from '@/assets/images/restauY.svg'
 
 function InspectionTrip({ data, lang, dataSlide }) {
-  console.log(dataSlide);
+  // console.log(dataSlide);
   const [indexSlider, setIndexSlider] = useState(0)
   const swiperRef = useRef()
   const handleNextSlide = () => {
     swiperRef.current?.slideNext()
   }
+  handleNextSlide()
 
   const handlePrevSlide = () => {
     swiperRef.current?.slidePrev()

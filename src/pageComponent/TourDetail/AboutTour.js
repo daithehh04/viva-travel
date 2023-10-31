@@ -472,7 +472,8 @@ export default function AboutTour(props) {
               <h4 className='tour-detail-header'>03 - {contentHeader?.sectionHeader?.tourDetailedHeader}</h4>
               <TourDetailStep
                 data={tourDetailed?.content}
-                icons={banner?.icons}
+                // icons={banner?.icons}
+                iconsDefault = {contentHeader?.icons}
               />
             </div>
 
