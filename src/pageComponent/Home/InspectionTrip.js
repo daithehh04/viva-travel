@@ -9,7 +9,6 @@ import calendarIcon from '@/assets/images/calendarY.svg'
 import restaurantIcon from '@/assets/images/restauY.svg'
 
 function InspectionTrip({ data, lang, dataSlide }) {
-  console.log(dataSlide);
   const [indexSlider, setIndexSlider] = useState(0)
   const swiperRef = useRef()
   const handleNextSlide = () => {
@@ -50,7 +49,7 @@ function InspectionTrip({ data, lang, dataSlide }) {
               loop: true
             }
           }}
-          initialSlide={Math.floor(data?.slideTrip?.length / 2)}
+          initialSlide={Math.floor(dataSlide?.length / 2)}
           slidesPerView={1.2}
           spaceBetween={0}
           loop={true}
@@ -64,22 +63,10 @@ function InspectionTrip({ data, lang, dataSlide }) {
           className='relative flex flex-col'
         >
           {dataSlide?.map((item, index) => {
-            // const checkBestTour = item?.bestSeller?.nodes
-            // let bestTour = false
-            // if (checkBestTour?.length > 0) {
-            //   bestTour = true
-            // }
-            // let tag = 'Best Tour'
-            // if (lang === 'fr') {
-            //   tag = 'Meilleur vendeur'
-            // }
-            // if (lang === 'it') {
-            //   tag = 'Miglior venditore'
-            // }
             return (
               <SwiperSlide key={index}>
                 {({ isActive }) => (
-                  <Link href={`/${lang}/${item?.slug}`}>
+                  <Link href={`/${lang}/${item?.translation?.slug}`}>
                     <div className='h-[28.75vw] rounded-[1vw] itemSlideTrip tour-item max-md:rounded-[2.13vw] relative max-md:h-[53.33vw] max-md:ml-[3.2vw]'>
                       <div className='w-full h-full'>
                         <Image
@@ -95,7 +82,7 @@ function InspectionTrip({ data, lang, dataSlide }) {
                         />
                       </div>
                       <div className='info absolute bottom-0 px-[2vw] pb-[2vw] max-md:pb-[4.13vw] max-md:px-[4vw] z-10'>
-                        <a className='text-[1.5vw] title-tour text-[#fff] font-bold leading-[1.3] tracking-[-0.03rem] w-[20.3125vw] max-md:text-[2.93vw] max-md:w-[61.33vw] max-lg:text-[1.6vw]'>
+                        <a className='text-[1.5vw] title-tour text-[#fff] line-clamp-2 font-bold leading-[1.3] tracking-[-0.03rem] w-[20.3125vw] max-md:text-[2.93vw] max-md:w-[61.33vw] max-lg:text-[1.6vw]'>
                           {item?.translation?.title}
                         </a>
                         <div className='flex items-center gap-x-[1.19vw] mt-[1.03vw] max-md:gap-x-[4.27vw] max-md:mt-[1.6vw]'>

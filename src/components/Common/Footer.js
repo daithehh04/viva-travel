@@ -11,7 +11,6 @@ async function Footer({ lang }) {
   const footerData = data?.data?.page?.translation?.home?.footer
   const logoPartner = footerData?.logoPartner
   const col1 = footerData?.column1
-  console.log();
   const col2 = footerData?.column2
   const col3 = footerData?.column3
   const col4 = footerData?.column4

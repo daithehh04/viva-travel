@@ -20,6 +20,8 @@ import {
 import { GET_ALL_REVIEWS } from '@/graphql/customersReview/queries'
 import { notFound } from 'next/navigation'
 import NotFound from '@/components/Common/NotFound'
+import { DATA_ICONS_COUNTRY } from '@/graphql/country/queries'
+import getDataDetail from '@/data/getDataDetail'
 async function index({ lang, slug }) {
   const dataCountry = await getDataWithTaxonomy(
     {
@@ -27,6 +29,10 @@ async function index({ lang, slug }) {
       lang: lang?.toUpperCase()
     },
     DATA_COUNTRY
+  )
+
+  const dataIcons = await getDataDetail(lang?.toUpperCase(),
+    "cG9zdDozMDQ1", DATA_ICONS_COUNTRY
   )
   // const dataOtherTrip = await getDataWithTaxonomy(
   //   {
@@ -112,7 +118,7 @@ async function index({ lang, slug }) {
         slug={slug}
         lang={lang}
       />
-      <SectionActions listActions={data?.country?.icons} />
+      <SectionActions listActions={dataIcons?.data?.page?.translation} />
       <SlideDestination
         // data={dataOtherTrip?.data?.allTours?.nodes}
         data={dataBestSeller?.data?.allTours?.nodes}
