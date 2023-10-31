@@ -49,13 +49,7 @@ query getInfoCountry($taxonomyValue: ID!,$language: LanguageCodeEnum!) {
           nameCountry
           text
         }
-        icons {
-          img {
-            sourceUrl
-          }
-          name
-          desc
-        }
+        
         blogs {
           ... on Post {
             title
@@ -76,6 +70,21 @@ query getInfoCountry($taxonomyValue: ID!,$language: LanguageCodeEnum!) {
   }
 }
 `
+const DATA_ICONS_COUNTRY = `query($language: LanguageCodeEnum!){
+  page(id:"cG9zdDozMDQ1" idType:ID){
+    translation(language:$language){
+      travelStyle{
+        icons{
+          image{
+            sourceUrl
+          }
+          name
+          desc
+        }
+      }
+    }
+  }
+}`
 
 const DATA_SLIDE_TOUR = `
 query getTourStyle($language: LanguageCodeEnum!, $taxonomyValue: String, $taxonomyName: TaxonomyEnum) {
@@ -119,7 +128,7 @@ query getTourStyle($language: LanguageCodeEnum!, $taxonomyValue: String, $taxono
     first: 50,
     where: {
       taxQuery: {
-        taxArray: { terms: [$taxonomyValue], taxonomy: $taxonomyName, field: SLUG, operator: NOT_IN }
+        taxArray: { terms: [$taxonomyValue], taxonomy: $taxonomyName, field: SLUG, operator: IN }
         relation: AND
       }
     }
@@ -216,5 +225,6 @@ export {
   DATA_SLIDE_TOUR,
   DATA_SLIDE_OTHER_TOUR,
   GET_META_DATA,
-  GET_DATA_BEST_SELLER_OURTOUR
+  GET_DATA_BEST_SELLER_OURTOUR,
+  DATA_ICONS_COUNTRY
 }

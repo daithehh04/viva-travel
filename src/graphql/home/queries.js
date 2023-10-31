@@ -43,33 +43,7 @@ const GET_HOME_PAGE = `query getHomePageData($id:ID!) {
           }
         }
         inspectionTrip {
-          fieldGroupName
           title
-          slideTrip {
-            ... on Tours {
-              id
-              slug
-              bestSeller {
-                nodes {
-                  name
-                }
-              }
-              tourDetail {
-                priceTour
-                banner {
-                  gallery {
-                    altText
-                    sourceUrl
-                  }
-                  rate
-                  title
-                  location
-                  time
-                  restaurant
-                }
-              }
-            }
-          }
         }
         bestTour {
           fieldGroupName

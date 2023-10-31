@@ -4,7 +4,7 @@ import { Autoplay, FreeMode } from 'swiper/modules'
 
 import Image from 'next/image'
 
-function SlidePartners({ data:slidePartners, reverse }) {
+function SlidePartners({ data: slidePartners, reverse }) {
   const dataSlide = slidePartners?.concat(slidePartners)?.concat(slidePartners)
   return (
     <div className='content'>
@@ -34,17 +34,16 @@ function SlidePartners({ data:slidePartners, reverse }) {
       >
         {dataSlide?.map((item, index) => {
           return (
-              <SwiperSlide className='w-[20%] partner-item' key={index*Math.random()}>
-                <Image 
-                  src={item?.sourceUrl}
-                  width={500}
-                  height={500}
-                  alt='partners'
-                  className={`object-contain w-[13vw] max-md:w-[26.33vw] max-md:h-[14.69vw] ${
-                    reverse ? 'max-md:-scale-125 -scale-90' : 'max-md:scale-125 scale-90'
+            <SwiperSlide className='w-[20%] partner-item' key={index * Math.random()}>
+              <Image
+                src={item?.sourceUrl}
+                width={500}
+                height={500}
+                alt='partners'
+                className={`object-contain w-[13vw] h-[10.2vw] max-md:w-[26.33vw] max-md:h-[14.69vw] ${reverse ? 'max-md:-scale-125 -scale-90' : 'max-md:scale-125 scale-90'
                   }`}
-                />
-              </SwiperSlide>
+              />
+            </SwiperSlide>
           )
         })}
       </Swiper>
