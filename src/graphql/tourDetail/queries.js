@@ -53,10 +53,6 @@ export const GET_TOUR_DETAIL = `query GetTourDetail($slug: ID!, $language: Langu
                 }
                 text
               }
-              gallery {
-                altText
-                sourceUrl
-              }
             }
           }
           inclusionAndExclusion {

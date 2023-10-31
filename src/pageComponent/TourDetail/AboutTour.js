@@ -651,7 +651,7 @@ export default function AboutTour(props) {
 
       {openPopup && (
         <div className='fixed max-md:hidden bg-black bg-opacity-25 backdrop-blur-[4px] w-[100vw] h-[100vh] top-1/2 left-1/2 -translate-x-1/2 z-20 -translate-y-1/2'>
-          <div className='w-[30vw]  top-1/2 left-1/2 -translate-x-1/2 absolute -translate-y-1/2'>
+          <div className='w-[30vw] top-[53%] left-1/2 -translate-x-1/2 absolute -translate-y-1/2'>
             <Image
               src={closeImg}
               alt='close'

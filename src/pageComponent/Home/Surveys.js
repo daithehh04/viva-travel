@@ -39,7 +39,7 @@ function Surveys({ data, button, lang, dataBookTour }) {
             data-aos='fade-up'
             data-aos-disabled='true'
             data-aos-duration='1000'
-            className='mt-[1.5vw] text-[1.125vw] text-textColor opacity-70 leading-[150%] max-md:text-[3.73vw] max-lg:text-[1.6vw]'
+            className='mt-[1.5vw] text-[1.125vw] text-textColor opacity-70 text-justify leading-[150%] max-md:text-[3.73vw] max-lg:text-[1.6vw]'
           >
             {data?.text}
           </p>
@@ -67,10 +67,10 @@ function Surveys({ data, button, lang, dataBookTour }) {
             ))}
           </ul>
           <div
-                data-aos-disabled='true'
-                data-aos-once='true'
-                data-aos='fade-up'
-                data-aos-duration='1000'  className='flex gap-x-[1vw] mt-[3.25vw] max-md:gap-x-[2.67vw] max-md:mt-[8.53vw]'>
+            data-aos-disabled='true'
+            data-aos-once='true'
+            data-aos='fade-up'
+            data-aos-duration='1000' className='flex gap-x-[1vw] mt-[3.25vw] max-md:gap-x-[2.67vw] max-md:mt-[8.53vw]'>
             <div className='flex' ref={refBtnBookTour} onClick={() => setOpenModal(true)}>
               <Button className='btn-primary' content={button?.buttonbooktour}><span>{button?.buttonbooktour}</span>
               </Button>
@@ -108,7 +108,7 @@ function Surveys({ data, button, lang, dataBookTour }) {
           </div>
         </ModalCustom>
       )}
-       <div className='absolute bottom-0 w-full h-[10vw]' style={{background: 'linear-gradient(0deg, #FFF 0%, rgba(255, 255, 255, 0.49) 63.88%, rgba(255, 255, 255, 0.00) 100%)'}}></div>
+      <div className='absolute bottom-0 w-full h-[10vw]' style={{ background: 'linear-gradient(0deg, #FFF 0%, rgba(255, 255, 255, 0.49) 63.88%, rgba(255, 255, 255, 0.00) 100%)' }}></div>
     </div>
   )
 }

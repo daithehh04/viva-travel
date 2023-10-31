@@ -9,7 +9,7 @@ import {
   DATA_TAXONOMIES_DURATION,
   DATA_TAXONOMIES_TOUR_STYLE
 } from '@/graphql/filter/queries'
-import { GET_HOME_PAGE, GET_META_DATA, GET_NEXT_STEP } from '@/graphql/home/queries'
+import { GET_HOME_PAGE, GET_META_DATA, GET_NEXT_STEP, GET_DATA_iNSEPECT, GET_INITIAL_FILTER } from '@/graphql/home/queries'
 import { GET_DATA_FORM_BOOKTOUR } from '@/graphql/formBookTour/queries'
 import getDataFormBookTour from '@/data/formBookTour/getDataFormBookTour'
 
@@ -41,6 +41,20 @@ export default async function page({ params: { lang } }) {
     data = await getDataPage(idFr, GET_HOME_PAGE)
     dataBookTour = await getDataFormBookTour(GET_DATA_FORM_BOOKTOUR, idFrBook, lang)
   }
+  const dataInit = await getDataPost(lang?.toUpperCase(), GET_INITIAL_FILTER)
+
+  const metaDestination = dataInit?.data?.allDestination?.nodes
+  const metaCategories = dataInit?.data?.categories?.nodes
+
+  const arrayDesInit = []
+  const arrayCateInit = []
+
+  metaDestination?.map((des, index) => {
+    arrayDesInit.push(des?.slug)
+  })
+  metaCategories.map((cate, index) => {
+    arrayCateInit.push(cate?.slug)
+  })
 
   const nextStep = await getDataPost(lang, GET_NEXT_STEP)
   const dataTaxonomiesCountry = await getDataPost(lang, DATA_TAXONOMIES_COUNTRY)
@@ -58,6 +72,8 @@ export default async function page({ params: { lang } }) {
         dataTaxonomiesBudget={dataTaxonomiesBudget}
         dataTaxonomiesDuration={dataTaxonomiesDuration}
         dataBookTour={dataBookTour}
+        arrayDesInit={arrayDesInit}
+        arrayCateInit={arrayCateInit}
       />
     </main>
   )

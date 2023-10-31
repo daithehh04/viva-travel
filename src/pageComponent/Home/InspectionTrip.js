@@ -8,7 +8,8 @@ import locationIcon from '@/assets/images/route-square.svg'
 import calendarIcon from '@/assets/images/calendarY.svg'
 import restaurantIcon from '@/assets/images/restauY.svg'
 
-function InspectionTrip({ data, lang }) {
+function InspectionTrip({ data, lang, dataSlide }) {
+  console.log(dataSlide);
   const [indexSlider, setIndexSlider] = useState(0)
   const swiperRef = useRef()
   const handleNextSlide = () => {
@@ -62,41 +63,40 @@ function InspectionTrip({ data, lang }) {
           }}
           className='relative flex flex-col'
         >
-          {data?.slideTrip?.map((item, index) => {
-            const checkBestTour = item?.bestSeller?.nodes
-            let bestTour = false
-            if (checkBestTour?.length > 0) {
-              bestTour = true
-            }
-            let tag = 'Best Tour'
-            if (lang === 'fr') {
-              tag = 'Meilleur vendeur'
-            }
-            if (lang === 'it') {
-              tag = 'Miglior venditore'
-            }
+          {dataSlide?.map((item, index) => {
+            // const checkBestTour = item?.bestSeller?.nodes
+            // let bestTour = false
+            // if (checkBestTour?.length > 0) {
+            //   bestTour = true
+            // }
+            // let tag = 'Best Tour'
+            // if (lang === 'fr') {
+            //   tag = 'Meilleur vendeur'
+            // }
+            // if (lang === 'it') {
+            //   tag = 'Miglior venditore'
+            // }
             return (
               <SwiperSlide key={index}>
                 {({ isActive }) => (
-                  <Link href={`/${lang}/tours/${item?.slug}`}>
+                  <Link href={`/${lang}/${item?.slug}`}>
                     <div className='h-[28.75vw] rounded-[1vw] itemSlideTrip tour-item max-md:rounded-[2.13vw] relative max-md:h-[53.33vw] max-md:ml-[3.2vw]'>
                       <div className='w-full h-full'>
                         <Image
                           src={
-                            item?.tourDetail?.banner?.gallery
-                              ? item?.tourDetail?.banner?.gallery[0]?.sourceUrl
+                            item?.translation?.featuredImage?.node?.sourceUrl
+                              ? item?.translation?.featuredImage?.node?.sourceUrl
                               : 'https://viva-cms.okhub.tech/wp-content/uploads/2023/09/blogDetail_Banner.png'
                           }
                           width={1000}
                           height={500}
-                          alt={item?.tourDetail?.banner?.gallery[0]?.altText || item?.tourDetail?.banner?.gallery[0]?.title || 'img-tour'}
+                          alt={item?.translation?.featuredImage?.node?.altText || 'img-tour'}
                           className='rounded-[1vw] max-md:rounded-[2.13vw] h-full w-full object-cover'
                         />
-                        {bestTour ? <span className='absolute md:top-[1vw] md:left-[1.5vw] top-[0.75rem] left-[0.75rem] tag-best_tour md:text-[1.1vw] text-[2.6667vw] font-[500] w-max md:px-[1vw] md:py-[0.5rem] px-[0.5rem] py-[0.25rem] text-[#2b2b2b] bg-primaryColor block'>{tag}</span> : ""}
                       </div>
                       <div className='info absolute bottom-0 px-[2vw] pb-[2vw] max-md:pb-[4.13vw] max-md:px-[4vw] z-10'>
                         <a className='text-[1.5vw] title-tour text-[#fff] font-bold leading-[1.3] tracking-[-0.03rem] w-[20.3125vw] max-md:text-[2.93vw] max-md:w-[61.33vw] max-lg:text-[1.6vw]'>
-                          {item?.tourDetail?.banner?.title}
+                          {item?.translation?.title}
                         </a>
                         <div className='flex items-center gap-x-[1.19vw] mt-[1.03vw] max-md:gap-x-[4.27vw] max-md:mt-[1.6vw]'>
                           {/* Icon 1 */}
@@ -109,7 +109,7 @@ function InspectionTrip({ data, lang }) {
                               className='w-[1.5vw] h-[1.5vw] max-md:w-[3.2vw] max-md:h-[3.2vw] object-cover'
                             />
                             <span className='text-white text-[1.125vw] max-md:text-[2.267vw] leading-[1.3] max-lg:text-[1.4vw]'>
-                              {item?.tourDetail?.banner?.location}
+                              {item?.translation?.destination && item?.translation?.destination?.nodes[0]?.name}
                             </span>
                           </div>
                           {/* Icon 2 */}
@@ -122,7 +122,7 @@ function InspectionTrip({ data, lang }) {
                               className='w-[1.5vw] h-[1.5vw] max-md:w-[3.2vw] max-md:h-[3.2vw] object-cover'
                             />
                             <span className='text-white text-[1.125vw] max-md:text-[2.267vw] leading-[1.3] max-lg:text-[1.4vw]'>
-                              {item?.tourDetail?.banner?.time}
+                              {item?.translation?.blogdetail?.time}
                             </span>
                           </div>
                           {/* Icon 3 */}
@@ -135,7 +135,7 @@ function InspectionTrip({ data, lang }) {
                               className='w-[1.5vw] h-[1.5vw] max-md:w-[3.2vw] max-md:h-[3.2vw] object-cover'
                             />
                             <span className='text-white text-[1.125vw] max-md:text-[2.267vw] leading-[1.3] max-lg:text-[1.4vw]'>
-                              {item?.tourDetail?.banner?.restaurant}
+                              {item?.translation?.categories && item?.translation?.categories?.nodes[0]?.name}
                             </span>
                           </div>
                         </div>
