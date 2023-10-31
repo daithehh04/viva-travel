@@ -50,8 +50,6 @@ dl,
 dt,
 dd,
 ol,
-ul,
-li,
 fieldset,
 form,
 label,
@@ -104,10 +102,6 @@ menu,
 nav,
 section {
   display: block;
-}
-ol,
-ul {
-  list-style: none;
 }
 blockquote,
 q {

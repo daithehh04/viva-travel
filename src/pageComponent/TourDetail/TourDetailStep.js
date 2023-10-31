@@ -35,7 +35,7 @@ export default function TourDetailStep({ data: tourDetailData }) {
                 <div className='lg:text-[1.125vw] md:text-[1.4vw] text-[3.733vw]' dangerouslySetInnerHTML={{ __html: `${tour?.heading}` }}></div>
               </div>
               <div className='lg:text-[1vw] md:text-[1.4vw] text-[3.733vw] leading-normal md:pl-[3.75vw] pl-[5.6vw] md:pb-[3.125vw] md:pt-0 pt-[5.2vw] pb-[8.53vw] md:ml-[1.1875vw] ml-[2.93vw] md:my-[0.75vw] my-[-2vw] border-l border-dashed border-primaryColor flex flex-col md:gap-[1.5vw] gap-[5.6vw]'>
-                <div className='text-justify opacity-80' dangerouslySetInnerHTML={{ __html: `${tour?.desc}` }}></div>
+                <div className='text-justify opacity-80 text-editor' dangerouslySetInnerHTML={{ __html: `${tour?.desc}` }}></div>
                 {/* image */}
                 <div className={`${!tour?.gallery && 'hidden'}`}>
                   {tour?.gallery?.map((img, index) => {

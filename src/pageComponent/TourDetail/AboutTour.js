@@ -438,7 +438,7 @@ export default function AboutTour(props) {
             <div ref={overviewRef}>
               <h4 className='tour-detail-header '>01 - {contentHeader?.sectionHeader?.overviewHeader}</h4>
 
-              <div className='text-textColor lg:text-[1vw] md:text-[14px] text-[3.73vw] text-justify leading-normal opacity-80 flex flex-col md:gap-[0.5vw] gap-[4.27vw]'>
+              <div className='text-textColor lg:text-[1vw] md:text-[14px] text-editor text-[3.73vw] text-justify leading-normal opacity-80 flex flex-col md:gap-[0.5vw] gap-[4.27vw]'>
                 {overview?.map((item, index) => {
                   return (
                     <div
@@ -565,6 +565,7 @@ export default function AboutTour(props) {
             {type !== 'promo' && (
               <Price
                 data={{
+                  lang: lang,
                   button: data?.map?.button,
                   price: { header: bannerHeaders?.priceHeader, value: price }
                 }}
@@ -641,6 +642,7 @@ export default function AboutTour(props) {
       {onlySmallScreen && (
         <PriceMb
           data={{
+            lang : lang,
             button: data?.map?.button,
             price: { header: bannerHeaders?.priceHeader, value: price },
             map: data?.map?.image
