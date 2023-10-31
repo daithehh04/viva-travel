@@ -11,6 +11,14 @@ import imageTest from '@/assets/images/banner-about.png'
 
 export default function PriceMb({ data, onClick }) {
   const [openModal, setOpenModal] = useState(false)
+  const lang = data?.lang
+  let person = 'Person'
+  if(lang === 'fr') {
+    person = 'Personne'
+  }
+  if(lang === 'it') {
+    person = 'Persona'
+  }
   return (
     <div className='fixed bottom-0 left-0 z-[100000]'>
       <div className='w-[16vw] h-[16vw] mb-[4.27vw] ml-[4.27vw] flex items-center justify-center bg-primaryColor rounded-full flex-shrink-0'>
@@ -33,7 +41,7 @@ export default function PriceMb({ data, onClick }) {
             alt={data?.map?.altText}
             width={1000}
             height={1000}
-            className='w-full h-full object-contain rounded-lg'
+            className='object-contain w-full h-full rounded-lg'
           />
         </ModalCustom>
       )}
@@ -41,11 +49,11 @@ export default function PriceMb({ data, onClick }) {
       <div className='px-[4.27vw] pt-[4.2vw] pb-[3.2vw] w-[100vw] bg-[#fff]'>
         <div className='flex justify-between items-center mb-[2.27vw] text-[#171717]'>
           <div className='text-[3.73vw] font-medium'>{data?.price?.header}:</div>
-          <div className='text-[4.26vw] capitalize leading-[1.5] font-bold'>${data?.price?.value}</div>
+          <div className='text-[4.26vw] capitalize leading-[1.5] font-bold'>${data?.price?.value} / {person}</div>
         </div>
 
         <Button
-          className='btn-primary w-full flex justify-center'
+          className='flex justify-center w-full btn-primary'
           onClick={() => onClick()}
         >
           {data?.button}
