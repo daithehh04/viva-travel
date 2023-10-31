@@ -209,16 +209,16 @@ export default function Navbar({
 
   let book = 'Book Tour'
   let hot = 'Hot'
-  let listTour ='Tour List'
-  if(lang === 'fr') {
+  let listTour = 'Tour List'
+  if (lang === 'fr') {
     book = 'Visite guidée'
-    hot ='épicé'
+    hot = 'épicé'
     listTour = 'Liste des tournées'
   }
   if (lang === 'it') {
     book = 'Prenota il tour'
-    hot ='forte'
-    listTour ='Elenco dei tour'
+    hot = 'forte'
+    listTour = 'Elenco dei tour'
   }
 
   return (
@@ -243,7 +243,7 @@ export default function Navbar({
                 className='nav-list max-lg:hidden flex items-center gap-x-[2vw] mr-[6vw]'
                 ref={refMenu}
               >
-                <div className='relative flex-shrink-0'>
+                <div className='relative flex-shrink-0 flex'>
                   <div
                     className='capitalize text-[1vw] nav-link cursor-pointer'
                     menu={dataHome?.nav1}
@@ -257,7 +257,7 @@ export default function Navbar({
                       />
                     </div>
                   </div>
-                  
+
                 </div>
                 <div
                   className='capitalize text-[1vw] nav-link cursor-pointer'
@@ -289,7 +289,7 @@ export default function Navbar({
                       onCloseMenu={handleCloseMenu}
                     />
                   </div>
-                  <span className='icon-hot absolute top-[-12px] right-[-6px] px-[10px] rounded-[99px] bg-primaryColor text-[12px]'>
+                  <span className='icon-hot absolute top-[-0.75vw] right-[-0.375vw] px-[0.625vw] rounded-[99px] bg-primaryColor text-[0.75vw]'>
                     {hot}
                   </span>
                 </Link>
@@ -391,11 +391,10 @@ export default function Navbar({
           />
         </div>
         <div
-          className={`${
-            (pathName.includes('tours') && !pathName.includes('our-tours')) || pathName.includes('hot-deals/')
-              ? 'max-md:hidden'
-              : ''
-          } books-footer h-[15.2vw] fixed bottom-0 left-0 right-0 z-[99] hidden max-md:flex`}
+          className={`${(pathName.includes('tours') && !pathName.includes('our-tours')) || pathName.includes('hot-deals/')
+            ? 'max-md:hidden'
+            : ''
+            } books-footer h-[15.2vw] fixed bottom-0 left-0 right-0 z-[99] hidden max-md:flex`}
         >
           <Link
             href={`/${lang}/search`}

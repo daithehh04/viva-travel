@@ -245,10 +245,10 @@
       transition: all 0.4s ease;
     }
     .swiper-slide.swiper-slide-active {
-      opacity: 1;
+      opacity: 1 !important;
     }
     .swiper-slide.swiper-slide-next {
-      opacity: 1;
+      opacity: 1 !important;
     }
 
     .itemSlideTrip {
