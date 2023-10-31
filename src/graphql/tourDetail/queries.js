@@ -110,6 +110,12 @@ export const GET_TOUR_DETAIL_HEADER = `query ($language: LanguageCodeEnum!) {
             deluxe
             noOfNights
           }
+          icons {
+            img{
+              sourceUrl
+            }
+            text
+          }
           briefTableHeader {
             day
             itinerary

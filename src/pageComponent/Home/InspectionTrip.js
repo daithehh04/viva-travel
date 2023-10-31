@@ -14,6 +14,7 @@ function InspectionTrip({ data, lang, dataSlide }) {
   const handleNextSlide = () => {
     swiperRef.current?.slideNext()
   }
+  handleNextSlide()
 
   const handlePrevSlide = () => {
     swiperRef.current?.slidePrev()
