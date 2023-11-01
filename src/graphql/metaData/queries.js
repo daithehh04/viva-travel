@@ -36,6 +36,4 @@ export const GET_META_DATA_BLOG = `
       }
     }
   }
-}
-
-  `
+}`

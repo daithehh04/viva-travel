@@ -3,7 +3,7 @@
 import { ApolloClient, InMemoryCache, HttpLink } from '@apollo/client'
 const client = new ApolloClient({
   link: new HttpLink({
-    uri: process.env.NEXT_PUBLIC_API || 'https://viva-cms.okhub.tech/graphql',
+    uri: process.env.NEXT_PUBLIC_API,
     headers: {
       'Content-Type': 'application/json'
     },

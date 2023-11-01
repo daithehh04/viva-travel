@@ -150,7 +150,7 @@ export const GET_TOUR_DETAIL_HEADER = `query ($language: LanguageCodeEnum!) {
 
 export const GET_RELATED_TOUR = `query($language: LanguageCodeEnum!, $taxonomyValue: String, $taxonomyName: TaxonomyEnum) {
   allTours(
-    first: 50,
+    first: 100,
     where: {
       taxQuery: {
         taxArray: { terms: [$taxonomyValue], taxonomy: $taxonomyName, field: SLUG, operator: IN }
@@ -161,20 +161,20 @@ export const GET_RELATED_TOUR = `query($language: LanguageCodeEnum!, $taxonomyVa
       translation(language: $language) {
         id
         slug
-          tourDetail {
-            priceTour
-            banner {
-              location
-              rate
+        tourDetail {
+          priceTour
+          banner {
+            location
+            rate
             title
             gallery {
               altText
               sourceUrl
             }
             icons
-            }
           }
         }
+      }
     }
   }
 }`

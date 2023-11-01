@@ -58,13 +58,6 @@ export const GET_REVIEWS = `query ($language: LanguageCodeEnum!) {
             }
           }
           content
-          image {
-            altText
-            sourceUrl
-          }
-          location
-          time
-          title
         }
       }
     }

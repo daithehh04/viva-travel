@@ -4,21 +4,21 @@ const GET_POST = `
     query posts($language: LanguageCodeFilterEnum){
     posts(where: {language: $language}) {
       edges {
-          node {
-              id
-              excerpt
-              title
-              slug
-              featuredImage {
-                node {
-                  sourceUrl
-                }
-              }
-              language {
-                  code
-                  locale
-              }
+        node {
+          id
+          excerpt
+          title
+          slug
+          featuredImage {
+            node {
+              sourceUrl
+            }
           }
+          language {
+              code
+              locale
+          }
+        }
       }
     }
   }

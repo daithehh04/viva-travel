@@ -1,32 +1,32 @@
 const DATA_PAGE = `
 query homePage($id:ID!){
     page (id: $id) {
-        home {
-          header {
-            nav1
-            nav2
-            nav3
-            nav4
-            nav5
-            nav6
-            nav7
-          }
-          banner {
-            text
-            background {
-              sourceUrl
-              altText
-            }
-          }
-          survey {
-            title
-            text
-          }
-          inspectionTrip {
-            title
-          }
+    home {
+      header {
+        nav1
+        nav2
+        nav3
+        nav4
+        nav5
+        nav6
+        nav7
+      }
+      banner {
+        text
+        background {
+          sourceUrl
+          altText
         }
       }
+      survey {
+        title
+        text
+      }
+      inspectionTrip {
+        title
+      }
+    }
+  }
 }
 `
 
@@ -97,17 +97,17 @@ query ($language: LanguageCodeEnum!) {
             }
           }
           tourDetail {
-            priceTour
-              banner {
-                gallery {
-                  sourceUrl
-                }
-                icons
-                location
-                rate
-                title
+          priceTour
+            banner {
+              gallery {
+                sourceUrl
               }
+              icons
+              location
+              rate
+              title
             }
+          }
         }
       }
     }
