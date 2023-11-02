@@ -18,7 +18,6 @@ import {
   DATA_TAXONOMIES_TOUR_STYLE
 } from '@/graphql/filter/queries'
 import { GET_ALL_REVIEWS } from '@/graphql/customersReview/queries'
-import { notFound } from 'next/navigation'
 import NotFound from '@/components/Common/NotFound'
 import { DATA_ICONS_COUNTRY } from '@/graphql/country/queries'
 import getDataDetail from '@/data/getDataDetail'
@@ -50,6 +49,9 @@ async function index({ lang, slug }) {
     },
     DATA_SLIDE_OTHER_TOUR
   )
+  const dataOtherTypeTripNotNull = dataOtherTypeTrip?.data?.allTours?.nodes.filter(item => {
+    return item?.translation !== null && item?.translation?.slug !== null
+  })
   //get all reviews
   const res = await getDataPost(lang, GET_ALL_REVIEWS)
   const reviewsList = res?.data?.allCustomerReview?.nodes
@@ -66,6 +68,10 @@ async function index({ lang, slug }) {
     },
     GET_DATA_BEST_SELLER_OURTOUR
   )
+
+  const dataBestSellerNoNull = dataBestSeller?.data?.allTours?.nodes.filter(item => {
+    return item?.translation !== null && item?.translation?.slug !== null
+  })
   // const dataBestToursHomePage = useQuery(DATA_BEST_TOUR_HOME_PAGE, {
   //   variables: {
   //     language: lang,
@@ -102,7 +108,7 @@ async function index({ lang, slug }) {
     country: newArrDataTaxonomiesCountry
   }
 
-  if (!data) {
+  if (!data || !dataOtherTypeTripNotNull.length) {
     return <NotFound lang={lang} />
   }
   return (
@@ -121,8 +127,8 @@ async function index({ lang, slug }) {
       <SectionActions listActions={dataIcons?.data?.page?.translation} />
       <SlideDestination
         // data={dataOtherTrip?.data?.allTours?.nodes}
-        data={dataBestSeller?.data?.allTours?.nodes}
-        dataOtherType={dataOtherTypeTrip?.data?.allTours?.nodes}
+        data={dataBestSellerNoNull}
+        dataOtherType={dataOtherTypeTripNotNull}
         dataTitle={data}
         lang={lang}
       />

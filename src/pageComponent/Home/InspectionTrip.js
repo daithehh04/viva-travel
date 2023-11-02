@@ -9,6 +9,7 @@ import calendarIcon from '@/assets/images/calendarY.svg'
 import restaurantIcon from '@/assets/images/restauY.svg'
 
 function InspectionTrip({ data, lang, dataSlide }) {
+  const dataTrip = dataSlide?.concat(dataSlide)?.concat(dataSlide)
   const [indexSlider, setIndexSlider] = useState(0)
   const swiperRef = useRef()
   const handleNextSlide = () => {
@@ -22,6 +23,7 @@ function InspectionTrip({ data, lang, dataSlide }) {
   const handleSlideChange = (swiper) => {
     setIndexSlider(swiper.activeIndex)
   }
+
   return (
     <div className='inspection-trip mt-[8.38vw] max-md:mt-[11.68vw]'>
       <h2
@@ -62,7 +64,7 @@ function InspectionTrip({ data, lang, dataSlide }) {
           }}
           className='relative flex flex-col'
         >
-          {dataSlide?.concat(dataSlide)?.concat(dataSlide)?.map((item, index) => {
+          {dataTrip?.map((item, index) => {
             return (
               <SwiperSlide key={index}>
                 {({ isActive }) => (

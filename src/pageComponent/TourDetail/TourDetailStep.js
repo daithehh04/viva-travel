@@ -64,7 +64,7 @@ export default function TourDetailStep({ data: tourDetailData,iconsDefault }) {
                             src={icon?.img?.sourceUrl}
                             width={40}
                             height={40}
-                            className='md:w-[2.75vw] w-[8vw] md:h-[2.75vw] h-[8vw] md:p-[0.55vw] p-[1.8vw] bg-[#FFF2BD] md:rounded-[5px] rounded-[4px]'
+                            className='md:w-[2.9vw] w-[8vw] md:h-[2.9vw] h-[8vw] md:p-[0.55vw] p-[1.8vw] bg-[#FFF2BD] md:rounded-[5px] rounded-[4px]'
                           />
                           <span className='lg:text-[1vw] md:text-[1.4vw] text-[3.733vw] leading-normal'>{icon?.text}</span>
                         </div>

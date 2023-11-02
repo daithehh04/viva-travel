@@ -28,7 +28,7 @@ function HotTour({ hotTour, reason, data, lang }) {
       </div>
       <div className='mt-[8.62vw] flex flex-col max-md:px-[4.27vw] md:mb-[6.25vw] mb-[16.21vw] '>
         <span className='font-optima md:text-[4vw] text-[4.8vw] font-semibold leading-[130%] capitalize text-[#171717] mb-[3vw] '>
-          {reason?.title}
+          {reason?.text}
           {/* Why Travel with Asia Viva Travel */}
         </span>
         <div className='grid md:grid-cols-4 md:grid-rows-1 md:gap-[2vw] gap-[4.27vw] grid-cols-2 grid-rows-2'>
