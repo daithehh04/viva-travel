@@ -1,8 +1,6 @@
 'use client'
 
-import background from '@/assets/images/bookTour_Background.png'
 import bgPc from '@/assets/images/bgBookTourPc.png'
-import bgMb from '@/assets/images/bgBookTourPc.png'
 import Image from 'next/image'
 import { Formik, Field, ErrorMessage, Form } from 'formik'
 import * as Yup from 'yup'
@@ -14,6 +12,7 @@ import { gql, useMutation } from '@apollo/client'
 import { useRef, useState } from 'react'
 import Notification from './Notification'
 import { useClickOutside } from '@/helpers/customHooks'
+
 
 // queries form
 const SUBMIT_FORM = gql`
@@ -29,8 +28,7 @@ const SUBMIT_FORM = gql`
   }
 `
 
-function BookTour({ data, setOpenModal }) {
-
+function BookTour({ data, setOpenModal, lang }) {
   const [mutate, { loading }] = useMutation(SUBMIT_FORM)
   const [openNoti, setOpenNoti] = useState(false)
   const [msg, setMsg] = useState('')
@@ -64,18 +62,18 @@ function BookTour({ data, setOpenModal }) {
     fullName: Yup.string(),
     telephone: Yup.string()
       .matches(/^[0-9]+$/, 'Enter a valid number')
-      .min(9, 'Phải có ít nhất 9 số')
-      .required('Required'),
+      .min(9, 'Must have 9 number')
+      .required('Please fill in the blank'),
     email: Yup.string().email('Invalid email.'),
     confirmEmail: Yup.string().oneOf([Yup.ref('email'), null], 'Email must match'),
     ageAdult: Yup.number().min(12),
     ageChildren: Yup.number().max(12),
-    date: Yup.date().required('Required'),
-    destination: Yup.array().required('Required'),
-    accommodation: Yup.string().required('Required'),
-    typeOfTrip: Yup.string().required('Required'),
+    date: Yup.date().required('Please fill in the blank'),
+    destination: Yup.array().required('Please fill in the blank'),
+    accommodation: Yup.string().required('Please fill in the blank'),
+    typeOfTrip: Yup.string().required('Please fill in the blank'),
     message: Yup.string(),
-    budget: Yup.number().integer().required('Required'),
+    budget: Yup.number().integer().required('Please fill in the blank'),
     confirm: Yup.boolean()
   })
 
@@ -136,6 +134,7 @@ function BookTour({ data, setOpenModal }) {
         alt='background'
         src={bgPc}
         quality={100}
+        priority
         className='absolute top-0 left-0 w-full h-full'
       />
       <div
@@ -210,8 +209,7 @@ function BookTour({ data, setOpenModal }) {
                           <h4>{dataBooktourContact?.nationality?.label}</h4>
                           <SelectField
                             name='nationality'
-                            // options={{ VietNam: 'VietNam-VN', ThaiLand: 'ThaiLand-TL', Myanmar: 'Myanmar-MY' }}
-                            options={dataBooktourContact?.nationality?.nationchoice}
+                            options={data?.data?.allFromCountry?.nodes}
                           />
                         </div>
                         <div className='flex flex-col md:gap-[0.5vw] inputField'>
@@ -310,6 +308,12 @@ function BookTour({ data, setOpenModal }) {
                         <div className='flex flex-col md:gap-[0.5vw] gap-[2.13vw] max-md:w-full'>
                           <h4 dangerouslySetInnerHTML={{ __html: `${dataParticipant?.time}` }}></h4>
                           <DatePickerCustom name='date' />
+                          {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
+                            <DatePicker
+                              name='date'
+                              views={['month', 'year']}
+                            />
+                          </LocalizationProvider> */}
                           <ErrorMessage
                             name='date'
                             component='div'
@@ -330,14 +334,14 @@ function BookTour({ data, setOpenModal }) {
                             aria-labelledby='checkbox-group'
                             className='grid md:grid-cols-3 grid-cols-2 grid-rows-2 md:gap-y-[1vw] md:gap-x-[1vw] gap-[4.27vw] items-center max-md:w-full '
                           >
-                            {data?.data?.allDestination?.nodes?.map((des, index) => (
+                            {data?.data?.allCountries?.nodes?.map((des, index) => (
                               <label key={index}>
                                 <Field
                                   type='checkbox'
                                   name='destination'
                                   value={des?.slug}
                                 />
-                                <span className='md:text-[0.875vw] text-white font-[500] leading-[150%] whitespace-nowrap'>
+                                <span className='md:text-[1vw] text-white font-[500] leading-[150%] whitespace-nowrap'>
                                   {des?.name}
                                 </span>
                               </label>
@@ -365,7 +369,7 @@ function BookTour({ data, setOpenModal }) {
                                   name='accommodation'
                                   value={choice?.listchoice}
                                 />
-                                {choice?.listchoice}
+                                <span className='md:text-[1rem] font-medium md:leading-[1.5]'>{choice?.listchoice}</span>
                               </label>
                             ))}
                           </div>
@@ -376,7 +380,7 @@ function BookTour({ data, setOpenModal }) {
                     </div>
                     {/* trip,note,budget */}
                     <div className='md:mt-[3vw] mt-[6.4vw] md:grid grid-cols-3 md:gap-[5.31vw] items-start trip flex flex-col gap-[6.4vw]'>
-                      <div className='flex flex-col md:gap-[0.5vw] gap-[3.2vw] max-md:w-full'>
+                      {/* <div className='flex flex-col md:gap-[0.5vw] gap-[3.2vw] max-md:w-full'>
                         <h4
                           className=''
                           dangerouslySetInnerHTML={{ __html: `${dataParticipant?.typeoftrip}` }}
@@ -393,10 +397,19 @@ function BookTour({ data, setOpenModal }) {
                                 name='typeOfTrip'
                                 value={tour?.slug}
                               />
-                              {tour?.name}
+                              <span className='md:text-[1rem] font-medium md:leading-[1.5]'>{tour?.name}</span>
                             </label>
                           ))}
                         </div>
+                      </div> */}
+
+                      {/* Budget */}
+                      <div className='flex flex-col md:gap-[0.5vw] gap-[3.2vw] max-md:w-full budgetTour'>
+                        <h4 dangerouslySetInnerHTML={{ __html: `${dataParticipant?.budget?.label}` }}></h4>
+                        <TextFiledWrapper
+                          name='budget'
+                          placeholder='8888'
+                        />
                       </div>
 
                       {/* note */}
@@ -408,14 +421,7 @@ function BookTour({ data, setOpenModal }) {
                         />
                       </div>
 
-                      {/* Budget */}
-                      <div className='flex flex-col md:gap-[0.5vw] gap-[3.2vw] max-md:w-full budgetTour'>
-                        <h4 dangerouslySetInnerHTML={{ __html: `${dataParticipant?.budget?.label}` }}></h4>
-                        <TextFiledWrapper
-                          name='budget'
-                          placeholder='8888'
-                        />
-                      </div>
+
                     </div>
 
                     <div className='md:mt-[2.5vw] mt-[6.4vw] md:w-[25.8vw] '>

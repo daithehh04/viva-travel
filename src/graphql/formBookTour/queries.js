@@ -65,13 +65,23 @@ query ($id: ID!, $language: LanguageCodeFilterEnum!) {
       }
     }
   }
-  allDestination(where: {language: $language}) {
-    nodes {
+  
+  allCountries(where:{language:$language}){
+    nodes{
       name
       taxonomyName
       slug
     }
   }
+
+  allFromCountry(first:50){
+    nodes{
+      name
+      slug
+      taxonomyName
+    }
+  }
+  
   allTourStyle(where: {language: $language}) {
     nodes {
       taxonomyName

@@ -41,13 +41,11 @@ import {
 import { Suspense } from 'react'
 import Loader from '@/components/Common/Loader'
 import SearchButton from '@/pageComponent/Home/SearchButton'
-import logoSrc from '../../assets/images/logoF.png'
-import src from '../../assets/images/maintenance.jpg'
-import Image from 'next/image'
+
 
 const idEnBook = 'cG9zdDoxNDIy'
-const idFrBook = 'cG9zdDoxNDIy'
-const idItBook = 'cG9zdDoxNDIy'
+const idFrBook = 'cG9zdDoxODQ1'
+const idItBook = 'cG9zdDoxODQz'
 export async function generateStaticParams() {
   return [{ lang: 'en' }, { lang: 'it' }, { lang: 'fr' }]
 }

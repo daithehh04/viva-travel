@@ -14,6 +14,7 @@ function SelectField({ name, options }) {
     fullWidth: true
   }
 
+
   if (meta && meta.touched && meta.error) {
     configSelect.error = true
     configSelect.helperText = meta.error
@@ -31,8 +32,8 @@ function SelectField({ name, options }) {
     >
       {options?.map((item, index) => {
         return (
-          <MenuItem className='selectNation' key={index} value={item?.nation}>
-            {item?.nation}
+          <MenuItem className='selectNation' key={index} value={item?.name}>
+            {item?.name}
           </MenuItem>
         )
       })}

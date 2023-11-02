@@ -6,7 +6,6 @@ async function page({ params: { lang } }) {
   const idEn = 'cG9zdDoxNDIy'
   const idFr = 'cG9zdDoxODQ1'
   const idIt = 'cG9zdDoxODQz'
-
   let data
   if (lang === 'en') {
     data = await getDataFormBookTour(GET_DATA_FORM_BOOKTOUR, idEn, lang)
@@ -19,7 +18,7 @@ async function page({ params: { lang } }) {
   }
 
 
-  return <BookTour data={data} />
+  return <BookTour data={data} lang={lang} />
 }
 
 export default page

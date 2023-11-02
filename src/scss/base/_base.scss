@@ -123,10 +123,14 @@ body {
   top: 4.53vw;
 }
 
-
 .text-editor {
   ul {
     list-style: disc;
     margin-left: 1.5vw;
   }
+}
+
+.mui-i9fmh8-MuiBackdrop-root-MuiModal-backdrop {
+  background-color: unset !important;
+  backdrop-filter: blur(4px);
 }
