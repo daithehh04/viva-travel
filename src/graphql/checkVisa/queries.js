@@ -31,9 +31,7 @@ query CheckVisaTour($language:LanguageCodeFilterEnum, $countryFrom: [String!], $
         title
         slug
         checkVisa {
-          freeVisa
           title
-          desc
           content
         }
     }

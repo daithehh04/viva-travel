@@ -47,7 +47,7 @@ function TourItem({ data, menu, lang, loading, className, onCloseMenu }) {
             alt={alt}
             className='h-full object-cover w-full md:rounded-[1vw] rounded-[2.75vw] img-tour'
           />
-          {bestTour ? <span className='absolute top-[1vw] left-[1.5vw] tag-best_tour text-[calc(0.75vw+0.15rem)] w-max px-[1vw] py-[0.5vw] text-[#2b2b2b] font-[500] bg-primaryColor block max-md:text-[2.667vw] max-md:px-2'>{tag}</span> : ""}
+          {bestTour ? <span className='absolute top-[1vw] left-[1.5vw] max-md:top-[3vw] max-md:left-[3.5vw] tag-best_tour text-[calc(0.75vw+0.15rem)] w-max px-[1vw] py-[0.5vw] text-[#2b2b2b] font-[500] bg-primaryColor block max-md:text-[2.667vw] max-md:px-4'>{tag}</span> : ""}
         </div>
       ) : (
         <Skeleton
@@ -110,12 +110,12 @@ function TourItem({ data, menu, lang, loading, className, onCloseMenu }) {
             return (
               <div
                 key={index}
-                className='md:w-[1.5vw] md:h-[1.5vw] w-[4.8vw] h-[4.8vw] rounded-[6px] bg-[#FFF8DE] flex items-center justify-center'
+                className='md:w-[1.5vw] md:h-[1.5vw] w-[5vw] h-[5vw] rounded-[6px] bg-[#FFF8DE] flex items-center justify-center'
               >
                 <Image
                   src={iconsTour[icon]}
                   alt={icon}
-                  className='md:w-[1vw] md:h-[1vw] w-[2.613vw] h-[2.613vw]'
+                  className='md:w-[1vw] md:h-[1vw] w-[2.75vw] h-[2.75vw]'
                   width={20}
                   height={20}
                 />

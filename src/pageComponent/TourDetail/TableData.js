@@ -35,7 +35,7 @@ export default function TableData({ data, header = [], type }) {
                       } ${(index === data?.length - 1 && rowIndex === values?.length - 1 && 'rounded-br-2xl') || ''}`}
                     key={rowIndex}
                   >
-                    {typeof rowItem === 'object' ? (<Link href={`${rowItem?.link}`}>Link</Link>) : (<p dangerouslySetInnerHTML={{ __html: `${rowItem}` }}></p>)}
+                    {typeof rowItem === 'object' ? (<Link href={`${rowItem?.link}`} target="_blank">Link</Link>) : (<p dangerouslySetInnerHTML={{ __html: `${rowItem}` }}></p>)}
                   </td>)
                 })}
               </tr>
