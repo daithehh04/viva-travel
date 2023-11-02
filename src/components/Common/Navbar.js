@@ -434,6 +434,7 @@ export default function Navbar({
               <BookTour
                 data={dataBookTour}
                 setOpenModal={setOpenModal}
+                lang={lang}
               />
             </div>
           </ModalCustom>

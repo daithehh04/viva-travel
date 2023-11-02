@@ -234,6 +234,17 @@
   }
 }
 
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiMenu-paper.MuiPopover-paper.MuiMenu-paper.mui-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper {
+  height: 300px !important;
+}
 .MuiSvgIcon-root {
   color: #fff;
+}
+input[type='radio'] {
+  width: 1rem;
+  height: 1rem;
+}
+input[type='checkbox'] {
+  width: 1rem;
+  height: 1rem;
 }

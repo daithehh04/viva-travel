@@ -13,8 +13,6 @@ const DatePickerCustom = ({ name }) => {
       shrink: true
     }
   }
-
-  // const color = '#fff'
   return <TextField {...configDatePicker} />
 }
 
