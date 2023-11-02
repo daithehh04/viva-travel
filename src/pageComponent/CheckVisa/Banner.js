@@ -46,18 +46,10 @@ function Banner({ data, dataFilter, lang }) {
           var dataCheckVisa = dataVisa?.data?.allVisa?.nodes
         }
         if (dataCheckVisa) {
-          const isFreeVisa = dataCheckVisa[0]?.checkVisa?.freeVisa
-          if (isFreeVisa?.toLowerCase() === 'no') {
-            var contentVisa = dataCheckVisa[0]?.checkVisa?.content
-          }
-          if (isFreeVisa?.toLowerCase() === 'yes') {
-            var descVisa = dataCheckVisa[0]?.checkVisa?.desc
-            var titleVisa = dataCheckVisa[0]?.checkVisa?.title
-          }
+          var contentVisa = dataCheckVisa[0]?.checkVisa?.content
+          var titleVisa = dataCheckVisa[0]?.checkVisa?.title
           const data = {
-            isFreeVisa,
             contentVisa,
-            descVisa,
             titleVisa
           }
           setDataB(data)
@@ -135,7 +127,7 @@ function Banner({ data, dataFilter, lang }) {
                 }
               }}
             >
-              <span className='xl:text-[1vw] md:text-[1.5vw] text-[3.73333vw] leading-[1.5] '>{textCountry}</span>
+              <span className='xl:text-[1vw] md:text-[1.5vw] text-[3.73333vw] leading-[1.5]'>{textCountry}</span>
             </MenuItem>
             {dataFilter?.countryFrom?.map((item, index) => (
               <MenuItem value={item?.slug} key={index}
@@ -149,7 +141,7 @@ function Banner({ data, dataFilter, lang }) {
               </MenuItem>
             ))}
           </Select>
-          {nationality === "" && <p className='mt-1 text-[#de0b0be6] text-[calc(0.5vw+0.5rem)]'>{choose}</p>}
+          {nationality === "" && <p className='mt-1 text-[#de0b0be6] text-[3.7333vw] md:text-[1vw]'>{choose}</p>}
         </FormControl>
         <p className='text-white xl:text-[1vw] md:text-[1.5vw] text-[3.73333vw] leading-[1.5] md:mb-[1vw] md:mt-[1.5vw] mb-[2.13333vw] mt-[6.4vw]'>
           {dataBanner?.countrychoice}
@@ -201,7 +193,7 @@ function Banner({ data, dataFilter, lang }) {
               </MenuItem>
             ))}
           </Select>
-          {country === "" && <p className='mt-1 text-[#de0b0be6] text-[calc(0.5vw+0.5rem)]'>{choose}</p>}
+          {country === "" && <p className='mt-1 text-[#de0b0be6] text-[3.7333vw] md:text-[1vw]'>{choose}</p>}
         </FormControl>
 
         <Button

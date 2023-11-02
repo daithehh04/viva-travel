@@ -2,7 +2,7 @@ import { GET_DATA_CHECKVISA2 } from '@/graphql/page/queries'
 
 import Banner from './Banner'
 import BestSellerTour from './BestSellerTour'
-import Infomation from './Infomation'
+import Information from './Information'
 import getDataPost from '@/data/getDataPost'
 import { COUNTRY_FROM, COUNTRY_TO } from '@/graphql/checkVisa/queries'
 import { DataProvider } from './DataContext'
@@ -45,7 +45,7 @@ async function index({ lang }) {
   return (
     <DataProvider>
       <Banner data={dataCheckVisa} dataFilter={dataFilter} lang={lang} />
-      <Infomation data={dataCheckVisa} lang={lang} dataBookTour={dataBookTour} />
+      <Information data={dataCheckVisa} lang={lang} dataBookTour={dataBookTour} />
       <BestSellerTour dataCheckVisa={dataCheckVisa} data={data} lang={lang} />
     </DataProvider>
   )

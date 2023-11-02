@@ -42,6 +42,14 @@ function MenuMb({
     }
   }
 
+  let all = 'See all'
+  if(lang === 'it') {
+    all = 'Vedi tutto'
+  }
+  if(lang === 'fr') {
+    all = 'Voir tout'
+  }
+
   return (
     <div className='menu-mobile pb-[41.33vw]'>
       <div className='flex items-center justify-center h-[14.93vw] border-b border-solid border-textColor border-opacity-20'>
@@ -197,7 +205,7 @@ function MenuMb({
 
             <div className='flex items-center justify-center mt-[6.4vw] '>
               <Link href={`/${lang}/hot-deals`} onClick={onCloseMenu} className='btn-secondary menu-table'>
-                See all
+                {all}
               </Link>
             </div>
           </div>
@@ -232,7 +240,7 @@ function MenuMb({
         <div className='flex items-center justify-between'>
           <Link
             href={`/${lang}/check-visa`}
-            className='text-[4.267vw] opacity-60 capitalize leading-[1.2]'
+            className='text-[5.33vw] opacity-60 capitalize leading-[1.2]'
             onClick={onCloseMenu}
           >
             {dataHome?.nav4}
@@ -245,7 +253,7 @@ function MenuMb({
             className={`flex items-center justify-between mt-[3.73vw] w-max ${selected === 5 ? 'active' : ''}`}
             onClick={() => handleSelect(5)}
           >
-            <h3 className='text-[4.26vw] leading-[1.2] capitalize opacity-60 mr-[3.2vw]'>{dataHome?.nav5}</h3>
+            <h3 className='text-[5.33vw] leading-[1.2] capitalize opacity-60 mr-[3.2vw]'>{dataHome?.nav5}</h3>
             <Image src={iconDropdown} width={11} height={8} alt='img' className='drop-down max-lg:w-[3vw]' />
           </div>
           <div
@@ -262,21 +270,21 @@ function MenuMb({
           >
             <Link
               href='/about-us/who-we-are'
-              className='text-[2.667vw] text-textColor opacity-70 uppercase'
+              className='text-[3.667vw] text-textColor opacity-70 uppercase'
               onClick={onCloseMenu}
             >
               {titleAboutUs?.whoWeAre}
             </Link>
             <Link
               href='/about-us/responsible-travel'
-              className='text-[2.667vw] text-textColor opacity-70 uppercase'
+              className='text-[3.667vw] text-textColor opacity-70 uppercase'
               onClick={onCloseMenu}
             >
               {titleAboutUs?.ResTravel}
             </Link>
             <Link
               href='/about-us/reviews'
-              className='text-[2.667vw] text-textColor opacity-70 uppercase'
+              className='text-[3.667vw] text-textColor opacity-70 uppercase'
               onClick={onCloseMenu}
             >
               {titleAboutUs?.AboutUs}
@@ -287,7 +295,7 @@ function MenuMb({
         <div>
           <Link
             href={`/${lang}/blog`}
-            className='text-[4.267vw] opacity-60 capitalize leading-[1.2]'
+            className='text-[5.33vw] opacity-60 capitalize leading-[1.2]'
             onClick={onCloseMenu}
           >
             {dataHome?.nav7}

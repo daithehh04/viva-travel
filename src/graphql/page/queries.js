@@ -59,12 +59,6 @@ query ($language: LanguageCodeEnum!) {
           buttonapply
           contactus
           whyapply
-          backgroundpc {
-            sourceUrl
-          }
-          backgroundmb {
-            sourceUrl
-          }
           listreason {
             reason
           }
