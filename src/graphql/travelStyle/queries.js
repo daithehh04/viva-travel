@@ -9,10 +9,6 @@ const GET_INFO_PAGE_TRAVEL_STYLE = `query getInfoPageTravelStyle($taxonomyValue:
         banner {
           desc
           heading
-          mobileImage {
-            altText
-            sourceUrl
-          }
           subdesc
           title
           banner {
@@ -50,17 +46,6 @@ const GET_INFO_PAGE_TRAVEL_STYLE = `query getInfoPageTravelStyle($taxonomyValue:
              
             }
           }
-        }
-        travelReason {
-          reason {
-            title
-            content
-            image {
-              altText
-              sourceUrl
-            }
-          }
-          title
         }
         groupbutton {
           buttonseemore
@@ -146,4 +131,26 @@ const GET_META_DATA = `query ($slug: ID!, $language: LanguageCodeEnum!) {
   }
 }`
 
-export { GET_INFO_PAGE_TRAVEL_STYLE, GET_LIST_TRAVEL_STYLE_NAME, GET_LIST_TOUR_TRAVEL_STYLE_CLIENT, GET_META_DATA }
+const DATA_WHY_TRAVEL = `query getWhyTravel(
+  $language: LanguageCodeEnum!
+){
+page(id: "cG9zdDozMDYw") {
+  translation(language: $language) {
+    title
+    tourStyle {
+      whytravel {
+        text
+        reason {
+          image {
+            sourceUrl
+          }
+          title
+          content
+        }
+      }
+    }
+  }
+}
+}`
+
+export { GET_INFO_PAGE_TRAVEL_STYLE, GET_LIST_TRAVEL_STYLE_NAME, GET_LIST_TOUR_TRAVEL_STYLE_CLIENT, GET_META_DATA, DATA_WHY_TRAVEL }

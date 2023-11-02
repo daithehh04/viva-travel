@@ -1,7 +1,7 @@
 import Banner from './Banner'
 import HotTour from './HotTour'
 import TourSlide from './TourSlide'
-import { GET_INFO_PAGE_TRAVEL_STYLE } from '@/graphql/travelStyle/queries'
+import { DATA_WHY_TRAVEL, GET_INFO_PAGE_TRAVEL_STYLE } from '@/graphql/travelStyle/queries'
 import getDataWithTaxonomy from '@/data/getDataWithTaxonomy'
 import getDataPost from '@/data/getDataPost'
 import {
@@ -20,6 +20,9 @@ async function index({ lang, slug }) {
     },
     GET_INFO_PAGE_TRAVEL_STYLE
   )
+
+  const dataWhyTravel = await getDataPost(lang?.toUpperCase(), DATA_WHY_TRAVEL)
+  const dataWhy = dataWhyTravel?.data?.page?.translation?.tourStyle?.whytravel
 
   if (!getPageInfo?.data?.tourStyle?.translation?.banner) {
     return <NotFound lang={lang} />
@@ -44,7 +47,7 @@ async function index({ lang, slug }) {
       <HotTour
         lang={lang}
         hotTour={getPageInfo?.data?.tourStyle?.translation?.banner?.hotTour}
-        reason={getPageInfo?.data?.tourStyle?.translation?.banner?.travelReason}
+        reason={dataWhy}
         data={getPageInfo?.data?.tourStyle?.translation?.banner?.groupbutton?.buttonseemore}
       />
     </div>

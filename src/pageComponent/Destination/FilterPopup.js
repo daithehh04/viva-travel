@@ -104,6 +104,32 @@ function FilterPopup({ lang, dataFilter, slug }) {
       popUp.current.classList.remove('active')
     }
   })
+
+  const option = {
+    destination: 'Destination',
+    budget : 'Budget',
+    style: 'Travel Style',
+    duration: 'Duration',
+    day: 'day',
+    price: '$',
+    search: 'Search'
+  }
+  if(lang === 'fr') {
+    option.duration = 'Durée'
+    option.style ='Style de voyage'
+    option.day ='Jours'
+    option.price= '€'
+    option.search = 'Recherche'
+  }
+  if(lang === 'it') {
+    option.style = 'Stile di viaggio'
+    option.duration ='Durata'
+    option.budget = 'Bilancio'
+    option.destination = 'Destinazione'
+    option.day ='Jours'
+    option.price= '€'
+    option.search = 'Ricerca'
+  }
   return (
     <div>
       <div className='fixed bottom-[6.44vw] z-[10] right-0 md:flex items-center h-12vw hidden'>
@@ -144,7 +170,7 @@ function FilterPopup({ lang, dataFilter, slug }) {
         className='md:grid hidden z-20 grid-cols-2 filterPopUp gap-y-[2.12vw] gap-x-[2.25vw] justify-items-end rounded-[1vw] shadow-lg bg-white fixed bottom-[8.94vw] right-[6.13vw] items-center w-[28.6vw] pt-[2.5vw] pr-[2.125vw] pb-[2.18vw] pl-[2.1875vw]'
       >
         <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full pl-0 md:pl-[1.87vw]'>
-          <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>Travel Style</span>
+          <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>{option.style}</span>
           <div className='flex items-center select-mobile'>
             <Image
               src={styleIcon}
@@ -182,7 +208,7 @@ function FilterPopup({ lang, dataFilter, slug }) {
               >
                 <MenuItem value='' className='filter-item'>
                   <span className='filter-item md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
-                    Travel Style
+                  {option.style}
                   </span>
                 </MenuItem>
                 {dataFilter?.style?.map((item, index) => (
@@ -198,7 +224,7 @@ function FilterPopup({ lang, dataFilter, slug }) {
         </div>
 
         <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full pl-0 md:pl-[1.87vw]'>
-          <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>Duration</span>
+          <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>{option.duration}</span>
           <div className='flex items-center select-mobile'>
             <Image
               src={calendar}
@@ -236,13 +262,13 @@ function FilterPopup({ lang, dataFilter, slug }) {
               >
                 <MenuItem value='' className='filter-item'>
                   <span className='filter-item md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
-                    Duration
+                  {option.duration}
                   </span>
                 </MenuItem>
                 {dataFilter?.duration?.map((item, index) => (
                   <MenuItem value={item?.name} key={index} className='filter-item'>
                     <span className='filter-item md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
-                      {item?.name} day
+                      {item?.name} {option.day}
                     </span>
                   </MenuItem>
                 ))}
@@ -290,13 +316,13 @@ function FilterPopup({ lang, dataFilter, slug }) {
               >
                 <MenuItem value='' className='filter-item'>
                   <span className='filter-item md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
-                    Budget
+                  {option.budget}
                   </span>
                 </MenuItem>
                 {dataFilter?.budget?.map((item, index) => (
                   <MenuItem value={item?.name} key={index} className='filter-item'>
                     <span className='filter-item md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
-                      {item?.name}$
+                      {item?.name}{option.price}
                     </span>
                   </MenuItem>
                 ))}
@@ -306,7 +332,7 @@ function FilterPopup({ lang, dataFilter, slug }) {
         </div>
         <Button ref={refLink} onClick={handleSearch} className='btn-primary w-fit '>
           <Image src={searchIcon} width={50} height={50} alt='search' className='w-[1.25vw] h-[1.25vw]' />
-          Search
+          {option.search}
         </Button>
       </div>
     </div>

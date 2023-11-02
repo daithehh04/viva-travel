@@ -45,19 +45,22 @@ function FilterTour({
     budget : 'Budget',
     style: 'Travel Style',
     duration: 'Duration',
-    day: 'day'
+    day: 'day',
+    price: '$'
   }
   if(lang === 'fr') {
     option.duration = 'Durée'
     option.style ='Style de voyage'
-    option.day ='Jour'
+    option.day ='Jours'
+    option.price= '€'
   }
   if(lang === 'it') {
     option.style = 'Stile di viaggio'
     option.duration ='Durata'
     option.budget = 'Bilancio'
     option.destination = 'Destinazione'
-    option.day ='Giorno'
+    option.day ='Jours'
+    option.price= '€'
   }
 
   return (
@@ -327,7 +330,7 @@ function FilterTour({
                 }}
                 >
                   <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
-                    {item?.name}$
+                    {item?.name}{option.price}
                   </span>
                 </MenuItem>
               ))}

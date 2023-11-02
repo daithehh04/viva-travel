@@ -58,11 +58,37 @@ function FilterBanner({ lang, dataFilter,slug }) {
       router.push(`/search`)
     }
   }
+
+  const option = {
+    destination: 'Destination',
+    budget : 'Budget',
+    style: 'Travel Style',
+    duration: 'Duration',
+    day: 'day',
+    search: 'Search',
+    price: '$'
+  }
+  if(lang === 'fr') {
+    option.duration = 'Durée'
+    option.style ='Style de voyage'
+    option.day ='Jour'
+    option.search = 'Recherche'
+    option.price= '€'
+  }
+  if(lang === 'it') {
+    option.style = 'Stile di viaggio'
+    option.duration ='Durata'
+    option.budget = 'Bilancio'
+    option.destination = 'Destinazione'
+    option.day ='Giorno'
+    option.search = 'Ricerca'
+    option.price= '€'
+  }
   return (
     <div className='flex gap-x-[1.75vw]'>
       <div className='flex max-md:grid max-md:grid-cols-2 max-md:gap-[2.67vw] md:gap-x-[1.87vw] gap-y-[3.2vw] gap-x-[2.67vw] md:flex-nowrap flex-wrap md:justify-normal justify-between'>
         <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full pl-0 md:pl-[1.87vw]'>
-          <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>Travel Style</span>
+          <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>{option.style}</span>
           <div className='flex items-center select-mobile'>
             <Image
               src={styleIcon}
@@ -100,7 +126,7 @@ function FilterBanner({ lang, dataFilter,slug }) {
               >
                 <MenuItem value=''>
                   <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
-                    Travel Style
+                  {option.style}
                   </span>
                 </MenuItem>
                 {dataFilter?.style?.map((item, index) => (
@@ -116,7 +142,7 @@ function FilterBanner({ lang, dataFilter,slug }) {
         </div>
 
         <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full pl-0 md:pl-[1.87vw]'>
-          <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>Duration</span>
+          <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>{option.duration}</span>
           <div className='flex items-center select-mobile'>
             <Image
               src={calendar}
@@ -154,13 +180,13 @@ function FilterBanner({ lang, dataFilter,slug }) {
               >
                 <MenuItem value=''>
                   <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
-                    Duration
+                  {option.duration}
                   </span>
                 </MenuItem>
                 {dataFilter?.duration?.map((item, index) => (
                   <MenuItem value={item?.name} key={index}>
                     <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
-                      {item?.name} day
+                      {item?.name} {option.day}
                     </span>
                   </MenuItem>
                 ))}
@@ -170,7 +196,7 @@ function FilterBanner({ lang, dataFilter,slug }) {
         </div>
 
         <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full pl-0 md:pl-[1.87vw]'>
-          <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>Budget</span>
+          <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>{option.budget}</span>
           <div className='flex items-center select-mobile'>
             <Image
               src={wallet}
@@ -208,7 +234,7 @@ function FilterBanner({ lang, dataFilter,slug }) {
               >
                 <MenuItem value=''>
                   <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
-                    Budget
+                  {option.budget}
                   </span>
                 </MenuItem>
                 {dataFilter?.budget?.map((item, index) => (
@@ -235,7 +261,7 @@ function FilterBanner({ lang, dataFilter,slug }) {
           alt='search'
           className='w-[1.25vw] h-[1.25vw]'
         />
-        Search
+        {option.search}
       </Button>
     </div>
   )

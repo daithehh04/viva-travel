@@ -7,8 +7,7 @@ import React, { useRef } from 'react'
 function Banner({ data }) {
   const scrollDownRef = useRef()
   const theme = useTheme()
-  const onlySmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
-  const imageSrc = onlySmallScreen ? data?.mobileImage?.sourceUrl : data?.banner?.sourceUrl
+  const imageSrc = data?.banner?.sourceUrl
   return (
     <Box
       sx={{
@@ -21,7 +20,7 @@ function Banner({ data }) {
     >
       <div className='travel-style-banner relative h-[100%] flex justify-center items-center'>
         <Image
-          alt={data?.banner?.altText || data?.mobileImage?.altText || 'img-travel-style'}
+          alt={data?.banner?.altText || 'img-travel-style'}
           src={imageSrc}
           quality={100}
           fill

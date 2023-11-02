@@ -77,19 +77,25 @@ function FilterBanner({ lang, dataFilter, onClose }) {
     budget: 'Budget',
     style: 'Travel Style',
     duration: 'Duration',
-    day: 'day'
+    day: 'day',
+    search: 'Search',
+    price: '$'
   }
   if (lang === 'fr') {
     option.duration = 'Durée'
     option.style = 'Style de voyage'
-    option.day = 'Jour'
+    option.day = 'Jours'
+    option.price= '€'
+    option.search = 'Recherche'
   }
   if (lang === 'it') {
     option.style = 'Stile di viaggio'
     option.duration = 'Durata'
     option.budget = 'Bilancio'
     option.destination = 'Destinazione'
-    option.day = 'Giorno'
+    option.day = 'Jours'
+    option.price= '€'
+    option.search = 'Ricerca'
   }
   return (
     <div className='flex gap-x-[1.75vw] max-lg:flex-col '>
@@ -351,7 +357,7 @@ function FilterBanner({ lang, dataFilter, onClose }) {
                     }}
                   >
                     <span className='md:text-[1.5vw] lg:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
-                      {item?.name}$
+                      {item?.name}{option.price}
                     </span>
                   </MenuItem>
                 ))}
@@ -372,7 +378,7 @@ function FilterBanner({ lang, dataFilter, onClose }) {
           alt='search'
           className='w-[1.25vw] h-[1.25vw] max-md:hidden'
         />
-        Search
+        {option.search}
       </Button>
     </div>
   )
