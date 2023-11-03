@@ -71,43 +71,43 @@ const GET_META_DATA_RCM_SERVICE = `
   `
 
 export async function generateMetadata({ params: { lang } }) {
-  const res = await getMetaDataPages(GET_META_DATA_RCM_SERVICE, lang)
-  if (!res) return
-  const dataMeta = res?.data?.page?.translation
-  const recommendService = dataMeta?.recommendService
+    const res = await getMetaDataPages(GET_META_DATA_RCM_SERVICE, lang)
+    if (!res) return
+    const dataMeta = res?.data?.page?.translation
+    const recommendService = dataMeta?.recommendService
 
-  const featuredImage = res?.data?.page?.translation?.featuredImage
-  const title = recommendService?.meta?.title
-  const excerpt = recommendService?.meta?.description
-  return getMeta(title, excerpt, featuredImage)
+    const featuredImage = res?.data?.page?.translation?.featuredImage
+    const title = recommendService?.meta?.title
+    const excerpt = recommendService?.meta?.description
+    return getMeta(title, excerpt, featuredImage)
 }
 
 async function Page({ params: { lang, slug } }) {
-  const data = await getDataPost(lang?.toUpperCase(), GET_ALL_TOURS_BESTSELLER)
+    const data = await getDataPost(lang?.toUpperCase(), GET_ALL_TOURS_BESTSELLER)
 
-  const dataInit = await getDataPost(lang?.toUpperCase(), GET_INITIAL_FILTER)
+    const dataInit = await getDataPost(lang?.toUpperCase(), GET_INITIAL_FILTER)
 
-  const slugRcm = await getDataWithTaxonomy(
-    {
-      taxonomyValue: slug,
-      lang
-    },
-    GET_SLUG_RCM
-  )
+    const slugRcm = await getDataWithTaxonomy(
+        {
+            taxonomyValue: slug,
+            lang
+        },
+        GET_SLUG_RCM
+    )
 
-  return (
-    <div>
-      <Blog
-        lang={lang}
-        slug={slugRcm?.data?.category?.translation?.slug}
-        data1={data}
-        initTopic={dataInit?.data?.allTopic}
-        initDestination={dataInit?.data?.allDestination}
-        initCategories={dataInit?.data?.categories}
-        allCountries={dataInit?.data?.allCountries}
-      />
-    </div>
-  )
+    return (
+        <div>
+            <Blog
+                lang={lang}
+                slug={slugRcm?.data?.category?.translation?.slug}
+                data1={data}
+                initTopic={dataInit?.data?.allTopic}
+                initDestination={dataInit?.data?.allDestination}
+                initCategories={dataInit?.data?.categories}
+                allCountries={dataInit?.data?.allCountries}
+            />
+        </div>
+    )
 }
 
 export default Page
