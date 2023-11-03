@@ -653,9 +653,9 @@ export default function AboutTour(props) {
       )}
 
       {openPopup && (
-        <div className='fixed max-md:hidden bg-black bg-opacity-25 backdrop-blur-[4px] w-[100vw] h-[100vh] top-1/2 left-1/2 -translate-x-1/2 z-20 -translate-y-1/2'>
-          <div className='w-[30vw] top-[53%] left-1/2 -translate-x-1/2 absolute -translate-y-1/2'>
-            <Image
+        <div className='fixed max-md:hidden bg-black bg-opacity-25 backdrop-blur-[4px] w-[100vw] h-[100vh] top-1/2 left-1/2 -translate-x-1/2 z-20 -translate-y-1/2' onClick={() => setOpenPopUp(false)}>
+          <div className='w-[35vw] h-[75vh] bottom-[3.5vw] left-1/2 -translate-x-1/2 fixed'>
+            {/* <Image
               src={closeImg}
               alt='close'
               width={20}
@@ -663,14 +663,14 @@ export default function AboutTour(props) {
               className='absolute md:top-[4.53vw] top-[2.5vw] right-[2.53vw] 
               max-md:w-[4vw] max-md:right-[10vw] max-md:top-[5vw] max-md:h-[4vw]'
               onClick={() => setOpenPopUp(false)}
-            />
+            /> */}
             <Image
-              src={data?.map?.image?.sourceUrl || imageTest}
+              src={data?.map?.image?.sourceUrl}
               alt={data?.map?.image?.altText}
               width={1000}
               height={1000}
               quality={100}
-              className='object-contain w-full h-full shadow-lg'
+              className='object-contain w-full h-full'
             />
           </div>
         </div>

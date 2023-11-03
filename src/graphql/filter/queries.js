@@ -6,6 +6,9 @@ query countriesTaxonomies($language: LanguageCodeFilterEnum) {
     nodes {
       name
       slug
+      country {
+        priority
+      }
     }
   }
 }`
@@ -16,6 +19,11 @@ query countriesTaxonomies($language: LanguageCodeFilterEnum) {
     nodes {
       name
       slug
+      banner {
+        travelStyleInfo {
+          priority
+        }
+      }
     }
   }
 }`

@@ -45,6 +45,14 @@ export default function Sidebar({
     })
   }, [params.style])
   const onlySmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
+
+  const arrStyle = travelStylesList?.data?.allTourStyle?.nodes
+  arrStyle?.sort(function(a, b) {
+    var numA = parseInt(a?.banner?.travelStyleInfo?.priority);
+    var numB = parseInt(b?.banner?.travelStyleInfo?.priority);
+    return numA - numB;
+  });
+  console.log('arrStyle page search',arrStyle);
   return (
     <div className={`w-[20vw] flex flex-col max-md:overflow-y-scroll max-md:h-[70vh]
     max-md:w-auto max-md:rounded-t-[2vw] max-md:pt-[11.46vw]`}>

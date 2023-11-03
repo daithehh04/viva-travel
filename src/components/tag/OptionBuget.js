@@ -43,6 +43,16 @@ export default function OptionBudget({ icon, list, defaultValue, onSelect }) {
     onSelect(value)
   }
   const onlySmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
+
+  const handleSort = (fn) => {
+    fn?.sort(function(a, b) {
+      var numA = parseInt(a?.name.split('-')[0]);
+      var numB = parseInt(b?.name.split('-')[0]);
+      return numA - numB;
+    });
+  }
+  
+  handleSort(list)
   return (
     <div>
       <FormControl className='mb-[0.94vw] max-md:rounded-[1.06vw] bg-[#F0F0F0] 

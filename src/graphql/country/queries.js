@@ -8,6 +8,7 @@ query country($language: LanguageCodeFilterEnum){
       name
       description
       country {
+        priority
         flag {
           sourceUrl
         }
