@@ -20,7 +20,7 @@ const idItBook = 'cG9zdDoxNDIy'
 export async function generateMetadata({ params: { lang } }) {
   const res = await getMetaDataPages(GET_META_DATA, lang)
 
-  const { home } = res?.data?.page?.translation
+  const home = res?.data?.page?.translation?.home
   const featuredImage = res?.data?.page?.translation?.featuredImage
   const title = home?.meta?.title
   const excerpt = home?.meta?.description

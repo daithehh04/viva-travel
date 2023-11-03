@@ -21,18 +21,30 @@ function FilterBanner({ lang, dataFilter, onClose }) {
 
   const handleSort = (fn) => {
     fn?.sort(function(a, b) {
-      var numA = parseInt(a.split('-')[0]);
-      var numB = parseInt(b.split('-')[0]);
+      var numA = parseInt(a?.name.split('-')[0]);
+      var numB = parseInt(b?.name.split('-')[0]);
       return numA - numB;
     });
   }
-  const arrBudget = dataFilter?.budget?.map((item) => item.name)
+  const arrBudget = dataFilter?.budget
   handleSort(arrBudget)
-  console.log('arrBudget',arrBudget);
 
-  const arrDuration = dataFilter?.duration?.map((item) => item.name)
+  const arrDuration = dataFilter?.duration
   handleSort(arrDuration)
-  console.log('arrDuration',arrDuration);
+
+  const arrCountry = dataFilter?.countries
+  arrCountry?.sort(function(a, b) {
+    var numA = parseInt(a?.country?.priority);
+    var numB = parseInt(b?.country?.priority);
+    return numA - numB;
+  });
+
+  const arrStyle = dataFilter?.style
+  arrStyle?.sort(function(a, b) {
+    var numA = parseInt(a?.banner?.travelStyleInfo?.priority);
+    var numB = parseInt(b?.banner?.travelStyleInfo?.priority);
+    return numA - numB;
+  });
 
   const handleChangeDestination = (event) => {
     setDestination(event.target.value)
@@ -164,7 +176,7 @@ function FilterBanner({ lang, dataFilter, onClose }) {
                     {option.destination}
                   </span>
                 </MenuItem>
-                {dataFilter?.countries?.map((item, index) => (
+                {arrCountry?.map((item, index) => (
                   <MenuItem
                     className='select-item'
                     value={item?.slug} key={index}
@@ -231,7 +243,7 @@ function FilterBanner({ lang, dataFilter, onClose }) {
                     {option.style}
                   </span>
                 </MenuItem>
-                {dataFilter?.style?.map((item, index) => (
+                {arrStyle?.map((item, index) => (
                   <MenuItem value={item?.slug} key={index}
                     sx={{
                       '&.Mui-selected': {
@@ -297,7 +309,7 @@ function FilterBanner({ lang, dataFilter, onClose }) {
                     {option.duration}
                   </span>
                 </MenuItem>
-                {dataFilter?.duration?.map((item, index) => (
+                {arrDuration?.map((item, index) => (
                   <MenuItem value={item?.name} key={index}
                     sx={{
                       '&.Mui-selected': {
@@ -363,7 +375,7 @@ function FilterBanner({ lang, dataFilter, onClose }) {
                     {option.budget}
                   </span>
                 </MenuItem>
-                {dataFilter?.budget?.map((item, index) => (
+                {arrBudget?.map((item, index) => (
                   <MenuItem value={item?.name} key={index}
                     sx={{
                       '&.Mui-selected': {

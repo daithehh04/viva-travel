@@ -23,6 +23,33 @@ function FilterTour({
   const [duration, setDuration] = useState('')
   const [budget, setBudget] = useState('')
 
+  const handleSort = (fn) => {
+    fn?.sort(function(a, b) {
+      var numA = parseInt(a?.name.split('-')[0]);
+      var numB = parseInt(b?.name.split('-')[0]);
+      return numA - numB;
+    });
+  }
+  const arrBudget = dataFilter?.budget
+  handleSort(arrBudget)
+
+  const arrDuration = dataFilter?.duration
+  handleSort(arrDuration)
+
+  const arrCountry = dataFilter?.countries
+  arrCountry?.sort(function(a, b) {
+    var numA = parseInt(a?.country?.priority);
+    var numB = parseInt(b?.country?.priority);
+    return numA - numB;
+  });
+
+  const arrStyle = dataFilter?.style
+  arrStyle?.sort(function(a, b) {
+    var numA = parseInt(a?.banner?.travelStyleInfo?.priority);
+    var numB = parseInt(b?.banner?.travelStyleInfo?.priority);
+    return numA - numB;
+  });
+
   const handleChangeDestination = (event) => {
     setDestination(event.target.value)
     onSelectDes(event.target.value)
@@ -116,7 +143,7 @@ function FilterTour({
               {option.destination}
               </span>
             </MenuItem>
-            {dataFilter?.countries?.map((item, index) => (
+            {arrCountry?.map((item, index) => (
               <MenuItem value={item?.name} key={index}
               sx={{
                 '&.Mui-selected': {
@@ -185,7 +212,7 @@ function FilterTour({
                 {option.style}
                 </span>
               </MenuItem>
-              {dataFilter?.style?.map((item, index) => (
+              {arrStyle?.map((item, index) => (
                 <MenuItem 
                   value={item?.slug} key={index}
                   className='item-select'
@@ -254,7 +281,7 @@ function FilterTour({
                 {option.duration}
                 </span>
               </MenuItem>
-              {dataFilter?.duration?.map((item, index) => (
+              {arrDuration?.map((item, index) => (
                 <MenuItem value={item?.name} key={index}
                 sx={{
                   '&.Mui-selected': {
@@ -321,7 +348,7 @@ function FilterTour({
                 {option.budget}
                 </span>
               </MenuItem>
-              {dataFilter?.budget?.map((item, index) => (
+              {arrBudget?.map((item, index) => (
                 <MenuItem value={item?.name} key={index}
                 sx={{
                   '&.Mui-selected': {

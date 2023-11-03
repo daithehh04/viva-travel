@@ -49,8 +49,13 @@ export default function OptionCustomer({ icon, list, defaultValue, onSelect }) {
       setPersonName(value)
       onSelect(value)
     }
-
   }
+
+  list?.sort(function(a, b) {
+    var numA = parseInt(a?.country?.priority);
+    var numB = parseInt(b?.country?.priority);
+    return numA - numB;
+  });
   return (
     <div>
       <FormControl className='mb-[0.94vw] bg-[#F0F0F0] rounded-[0.24913vw] 

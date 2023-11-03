@@ -62,6 +62,7 @@ const GET_LIST_TRAVEL_STYLE_NAME = `query getTourStyleName($language: LanguageCo
       name
       banner {
         travelStyleInfo {
+          priority
           travelStyleImage {
           altText
           sourceUrl

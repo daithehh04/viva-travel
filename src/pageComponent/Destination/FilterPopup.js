@@ -33,6 +33,33 @@ function FilterPopup({ lang, dataFilter, slug }) {
     setBudget(event.target.value)
   }
 
+  const handleSort = (fn) => {
+    fn?.sort(function(a, b) {
+      var numA = parseInt(a?.name.split('-')[0]);
+      var numB = parseInt(b?.name.split('-')[0]);
+      return numA - numB;
+    });
+  }
+  const arrBudget = dataFilter?.budget
+  handleSort(arrBudget)
+
+  const arrDuration = dataFilter?.duration
+  handleSort(arrDuration)
+
+  const arrCountry = dataFilter?.countries
+  arrCountry?.sort(function(a, b) {
+    var numA = parseInt(a?.country?.priority);
+    var numB = parseInt(b?.country?.priority);
+    return numA - numB;
+  });
+
+  const arrStyle = dataFilter?.style
+  arrStyle?.sort(function(a, b) {
+    var numA = parseInt(a?.banner?.travelStyleInfo?.priority);
+    var numB = parseInt(b?.banner?.travelStyleInfo?.priority);
+    return numA - numB;
+  });
+
   function handleSearch(e) {
     const arrParams = []
     if (travelStyle || duration || budget) {
@@ -112,7 +139,8 @@ function FilterPopup({ lang, dataFilter, slug }) {
     duration: 'Duration',
     day: 'day',
     price: '$',
-    search: 'Search'
+    search: 'Search',
+    filter: 'Filter tour'
   }
   if(lang === 'fr') {
     option.duration = 'Durée'
@@ -120,6 +148,7 @@ function FilterPopup({ lang, dataFilter, slug }) {
     option.day ='Jours'
     option.price= '€'
     option.search = 'Recherche'
+    option.filter = 'Visite guidée des filtres'
   }
   if(lang === 'it') {
     option.style = 'Stile di viaggio'
@@ -129,6 +158,7 @@ function FilterPopup({ lang, dataFilter, slug }) {
     option.day ='Jours'
     option.price= '€'
     option.search = 'Ricerca'
+    option.filter = 'Filtra tour'
   }
   return (
     <div>
@@ -161,7 +191,7 @@ function FilterPopup({ lang, dataFilter, slug }) {
           id='filterTourBlock'
           className=' py-[0.75vw] absolute  right-[5vw] h-fit px-[1.19vw] bg-[#FFD220] inline-flex justify-center items-center gap-[0.625vw] rounded-tl-[3.0625vw] rounded-bl-[3.0625vw] '
         >
-          <span className='text-[1vw] text-[#171717] font-normal leading-[130%]'>Filter tour</span>
+          <span className='text-[1vw] text-[#171717] font-normal leading-[130%]'>{option.filter}</span>
           <div className='flex w-[1.375vw] h-[1.375vw] justify-center items-center'></div>
         </div>
       </div>
@@ -211,7 +241,7 @@ function FilterPopup({ lang, dataFilter, slug }) {
                   {option.style}
                   </span>
                 </MenuItem>
-                {dataFilter?.style?.map((item, index) => (
+                {arrStyle?.map((item, index) => (
                   <MenuItem value={item?.slug} key={index} className='filter-item'>
                     <span className='filter-item md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
                       {item?.name}
@@ -265,7 +295,7 @@ function FilterPopup({ lang, dataFilter, slug }) {
                   {option.duration}
                   </span>
                 </MenuItem>
-                {dataFilter?.duration?.map((item, index) => (
+                {arrDuration?.map((item, index) => (
                   <MenuItem value={item?.name} key={index} className='filter-item'>
                     <span className='filter-item md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
                       {item?.name} {option.day}
@@ -278,7 +308,7 @@ function FilterPopup({ lang, dataFilter, slug }) {
         </div>
 
         <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full pl-0 md:pl-[1.87vw]'>
-          <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>Budget</span>
+          <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>{option.budget}</span>
           <div className='flex items-center select-mobile'>
             <Image
               src={wallet}
@@ -319,7 +349,7 @@ function FilterPopup({ lang, dataFilter, slug }) {
                   {option.budget}
                   </span>
                 </MenuItem>
-                {dataFilter?.budget?.map((item, index) => (
+                {arrBudget?.map((item, index) => (
                   <MenuItem value={item?.name} key={index} className='filter-item'>
                     <span className='filter-item md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
                       {item?.name}{option.price}

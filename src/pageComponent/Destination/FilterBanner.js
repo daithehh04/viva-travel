@@ -27,6 +27,33 @@ function FilterBanner({ lang, dataFilter,slug }) {
     setBudget(event.target.value)
   }
 
+  const handleSort = (fn) => {
+    fn?.sort(function(a, b) {
+      var numA = parseInt(a?.name.split('-')[0]);
+      var numB = parseInt(b?.name.split('-')[0]);
+      return numA - numB;
+    });
+  }
+  const arrBudget = dataFilter?.budget
+  handleSort(arrBudget)
+
+  const arrDuration = dataFilter?.duration
+  handleSort(arrDuration)
+
+  const arrCountry = dataFilter?.countries
+  arrCountry?.sort(function(a, b) {
+    var numA = parseInt(a?.country?.priority);
+    var numB = parseInt(b?.country?.priority);
+    return numA - numB;
+  });
+
+  const arrStyle = dataFilter?.style
+  arrStyle?.sort(function(a, b) {
+    var numA = parseInt(a?.banner?.travelStyleInfo?.priority);
+    var numB = parseInt(b?.banner?.travelStyleInfo?.priority);
+    return numA - numB;
+  });
+
   function handleSearch(e) {
     const arrParams = []
     if(travelStyle || duration || budget) {
@@ -129,7 +156,7 @@ function FilterBanner({ lang, dataFilter,slug }) {
                   {option.style}
                   </span>
                 </MenuItem>
-                {dataFilter?.style?.map((item, index) => (
+                {arrStyle?.map((item, index) => (
                   <MenuItem value={item?.slug} key={index}>
                     <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
                       {item?.name}
@@ -183,7 +210,7 @@ function FilterBanner({ lang, dataFilter,slug }) {
                   {option.duration}
                   </span>
                 </MenuItem>
-                {dataFilter?.duration?.map((item, index) => (
+                {arrDuration?.map((item, index) => (
                   <MenuItem value={item?.name} key={index}>
                     <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
                       {item?.name} {option.day}
@@ -237,10 +264,10 @@ function FilterBanner({ lang, dataFilter,slug }) {
                   {option.budget}
                   </span>
                 </MenuItem>
-                {dataFilter?.budget?.map((item, index) => (
+                {arrBudget?.map((item, index) => (
                   <MenuItem value={item?.name} key={index}>
                     <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
-                      {item?.name}$
+                      {item?.name}{option.price}
                     </span>
                   </MenuItem>
                 ))}

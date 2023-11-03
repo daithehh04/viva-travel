@@ -1,7 +1,6 @@
 'use client'
 
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
-import Image from 'next/image'
+import { useEffect, useRef, useState } from 'react'
 import { createTheme, useMediaQuery } from '@mui/material'
 import { useQuery } from '@apollo/client'
 import TourItem from '@/components/Common/TourItem'
