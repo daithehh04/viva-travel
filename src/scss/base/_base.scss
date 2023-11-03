@@ -134,3 +134,15 @@ body {
   background-color: unset !important;
   backdrop-filter: blur(4px);
 }
+
+.MuiPaper-root .MuiPaper-elevation .MuiPaper-rounded {
+  max-width: 100% !important;
+}
+
+.mui-ypiqx9-MuiDialogContent-root {
+  padding: 0 !important;
+}
+.mui-xq08gh-MuiFormHelperText-root {
+  font-size: 1rem !important;
+  color: red !important;
+}

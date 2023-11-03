@@ -6,12 +6,13 @@ const DatePickerCustom = ({ name }) => {
 
   const configDatePicker = {
     ...field,
-    type: 'date',
+    type: 'month',
     variant: 'outlined',
     fullWidth: true,
     InputLabelProps: {
       shrink: true
-    }
+    },
+    pattern: "[0-1]{1}[0-9]{1}/[0-9]{4}"
   }
   return <TextField {...configDatePicker} />
 }
