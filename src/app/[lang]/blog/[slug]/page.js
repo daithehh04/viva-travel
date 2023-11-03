@@ -31,30 +31,10 @@ query($language : LanguageCodeFilterEnum!){
     }
   }
   allCountries(where: {language: $language}) {
-    nodes {
-      tours {
-        nodes {
-          featuredImage {
-            node {
-              sourceUrl
-            }
-          }
-          slug
-          title
-          tourDetail {
-            priceTour
-            banner {
-              gallery {
-                sourceUrl
-                title
-              }
-              location
-              rate
-              title
-            }
-          }
-        }
-      }
+     nodes{
+      taxonomyName
+      slug
+      name
     }
   }
 }
@@ -94,7 +74,7 @@ export async function generateMetadata({ params: { lang } }) {
   const res = await getMetaDataPages(GET_META_DATA_RCM_SERVICE, lang)
   if (!res) return
   const dataMeta = res?.data?.page?.translation
-  const  recommendService  = dataMeta?.recommendService
+  const recommendService = dataMeta?.recommendService
 
   const featuredImage = res?.data?.page?.translation?.featuredImage
   const title = recommendService?.meta?.title

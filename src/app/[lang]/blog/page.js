@@ -40,6 +40,7 @@ query($language : LanguageCodeFilterEnum!){
 }
 `
 
+
 export async function generateMetadata({ params: { lang } }) {
   const res = await getMetaDataPages(GET_META_DATA_BLOG, lang)
   if (!res) return
