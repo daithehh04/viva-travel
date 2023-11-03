@@ -10,7 +10,8 @@ import directIcon from '@/assets/images/direct.svg'
 
 function SlideRepresent({ data, dataInfo }) {
   const [indexSlider, setIndexSlider] = useState(0)
-  const [slideData, setSlideData] = useState(data)
+  // const [slideData, setSlideData] = useState(data)
+  const slideData = data?.concat(data)?.concat(data)
   const swiperRef = useRef()
   const handleNextSlide = () => {
     swiperRef.current?.slideNext()
@@ -25,12 +26,8 @@ function SlideRepresent({ data, dataInfo }) {
 
   handleNextSlide()
   useEffect(() => {
-    if(data?.length < 20) {
-      let newArr = [...data, ...data, ...data]
-      setSlideData(newArr)
-      handleNextSlide()
-    }
-  }, [data])
+    handleNextSlide()
+  }, [])
 
   return (
     <div className='box-border relative slide-represent'>
