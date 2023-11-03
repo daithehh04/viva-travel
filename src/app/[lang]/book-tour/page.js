@@ -16,8 +16,6 @@ async function page({ params: { lang } }) {
   if (lang === 'fr') {
     data = await getDataFormBookTour(GET_DATA_FORM_BOOKTOUR, idFr, lang)
   }
-
-
   return <BookTour data={data} lang={lang} />
 }
 

@@ -31,30 +31,10 @@ query($language : LanguageCodeFilterEnum!){
     }
   }
   allCountries(where: {language: $language}) {
-    nodes {
-      tours {
-        nodes {
-          featuredImage {
-            node {
-              sourceUrl
-            }
-          }
-          slug
-          title
-          tourDetail {
-            priceTour
-            banner {
-              gallery {
-                sourceUrl
-                title
-              }
-              location
-              rate
-              title
-            }
-          }
-        }
-      }
+     nodes{
+      taxonomyName
+      slug
+      name
     }
   }
 }

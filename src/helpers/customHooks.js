@@ -9,6 +9,8 @@ export function useClickOutside(ref, handler) {
         event.target.classList.contains('filter-item') ||
         event.target.classList.contains('selectNation') ||
         event.target.classList.contains('MuiBackdrop-root') ||
+        event.target.classList.contains('MuiPickersPopper-root') ||
+        event.target.classList.contains('MuiPickersMonth-root') ||
         !ref.current ||
         ref.current.contains(event.target)
       ) {

@@ -6,9 +6,9 @@ const TextFiledWrapper = ({ name, placeholder }) => {
 
   const configTextfield = {
     ...field,
+    type: 'area',
     placeholder: placeholder,
     fullWidth: true
-    // variant: 'outlined'
   }
 
   if (meta && meta.touched && meta.error) {

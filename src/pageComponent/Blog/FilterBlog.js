@@ -142,7 +142,7 @@ function FilterBlog({ handleDes, handleTopic, handleCate, metaTopic, metaDestina
           </FormControl>
         </div>
       </div>
-      <div className='hidden md:flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[44.53333vw] pl-0 md:pl-[1.87vw]'>
+      {/* <div className='hidden md:flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[44.53333vw] pl-0 md:pl-[1.87vw]'>
         <div className='bgFilterMobile'></div>
         <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>
           {metaCategories && metaCategories[0]?.taxonomyName}
@@ -200,7 +200,7 @@ function FilterBlog({ handleDes, handleTopic, handleCate, metaTopic, metaDestina
             </Select>
           </FormControl>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }

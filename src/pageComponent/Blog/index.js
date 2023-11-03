@@ -13,7 +13,7 @@ import { useQuery } from '@apollo/client'
 
 function Index({ data1, lang, initTopic, initDestination, initCategories, allCountries, slug }) {
   const metaTopic = initTopic?.nodes
-  const metaDestination = initDestination?.nodes
+  const metaDestination = allCountries?.nodes
   const metaCategories = initCategories?.nodes
 
   const arrayTopicInit = []
@@ -103,11 +103,10 @@ function Index({ data1, lang, initTopic, initDestination, initCategories, allCou
                 <div
                   key={index}
                   onClick={() => handleChangePage(index)}
-                  className={`${
-                    totalPage > 1
+                  className={`${totalPage > 1
                       ? 'cursor-pointer md:w-[2.125vw] md:h-[2.125vw] w-[9.07vw] h-[9.07vw] rounded-[50%] flex justify-center items-center bg-primaryColor'
                       : 'hidden'
-                  }  ${activePage === index ? 'bg-textColor  opacity-[1]' : ' opacity-[0.1]'}`}
+                    }  ${activePage === index ? 'bg-textColor  opacity-[1]' : ' opacity-[0.1]'}`}
                 >
                   <span className={`${activePage === index ? 'text-white' : 'text-textColor'}`}>{index + 1}</span>
                 </div>
