@@ -14,8 +14,8 @@ function ReviewItem({ data, lang }) {
       className='block relative h-[31.9375vw] rounded-[1vw] max-md:rounded-[3.2vw] max-md:h-[104.8vw] max-md:ml-[4vw] customer-review__item cursor-pointer'
     >
       <Image
-        src={tourData?.banner?.gallery && tourData?.banner?.gallery[0]?.sourceUrl}
-        alt={(tourData?.banner?.gallery && tourData?.banner?.gallery[0]?.altText) || 'img'}
+        src={tourData?.banner?.gallery || tourData?.banner?.gallery[0]?.sourceUrl}
+        alt={(tourData?.banner?.gallery || tourData?.banner?.gallery[0]?.altText) || 'img'}
         width={500}
         height={500}
         className='rounded-[1vw] w-full h-full object-cover max-md:rounded-[3.2vw] customer-review__img'

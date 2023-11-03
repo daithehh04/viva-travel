@@ -19,6 +19,21 @@ function FilterBanner({ lang, dataFilter, onClose }) {
   const [budget, setBudget] = useState('')
   const router = useRouter()
 
+  const handleSort = (fn) => {
+    fn?.sort(function(a, b) {
+      var numA = parseInt(a.split('-')[0]);
+      var numB = parseInt(b.split('-')[0]);
+      return numA - numB;
+    });
+  }
+  const arrBudget = dataFilter?.budget?.map((item) => item.name)
+  handleSort(arrBudget)
+  console.log('arrBudget',arrBudget);
+
+  const arrDuration = dataFilter?.duration?.map((item) => item.name)
+  handleSort(arrDuration)
+  console.log('arrDuration',arrDuration);
+
   const handleChangeDestination = (event) => {
     setDestination(event.target.value)
   }

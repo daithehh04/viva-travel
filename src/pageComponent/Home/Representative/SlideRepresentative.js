@@ -24,7 +24,9 @@ function SlideRepresent({ data, dataInfo }) {
     setIndexSlider(swiper.activeIndex)
   }
 
-  handleNextSlide()
+  if (data) {
+    handleNextSlide()
+  }
   useEffect(() => {
     handleNextSlide()
   }, [])
