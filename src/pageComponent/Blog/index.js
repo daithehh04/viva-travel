@@ -8,7 +8,7 @@ import { useEffect, useRef, useState } from 'react'
 import FilterBlog from './FilterBlog'
 import background from '@/assets/images/ourBlog_background.png'
 import Link from 'next/link'
-import { GET_ALL_POST_FILTER } from '@/graphql/post/queries'
+import { GET_ALL_POST_FILTER, GET_BEST_TOUR_BLOG_BY_COUNTRY } from '@/graphql/post/queries'
 import { useQuery } from '@apollo/client'
 
 function Index({ data1, lang, initTopic, initDestination, initCategories, allCountries, slug }) {
@@ -23,6 +23,7 @@ function Index({ data1, lang, initTopic, initDestination, initCategories, allCou
   metaTopic?.map((topic, index) => {
     arrayTopicInit.push(topic?.slug)
   })
+
   metaDestination?.map((des, index) => {
     arrayDesInit.push(des?.slug)
   })
@@ -47,6 +48,16 @@ function Index({ data1, lang, initTopic, initDestination, initCategories, allCou
       destinationSlug: destination === '' ? arrayDesInit : destination
     }
   })
+
+  console.log(category);
+  const dataBestTour = useQuery(GET_BEST_TOUR_BLOG_BY_COUNTRY,
+    {
+      variables: {
+        language: language,
+        countrySlug: destination === '' ? arrayDesInit : destination,
+        bestSellerSlug: ['best-seller-tours']
+      }
+    })
 
   const eleRef = useRef()
 
@@ -104,8 +115,8 @@ function Index({ data1, lang, initTopic, initDestination, initCategories, allCou
                   key={index}
                   onClick={() => handleChangePage(index)}
                   className={`${totalPage > 1
-                      ? 'cursor-pointer md:w-[2.125vw] md:h-[2.125vw] w-[9.07vw] h-[9.07vw] rounded-[50%] flex justify-center items-center bg-primaryColor'
-                      : 'hidden'
+                    ? 'cursor-pointer md:w-[2.125vw] md:h-[2.125vw] w-[9.07vw] h-[9.07vw] rounded-[50%] flex justify-center items-center bg-primaryColor'
+                    : 'hidden'
                     }  ${activePage === index ? 'bg-textColor  opacity-[1]' : ' opacity-[0.1]'}`}
                 >
                   <span className={`${activePage === index ? 'text-white' : 'text-textColor'}`}>{index + 1}</span>
@@ -118,13 +129,15 @@ function Index({ data1, lang, initTopic, initDestination, initCategories, allCou
             <Loading />
           </div>
         )}
+
+        {/* besst seller tour */}
         {data1?.data?.page?.translation?.ourblog ? (
           <div>
             <h2 className='heading-1 md:mt-[5.25vw] mt-[12.8vw] md:pl-[8.06vw] pl-[4.27vw] mb-[3.5vw]'>
               {data1?.data?.page?.translation?.ourblog?.heading2}
             </h2>
             <div className='md:px-[8.06vw]'>
-              <SlideTour data={data1?.data?.bestSeller?.tours?.nodes} lang={lang} />
+              <SlideTour data={dataBestTour?.data?.allTours?.nodes} lang={lang} />
             </div>
             <Link href={`/${lang}/search`}>
               <Button content={data1?.data?.page?.translation?.ourblog?.button} className='btn-secondary m-auto md:mb-[6.25vw] mb-[6.25vw] md:mt-[3.5vw] relative mt-[10.01vw] '>
