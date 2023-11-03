@@ -35,6 +35,17 @@ function BestTour({
     onBudget(budget)
     onDuration(duration)
   }, [onDestination, onTravelStyle, destination, travelStyle, budget, duration, onBudget, onDuration])
+
+  let other = 'Other tours'
+  let notFound = 'Not Found Tour !!'
+  if(lang === 'fr') {
+    other = 'Autres visites'
+    notFound = 'Visite introuvable !!'
+  }
+  if(lang === 'it') {
+    other = 'Altri tour'
+    notFound = 'Tour non trovato!!'
+  }
   return (
     <div className='best-tours pt-[8.13vw] relative'>
       <div className='absolute top-0 h-[50vw] w-full bg-white md:hidden'></div>
@@ -99,8 +110,8 @@ function BestTour({
             </div>
           ))
         ) : (
-          <div className='text-center text-[3.5vw] w-full text-[#c23a3a] font-optima max-md:text-[5.67vw]'>
-            Not Found Tour !!
+          <div className='text-center text-[3.5vw] font-[600] w-full text-[#c23a3a] font-optima max-md:text-[5.67vw]'>
+            {notFound}
           </div>
         )}
         {allTours?.length > 7 && !loading ? (
@@ -117,7 +128,7 @@ function BestTour({
                 <span className='text-white heading-1'>{allTours.length - 7}</span>
               </div>
               <span className='text-white text-justify font-optima text-[1.5vw] block font-medium leading-[150%]'>
-                Other tours
+                {other}
               </span>
               <div className='flex justify-center max-md:hidden mt-[1.25vw] max-md:mt-[8.53vw]'>
                 <Link
