@@ -5,7 +5,7 @@ import SubBanner from '@/components/Common/SubBanner'
 import stepBg from '@/assets/images/about/stepBg.png'
 import Reviews from './reviews/Reviews'
 
-export default function IndexAboutUs({ res, lang }) {
+export default function IndexAboutUs({ res, lang, arrYear, arrCountry }) {
   const bannerData = res?.data?.page?.translation?.aboutUsReviews?.banner
   const bookingStep = res?.data?.page?.translation?.aboutUsReviews?.steps
   const subBannerStep = res?.data?.page?.translation?.aboutUsReviews?.subBanner
@@ -14,7 +14,7 @@ export default function IndexAboutUs({ res, lang }) {
     <>
       <Banner data={bannerData} />
       <div className='md:pb-[8.125vw] mt-[-7.2vw] md:mt-0 md:bg-white bg-[#F3F6FB] z-10  relative rounded-2xl md:rounded-none'>
-        <Reviews lang={lang} data={reviewData} />
+        <Reviews lang={lang} data={reviewData} arrYear={arrYear} arrCountry={arrCountry}/>
         <div className='relative md:pb-[6.875vw] pb-[16.458vw] pt-[10.66vw] xl:pt-0 md:pt-[3vw] bg-white '>
           <BookingProcessSteps data={bookingStep} />
           <Image

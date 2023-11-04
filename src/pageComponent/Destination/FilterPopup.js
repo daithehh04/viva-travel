@@ -200,7 +200,6 @@ function FilterPopup({ lang, dataFilter, slug }) {
         className='md:grid hidden z-20 grid-cols-2 filterPopUp gap-y-[2.12vw] gap-x-[2.25vw] justify-items-end rounded-[1vw] shadow-lg bg-white fixed bottom-[8.94vw] right-[6.13vw] items-center w-[28.6vw] pt-[2.5vw] pr-[2.125vw] pb-[2.18vw] pl-[2.1875vw]'
       >
         <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full pl-0 md:pl-[1.87vw]'>
-          <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>{option.style}</span>
           <div className='flex items-center select-mobile'>
             <Image
               src={styleIcon}
@@ -254,7 +253,6 @@ function FilterPopup({ lang, dataFilter, slug }) {
         </div>
 
         <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full pl-0 md:pl-[1.87vw]'>
-          <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>{option.duration}</span>
           <div className='flex items-center select-mobile'>
             <Image
               src={calendar}
@@ -308,7 +306,6 @@ function FilterPopup({ lang, dataFilter, slug }) {
         </div>
 
         <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full pl-0 md:pl-[1.87vw]'>
-          <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>{option.budget}</span>
           <div className='flex items-center select-mobile'>
             <Image
               src={wallet}

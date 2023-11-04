@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from 'react'
 import AOS from 'aos'
 import Loading from '@/components/Common/Loading'
 import Link from 'next/link'
+import FilterReview from './FilterReview'
 
 const theme = createTheme({
   breakpoints: {
@@ -15,7 +16,10 @@ const theme = createTheme({
     }
   }
 })
-const Reviews = ({ lang, data }) => {
+const Reviews = ({ lang, data, arrYear, arrCountry }) => {
+  const listCountry = arrCountry?.map((item) => item?.slug)
+  const [year,setYear] = useState(arrYear)
+  const [country,setCountry] = useState(listCountry)
   useEffect(() => {
     AOS.init({
       disable: function () {
@@ -36,9 +40,11 @@ const Reviews = ({ lang, data }) => {
     loading
   } = useQuery(GET_All_CUSTOMERS_REVIEW, {
     variables: {
-      offset: activePage,
+      offset: 0,
       size: 7,
-      language: lang?.toUpperCase()
+      language: lang?.toUpperCase(),
+      yearSlug: year === "" ? arrYear : year,
+      countrySlug: country === "" ? listCountry : country
     }
   })
   // calculate total page of reviews
@@ -47,13 +53,14 @@ const Reviews = ({ lang, data }) => {
   }
   const paginations = new Array(totalPage.current).fill(0)
   const reviewData = reviewList?.allCustomerReview?.nodes?.filter((item) => item.translation !== null)
+  console.log('reviewData',reviewList);
   return (
     <section
-      className='content relative z-10'
+      className='relative z-10 content'
       id='about-us__review'
       style={{ paddingTop: '10vw', paddingBottom: '10vw' }}
     >
-      <div className='md:w-[50vw] xl:w-[33.4375vw] w-full text-textColor md:mb-[2vw] mb-[13.07vw]'>
+      <div className='md:w-[50vw] w-full text-textColor md:mb-[2vw] mb-[13.07vw]'>
         <h2
           data-aos-once='true'
           data-aos-disabled='true'
@@ -73,11 +80,11 @@ const Reviews = ({ lang, data }) => {
           {data?.desc}
         </p>
       </div>
-
+      <FilterReview arrDes={arrCountry} arrYear={arrYear} handleDes={setCountry} handleYear={setYear}/>
       {/* reviews */}
       {!loading ? (
-        <div className='md:grid md:grid-cols-2 w-full md:h-[98.0375vw] md:gap-[2.5vw] gap-[4.8vw] flex flex-col '>
-          {reviewData?.map((item, index) => {
+        <div className='md:grid md:grid-cols-2 mt-[4vw] max-md:mt-[8vw] w-full md:row-auto md:gap-[2.5vw] gap-[4.8vw] flex flex-col '>
+          {reviewData?.length ? reviewData?.map((item, index) => {
             return (
               <div
                 key={index}
@@ -89,10 +96,10 @@ const Reviews = ({ lang, data }) => {
                 />
               </div>
             )
-          })}
+          }) : <h3 className='text-[3.5vw] max-md:text-[3.73vw] font-optima font-[600] whitespace-nowrap ml-[85%]'>Not Found!</h3>}
         </div>
       ) : (
-        <div className='flex items-center justify-center flex-1 w-full text-center h-[60vh]'>
+        <div className='flex items-center justify-center flex-1 w-full text-center h-[40vh]'>
           <Loading />
         </div>
       )}

@@ -1,30 +1,26 @@
 import { gql } from '@apollo/client'
 
 export const GET_All_CUSTOMERS_REVIEW = gql`
-  query GetAllCustomersReview($offset: Int!, $size: Int!, $language: LanguageCodeFilterEnum!) {
-    allCustomerReview(where: { offsetPagination: { offset: $offset, size: $size }, language: $language }) {
-      pageInfo {
-        hasNextPage
-        hasPreviousPage
-        offsetPagination {
-          hasMore
-          hasPrevious
-          total
-        }
-      }
-      nodes {
+query GetDataPageReview($language: LanguageCodeEnum!, $offset: Int!, $size: Int!, $yearSlug: [String!], $countrySlug: [String!]) {
+  allCustomerReview(
+    first: 100,
+    where: {offsetPagination: {offset: $offset, size: $size}, orderby: {field: DATE, order: DESC}, taxQuery: {taxArray: [{taxonomy: YEARS, operator: IN, terms: $yearSlug, field: NAME}, {taxonomy: COUNTRIES, operator: IN, terms: $countrySlug, field: SLUG}]}}
+  ) {
+    nodes {
+      translation(language: $language) {
+        slug
         customerReview {
           content
           authorInformation {
-            country
             name
+            country
             thumbnail {
-              altText
               sourceUrl
             }
           }
           tours {
-            ... on Tours {
+            ...on Tours {
+              title
               slug
               tourDetail {
                 banner {
@@ -42,7 +38,13 @@ export const GET_All_CUSTOMERS_REVIEW = gql`
         }
       }
     }
+    pageInfo {
+      offsetPagination {
+        total
+      }
+    }
   }
+}
 `
 export const GET_REVIEWS = `query ($language: LanguageCodeEnum!) {
   allCustomerReview(first: 4) {
@@ -111,3 +113,40 @@ export const GET_ALL_REVIEWS = `query GetAllCustomersReview($language: LanguageC
     }
   }
 }`
+
+export const REVIEW_DETAIl = `
+query getReviewDetail($slug: ID!, $language: LanguageCodeEnum!){
+  customerReview(id:$slug,idType: URI) {
+    translation(language:$language) {
+			slug
+        customerReview {
+          content
+          authorInformation {
+            name
+            country
+            thumbnail {
+              sourceUrl
+            }
+          }
+          tours {
+            ...on Tours {
+              title
+              slug
+              tourDetail {
+                banner {
+                  gallery {
+                    altText
+                    sourceUrl
+                  }
+                  location
+                  title
+                }
+                numberDay
+              }
+            }
+          }
+        }
+    }
+  }
+}
+`

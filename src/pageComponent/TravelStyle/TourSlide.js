@@ -125,7 +125,7 @@ function TourSlide({
     >
       <div className='max-md:pl-[4.27vw] pl-[8.125vw] max-md:pr-[4.27vw] '>
         <h2 className='heading-1 max-md:mt-[9.12vw]'>{tourStyleName}</h2>
-        <div className='bg-white mt-[1vw] w-max rounded-[1.125vw] px-[2.38vw] py-[1.19vw] max-md:mt-[4.27vw] max-md:p-0 max-md:bg-transparent max-md:w-full'>
+        <div className='bg-white mt-[2vw] w-max rounded-[1.125vw] px-[2.38vw] py-[1.19vw] max-md:mt-[4.27vw] max-md:p-0 max-md:bg-transparent max-md:w-full filter-tour'>
           <FilterTour
             dataFilter={dataFilter}
             onSelectDes={(data) => setDestination(data)}
@@ -140,8 +140,8 @@ function TourSlide({
       <div
         className={`${
           allTours?.length === 0
-            ? `w-full block mt-[1.88vw]`
-            : 'grid grid-cols-4 gap-[2.5vw] mt-[1.88vw] max-md:grid-cols-1 w-[83.75%] ml-auto mr-auto max-md:w-full max-md:bg-[#f3f6fb]'
+            ? `w-full block mt-[3.5vw]`
+            : 'grid grid-cols-4 gap-[2.5vw] mt-[3.5vw] max-md:grid-cols-1 w-[83.75%] ml-auto mr-auto max-md:w-full max-md:bg-[#f3f6fb]'
         }`}
       >
         {/* {!dataBestTours.loading ? ( */}

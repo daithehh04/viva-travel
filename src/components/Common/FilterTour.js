@@ -96,7 +96,6 @@ function FilterTour({
     >
       <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full'>
         <div className='bg-mobile md:hidden'></div>
-        <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>{option.destination}</span>
         <div className='flex items-center select-mobile'>
           <Image
             src={locationIcon}
@@ -163,7 +162,6 @@ function FilterTour({
 
       <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full pl-0 md:pl-[1.87vw]'>
         <div className='bg-mobile md:hidden'></div>
-        <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>{option.style}</span>
         <div className='flex items-center select-mobile'>
           <Image
             src={styleIcon}
@@ -234,7 +232,6 @@ function FilterTour({
 
       <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full pl-0 md:pl-[1.87vw]'>
         <div className='bg-mobile md:hidden'></div>
-        <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>{option.duration}</span>
         <div className='flex items-center select-mobile'>
           <Image
             src={calendar}
@@ -301,7 +298,6 @@ function FilterTour({
 
       <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full pl-0 md:pl-[1.87vw]'>
         <div className='bg-mobile md:hidden'></div>
-        <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>{option.budget}</span>
         <div className='flex items-center select-mobile'>
           <Image
             src={wallet}
