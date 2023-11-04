@@ -10,9 +10,9 @@ import Link from 'next/link'
 function ReviewItem({ className, data, lang }) {
   // className prop is mush have a wrapper's class to overwrite css
 
-  const tourData = data?.customerReview?.tours?.tourDetail
-  const authorInfo = data?.customerReview?.authorInformation
-  const tourSlug = data?.customerReview?.tours?.slug
+  const tourData = data?.translation?.customerReview?.tours?.tourDetail
+  const authorInfo = data?.translation?.customerReview?.authorInformation
+  const tourSlug = data?.translation?.customerReview?.tours?.slug
   return (
     <div
       className={`${
@@ -37,11 +37,10 @@ function ReviewItem({ className, data, lang }) {
         <div className='md:mb-[0.5vw] lg:mb-0'>
           <Link
             href={`/${lang}/tours/${tourSlug}`}
-            className='cursor-pointer lg:text-[1.25vw] md:text-[1.4vw] text-[3.733vw] md:leading-[1.35] leading-normal font-bold text-textColor tracking-[-0.4px] md:mb-[0.62vw]'
+            className='cursor-pointer link-item lg:text-[1.25vw] md:text-[1.4vw] text-[3.733vw] md:leading-[1.35] leading-normal font-bold text-textColor tracking-[-0.4px] md:mb-[0.62vw] line-clamp-3'
           >
             {tourData?.banner?.title}
           </Link>
-
           {/* location & calendar */}
           <div className='md:hidden flex items-center mt-[0.62vw] md:text-[0.875vw] text-[3.2vw]'>
             <div className='flex items-center'>
@@ -67,8 +66,7 @@ function ReviewItem({ className, data, lang }) {
           </div>
 
           <div className='relative'>
-            <p className='lg:text-[0.875vw] md:text-[1.1vw] text-[3.73vw] opacity-60 md:opacity-70 leading-normal mt-[3.2vw] md:mt-0 lg:line-clamp-4 line-clamp-3'>
-              {data?.customerReview?.content}
+            <p className='lg:text-[0.875vw] md:text-[1.1vw] text-[3.73vw] opacity-60 md:opacity-70 leading-normal mt-[3.2vw] md:mt-0 lg:line-clamp-4 line-clamp-3' dangerouslySetInnerHTML={{ __html: `${data?.translation?.customerReview?.content}`}}>
             </p>
             <Image
               src={commaRes}
@@ -95,29 +93,32 @@ function ReviewItem({ className, data, lang }) {
           </div>
 
           {/* location & calendar */}
-          <div className='md:flex hidden items-center mt-[0.62vw] md:text-[0.875vw] text-[3.2vw]'>
-            <div className='flex items-center'>
-              <Image
-                src={location}
-                width={100}
-                height={100}
-                alt='location'
-                className='md:w-[1vw] w-[3.2vw] md:h-[1vw] h-[3.2vw] object-cover'
-              />
-              <span className=' leading-normal ml-[0.25vw] text-textColor opacity-70'>
-                {tourData?.banner?.location}
-              </span>
+          <div className='flex items-end justify-between'>
+            <div className='md:flex hidden items-center mt-[0.62vw] md:text-[0.875vw] text-[3.2vw]'>
+              <div className='flex items-center'>
+                <Image
+                  src={location}
+                  width={100}
+                  height={100}
+                  alt='location'
+                  className='md:w-[1vw] w-[3.2vw] md:h-[1vw] h-[3.2vw] object-cover'
+                />
+                <span className=' leading-normal ml-[0.25vw] text-textColor opacity-70'>
+                  {tourData?.banner?.location}
+                </span>
+              </div>
+              <div className='ml-[1.75vw] flex items-center'>
+                <Image
+                  src={calendar}
+                  width={100}
+                  height={100}
+                  alt='calendar'
+                  className='md:w-[0.75vw] w-[3.2vw] md:h-[0.83vw] h-[3.2vw] object-cover'
+                />
+                <span className='leading-normal ml-[0.3vw]'>{tourData?.numberDay} Day</span>
+              </div>
             </div>
-            <div className='ml-[1.75vw] flex items-center'>
-              <Image
-                src={calendar}
-                width={100}
-                height={100}
-                alt='calendar'
-                className='md:w-[0.75vw] w-[3.2vw] md:h-[0.83vw] h-[3.2vw] object-cover'
-              />
-              <span className='leading-normal ml-[0.3vw]'>{tourData?.numberDay} Day</span>
-            </div>
+            <Link href={`/${lang}/reviews/${data?.translation?.slug}`} className='text-[1vw] max-md:text-[3.73vw] font-[500] link-see_more'>See more</Link>
           </div>
         </div>
       </div>
