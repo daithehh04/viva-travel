@@ -112,6 +112,58 @@ const GET_ALL_POST_FILTER = gql`
   }
 `
 
+const GET_ALL_POST_FILTER_NOT_BY_CATE = gql`
+  query GetAllPost(
+    $language: LanguageCodeEnum!
+    $offset: Int!
+    $size: Int!
+    $topicSlug: [String!]
+    $destinationSlug: [String!]
+  ) {
+    posts(
+      where: {
+        offsetPagination: { offset: $offset, size: $size }
+        orderby: { field: DATE, order: DESC }
+        taxQuery: {
+          taxArray: [
+            { taxonomy: TOPIC, operator: IN, terms: $topicSlug, field: SLUG }
+            { taxonomy: DESTINATION, operator: IN, terms: $destinationSlug, field: SLUG }
+          ]
+        }
+      }
+    ) {
+      nodes {
+        translation(language: $language) {
+          id
+          excerpt
+          title
+          slug
+          blogdetail {
+            heading
+            time
+            subtitle1
+          }
+          language {
+            code
+            locale
+          }
+          featuredImage {
+            node {
+              altText
+              sourceUrl
+            }
+          }
+        }
+      }
+      pageInfo {
+        offsetPagination {
+          total
+        }
+      }
+    }
+  }
+`
+
 const GET_ALL_TOURS_BESTSELLER = `
 query ($language: LanguageCodeEnum!) {
   page(id: "cG9zdDo1NjY") {
@@ -222,4 +274,4 @@ query GetFilterTour(
   }`
 
 export default GET_SERVICE_BY_CATEGORY
-export { GET_POST, GET_ALL_POST, GET_ALL_POST_FILTER, GET_ALL_TOURS_BESTSELLER, GET_SERVICE_BY_CATEGORY, GET_BEST_TOUR_BLOG_BY_COUNTRY }
+export { GET_POST, GET_ALL_POST, GET_ALL_POST_FILTER, GET_ALL_TOURS_BESTSELLER, GET_SERVICE_BY_CATEGORY, GET_BEST_TOUR_BLOG_BY_COUNTRY, GET_ALL_POST_FILTER_NOT_BY_CATE }

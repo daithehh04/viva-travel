@@ -8,7 +8,7 @@ import { useEffect, useRef, useState } from 'react'
 import FilterBlog from './FilterBlog'
 import background from '@/assets/images/ourBlog_background.png'
 import Link from 'next/link'
-import { GET_ALL_POST_FILTER, GET_BEST_TOUR_BLOG_BY_COUNTRY } from '@/graphql/post/queries'
+import { GET_ALL_POST_FILTER_NOT_BY_CATE, GET_BEST_TOUR_BLOG_BY_COUNTRY } from '@/graphql/post/queries'
 import { useQuery } from '@apollo/client'
 
 function Index({ data1, lang, initTopic, initDestination, initCategories, allCountries, slug }) {
@@ -38,18 +38,16 @@ function Index({ data1, lang, initTopic, initDestination, initCategories, allCou
   const [category, setCategory] = useState(slug || '')
   const language = lang?.toUpperCase() || 'EN'
 
-  const { data, refetch, loading } = useQuery(GET_ALL_POST_FILTER, {
+  const { data, refetch, loading } = useQuery(GET_ALL_POST_FILTER_NOT_BY_CATE, {
     variables: {
       language,
       offset: 0,
       size: 12,
       topicSlug: topic === '' ? arrayTopicInit : topic,
-      categorySlug: category === '' ? arrayCateInit : category,
       destinationSlug: destination === '' ? arrayDesInit : destination
     }
   })
 
-  console.log(category);
   const dataBestTour = useQuery(GET_BEST_TOUR_BLOG_BY_COUNTRY,
     {
       variables: {
