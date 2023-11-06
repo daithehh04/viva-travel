@@ -42,6 +42,7 @@ import { Suspense } from 'react'
 import Loader from '@/components/Common/Loader'
 import SearchButton from '@/pageComponent/Home/SearchButton'
 import PopupPromotion from '@/components/Common/PopupPromotion'
+import { DATA_POPUP_VOUCHER } from '@/graphql/hotDeal/queries'
 
 
 const idEnBook = 'cG9zdDoxNDIy'
@@ -99,6 +100,7 @@ export default async function RootLayout({ children, params }) {
   let contactInfo = await getDataPost(params.lang, GET_INFO_CONTACT)
   contactInfo = contactInfo?.data?.page?.translation?.home?.footer?.column1?.contact
 
+  const dataPopupVoucher = await getDataPost(params.lang, DATA_POPUP_VOUCHER)
   return (
     <html lang={params.lang}>
       <body suppressHydrationWarning={true}>
@@ -126,7 +128,7 @@ export default async function RootLayout({ children, params }) {
                 }}
               />
               <SearchButton lang={params.lang} />
-              <PopupPromotion lang={params.lang}/>
+              <PopupPromotion lang={params.lang} data={dataPopupVoucher?.data?.page?.translation}/>
               {children}
               <Footer lang={params.lang} />
             </Suspense>
