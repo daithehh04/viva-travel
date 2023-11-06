@@ -38,6 +38,15 @@ async function index({ lang }) {
   }
   const arrCountryFrom = handleTaxonomies(dataCountryFrom?.data?.allFromCountry?.nodes)
   const arrCountryTo = handleTaxonomies(dataCountryTo?.data?.allToCountry?.nodes)
+  const handleFilter = (fn) => {
+    fn?.sort(function(a, b) {
+      var numA = parseInt(a?.description) || 100;
+      var numB = parseInt(b?.description) || 100;
+      return numA - numB;
+    });
+  }
+  handleFilter(arrCountryFrom)
+  handleFilter(arrCountryTo)
   const dataFilter = {
     countryFrom: arrCountryFrom,
     countryTo: arrCountryTo

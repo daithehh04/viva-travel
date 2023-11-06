@@ -6,6 +6,7 @@ query {
     nodes {
       name
       slug
+      description
     }
   }
 }`
@@ -16,6 +17,7 @@ query {
     nodes {
       name
       slug
+      description
     }
   }
 }`
