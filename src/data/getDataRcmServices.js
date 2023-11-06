@@ -4,6 +4,7 @@ const GET_SERVICE_BY_CATEGORY = `
     nodes {
       name
       slug
+      description
      	recommendservice{
         recommendservice{
           related

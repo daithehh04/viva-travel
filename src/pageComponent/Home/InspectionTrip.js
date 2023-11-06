@@ -98,7 +98,7 @@ function InspectionTrip({ data, lang, dataSlide }) {
                               className='w-[1.5vw] h-[1.5vw] max-md:w-[3.2vw] max-md:h-[3.2vw] object-cover'
                             />
                             <span className='text-white text-[1.125vw] max-md:text-[2.267vw] leading-[1.3] max-lg:text-[1.4vw]'>
-                              {item?.translation?.destination && item?.translation?.destination?.nodes[0]?.name}
+                              {item?.translation?.countries && item?.translation?.countries?.nodes[0]?.name}
                             </span>
                           </div>
                           {/* Icon 2 */}

@@ -148,9 +148,7 @@ const GET_HOME_PAGE = `query getHomePageData($id:ID!) {
                     }
                   }
                 }
-              }
-
-              
+              } 
             }
           }
           listReview {
@@ -392,8 +390,9 @@ const GET_DATA_iNSEPECT = gql`query getDataInsepect(
     where: {
       taxQuery:
       {
-        taxArray: [{ taxonomy: CATEGORY, operator: IN, terms: $categorySlug, field: SLUG },
-        { taxonomy: DESTINATION, operator: IN, terms: $destinationSlug, field: SLUG }]
+        taxArray: [
+        { taxonomy: CATEGORY, operator: IN, terms: $categorySlug, field: SLUG },
+        { taxonomy: COUNTRIES, operator: IN, terms: $destinationSlug, field: SLUG }]
       }
   }
   ) {
@@ -416,7 +415,7 @@ const GET_DATA_iNSEPECT = gql`query getDataInsepect(
             name
           }
         }
-        destination {
+        countries {
           nodes{
             name
           }
@@ -428,7 +427,7 @@ const GET_DATA_iNSEPECT = gql`query getDataInsepect(
 
 const GET_INITIAL_FILTER = `
 query($language : LanguageCodeFilterEnum!){
-  allDestination (where:{language: $language}){
+  allCountries (where:{language: $language}){
     nodes{
       taxonomyName
       slug

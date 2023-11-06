@@ -69,7 +69,7 @@ function BestTour({
           data-aos-once='true'
           data-aos-disabled='true'
           data-aos='fade-up'
-          data-aos-duration='1000' className='bg-white mt-[1vw] w-max rounded-[1.125vw] px-[2.38vw] py-[1.19vw] max-md:mt-[4.27vw] max-md:p-0 max-md:bg-transparent max-md:w-full'>
+          data-aos-duration='1000' className='bg-white mt-[2vw] w-max rounded-[1.125vw] px-[2.38vw] py-[2vw] max-md:mt-[4.27vw] max-md:p-0 max-md:bg-transparent max-md:w-full'>
           <FilterTour
             dataFilter={dataFilter}
             onSelectDes={(data) => setDestination(data)}

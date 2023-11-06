@@ -5,11 +5,12 @@ import SlideTour from '@/components/Common/SlideTour'
 import Image from 'next/image'
 import Loading from '@/components/Common/Loading'
 import { useEffect, useRef, useState } from 'react'
-import FilterBlog from './FilterBlog'
 import background from '@/assets/images/ourBlog_background.png'
 import Link from 'next/link'
 import { GET_ALL_POST_FILTER, GET_BEST_TOUR_BLOG_BY_COUNTRY } from '@/graphql/post/queries'
 import { useQuery } from '@apollo/client'
+import FilterService from './FilterService'
+import NotFound from '@/components/Common/NotFound'
 
 function Index({ data1, lang, initTopic, initCategories, allCountries, slug }) {
     const metaTopic = initTopic?.nodes
@@ -32,10 +33,10 @@ function Index({ data1, lang, initTopic, initCategories, allCountries, slug }) {
         arrayCateInit.push(cate?.slug)
     })
 
+    const namePage = metaCategories?.find((item,index) => item.slug === slug)
+
     const [activePage, setActivePage] = useState(0)
     const [destination, setDestination] = useState(arrayDesInit || '')
-    const [topic, setTopic] = useState(arrayTopicInit || '')
-    const [category, setCategory] = useState(slug || '')
     const language = lang?.toUpperCase() || 'EN'
 
     const { data, refetch, loading } = useQuery(GET_ALL_POST_FILTER, {
@@ -43,8 +44,8 @@ function Index({ data1, lang, initTopic, initCategories, allCountries, slug }) {
             language,
             offset: 0,
             size: 12,
-            topicSlug: topic === '' ? arrayTopicInit : topic,
-            categorySlug: category === '' ? arrayCateInit : category,
+            topicSlug: arrayTopicInit,
+            categorySlug: slug,
             destinationSlug: destination === '' ? arrayDesInit : destination
         }
     })
@@ -53,8 +54,7 @@ function Index({ data1, lang, initTopic, initCategories, allCountries, slug }) {
         {
             variables: {
                 language: language,
-                countrySlug: destination === '' ? arrayDesInit : destination,
-                bestSellerSlug: ['best-seller-tours']
+                countrySlug: destination === '' ? arrayDesInit : destination
             }
         })
 
@@ -80,12 +80,10 @@ function Index({ data1, lang, initTopic, initCategories, allCountries, slug }) {
         <div>
             <div className='content'>
                 <h2 className='heading-1 mdpt-[14.755vw] lg:pt-[9.755vw] pt-[23.53vw] md:mb-0 mb-[4.27vw]'>
-                    {data1?.data?.page?.translation?.ourblog?.heading1}
+                    {namePage?.name}
                 </h2>
-                <FilterBlog
+                <FilterService
                     handleDes={(data) => setDestination(data)}
-                    handleTopic={(data) => setTopic(data)}
-                    handleCate={(data) => setCategory(data)}
                     metaTopic={metaTopic}
                     metaDestination={metaDestination}
                     metaCategories={metaCategories}
@@ -97,8 +95,8 @@ function Index({ data1, lang, initTopic, initCategories, allCountries, slug }) {
                 <Image alt='banner' src={background} fill quality={100} className='z-[-1] object-cover' />
                 {!loading ? (
                     <div>
-                        <div className='grid md:grid-cols-4 md:px-[8.06vw] px-[4.27vw] grid-cols-2 md:gap-x-[2.5vw] md:gap-y-[3vw] gap-x-[4.27vw] gap-y-[6.4vw] md:mt-[4vw] mt-[7.73vw]'>
-                            {allBlogData?.map((item, index) => (
+                        {pageInfo !== 0 ? <div className='grid md:grid-cols-4 md:px-[8.06vw] px-[4.27vw] grid-cols-2 md:gap-x-[2.5vw] md:gap-y-[3vw] gap-x-[4.27vw] gap-y-[6.4vw] md:mt-[4vw] mt-[7.73vw]'>
+                            { allBlogData?.map((item, index) => (
                                 <BlogItem
                                     lang={lang}
                                     key={index}
@@ -106,7 +104,9 @@ function Index({ data1, lang, initTopic, initCategories, allCountries, slug }) {
                                     className={'max-md:w-[43.73333vw] max-md:h-[43.73333vw] !ml-0'}
                                 />
                             ))}
-                        </div>
+                        </div> : <div className='text-center text-[3.5vw] pt-[4vw] w-full font-optima max-md:text-[5.67vw]'>
+                            Not Found !
+                          </div>}
 
                         <div className='flex md:gap-[0.75vw] gap-[3.2vw] justify-center items-center relative md:mt-[4.5vw] mt-[8.53vw]'>
                             {Array.from({ length: totalPage }, (_, index) => (

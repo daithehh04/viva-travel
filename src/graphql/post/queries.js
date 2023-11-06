@@ -68,6 +68,7 @@ const GET_ALL_POST_FILTER = gql`
     $destinationSlug: [String!]
   ) {
     posts(
+      first: 100,
       where: {
         offsetPagination: { offset: $offset, size: $size }
         orderby: { field: DATE, order: DESC }
@@ -75,59 +76,7 @@ const GET_ALL_POST_FILTER = gql`
           taxArray: [
              { taxonomy: CATEGORY, operator: IN, terms: $categorySlug, field: SLUG }
             { taxonomy: TOPIC, operator: IN, terms: $topicSlug, field: SLUG }
-            { taxonomy: DESTINATION, operator: IN, terms: $destinationSlug, field: SLUG }
-          ]
-        }
-      }
-    ) {
-      nodes {
-        translation(language: $language) {
-          id
-          excerpt
-          title
-          slug
-          blogdetail {
-            heading
-            time
-            subtitle1
-          }
-          language {
-            code
-            locale
-          }
-          featuredImage {
-            node {
-              altText
-              sourceUrl
-            }
-          }
-        }
-      }
-      pageInfo {
-        offsetPagination {
-          total
-        }
-      }
-    }
-  }
-`
-
-const GET_ALL_POST_FILTER_NOT_BY_CATE = gql`
-  query GetAllPost(
-    $language: LanguageCodeEnum!
-    $offset: Int!
-    $size: Int!
-    $topicSlug: [String!]
-    $destinationSlug: [String!]
-  ) {
-    posts(
-      where: {
-        offsetPagination: { offset: $offset, size: $size }
-        orderby: { field: DATE, order: DESC }
-        taxQuery: {
-          taxArray: [
-            { taxonomy: TOPIC, operator: IN, terms: $topicSlug, field: SLUG }
-            { taxonomy: DESTINATION, operator: IN, terms: $destinationSlug, field: SLUG }
+            { taxonomy: COUNTRIES, operator: IN, terms: $destinationSlug, field: SLUG }
           ]
         }
       }
@@ -236,7 +185,6 @@ const GET_BEST_TOUR_BLOG_BY_COUNTRY = gql`
 query GetFilterTour(
     $language: LanguageCodeEnum!
     $countrySlug: [String!]
-    $bestSellerSlug: [String!]
   ) {
     allTours(
       first: 100,
@@ -244,7 +192,6 @@ query GetFilterTour(
         taxQuery: {
           taxArray: [
             { taxonomy: COUNTRIES, operator: IN, terms: $countrySlug, field: SLUG }
-            { taxonomy: BESTSELLER, operator: IN, terms: $bestSellerSlug, field: SLUG }
           ]
         }
         orderby: { field: DATE, order: DESC }
@@ -274,4 +221,4 @@ query GetFilterTour(
   }`
 
 export default GET_SERVICE_BY_CATEGORY
-export { GET_POST, GET_ALL_POST, GET_ALL_POST_FILTER, GET_ALL_TOURS_BESTSELLER, GET_SERVICE_BY_CATEGORY, GET_BEST_TOUR_BLOG_BY_COUNTRY, GET_ALL_POST_FILTER_NOT_BY_CATE }
+export { GET_POST, GET_ALL_POST, GET_ALL_POST_FILTER, GET_ALL_TOURS_BESTSELLER, GET_SERVICE_BY_CATEGORY, GET_BEST_TOUR_BLOG_BY_COUNTRY }
