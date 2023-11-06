@@ -138,3 +138,22 @@ export const GET_META_DATA = `query ($language: LanguageCodeEnum!) {
       }
     }
   }`
+
+  export const DATA_POPUP_VOUCHER = `query($language: LanguageCodeEnum!){
+    page(id: "cG9zdDo0NzU5") {
+      translation(language: $language) {
+        slug
+        title
+        popupPromotion {
+          thumbPopup {
+            sourceUrl
+          }
+          voucher {
+            ... on Vouchers {
+              title
+            }
+          }
+        }
+      }
+    }
+  }`

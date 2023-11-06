@@ -52,7 +52,6 @@ export default function Sidebar({
     var numB = parseInt(b?.banner?.travelStyleInfo?.priority);
     return numA - numB;
   });
-  console.log('arrStyle page search',arrStyle);
   return (
     <div className={`w-[20vw] flex flex-col max-md:overflow-y-scroll max-md:h-[70vh]
     max-md:w-auto max-md:rounded-t-[2vw] max-md:pt-[11.46vw]`}>
