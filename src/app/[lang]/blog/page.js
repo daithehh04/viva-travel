@@ -14,15 +14,6 @@ query($language : LanguageCodeFilterEnum!){
       name
     }
   }
-  
-  allDestination (where:{language: $language}){
-    nodes{
-      taxonomyName
-      slug
-      name
-    }
-  }
-  
   categories (where:{language: $language}){
     nodes{
       taxonomyName
@@ -59,7 +50,6 @@ async function Page({ params: { lang } }) {
         lang={lang}
         data1={data}
         initTopic={dataInit?.data?.allTopic}
-        initDestination={dataInit?.data?.allDestination}
         initCategories={dataInit?.data?.categories}
         allCountries={dataInit?.data?.allCountries}
       />

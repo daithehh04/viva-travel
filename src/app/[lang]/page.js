@@ -43,7 +43,7 @@ export default async function page({ params: { lang } }) {
   }
   const dataInit = await getDataPost(lang?.toUpperCase(), GET_INITIAL_FILTER)
 
-  const metaDestination = dataInit?.data?.allDestination?.nodes
+  const metaDestination = dataInit?.data?.allCountries?.nodes
   const metaCategories = dataInit?.data?.categories?.nodes
 
   const arrayDesInit = []

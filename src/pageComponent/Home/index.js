@@ -28,6 +28,7 @@ export default function Home({
   arrayCateInit
 }) {
 
+  const newArrCate = arrayCateInit.filter((item,index) => item !== "blog")
   const arrDataTaxonomiesBudget = dataTaxonomiesBudget?.data?.allBudget?.nodes
   const arrDataTaxonomiesDuration = dataTaxonomiesDuration?.data?.allDuration?.nodes
   const arrDataTaxonomiesCountry = dataTaxonomiesCountry?.data?.allCountries?.nodes
@@ -53,7 +54,7 @@ export default function Home({
   const res = useQuery(GET_DATA_iNSEPECT, {
     variables: {
       language: language,
-      categorySlug: arrayCateInit,
+      categorySlug: newArrCate,
       destinationSlug: arrayDesInit
     }
   })
