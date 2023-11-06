@@ -41,6 +41,7 @@ import {
 import { Suspense } from 'react'
 import Loader from '@/components/Common/Loader'
 import SearchButton from '@/pageComponent/Home/SearchButton'
+import PopupPromotion from '@/components/Common/PopupPromotion'
 
 
 const idEnBook = 'cG9zdDoxNDIy'
@@ -125,6 +126,7 @@ export default async function RootLayout({ children, params }) {
                 }}
               />
               <SearchButton lang={params.lang} />
+              <PopupPromotion lang={params.lang}/>
               {children}
               <Footer lang={params.lang} />
             </Suspense>
