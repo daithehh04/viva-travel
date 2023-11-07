@@ -117,6 +117,7 @@ const GET_HOME_PAGE = `query getHomePageData($id:ID!) {
           video
           customerReview {
             ... on CustomerReview {
+              slug
               customerReview {
                 authorInformation {
                   country
@@ -154,6 +155,7 @@ const GET_HOME_PAGE = `query getHomePageData($id:ID!) {
           }
           listReview {
             ... on CustomerReview {
+              slug
               customerReview {
                 authorInformation {
                   country
@@ -206,6 +208,7 @@ const GET_HOME_PAGE = `query getHomePageData($id:ID!) {
               featuredImage {
                 node {
                   sourceUrl
+                  altText
                 }
               }
               language {

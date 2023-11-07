@@ -2,7 +2,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, FreeMode } from 'swiper/modules'
 import { useRef, useState } from 'react'
-import Link from 'next/link'
 import TourItem from './TourItem'
 import vw from '@/helpers/convertToVw'
 

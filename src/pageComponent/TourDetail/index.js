@@ -33,7 +33,7 @@ export default function TourDetail({
         price={priceTour}
       />
       <div className='md:my-[7.5vw] relative'>
-        <div className='md:block hidden'>
+        <div className='hidden md:block'>
           <Image
             src={tour}
             alt='tour'

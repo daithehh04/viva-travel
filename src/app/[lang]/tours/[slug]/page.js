@@ -11,7 +11,6 @@ import { GET_RANDOM_TOUR, GET_TOUR_DETAIL } from '@/graphql/tourDetail/queries'
 import TourDetail from '@/pageComponent/TourDetail'
 import getDataFormBookTour from '@/data/formBookTour/getDataFormBookTour'
 import { GET_DATA_FORM_BOOKTOUR } from '@/graphql/formBookTour/queries'
-import { notFound } from 'next/navigation'
 import NotFound from '@/components/Common/NotFound'
 
 export async function generateMetadata({ params: { slug, lang } }) {

@@ -72,7 +72,7 @@ export default function Navbar({
     'tours',
     'who-we-are',
     'responsible-travel',
-    'review',
+    'reviews',
     'hot-deals/',
     'check-visa'
   ]
@@ -243,7 +243,7 @@ export default function Navbar({
                 className='nav-list max-lg:hidden flex items-center gap-x-[2vw] mr-[6vw]'
                 ref={refMenu}
               >
-                <div className='relative flex-shrink-0 flex'>
+                <div className='relative flex flex-shrink-0'>
                   <div
                     className='capitalize text-[1vw] nav-link cursor-pointer'
                     menu={dataHome?.nav1}

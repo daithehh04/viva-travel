@@ -121,6 +121,7 @@ query getReviewDetail($slug: ID!, $language: LanguageCodeEnum!){
   customerReview(id:$slug,idType: URI) {
     translation(language:$language) {
 			slug
+      title
         customerReview {
           content
           authorInformation {
@@ -134,8 +135,22 @@ query getReviewDetail($slug: ID!, $language: LanguageCodeEnum!){
             ...on Tours {
               title
               slug
+              countries {
+                nodes {
+                  name
+                  slug
+                }
+              }
               tourDetail {
                 banner {
+                  video {
+                    overlayImage {
+                      sourceUrl
+                    }
+                   	uploadVideo {
+                      mediaItemUrl
+                    }
+                  }
                   gallery {
                     altText
                     title
@@ -153,3 +168,53 @@ query getReviewDetail($slug: ID!, $language: LanguageCodeEnum!){
   }
 }
 `
+
+export const DATA_RELATED_TOUR_REVIEW = `query GetRelateTourReview(
+  $countrySlug: [String!]
+  $language: LanguageCodeEnum!
+) {
+  allTours(
+    first: 100,
+    where: {
+      taxQuery: {
+        taxArray: [
+          { taxonomy: COUNTRIES, operator: IN, terms: $countrySlug, field: SLUG }
+        ]
+      }
+      orderby: { field: DATE, order: DESC }
+    }
+  ) {
+    nodes {
+      translation(language: $language) {
+        id
+        title
+        slug
+        bestSeller {
+          nodes {
+            name
+          }
+        }
+        tourStyle {
+          nodes {
+            slug
+          }
+        }
+        tourDetail {
+          priceTour
+          numberDay
+          banner {
+            title
+            gallery {
+              sourceUrl
+              altText
+              title
+            }
+            location
+            rate
+            icons
+          }
+        }
+      }
+    }
+  }
+}`

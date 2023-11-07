@@ -1,15 +1,11 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
-import img from '@/assets/images/review.png'
-import avatar from '@/assets/images/avatar.png'
 import locationIcon from '@/assets/images/route-square.svg'
 import calendarIcon from '@/assets/images/calendarY.svg'
 import quote from '@/assets/images/quote-review.png'
 import Image from 'next/image'
-import playIcon from '@/assets/images/play-video.png'
 import Link from 'next/link'
 
-const defaultVideo = 'https://viva-cms.okhub.tech/wp-content/uploads/2023/09/river_-_40012-1080p-2.mp4'
 function VideoReview({ data, videoInfo, className, lang }) {
   const [isPlay, setIsPlay] = useState(false)
   const videoRef = useRef()
@@ -18,6 +14,10 @@ function VideoReview({ data, videoInfo, className, lang }) {
       isPlay ? videoRef.current.play() : videoRef.current.pause()
     }
   }, [isPlay])
+  let day = 'Days'
+  if(lang === 'fr' || lang === 'it') {
+    day = 'Jours'
+  }
   return (
     <div
       className={`relative w-[35.1875vw] h-[47.5vw] rounded-[1vw] bg-[#ccc] ${className}`}
@@ -30,19 +30,15 @@ function VideoReview({ data, videoInfo, className, lang }) {
         className={`w-full h-full ${className}`}
       >
         <source
-          src={data || defaultVideo}
+          src={data}
           type='video/mp4'
         />
       </video>
       <Image
-        src={
-          (videoInfo?.tours?.tourDetail?.banner?.gallery &&
-            videoInfo?.tours?.tourDetail?.banner?.gallery[0]?.sourceUrl) ||
-          img
-        }
+        src={videoInfo?.tours?.tourDetail?.banner?.gallery[0]?.sourceUrl}
         width={500}
         height={500}
-        alt='img'
+        alt={videoInfo?.tours?.tourDetail?.banner?.gallery[0]?.altText || "thumb video"}
         className={`rounded-[1vw] w-full h-full object-cover absolute z-10 inset-0 ${className} ${
           isPlay ? 'hidden' : ''
         }`}
@@ -76,7 +72,7 @@ function VideoReview({ data, videoInfo, className, lang }) {
               className='w-[1vw] h-[1vw] object-cover'
             />
             <span className='text-white text-[0.875vw] leading-normal max-lg:text-[1.4vw]'>
-              {videoInfo?.tours?.tourDetail?.numberDay} Day
+              {videoInfo?.tours?.tourDetail?.numberDay} {day}
             </span>
           </div>
         </div>
@@ -108,7 +104,7 @@ function VideoReview({ data, videoInfo, className, lang }) {
             alt='quote'
             className='w-[2.75vw] h-[2.75vw] object-cover mt-[-0.95vw]'
           />
-          <p className='text-white text-[1vw] font-[500] leading-normal ml-[-1.25vw] max-lg:text-[1.2vw]'>{videoInfo?.content}</p>
+          <p className='text-white text-[1vw] font-[500] leading-normal ml-[-1.25vw] max-lg:text-[1.2vw] line-clamp-4 max-md:line-clamp-2' dangerouslySetInnerHTML={{ __html : `${videoInfo?.content}`}}></p>
         </div>
       </div>
       <div className={`${isPlay ? 'hidden' : ''}`}>

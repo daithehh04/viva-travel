@@ -18,6 +18,7 @@ function SlideReview({ data, lang }) {
   const handleSlideChange = (swiper) => {
     setIndexSlider(swiper.activeIndex)
   }
+  
 
   return (
     <div className='relative slide-review'>

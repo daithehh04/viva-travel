@@ -6,14 +6,14 @@ import ModalCustom from '@/components/Common/ModalCustom'
 import ListImg from './ListImg'
 import TourDetailVideo from '../TourDetail/TourDetailVideo'
 
-const Banner = ({ data = {} }) => {
+const Banner = ({ data = {}, isReview }) => {
   const [isPlay, setIsPlay] = useState(false)
   const [openModal, setOpenModal] = useState(false)
   const video = data?.video
   const listGallery = data?.gallery
 
   return (
-    <div className='grid grid-cols-4 grid-rows-2 content gap-[1.25vw] overflow-hidden'>
+    <div className={`grid grid-cols-4 grid-rows-2 gap-[1.25vw] overflow-hidden ${isReview ? "" : "content"}`}>
       {video ? (
         <div className='w-full h-full col-span-2 row-span-2'>
           <TourDetailVideo
