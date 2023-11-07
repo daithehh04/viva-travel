@@ -280,8 +280,8 @@ const DetailVocher = ({ headerData = {}, data }) => {
       </div>
 
       <Notification
-        // openNoti={openNoti}
-        // setOpenNoti={setOpenNoti}
+        openNoti={openNoti}
+        setOpenNoti={setOpenNoti}
         msg={msg}
         isSuccess={isSuccess}
         isError={isError}

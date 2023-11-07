@@ -1,5 +1,4 @@
 import imgReview from '@/assets/images/imgReview.png'
-import avatar from '@/assets/images/avatar.png'
 import location from '@/assets/images/locationF.svg'
 import calendar from '@/assets/images/calendar.svg'
 import commaRes from '@/assets/images/about/commaRes.svg'
@@ -78,7 +77,7 @@ function ReviewItem({ className, data, lang }) {
         <div className='review-item-user'>
           <div className='flex items-center gap-x-[0.63vw]'>
             <Image
-              src={authorInfo?.thumbnail?.sourceUrl || avatar}
+              src={authorInfo?.thumbnail?.sourceUrl}
               width={100}
               height={100}
               alt={authorInfo?.thumbnail?.altText || 'avatar'}

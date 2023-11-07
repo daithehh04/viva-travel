@@ -5,17 +5,24 @@ const nextConfig = {
   //     locales: ["en", "vi", "ja"],
   //     defaultLocale: "en",
   //   },
+  // images: {
+  //   remotePatterns: [
+  //     {
+  //       protocol: 'https',
+  //       hostname: 'viva-cms-en.okhub.tech',
+  //     },
+  //     {
+  //       protocol: 'https',
+  //       hostname: 'viva-cms.okhub.tech'
+  //     },{
+  //       protocol: 'https',
+  //       hostname: 'res.cloudinary.com'
+  //     }
+  //   ]
+  // },
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'viva-cms-en.okhub.tech',
-      },
-      {
-        protocol: 'https',
-        hostname: 'viva-cms.okhub.tech'
-      }
-    ]
+    loader: 'custom',
+    loaderFile: './loader.js',
   },
   experimental: {
     appDir: true

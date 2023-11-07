@@ -53,7 +53,6 @@ const Reviews = ({ lang, data, arrYear, arrCountry }) => {
   }
   const paginations = new Array(totalPage.current).fill(0)
   const reviewData = reviewList?.allCustomerReview?.nodes?.filter((item) => item.translation !== null)
-  console.log('reviewData',reviewList);
   return (
     <section
       className='relative z-10 content'

@@ -166,6 +166,7 @@ export const GET_META_DATA = `query ($language: LanguageCodeEnum!) {
     vouchers(id:$slug,idType: URI) {
       translation(language:$language) {
         slug
+        title
       voucher {
         content {
           expireDate

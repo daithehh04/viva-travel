@@ -16,8 +16,8 @@ function PopupPromotion({lang,data}) {
           <Link href={`/${lang}/voucher/${data?.popupPromotion?.voucher?.slug}`}>
             <Image src={data?.popupPromotion?.thumbPopup?.sourceUrl} width={500} height={500} className="object-cover w-full h-full rounded-[2vw]" alt={data?.popupPromotion?.thumbPopup?.altText || "thumb voucher"}/> 
           </Link>
-          <div className="w-[3.2vw] h-[3.2vw] rounded-full cursor-pointer bg-slate-600 grid place-items-center absolute right-[2vw] top-[2vw]" onClick={() => setShowPopup(false)}>
-            <Image src={closeIcon} width={50} height={50} alt="icon" className=" w-[2vw] h-[2vw] max-md:w-[4.27vw] max-md:h-[4.27vw]" />
+          <div className="w-[3.2vw] h-[3.2vw] max-md:w-[6.5vw] max-md:h-[6.5vw] rounded-full cursor-pointer bg-slate-600 grid place-items-center absolute max-md:right-[4vw] max-md:top-[4vw] right-[2vw] top-[2vw]" onClick={() => setShowPopup(false)}>
+            <Image src={closeIcon} width={50} height={50} alt="icon" className=" w-[2vw] h-[2vw] max-md:w-[4.67vw] max-md:h-[4.67vw]" />
           </div>
         </div>
       </div>}

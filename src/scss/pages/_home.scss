@@ -301,15 +301,15 @@
       position: relative;
       transition: background-size 350ms;
       background: linear-gradient(0deg, $colorPrimary, $colorPrimary) no-repeat right bottom/0 1px;
+      &:hover {
+        color: $colorPrimary;
+        background-size: 100% 1.2px;
+        background-position-x: left;
+      }
     }
     &:hover {
       .customer-review__img {
         scale: 1.1;
-      }
-      .desc {
-        color: $colorPrimary;
-        background-size: 100% 1px;
-        background-position-x: left;
       }
     }
   }

@@ -124,14 +124,22 @@ body {
 }
 
 .text-editor {
+  font-size: 1.125vw;
+  line-height: 1.5;
   ul {
     list-style: disc;
     margin-left: 1.5vw;
   }
 }
 
+@media screen and (max-width: 768.9px) {
+  .text-editor {
+    font-size: 3.733vw;
+  }
+}
+
 .mui-i9fmh8-MuiBackdrop-root-MuiModal-backdrop {
-  background-color: unset !important;
+  // background-color: unset !important;
   backdrop-filter: blur(4px);
 }
 

@@ -132,12 +132,12 @@ function BookTour({ data, setOpenModal, lang }) {
       }
     })
   }
-  // useClickOutside(formRef, (event) => {
-  //   if (!isDone) {
-  //     setOpenNoti(true)
-  //     setIsConfirm(true)
-  //   }
-  // })
+  useClickOutside(formRef, (event) => {
+    if (!isDone) {
+      setOpenNoti(true)
+      setIsConfirm(true)
+    }
+  })
   return (
     <>
       <Dialog
