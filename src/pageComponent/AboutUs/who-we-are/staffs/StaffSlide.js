@@ -59,9 +59,9 @@ export default function StaffSlide({ staffData = [] }) {
         }}
         spaceBetween={vw(2)}
         modules={[Grid, Navigation]}
-        className='mySwiper about-staff w-full h-full relative'
+        className='relative w-full h-full mySwiper about-staff'
       >
-        {staffData.map((staff, index) => {
+        {staffData?.map((staff, index) => {
           return (
             <SwiperSlide
               key={index}
