@@ -43,6 +43,7 @@ export const GET_HOT_DEAL_DATA = `query ($language: LanguageCodeEnum!) {
           listVoucher {
             ... on Vouchers {
               translation(language: $language) {
+                slug
                 voucher {
                   content {
                     expireDate
@@ -78,6 +79,7 @@ export const GET_HOT_DEAL_DATA = `query ($language: LanguageCodeEnum!) {
                   rate
                   location
                   gallery {
+                    title
                     altText
                     sourceUrl
                   }
@@ -108,6 +110,7 @@ export const GET_LIST_PROMOTION_TOUR = `query ($language: LanguageCodeEnum!) {
                     location
                     gallery {
                       altText
+                      title
                       sourceUrl
                     }
                     icons
@@ -151,9 +154,36 @@ export const GET_META_DATA = `query ($language: LanguageCodeEnum!) {
           voucher {
             ... on Vouchers {
               title
+              slug
             }
           }
         }
       }
     }
+  }`
+
+  export const DATA_VOUCHER_DETAIL = `query getVoucherDetail($slug: ID!, $language: LanguageCodeEnum!){
+    vouchers(id:$slug,idType: URI) {
+      translation(language:$language) {
+        slug
+      voucher {
+        content {
+          expireDate
+          extraDiscount
+          max
+          title
+          value
+        }
+        detailImage {
+          altText
+          sourceUrl
+        }
+        rules {
+          conditions {
+            condition
+          }
+        }
+      }
+    }
+  }
   }`

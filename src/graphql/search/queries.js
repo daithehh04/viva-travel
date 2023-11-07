@@ -9,6 +9,7 @@ query getTour($language: LanguageCodeFilterEnum) {
           banner {
             gallery {
               altText
+              title
               sourceUrl
             }
             location
@@ -40,6 +41,8 @@ const DATA_ALL_TOUR = gql`
               title
               gallery {
                 sourceUrl
+                altText
+                title
               }
               location
               rate

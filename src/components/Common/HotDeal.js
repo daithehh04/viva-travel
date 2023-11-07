@@ -18,6 +18,7 @@ export default function HotDeal({ hotDeals, menu, lang, onCloseMenu }) {
           isSubNav={true}
           headerData={hotDeals?.voucherHeader?.detailHeader}
           listVoucher={listVoucher}
+          lang={lang}
         />
       </div>
       <div className={menu ? 'mt-[2.12vw]' : 'mt-[7.06vw]'}>

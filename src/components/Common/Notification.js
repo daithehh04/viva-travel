@@ -126,7 +126,7 @@ export default function Notification(props) {
     >
       {isSuccess && <Success />}
       {isError && <Error />}
-      {isConfirm && <Confirm />}
+      {/* {isConfirm && <Confirm />} */}
     </ModalCustom>
   )
 }

@@ -82,6 +82,8 @@ const DATA_BEST_TOUR = gql`
               title
               gallery {
                 sourceUrl
+                altText
+                title
               }
               location
               rate
@@ -135,6 +137,8 @@ const DATA_BEST_TOUR_HOME_PAGE = gql`
               title
               gallery {
                 sourceUrl
+                altText
+                title
               }
               location
               rate
@@ -171,6 +175,8 @@ const DATA_SEARCH_TEXT_TOUR = gql`
               title
               gallery {
                 sourceUrl
+                altText
+                title
               }
               location
               rate

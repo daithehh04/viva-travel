@@ -21,6 +21,7 @@ export const GET_TOUR_DETAIL = `query GetTourDetail($slug: ID!, $language: Langu
           gallery {
             altText
             sourceUrl
+            title
           }
           icons
         }
@@ -169,6 +170,7 @@ export const GET_RELATED_TOUR = `query($language: LanguageCodeEnum!, $taxonomyVa
             title
             gallery {
               altText
+              title
               sourceUrl
             }
             icons
@@ -190,6 +192,7 @@ export const GET_RANDOM_TOUR = `query ($language: LanguageCodeEnum!) {
             gallery {
               altText
               sourceUrl
+              title
             }
             icons
             location

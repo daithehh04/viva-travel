@@ -114,6 +114,8 @@ query getTourStyle($language: LanguageCodeEnum!, $taxonomyValue: String, $taxono
               title
               gallery {
                 sourceUrl
+                altText
+                title
               }
               icons
             }
@@ -155,6 +157,8 @@ query getTourStyle($language: LanguageCodeEnum!, $taxonomyValue: String, $taxono
               title
               gallery {
                 sourceUrl
+                altText
+                title
               }
             }
           }
@@ -198,6 +202,8 @@ query getTourStyle($language: LanguageCodeEnum!, $taxonomyValue: String, $taxono
               title
               gallery {
                 sourceUrl
+                altText
+                title
               }
             }
           }

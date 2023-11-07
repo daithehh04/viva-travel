@@ -139,6 +139,8 @@ query ($language: LanguageCodeEnum!) {
               banner {
                 gallery {
                   sourceUrl
+                  altText
+                  title
                 }
                 icons
                 location
@@ -209,6 +211,8 @@ query GetFilterTour(
               title
               gallery {
                 sourceUrl
+                altText
+                title
               }
               location
               rate
