@@ -1,23 +1,14 @@
 'use client'
-import { useState } from 'react'
-import ModalCustom from './ModalCustom'
-import DetailVocher from '@/pageComponent/HotDeal/DetailVoucher'
 import Link from 'next/link'
 
-function VoucherItem({ className, headerData = {}, data = {} }) {
-  const [openModal, setOpenModal] = useState(false)
+function VoucherItem({ className, headerData = {}, data = {}, lang }) {
   const voucherData = data?.translation?.voucher || {}
   const expireDate = voucherData?.content?.expireDate.slice(0, voucherData?.content?.expireDate?.indexOf(' '))
 
   return (
-    <>
+    <Link href={`/${lang}/voucher/${data?.translation?.slug}`}>
       <div
         className={`${className || ''} flex voucher-item max-md:flex-shrink-0 cursor-pointer`}
-        onClick={(e) => {
-          e.preventDefault()
-          e.stopPropagation()
-          setOpenModal(true)
-        }}
       >
         <div className='voucher-discount-info md:w-[42%] bg-bgGreen text-[#fff] flex flex-col items-center justify-center pt-[1.75vw] pr-[2.44vw] pb-[1.69vw] pl-[2.94vw]'>
           <span className='text-[3.75vw] font-[700] leading-none max-md:text-[4.8vw]'>
@@ -45,24 +36,7 @@ function VoucherItem({ className, headerData = {}, data = {} }) {
           </button>
         </div>
       </div>
-      {openModal && (
-        <>
-          <ModalCustom
-            openModal={openModal}
-            setOpenModal={setOpenModal}
-            className='w-[91.46vw] md:w-[82.93vw] md:h-[90vh] h-[80vh]'
-          >
-            <div className='w-full h-full bg-white overflow-y-auto md:rounded-[16px] overflow-x-hidden'>
-              <DetailVocher
-                headerData={headerData}
-                data={voucherData}
-                setOpenModal={setOpenModal}
-              />
-            </div>
-          </ModalCustom>
-        </>
-      )}
-    </>
+    </Link>
   )
 }
 

@@ -27,7 +27,6 @@ function TourItem({ data, menu, lang, loading, className, onCloseMenu }) {
   if (lang === 'it') {
     tag = 'Miglior venditore'
   }
-  const alt = tourData?.gallery ? tourData?.gallery[0]?.altText : 'img tour'
   return (
     <Link
       onClick={onCloseMenu}
@@ -40,11 +39,11 @@ function TourItem({ data, menu, lang, loading, className, onCloseMenu }) {
       {!loading ? (
         <div className='relative w-full h-full'>
           <Image
-            src={tourData?.gallery ? tourData?.gallery[0]?.sourceUrl : imgTour}
+            src={tourData?.gallery?.length ? tourData?.gallery[0]?.sourceUrl : imgTour}
             width={1000}
             height={1000}
             priority
-            alt={alt}
+            alt={tourData?.gallery?.[0]?.altText || tourData?.gallery?.[0]?.title || 'thumb tour'}
             className='h-full object-cover w-full md:rounded-[1vw] rounded-[2.75vw] img-tour'
           />
           {bestTour ? <span className='absolute top-[1vw] left-[1.5vw] max-md:top-[3vw] max-md:left-[3.5vw] tag-best_tour text-[calc(0.75vw+0.15rem)] w-max px-[1vw] py-[0.5vw] text-[#2b2b2b] font-[500] bg-primaryColor block max-md:text-[2.667vw] max-md:px-4'>{tag}</span> : ""}

@@ -95,6 +95,8 @@ query ($language: LanguageCodeEnum!) {
             banner {
               gallery {
                 sourceUrl
+                altText
+                title
               }
               icons
               location

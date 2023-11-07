@@ -33,6 +33,7 @@ const GET_INFO_PAGE_TRAVEL_STYLE = `query getInfoPageTravelStyle($taxonomyValue:
                   priceTour
                   banner {
                     gallery {
+                      title
                       altText
                       sourceUrl
                     }
@@ -103,6 +104,8 @@ const GET_LIST_TOUR_TRAVEL_STYLE_CLIENT = gql`
                 title
                 gallery {
                   sourceUrl
+                  altText
+                  title
                 }
               }
             }

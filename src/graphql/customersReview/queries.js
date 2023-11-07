@@ -26,6 +26,7 @@ query GetDataPageReview($language: LanguageCodeEnum!, $offset: Int!, $size: Int!
                 banner {
                   gallery {
                     altText
+                    title
                     sourceUrl
                   }
                   location
@@ -95,6 +96,7 @@ export const GET_ALL_REVIEWS = `query GetAllCustomersReview($language: LanguageC
               banner {
                 gallery {
                   altText
+                  title
                   sourceUrl
                 }
                 location
@@ -136,6 +138,7 @@ query getReviewDetail($slug: ID!, $language: LanguageCodeEnum!){
                 banner {
                   gallery {
                     altText
+                    title
                     sourceUrl
                   }
                   location

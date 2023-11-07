@@ -46,13 +46,12 @@ const SUBMIT_FORM = gql`
   }
 `
 
-const DetailVocher = ({ headerData = {}, data, setOpenModal }) => {
+const DetailVocher = ({ headerData = {}, data }) => {
   const itemRef = useRef()
   const [openNoti, setOpenNoti] = useState(false)
   const [msg, setMsg] = useState('')
   const [isSuccess, setIsSuccess] = useState(false)
   const [isError, setIsError] = useState(false)
-  const [isConfirm, setIsConfirm] = useState(false)
   const [isDone, setIsDone] = useState(false) // check when successful noti or error noti appeared
 
   useClickOutside(itemRef, (e) => {
@@ -60,7 +59,7 @@ const DetailVocher = ({ headerData = {}, data, setOpenModal }) => {
     e.stopPropagation()
     if (!isDone) {
       setOpenNoti(true)
-      setIsConfirm(true)
+      // setIsConfirm(true)
     }
   })
 
@@ -135,9 +134,9 @@ const DetailVocher = ({ headerData = {}, data, setOpenModal }) => {
       className='w-full md:py-[5vw] py-[11.46vw] md:px-[8.12vw] px-[4.26vw]'
       ref={itemRef}
     >
-      <h1 className='w-[44.625vw] font-optima text-[2.875vw] font-semibold leading-[3.1625vw] mb-[2vw] capitalize max-md:text-[5.87vw] max-md:mb-[0.4116vw] max-md:leading-[7.04vw] max-md:w-full'>
+      <h2 className='w-[44.625vw] font-optima mt-[3vw] text-[2.875vw] font-semibold leading-[3.1625vw] mb-[2vw] capitalize max-md:text-[5.87vw] max-md:mb-[0.4116vw] max-md:leading-[7.04vw] max-md:w-full'>
         {headerData?.header}
-      </h1>
+      </h2>
       <p className='font-bold hidden opacity-70 max-md:block max-md:mb-[0.75vw] max-md:text-[3.7vw max-md:w-full max-md:leading-normal'>
         {data?.content?.extraDiscount}
       </p>
@@ -151,7 +150,7 @@ const DetailVocher = ({ headerData = {}, data, setOpenModal }) => {
               {headerData?.expiryDateHeader}:
             </h4>
             <ul className='ml-[1.2vw] max-md:text-[3.73vw] max-md:ml-[5vw] max-lg:text-[1.6vw]'>
-              <li className='list-disc leading-normal'>{expireDate}</li>
+              <li className='leading-normal list-disc'>{expireDate}</li>
             </ul>
           </div>
           <div className='text-[1vw]'>
@@ -281,21 +280,17 @@ const DetailVocher = ({ headerData = {}, data, setOpenModal }) => {
       </div>
 
       <Notification
-        openNoti={openNoti}
-        setOpenNoti={setOpenNoti}
+        // openNoti={openNoti}
+        // setOpenNoti={setOpenNoti}
         msg={msg}
         isSuccess={isSuccess}
         isError={isError}
-        isConfirm={isConfirm}
+        // isConfirm={isConfirm}
         handleSuccess={() => {
           setIsSuccess(false)
-          setOpenModal(false)
         }}
         handleError={() => {
           setIsError(false)
-        }}
-        handleConfirm={() => {
-          setOpenModal(false)
         }}
       />
     </div>

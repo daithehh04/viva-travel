@@ -134,6 +134,7 @@ const GET_HOME_PAGE = `query getHomePageData($id:ID!) {
                       banner {
                         gallery {
                           altText
+                          title
                           sourceUrl
                         }
                         location
@@ -170,6 +171,7 @@ const GET_HOME_PAGE = `query getHomePageData($id:ID!) {
                       banner {
                         gallery {
                           altText
+                          title
                           sourceUrl
                         }
                         location
@@ -404,6 +406,8 @@ const GET_DATA_iNSEPECT = gql`query getDataInsepect(
         featuredImage{
           node{
             sourceUrl
+            altText
+            title
           }
         }
         blogdetail {

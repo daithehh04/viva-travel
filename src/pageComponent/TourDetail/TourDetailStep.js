@@ -23,7 +23,12 @@ export default function TourDetailStep({ data: tourDetailData,iconsDefault }) {
     <>
       <div>
         {tourDetailData?.map((tour, indexTour) => {
-          let icons = iconsDefault2?.concat(tour?.icons)
+          let icons = []
+          if(iconsDefault2) {
+            icons = iconsDefault2?.concat(tour?.icons)
+          } else {
+            icons = tour?.icons
+          }
           return (
             <div
               className='mb-[2.13vw] md:mb-[0]'
@@ -43,7 +48,7 @@ export default function TourDetailStep({ data: tourDetailData,iconsDefault }) {
                     return (
                       <Image
                         src={img?.sourceUrl}
-                        alt={img?.altText || 'img tour'}
+                        alt={img?.altText || img?.title || 'img tour'}
                         key={index}
                         width={500}
                         height={500}
@@ -81,7 +86,7 @@ export default function TourDetailStep({ data: tourDetailData,iconsDefault }) {
                       >
                         <Image
                           src={item?.image?.sourceUrl}
-                          alt={item?.image?.altText || 'img-tour'}
+                          alt={item?.image?.altText || item?.image?.title || 'img-tour'}
                           width={40}
                           height={40}
                           className='md:w-[3vw] w-[10.67vw] md:h-[3vw] h-[10.67vw] object-cover'
