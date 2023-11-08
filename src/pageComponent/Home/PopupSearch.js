@@ -33,9 +33,9 @@ function PopupSearch({ lang, onClose }) {
   const slugSet = new Set();
 
   for (const obj of listTours) {
-    if (!slugSet.has(obj.slug)) {
+    if (!slugSet.has(obj?.translation?.slug)) {
       uniqueObjects.push(obj);
-      slugSet.add(obj.slug);
+      slugSet.add(obj?.translation?.slug);
     }
   }
   return (
