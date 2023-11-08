@@ -80,6 +80,7 @@ export const GET_ALL_REVIEWS = `query GetAllCustomersReview($language: LanguageC
     }
     nodes {
      translation (language: $language) {
+      slug
        customerReview {
         content
         authorInformation {

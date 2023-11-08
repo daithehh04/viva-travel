@@ -12,6 +12,16 @@ function ReviewItem({ className, data, lang }) {
   const tourData = data?.translation?.customerReview?.tours?.tourDetail
   const authorInfo = data?.translation?.customerReview?.authorInformation
   const tourSlug = data?.translation?.customerReview?.tours?.slug
+  let day = 'Days'
+  let see = 'See more'
+  if(lang === 'fr') {
+    day = 'Jours'
+    see = 'Voir plus'
+  }
+  if(lang === 'it') {
+    day = 'Jours'
+    see = 'Vedi altro'
+  }
   return (
     <div
       className={`${
@@ -114,10 +124,10 @@ function ReviewItem({ className, data, lang }) {
                   alt='calendar'
                   className='md:w-[0.75vw] w-[3.2vw] md:h-[0.83vw] h-[3.2vw] object-cover'
                 />
-                <span className='leading-normal ml-[0.3vw]'>{tourData?.numberDay} Day</span>
+                <span className='leading-normal ml-[0.3vw]'>{tourData?.numberDay} {day}</span>
               </div>
             </div>
-            <Link href={`/${lang}/reviews/${data?.translation?.slug}`} className='text-[1vw] max-md:text-[3.73vw] font-[500] link-see_more'>See more</Link>
+            <Link href={`/${lang}/reviews/${data?.translation?.slug}`} className='text-[1vw] max-md:text-[3.73vw] font-[500] link-see_more'>{see}</Link>
           </div>
         </div>
       </div>
