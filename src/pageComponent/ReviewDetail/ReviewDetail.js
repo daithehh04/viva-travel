@@ -6,6 +6,7 @@ import Link from "next/link"
 import Button from "@/components/Common/Button"
 import Banner from "../HotDeal/Banner"
 import SlideTour from "@/components/Common/SlideTour"
+import Album from "./Album"
 
 function ReviewDetail({data,lang,dataTour}) {
   const dataReview = data?.customerReview
@@ -59,13 +60,13 @@ function ReviewDetail({data,lang,dataTour}) {
             <span>{dataReview?.tours?.tourDetail?.numberDay} {day}</span>
           </div>
           <Link href={`/${lang}/tours/${dataReview?.tours?.slug}`} className="hidden ml-auto max-md:block">
-            <Button className='btn-primary' content="View tour"><span>{view}</span> </Button>
+            <Button className='btn-primary' content={view}><span>{view}</span> </Button>
           </Link>
         </div>
-        <div className='md:block hidden z-10 relative pt-[3.75vw]'>
-          <Banner data={dataReview?.tours?.tourDetail?.banner} isReview = {true}/>
-        </div>
         <div dangerouslySetInnerHTML={{ __html: `${dataReview?.content}`}} className="mt-[2vw] max-md:mt-[6.27vw] max-md:text-[3.733vw] text-editor text-[1.125vw] text-[#171717]"></div>
+        <div className='z-10 relative pt-[3.75vw]'>
+          {dataReview?.albumImage?.length && <Album album={dataReview?.albumImage} lang={lang}/> }
+        </div>
       </div>
       {/* List tour */}
       <h2 className='relative z-10 heading-1 md:mt-[5.25vw] mt-[12.8vw] md:pl-[8.06vw] pl-[4.27vw] mb-[3.5vw]'>
