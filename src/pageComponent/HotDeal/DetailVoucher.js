@@ -54,14 +54,14 @@ const DetailVocher = ({ headerData = {}, data }) => {
   const [isError, setIsError] = useState(false)
   const [isDone, setIsDone] = useState(false) // check when successful noti or error noti appeared
 
-  useClickOutside(itemRef, (e) => {
-    e.preventDefault()
-    e.stopPropagation()
-    if (!isDone) {
-      setOpenNoti(true)
-      // setIsConfirm(true)
-    }
-  })
+  // useClickOutside(itemRef, (e) => {
+  //   e.preventDefault()
+  //   e.stopPropagation()
+  //   if (!isDone) {
+  //     setOpenNoti(true)
+  //     // setIsConfirm(true)
+  //   }
+  // })
 
   const {
     register,
