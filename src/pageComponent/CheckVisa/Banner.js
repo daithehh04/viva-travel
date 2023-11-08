@@ -107,6 +107,9 @@ function Banner({ data, dataFilter, lang }) {
             },
             '&.MuiFormControl-root': {
               margin: 0
+            },
+            '& .MuiInputBase-root': {
+              color: '#fff'
             }
           }}
         >
@@ -119,8 +122,16 @@ function Banner({ data, dataFilter, lang }) {
                 padding: '0.7rem'
               }
             }}
+            renderValue={() => {
+              let nameCountryFrom = textCountry
+              if(nationality !== "") {
+                const countryF = dataFilter?.countryFrom?.find((item,index) => item?.slug === nationality)
+                nameCountryFrom = countryF?.name
+              }
+              return nameCountryFrom
+            }}
             >
-            <MenuItem value=''
+            {/* <MenuItem value=''
               sx={{
                 '&.Mui-selected': {
                   background: 'rgba(255, 210, 32, 0.7)'
@@ -128,7 +139,7 @@ function Banner({ data, dataFilter, lang }) {
               }}
             >
               <span className='xl:text-[1vw] md:text-[1.5vw] text-[3.73333vw] leading-[1.5]'>{textCountry}</span>
-            </MenuItem>
+            </MenuItem> */}
             {dataFilter?.countryFrom?.map((item, index) => (
               <MenuItem value={item?.slug} key={index}
               sx={{
@@ -155,6 +166,9 @@ function Banner({ data, dataFilter, lang }) {
             },
             '&.MuiFormControl-root': {
               margin: 0
+            },
+            '& .MuiInputBase-root': {
+              color: '#fff'
             }
           }}
         >
@@ -167,8 +181,17 @@ function Banner({ data, dataFilter, lang }) {
             onChange={handleChangeCountry} 
             value={country} 
             className='text-white' 
-            displayEmpty>
-            <MenuItem value=''
+            displayEmpty
+            renderValue={() => {
+              let nameCountryTo = textCountry
+              if(country !== "") {
+                const countryTo = dataFilter?.countryTo?.find((item,index) => item?.slug === country)
+                nameCountryTo = countryTo?.name
+              }
+              return nameCountryTo
+            }}
+            >
+            {/* <MenuItem value=''
               sx={{
                 '&.Mui-selected': {
                   background: 'rgba(255, 210, 32, 0.7)'
@@ -178,7 +201,7 @@ function Banner({ data, dataFilter, lang }) {
               <span className='xl:text-[1vw] md:text-[1.5vw] text-[3.73333vw]   leading-[1.5] '>
                 {textCountry}
               </span>
-            </MenuItem>
+            </MenuItem> */}
             {dataFilter?.countryTo?.map((item, index) => (
               <MenuItem value={item?.slug} key={index}
               sx={{
