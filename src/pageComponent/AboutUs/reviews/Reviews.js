@@ -53,6 +53,13 @@ const Reviews = ({ lang, data, arrYear, arrCountry }) => {
   }
   const paginations = new Array(totalPage.current).fill(0)
   const reviewData = reviewList?.allCustomerReview?.nodes?.filter((item) => item.translation !== null)
+  let notFound = 'Not Found!'
+  if(lang === 'fr') {
+    notFound = 'Pas trouvé!'
+  }
+  if(lang === 'it') {
+    notFound = 'Non trovato!'
+  }
   return (
     <section
       className='relative z-10 content'
@@ -95,7 +102,7 @@ const Reviews = ({ lang, data, arrYear, arrCountry }) => {
                 />
               </div>
             )
-          }) : <h3 className='text-[3.5vw] max-md:text-[3.73vw] font-optima font-[600] whitespace-nowrap ml-[85%]'>Not Found!</h3>}
+          }) : <h3 className='text-[3.5vw] max-md:text-[3.73vw] font-optima font-[600] whitespace-nowrap ml-[85%]'>{notFound}</h3>}
         </div>
       ) : (
         <div className='flex items-center justify-center flex-1 w-full text-center h-[40vh]'>
@@ -106,9 +113,8 @@ const Reviews = ({ lang, data, arrYear, arrCountry }) => {
       <div className='w-fit m-auto flex md:gap-[0.75vw] gap-[3.2vw] md:mt-[6.538vw] mt-[6.4vw]'>
         {paginations?.map((pagination, index) => {
           return (
-            <Link
+            <div
               key={index}
-              href={'#about-us__review'}
             >
               <span
                 className={`${
@@ -124,7 +130,7 @@ const Reviews = ({ lang, data, arrYear, arrCountry }) => {
               >
                 {index + 1}
               </span>
-            </Link>
+            </div>
           )
         })}
       </div>

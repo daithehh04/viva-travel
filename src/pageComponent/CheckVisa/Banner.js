@@ -109,7 +109,8 @@ function Banner({ data, dataFilter, lang }) {
               margin: 0
             },
             '& .MuiInputBase-root': {
-              color: '#fff'
+              color: '#fff',
+              fontSize: '1vw'
             }
           }}
         >
@@ -168,7 +169,8 @@ function Banner({ data, dataFilter, lang }) {
               margin: 0
             },
             '& .MuiInputBase-root': {
-              color: '#fff'
+              color: '#fff',
+              fontSize: '1vw'
             }
           }}
         >
