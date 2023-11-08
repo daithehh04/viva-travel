@@ -123,7 +123,7 @@ const Reviews = ({ lang, data, arrYear, arrCountry }) => {
                 onClick={() => {
                   setActivePage(index + 1)
                   refetch({
-                    offset: index + 1,
+                    offset: (index + 1) * 7,
                     size: 7
                   })
                 }}

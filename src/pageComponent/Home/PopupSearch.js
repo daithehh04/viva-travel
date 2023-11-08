@@ -29,6 +29,15 @@ function PopupSearch({ lang, onClose }) {
   })
   const allTours = data?.allTours?.nodes
   const listTours = allTours?.filter((tour,index) => tour?.translation !== null)
+  const uniqueObjects = [];
+  const slugSet = new Set();
+
+  for (const obj of listTours) {
+    if (!slugSet.has(obj.slug)) {
+      uniqueObjects.push(obj);
+      slugSet.add(obj.slug);
+    }
+  }
   return (
     <div className='w-[80vw] h-[80vh] bg-white relative z-10 overflow-y-auto'>
       <div className='sticky top-0'>
@@ -58,7 +67,7 @@ function PopupSearch({ lang, onClose }) {
             {listTours?.length === 0 ? (
               <h4 className='text-[1.1vw]'>No result for this search !!</h4>
             ) : (
-              listTours?.map((tour, index) => (
+              uniqueObjects?.map((tour, index) => (
                 <TourSearch
                   onClose={onClose}
                   data={tour}

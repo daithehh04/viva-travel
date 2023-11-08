@@ -10,17 +10,30 @@ const SearchResult = ({ data, quantity, lang, className, loading, results }) => 
   const eleRef = useRef()
   const [activePage, setActivePage] = useState(1)
   const size = quantity
-  totalPage.current = size ? Math.ceil(data?.length / size) : Math.ceil(data?.length / size)
+  const dataTour = data?.filter((item,index) => item.translation !== null)
+
+  const uniqueObjects = [];
+  const slugSet = new Set();
+
+  for (const obj of dataTour) {
+    if (!slugSet.has(obj.slug)) {
+      uniqueObjects.push(obj);
+      slugSet.add(obj.slug);
+    }
+  }
+  totalPage.current = size ? Math.ceil(uniqueObjects?.length / size) : Math.ceil(uniqueObjects?.length / size)
   const pagination = new Array(totalPage.current || 0).fill(0)
 
   useEffect(() => {
     eleRef?.current?.scrollIntoView({ behavior: 'smooth' })
   }, [activePage])
+
+
   return (
     <div ref={eleRef}>
       {!loading ? (
         <h2 className={`text-[2vw] font-medium leading-[2.2vw] mb-[1.5vw] max-md:hidden ${className}`}>
-          {foundResultsText && foundResultsText[0]} {data?.length} {foundResultsText && foundResultsText[1]}
+          {foundResultsText && foundResultsText[0]} {uniqueObjects?.length} {foundResultsText && foundResultsText[1]}
         </h2>
       ) : (
         <Skeleton
@@ -32,7 +45,7 @@ const SearchResult = ({ data, quantity, lang, className, loading, results }) => 
       )}
       <div className='grid md:grid-cols-3 grid-cols-1 md:gap-[1.5vw] gap-[4.27vw] relative'>
         <div className='absolute inset-0 z-[-1] bg-[#F3F6FB] md:hidden'></div>
-        {data?.slice(size * (activePage - 1), size * activePage).map((tour, index) => (
+        {uniqueObjects?.slice(size * (activePage - 1), size * activePage).map((tour, index) => (
           <div key={index}>
             <div className='max-md:hidden'>
               <TourItem
