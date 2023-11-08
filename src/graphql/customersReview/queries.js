@@ -123,6 +123,11 @@ query getReviewDetail($slug: ID!, $language: LanguageCodeEnum!){
 			slug
       title
         customerReview {
+          albumImage {
+            sourceUrl
+            altText
+            title
+          }
           content
           authorInformation {
             name
