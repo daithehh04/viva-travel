@@ -17,6 +17,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import { TextareaAutosize } from '@mui/base/TextareaAutosize';
+import ReCAPTCHA from 'react-google-recaptcha'
 // queries form
 const SUBMIT_FORM = gql`
   mutation ($input: SubmitGfFormInput!) {
@@ -32,6 +33,8 @@ const SUBMIT_FORM = gql`
 `
 
 function BookTour({ data, setOpenModal, lang }) {
+  const [capcha,setCapcha] = useState(null)
+  const [errCapcha,setErrCapcha] = useState("")
   const [open, setOpen] = useState(true);
   const [mutate, { loading }] = useMutation(SUBMIT_FORM)
   const [openNoti, setOpenNoti] = useState(false)
@@ -93,44 +96,48 @@ function BookTour({ data, setOpenModal, lang }) {
   const dataParticipant = data?.data?.page?.booktour?.participants
 
   const handleForm = (values, resetForm) => {
-    mutate({
-      variables: {
-        input: {
-          id: 3,
-          fieldValues: [
-            { id: 1, value: values.nationality },
-            { id: 3, value: values.fullName },
-            { id: 17, value: values.telephone },
-            { id: 6, value: values.email },
-            { id: 19, value: values.ageChildren },
-            { id: 20, value: values.ageAdult },
-            { id: 21, value: values.date },
-            { id: 24, value: values.destination.join(', ') },
-            { id: 22, value: values.accommodation },
-            // { id: 23, value: values.typeOfTrip },
-            { id: 14, value: values.message },
-            { id: 15, value: values.budget },
-            { id: 16, value: values.confirm }
-          ]
+    if(capcha) {
+      mutate({
+        variables: {
+          input: {
+            id: 3,
+            fieldValues: [
+              { id: 1, value: values.nationality },
+              { id: 3, value: values.fullName },
+              { id: 17, value: values.telephone },
+              { id: 6, value: values.email },
+              { id: 19, value: values.ageChildren },
+              { id: 20, value: values.ageAdult },
+              { id: 21, value: values.date },
+              { id: 24, value: values.destination.join(', ') },
+              { id: 22, value: values.accommodation },
+              // { id: 23, value: values.typeOfTrip },
+              { id: 14, value: values.message },
+              { id: 15, value: values.budget },
+              { id: 16, value: values.confirm }
+            ]
+          }
         }
-      }
-    }).then((res) => {
-      if (res?.data?.submitGfForm?.errors?.length > 0) {
-        // Have Error
-        setIsError(true)
-        setOpenNoti(true)
-        setMsg('Failed')
-        setIsDone(true)
-      } else {
-        // Successful
-        setIsSuccess(true)
-        setIsConfirm(false)
-        setOpenNoti(true)
-        setMsg('Successfull')
-        setIsDone(true)
-        resetForm()
-      }
-    })
+      }).then((res) => {
+        if (res?.data?.submitGfForm?.errors?.length > 0) {
+          // Have Error
+          setIsError(true)
+          setOpenNoti(true)
+          setMsg('Failed')
+          setIsDone(true)
+        } else {
+          // Successful
+          setIsSuccess(true)
+          setIsConfirm(false)
+          setOpenNoti(true)
+          setMsg('Successfull')
+          setIsDone(true)
+          resetForm()
+        }
+      })
+    } else {
+      setErrCapcha('Please verify!')
+    }
   }
   useClickOutside(formRef, (event) => {
     if (!isDone) {
@@ -360,7 +367,7 @@ function BookTour({ data, setOpenModal, lang }) {
                               <ErrorMessage
                                 name='date'
                                 component='div'
-                                className='md:text-[0.8vw] text-[3.2vw] text-[red]'
+                                className='md:text-[1rem] text-[3.2vw] text-[red]'
                               />
                             </div>
 
@@ -501,8 +508,13 @@ function BookTour({ data, setOpenModal, lang }) {
                             className='md:text-[0.8vw] text-[3.2vw] text-[red]'
                           />
                         </div>
+                        <div className='mt-[2.5vw]'>
+                          <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPCHA_SITE_KEY} onChange={setCapcha}/>
+                          <p className='error-capcha md:text-[1rem] text-[3.2vw] text-[red]'>{errCapcha}</p>
+                        </div>
                       </div>
                       <Button
+                        type="submit"
                         disabled={loading}
                         className='justify-center btn-primary max-md:w-full max-md:flex'
                       >
@@ -515,7 +527,8 @@ function BookTour({ data, setOpenModal, lang }) {
             </div>
           </div>
         </DialogContent>
-      </Dialog>
+        {/* Capcha */}
+        </Dialog>
 
 
       <Notification

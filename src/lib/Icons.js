@@ -1,8 +1,4 @@
 export const iconsTour = {
-  motobike: require('@/assets/images/tourIcon/motobike.svg'),
-  airplane: require('@/assets/images/tourIcon/airplane.svg'),
-  coach: require('@/assets/images/tourIcon/coach.svg'),
-  ship: require('@/assets/images/tourIcon/ship.svg'),
   Cruise: require('@/assets/images/Cruise.png'),
   Cycling: require('@/assets/images/Cycling.png'),
   Cyclo: require('@/assets/images/Cyclo.png'),
@@ -18,4 +14,10 @@ export const iconsTour = {
   Tuktuk: require('@/assets/images/Tuktuk.png'),
   Walking: require('@/assets/images/Walking.png'),
   Zipline: require('@/assets/images/Zipline.png'),
+  Jeep: require('@/assets/images/Jeep.png'),
+  Kayak: require('@/assets/images/Kayak.png'),
+  RowlingBoat: require('@/assets/images/Rowling-Boat.png'),
+  HotAirBalloon: require('@/assets/images/hot-air-balloon.png'),
+  Car: require('@/assets/images/Car.png'),
+  Bus: require('@/assets/images/Bus.png'),
 }

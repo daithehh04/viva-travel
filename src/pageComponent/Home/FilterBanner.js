@@ -11,7 +11,6 @@ import Select from '@mui/material/Select'
 import { useRef, useState } from 'react'
 import Button from '@/components/Common/Button'
 import { useRouter } from 'next/navigation'
-import { InputLabel } from '@mui/material'
 function FilterBanner({ lang, dataFilter, onClose }) {
   const refLink = useRef()
   const [destination, setDestination] = useState('')
@@ -129,6 +128,7 @@ function FilterBanner({ lang, dataFilter, onClose }) {
     <div className='flex gap-x-[1.75vw] max-lg:flex-col '>
       <div className='max-md:w-[91.46%] filterbanner-tablet max-md:m-auto flex max-md:grid max-md:grid-cols-2 max-md:gap-[2.67vw] md:gap-x-[1.87vw] gap-y-[3.2vw] gap-x-[2.67vw] md:flex-nowrap flex-wrap md:justify-normal justify-between'>
         <div className='flex flex-col justify-center select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full'>
+          <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>{option.destination}</span>
           <div className='flex items-center select-mobile max-lg:bg-[#F6F6F6] max-md:h-[10.67vw] '>
             <Image
               src={locationIcon}
@@ -142,7 +142,11 @@ function FilterBanner({ lang, dataFilter, onClose }) {
                 minWidth: '8.75vw',
                 '&.MuiFormControl-root': {
                   margin: 0
-                }
+                },
+                '& .MuiInputBase-root': {
+                  fontSize: '1.0625vw',
+                  fontWeight: 500
+                },
               }}
             >
               <Select
@@ -151,6 +155,14 @@ function FilterBanner({ lang, dataFilter, onClose }) {
                 displayEmpty
                 className='select-comp'
                 inputprops={{ 'aria-label': 'Without label' }}
+                renderValue={() => {
+                  let name = option?.destination
+                  if(destination !== "") {
+                    const nameCountry = arrCountry?.find((item,index) => item?.slug === destination)
+                    name = nameCountry?.name
+                  }
+                  return name
+                }}
                 sx={{
                   height: '2.5rem',
                   '& .MuiOutlinedInput-notchedOutline': {
@@ -165,17 +177,6 @@ function FilterBanner({ lang, dataFilter, onClose }) {
                   }
                 }}
               >
-                <MenuItem value=''
-                  sx={{
-                    '&.Mui-selected': {
-                      backgroundColor: 'rgba(255, 210, 32, 0.7)'
-                    }
-                  }}
-                >
-                  <span className='md:text-[1.5vw] lg:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
-                    {option.destination}
-                  </span>
-                </MenuItem>
                 {arrCountry?.map((item, index) => (
                   <MenuItem
                     className='select-item'
@@ -197,6 +198,7 @@ function FilterBanner({ lang, dataFilter, onClose }) {
         </div>
 
         <div className='flex flex-col justify-center select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full pl-0 md:pl-[1.87vw]'>
+        <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>{option.style}</span>
           <div className='flex items-center select-mobile max-lg:bg-[#F6F6F6] max-md:h-[10.67vw]'>
             <Image
               src={styleIcon}
@@ -210,7 +212,11 @@ function FilterBanner({ lang, dataFilter, onClose }) {
                 minWidth: '8.75vw',
                 '&.MuiFormControl-root': {
                   margin: 0
-                }
+                },
+                '& .MuiInputBase-root': {
+                  fontSize: '1.0625vw',
+                  fontWeight: 500
+                },
               }}
             >
               <Select
@@ -218,6 +224,14 @@ function FilterBanner({ lang, dataFilter, onClose }) {
                 onChange={handleChangeTravelStyle}
                 displayEmpty
                 inputprops={{ 'aria-label': 'Without label' }}
+                renderValue={() => {
+                  let name = option?.style
+                  if(travelStyle !== "") {
+                    const nameCountry = arrStyle?.find((item,index) => item?.slug === travelStyle)
+                    name = nameCountry?.name
+                  }
+                  return name
+                }}
                 sx={{
                   height: '2.5rem',
                   '& .MuiOutlinedInput-notchedOutline': {
@@ -232,16 +246,6 @@ function FilterBanner({ lang, dataFilter, onClose }) {
                   }
                 }}
               >
-                <MenuItem value=''
-                  sx={{
-                    '&.Mui-selected': {
-                      backgroundColor: 'rgba(255, 210, 32, 0.7)'
-                    }
-                  }}>
-                  <span className='md:text-[1.5vw] lg:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
-                    {option.style}
-                  </span>
-                </MenuItem>
                 {arrStyle?.map((item, index) => (
                   <MenuItem value={item?.slug} key={index}
                     sx={{
@@ -261,6 +265,7 @@ function FilterBanner({ lang, dataFilter, onClose }) {
         </div>
 
         <div className='flex flex-col justify-center select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full pl-0 md:pl-[1.87vw]'>
+        <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>{option.duration}</span>
           <div className='flex items-center select-mobile max-lg:bg-[#F6F6F6] max-md:h-[10.67vw]'>
             <Image
               src={calendar}
@@ -274,13 +279,25 @@ function FilterBanner({ lang, dataFilter, onClose }) {
                 minWidth: '8.75vw',
                 '&.MuiFormControl-root': {
                   margin: 0
-                }
+                },
+                '& .MuiInputBase-root': {
+                  fontSize: '1.0625vw',
+                  fontWeight: 500
+                },
               }}
             >
               <Select
                 value={duration}
                 onChange={handleChangeDuration}
                 displayEmpty
+                renderValue={() => {
+                  let name = option?.duration
+                  if(duration !== "") {
+                    const nameCountry = arrDuration?.find((item,index) => item?.name === duration)
+                    name = nameCountry?.name+" "+ option.day
+                  }
+                  return name
+                }}
                 inputprops={{ 'aria-label': 'Without label' }}
                 sx={{
                   height: '2.5rem',
@@ -296,17 +313,6 @@ function FilterBanner({ lang, dataFilter, onClose }) {
                   }
                 }}
               >
-                <MenuItem value=''
-                  sx={{
-                    '&.Mui-selected': {
-                      backgroundColor: 'rgba(255, 210, 32, 0.7)'
-                    }
-                  }}
-                >
-                  <span className='md:text-[1.5vw] lg:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
-                    {option.duration}
-                  </span>
-                </MenuItem>
                 {arrDuration?.map((item, index) => (
                   <MenuItem value={item?.name} key={index}
                     sx={{
@@ -326,6 +332,7 @@ function FilterBanner({ lang, dataFilter, onClose }) {
         </div>
 
         <div className='flex flex-col justify-center select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full pl-0 md:pl-[1.87vw]'>
+        <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>{option.budget}</span>
           <div className='flex items-center select-mobile max-lg:bg-[#F6F6F6] max-md:h-[10.67vw]'>
             <Image
               src={wallet}
@@ -339,7 +346,11 @@ function FilterBanner({ lang, dataFilter, onClose }) {
                 minWidth: '8.75vw',
                 '&.MuiFormControl-root': {
                   margin: 0
-                }
+                },
+                '& .MuiInputBase-root': {
+                  fontSize: '1.0625vw',
+                  fontWeight: 500
+                },
               }}
             >
               <Select
@@ -347,6 +358,14 @@ function FilterBanner({ lang, dataFilter, onClose }) {
                 onChange={handleChangeBudget}
                 displayEmpty
                 inputprops={{ 'aria-label': 'Without label' }}
+                renderValue={() => {
+                  let name = option?.budget
+                  if(budget !== "") {
+                    const nameCountry = arrBudget?.find((item,index) => item?.name === budget)
+                    name = nameCountry?.name+" "+ option.price
+                  }
+                  return name
+                }}
                 sx={{
                   height: '2.5rem',
                   '& .MuiOutlinedInput-notchedOutline': {
@@ -361,17 +380,6 @@ function FilterBanner({ lang, dataFilter, onClose }) {
                   }
                 }}
               >
-                <MenuItem value=''
-                  sx={{
-                    '&.Mui-selected': {
-                      backgroundColor: 'rgba(255, 210, 32, 0.7)'
-                    }
-                  }}
-                >
-                  <span className='md:text-[1.5vw] lg:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
-                    {option.budget}
-                  </span>
-                </MenuItem>
                 {arrBudget?.map((item, index) => (
                   <MenuItem value={item?.name} key={index}
                     sx={{

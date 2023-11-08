@@ -96,6 +96,7 @@ function FilterTour({
     >
       <div className='flex flex-col justify-center select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full'>
         <div className='bg-mobile md:hidden'></div>
+        <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>{option.destination}</span>
         <div className='flex items-center select-mobile'>
           <Image
             src={locationIcon}
@@ -109,7 +110,11 @@ function FilterTour({
               minWidth: '8.75vw',
               '&.MuiFormControl-root': {
                 margin: 0
-              }
+              },
+              '& .MuiInputBase-root': {
+                fontSize: '1.0625vw',
+                fontWeight: 500
+              },
             }}
           >
           <Select
@@ -117,6 +122,14 @@ function FilterTour({
             onChange={handleChangeDestination}
             displayEmpty
             inputprops={{ 'aria-label': 'Without label' }}
+            renderValue={() => {
+              let name = option?.destination
+              if(destination !== "") {
+                const nameCountry = arrCountry?.find((item,index) => item?.name === destination)
+                name = nameCountry?.name
+              }
+              return name
+            }}
             sx={{
               height: '2.5rem',
               '& .MuiOutlinedInput-notchedOutline': {
@@ -131,17 +144,6 @@ function FilterTour({
               }
             }}
           >
-            <MenuItem value=''
-              sx={{
-                '&.Mui-selected': {
-                  backgroundColor: 'rgba(255, 210, 32, 0.7)'
-                }
-              }}
-            >
-              <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
-              {option.destination}
-              </span>
-            </MenuItem>
             {arrCountry?.map((item, index) => (
               <MenuItem value={item?.name} key={index}
               sx={{
@@ -162,6 +164,7 @@ function FilterTour({
 
       <div className='flex flex-col justify-center select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full pl-0 md:pl-[1.87vw]'>
         <div className='bg-mobile md:hidden'></div>
+        <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>{option.style}</span>
         <div className='flex items-center select-mobile'>
           <Image
             src={styleIcon}
@@ -175,7 +178,11 @@ function FilterTour({
               minWidth: '8.75vw',
               '&.MuiFormControl-root': {
                 margin: 0
-              }
+              },
+              '& .MuiInputBase-root': {
+                fontSize: '1.0625vw',
+                fontWeight: 500
+              },
             }}
           >
             <Select
@@ -183,6 +190,14 @@ function FilterTour({
               onChange={handleChangeTravelStyle}
               displayEmpty
               inputprops={{ 'aria-label': 'Without label' }}
+              renderValue={() => {
+                let name = option?.style
+                if(travelStyle !== "") {
+                  const nameCountry = arrStyle?.find((item,index) => item?.slug === travelStyle)
+                  name = nameCountry?.name
+                }
+                return name
+              }}
               className='select-com'
               sx={{
                 height: '2.5rem',
@@ -199,17 +214,6 @@ function FilterTour({
                 
               }}
             >
-              <MenuItem value=''
-                sx={{
-                  '&.Mui-selected': {
-                    backgroundColor: 'rgba(255, 210, 32, 0.7)'
-                  }
-                }}
-              >
-                <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
-                {option.style}
-                </span>
-              </MenuItem>
               {arrStyle?.map((item, index) => (
                 <MenuItem 
                   value={item?.slug} key={index}
@@ -232,6 +236,7 @@ function FilterTour({
 
       <div className='flex flex-col justify-center select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full pl-0 md:pl-[1.87vw]'>
         <div className='bg-mobile md:hidden'></div>
+        <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>{option.duration}</span>
         <div className='flex items-center select-mobile'>
           <Image
             src={calendar}
@@ -245,7 +250,11 @@ function FilterTour({
               minWidth: '8.75vw',
               '&.MuiFormControl-root': {
                 margin: 0
-              }
+              },
+              '& .MuiInputBase-root': {
+                fontSize: '1.0625vw',
+                fontWeight: 500
+              },
             }}
           >
             <Select
@@ -253,6 +262,14 @@ function FilterTour({
               onChange={handleChangeDuration}
               displayEmpty
               inputprops={{ 'aria-label': 'Without label' }}
+              renderValue={() => {
+                let name = option?.duration
+                if(duration !== "") {
+                  const nameCountry = arrDuration?.find((item,index) => item?.name === duration)
+                  name = nameCountry?.name + " " + option?.day
+                }
+                return name
+              }}
               sx={{
                 height: '2.5rem',
                 '& .MuiOutlinedInput-notchedOutline': {
@@ -267,17 +284,6 @@ function FilterTour({
                 }
               }}
             >
-              <MenuItem value=''
-                sx={{
-                  '&.Mui-selected': {
-                    backgroundColor: 'rgba(255, 210, 32, 0.7)'
-                  }
-                }}
-              >
-                <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
-                {option.duration}
-                </span>
-              </MenuItem>
               {arrDuration?.map((item, index) => (
                 <MenuItem value={item?.name} key={index}
                 sx={{
@@ -298,6 +304,7 @@ function FilterTour({
 
       <div className='flex flex-col justify-center select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full pl-0 md:pl-[1.87vw]'>
         <div className='bg-mobile md:hidden'></div>
+        <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>{option.budget}</span>
         <div className='flex items-center select-mobile'>
           <Image
             src={wallet}
@@ -311,7 +318,11 @@ function FilterTour({
               minWidth: '8.75vw',
               '&.MuiFormControl-root': {
                 margin: 0
-              }
+              },
+              '& .MuiInputBase-root': {
+                fontSize: '1.0625vw',
+                fontWeight: 500
+              },
             }}
           >
             <Select
@@ -319,6 +330,14 @@ function FilterTour({
               onChange={handleChangeBudget}
               displayEmpty
               inputprops={{ 'aria-label': 'Without label' }}
+              renderValue={() => {
+                let name = option?.budget
+                if(budget !== "") {
+                  const nameCountry = arrBudget?.find((item,index) => item?.name === budget)
+                  name = nameCountry?.name + " " + option?.price
+                }
+                return name
+              }}
               sx={{
                 height: '2.5rem',
                 '& .MuiOutlinedInput-notchedOutline': {
@@ -333,17 +352,6 @@ function FilterTour({
                 }
               }}
             >
-              <MenuItem value=''
-                sx={{
-                  '&.Mui-selected': {
-                    backgroundColor: 'rgba(255, 210, 32, 0.7)'
-                  }
-                }}
-              >
-                <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
-                {option.budget}
-                </span>
-              </MenuItem>
               {arrBudget?.map((item, index) => (
                 <MenuItem value={item?.name} key={index}
                 sx={{

@@ -108,7 +108,7 @@ async function index({ lang, slug }) {
     country: newArrDataTaxonomiesCountry
   }
 
-  if (!data || !dataOtherTypeTripNotNull.length) {
+  if (!data) {
     return <NotFound lang={lang} />
   }
   return (
