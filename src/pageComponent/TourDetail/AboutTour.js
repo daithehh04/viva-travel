@@ -22,7 +22,7 @@ import vw from '@/helpers/convertToVw'
 import Link from 'next/link'
 
 export default function AboutTour(props) {
-  const { type, data, headerData = {}, relatedTours = [], lang, dataBookTour, price, tourContent } = props
+  const { type, data, headerData = {}, relatedTours = [], lang, dataBookTour, price, tourContent,styleTourArr } = props
   const { contentHeader, relatedTourHeader, bannerHeaders } = headerData
   const { reviews, banner, content = {} } = data || []
 
@@ -652,25 +652,25 @@ export default function AboutTour(props) {
 
       {openPopup && (
         <div className='fixed max-md:hidden bg-black bg-opacity-25 backdrop-blur-[4px] w-[100vw] h-[100vh] top-1/2 left-1/2 -translate-x-1/2 z-20 -translate-y-1/2' onClick={handleClickOut}>
-          <div className='w-[100%] h-[75vh] bottom-[3.5vw] left-1/2 -translate-x-1/2 fixed'>
+          <div className='w-[32vw] h-[75vh] bottom-[3.5vw] left-1/2 -translate-x-1/2 fixed max-md:w-[90%]'>
             <Image
               src={data?.map?.image?.sourceUrl}
               alt={data?.map?.image?.altText}
               width={1000}
               height={1000}
               quality={100}
-              className='absolute inset-0 object-contain w-full h-full'
+              className='absolute top-0 right-0 object-contain w-full h-full'
               onClick={handleClickMap}
             />
-            {/* <Image
+            <Image
               src={closeImg}
               alt='close'
               width={20}
               height={20}
-              className='absolute md:top-[4.53vw] top-[2.5vw] right-[0] 
-              max-md:w-[4vw] max-md:right-[10vw] max-md:top-[5vw] max-md:h-[4vw]'
+              className='hidden max-md:block absolute max-md:top-[4.53vw] top-[2.5vw] right-[2.5vw] 
+              max-md:w-[4vw] max-md:right-[10vw] max-md:h-[4vw] cursor-pointer'
               onClick={() => setOpenPopUp(false)}
-            /> */}
+            />
           </div>
         </div>
       )}
@@ -682,6 +682,7 @@ export default function AboutTour(props) {
         >
           <div className='w-full h-full overflow-y-auto md:rounded-[16px] overflow-x-hidden'>
             <BookTour
+              detail={{detail: true, styleTourArr}}
               data={dataBookTour}
               setOpenModal={setOpenModal}
             />

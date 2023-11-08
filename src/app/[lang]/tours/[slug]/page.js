@@ -46,6 +46,7 @@ export default async function page({ params: { lang, slug } }) {
     booktourReq
   ])
 
+  const styleTourArr = result?.data?.tours?.translation?.tourStyle?.nodes
   const tourDetailData = result?.data?.tours?.translation?.tourDetail || {}
   const tourId = result?.data?.tours?.translation?.id
   const tourContent = result?.data?.tours?.translation?.content
@@ -69,6 +70,7 @@ export default async function page({ params: { lang, slug } }) {
       lang={lang}
       dataBookTour={dataBookTour}
       slug={slug}
+      styleTourArr={styleTourArr}
     />
   )
 }

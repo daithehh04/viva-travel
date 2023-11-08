@@ -15,7 +15,8 @@ export default function TourDetail({
   lang,
   dataBookTour = {},
   slug,
-  tourContent
+  tourContent,
+  styleTourArr
 }) {
   const { banner, content, map, priceTour } = data
   const { bannerHeaders, content: contentHeader, relatedTour: relatedTourHeader, subBanner } = headerData
@@ -56,6 +57,7 @@ export default function TourDetail({
             dataBookTour={dataBookTour}
             price={priceTour}
             tourContent={tourContent}
+            styleTourArr={styleTourArr}
           />
           <SubBanner
             data={subBanner}

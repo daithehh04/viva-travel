@@ -32,7 +32,7 @@ const SUBMIT_FORM = gql`
   }
 `
 
-function BookTour({ data, setOpenModal, lang }) {
+function BookTour({ data, setOpenModal, lang,detail }) {
   const [capcha,setCapcha] = useState(null)
   const [errCapcha,setErrCapcha] = useState("")
   const [open, setOpen] = useState(true);
@@ -63,7 +63,7 @@ function BookTour({ data, setOpenModal, lang }) {
     date: null,
     destination: [],
     accommodation: '',
-    // typeOfTrip: '',
+    typeOfTrip: '',
     message: '',
     budget: '',
     confirm: false
@@ -84,7 +84,7 @@ function BookTour({ data, setOpenModal, lang }) {
     date: Yup.date().required(lang === 'en' ? 'Please fill in the blank' : lang === 'it' ? 'Per favore, compila il campo vuoto qui.' : 'Veuillez remplir le champ vide ici.'),
     destination: Yup.array().required(lang === 'en' ? 'Please fill in the blank' : lang === 'it' ? 'Per favore, compila il campo vuoto qui.' : 'Veuillez remplir le champ vide ici.'),
     accommodation: Yup.string().required(lang === 'en' ? 'Please fill in the blank' : lang === 'it' ? 'Per favore, compila il campo vuoto qui.' : 'Veuillez remplir le champ vide ici.'),
-    // typeOfTrip: Yup.string().required(lang === 'en' ? 'Please fill in the blank' : lang === 'it' ? 'Per favore, compila il campo vuoto qui.' : 'Veuillez remplir le champ vide ici.'),
+    typeOfTrip: Yup.string().required(lang === 'en' ? 'Please fill in the blank' : lang === 'it' ? 'Per favore, compila il campo vuoto qui.' : 'Veuillez remplir le champ vide ici.'),
     message: Yup.string(),
     budget: Yup.number().integer().required(lang === 'en' ? 'Please fill in the blank' : lang === 'it' ? 'Per favore, compila il campo vuoto qui.' : 'Veuillez remplir le champ vide ici.'),
     confirm: Yup.boolean()
@@ -95,6 +95,12 @@ function BookTour({ data, setOpenModal, lang }) {
   const dataBooktourAge = data?.data?.page?.booktour?.participantage
   const dataParticipant = data?.data?.page?.booktour?.participants
 
+  let arrValueStyle = ""
+  let arrStyle =[]
+  if(detail?.detail === true) {
+    detail?.styleTourArr?.forEach((item,index) =>{arrStyle.push(item?.name)})
+    arrValueStyle = arrStyle.join(", ")
+  }
   const handleForm = (values, resetForm) => {
     if(capcha) {
       mutate({
@@ -111,7 +117,7 @@ function BookTour({ data, setOpenModal, lang }) {
               { id: 21, value: values.date },
               { id: 24, value: values.destination.join(', ') },
               { id: 22, value: values.accommodation },
-              // { id: 23, value: values.typeOfTrip },
+              { id: 23, value: detail?.detail === true ? arrValueStyle : values.typeOfTrip},
               { id: 14, value: values.message },
               { id: 15, value: values.budget },
               { id: 16, value: values.confirm }
@@ -430,7 +436,7 @@ function BookTour({ data, setOpenModal, lang }) {
                         </div>
                         {/* trip,note,budget */}
                         <div className='md:mt-[3vw] mt-[6.4vw] md:grid grid-cols-3 md:gap-[5.31vw] items-start trip flex flex-col gap-[6.4vw]'>
-                          {/* <div className='flex flex-col md:gap-[0.5vw] gap-[3.2vw] max-md:w-full'>
+                          {detail?.detail === true ? "" : <div className='flex flex-col md:gap-[0.5vw] gap-[3.2vw] max-md:w-full'>
                         <h4
                           className=''
                           dangerouslySetInnerHTML={{ __html: `${dataParticipant?.typeoftrip}` }}
@@ -451,7 +457,7 @@ function BookTour({ data, setOpenModal, lang }) {
                             </label>
                           ))}
                         </div>
-                      </div> */}
+                      </div>}
 
                           {/* Budget */}
                           <div className='flex flex-col md:gap-[0.5vw] gap-[3.2vw] max-md:w-full budgetTour'>

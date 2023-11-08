@@ -3,6 +3,11 @@ export const GET_TOUR_DETAIL = `query GetTourDetail($slug: ID!, $language: Langu
     translation(language: $language) {
       id
       slug
+      tourStyle {
+        nodes {
+          name
+        }
+      }
       tourDetail {
         priceTour
         banner {
