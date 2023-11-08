@@ -11,8 +11,11 @@ export default function myImageLoader({ src, width, quality }) {
   if (!!src.includes('/_next/static/media/')) {
     return `${src}?w=${width}&q=${quality || 75}`
   }
-
-  return src.replace('?_i=AA', '')
+  let url = src.replace('?_i=AA', '')
+  if (!!src.includes(process.env.NEXT_PUBLIC_ORIGIN_URL)) {
+    url = src.replace(process.env.NEXT_PUBLIC_ORIGIN_URL, process.env.NEXT_PUBLIC_CDN_URL)
+  }
+  return url
   // if (!src.includes(process.env.NEXT_PUBLIC_ORIGIN_URL)) {
   //   let url = src
   //   if (!!src.includes('/_next/static/media/')) {
