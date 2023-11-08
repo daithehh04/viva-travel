@@ -4,7 +4,6 @@ import Image from 'next/image'
 import line from '@/assets/images/tourDetail/line.png'
 import inclusion from '@/assets/images/tourDetail/inclusion.svg'
 import exclusion from '@/assets/images/tourDetail/exclusion.svg'
-import imageTest from '@/assets/images/banner-about.png'
 import TableData from './TableData'
 import ReviewItem from '@/components/Common/ReviewItem'
 import SlideTour from '@/components/Common/SlideTour'
@@ -15,7 +14,6 @@ import scrollDown from '@/helpers/scrollDown'
 import Price from './Price'
 import { ACCOM_REF, BRIEF_REF, OVERVIEW_REF, ROLE_REF, TOUR_DETAIL_REF } from '../../lib/constants'
 import { createTheme, useMediaQuery } from '@mui/material'
-import Button from '@/components/Common/Button'
 import { useRouter } from 'next/navigation'
 import PriceMb from './PriceMb'
 import ModalCustom from '@/components/Common/ModalCustom'
@@ -215,7 +213,7 @@ export default function AboutTour(props) {
   ]
 
   const [openModal, setOpenModal] = useState()
-  const [openPopup, setOpenPopUp] = useState()
+  const [openPopup, setOpenPopUp] = useState(false)
   const router = useRouter()
   const mapRef = useRef()
   const aboutTourRef = useRef()
@@ -304,15 +302,12 @@ export default function AboutTour(props) {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [activeIcon, accomRef, briefRef, overviewRef, roleRef, tourDetailRef])
-
-  imageMapRef?.current?.addEventListener('click', () => {
-    // if(imageMapRef){
-    //   imageMapRef?.current?.style?.display = 'none'
-    // }
-    // // alert('ok')
-  })
+  
   const handleClickMap = (e) => {
     e.stopPropagation();
+  }
+  const handleClickOut = () => {
+    setOpenPopUp(false)
   }
   return (
     <section className='overflow-hidden tour-detail-main'>
@@ -656,7 +651,7 @@ export default function AboutTour(props) {
       )}
 
       {openPopup && (
-        <div className='fixed max-md:hidden bg-black bg-opacity-25 backdrop-blur-[4px] w-[100vw] h-[100vh] top-1/2 left-1/2 -translate-x-1/2 z-20 -translate-y-1/2' onClick={() => setOpenPopUp(false)}>
+        <div className='fixed max-md:hidden bg-black bg-opacity-25 backdrop-blur-[4px] w-[100vw] h-[100vh] top-1/2 left-1/2 -translate-x-1/2 z-20 -translate-y-1/2' onClick={handleClickOut}>
           <div className='w-[100%] h-[75vh] bottom-[3.5vw] left-1/2 -translate-x-1/2 fixed'>
             <Image
               src={data?.map?.image?.sourceUrl}
