@@ -12,15 +12,11 @@ const SearchResult = ({ data, quantity, lang, className, loading, results }) => 
   const size = quantity
   const dataTour = data?.filter((item,index) => item.translation !== null)
 
-  const uniqueObjects = [];
-  const slugSet = new Set();
-
-  for (const obj of dataTour) {
-    if (!slugSet.has(obj.slug)) {
-      uniqueObjects.push(obj);
-      slugSet.add(obj.slug);
-    }
-  }
+  const uniqueObjects = dataTour?.filter((obj, index, self) => {
+    return index === self?.findIndex((item) => (
+      item?.translation?.slug === obj?.translation?.slug
+    ));
+  });
   totalPage.current = size ? Math.ceil(uniqueObjects?.length / size) : Math.ceil(uniqueObjects?.length / size)
   const pagination = new Array(totalPage.current || 0).fill(0)
 

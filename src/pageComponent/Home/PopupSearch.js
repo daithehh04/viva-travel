@@ -29,15 +29,11 @@ function PopupSearch({ lang, onClose }) {
   })
   const allTours = data?.allTours?.nodes
   const listTours = allTours?.filter((tour,index) => tour?.translation !== null)
-  const uniqueObjects = [];
-  const slugSet = new Set();
-
-  for (const obj of listTours) {
-    if (!slugSet.has(obj?.translation?.slug)) {
-      uniqueObjects.push(obj);
-      slugSet.add(obj?.translation?.slug);
-    }
-  }
+  const uniqueObjects = listTours?.filter((obj, index, self) => {
+    return index === self?.findIndex((item) => (
+      item?.translation?.slug === obj?.translation?.slug
+    ));
+  });
   return (
     <div className='w-[80vw] h-[80vh] bg-white relative z-10 overflow-y-auto'>
       <div className='sticky top-0'>
