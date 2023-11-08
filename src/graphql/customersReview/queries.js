@@ -67,8 +67,8 @@ export const GET_REVIEWS = `query ($language: LanguageCodeEnum!) {
   }
 }`
 
-export const GET_ALL_REVIEWS = `query GetAllCustomersReview($language: LanguageCodeFilterEnum!) {
-  allCustomerReview(where: {language: $language}) {
+export const GET_ALL_REVIEWS = `query GetAllCustomersReview($language: LanguageCodeEnum!) {
+  allCustomerReview {
     pageInfo {
       hasNextPage
       hasPreviousPage
@@ -79,7 +79,8 @@ export const GET_ALL_REVIEWS = `query GetAllCustomersReview($language: LanguageC
       }
     }
     nodes {
-      customerReview {
+     translation (language: $language) {
+       customerReview {
         content
         authorInformation {
           country
@@ -112,6 +113,7 @@ export const GET_ALL_REVIEWS = `query GetAllCustomersReview($language: LanguageC
           }
         }
       }
+    }
     }
   }
 }`
