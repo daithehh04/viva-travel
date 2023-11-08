@@ -3,15 +3,22 @@
 import Loading from '@/components/Common/Loading'
 import { DATA_SEARCH_TEXT_TOUR } from '@/graphql/filter/queries'
 import { useQuery } from '@apollo/client'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import TourSearch from './TourSearch'
 import btnClose from '@/assets/images/close.svg'
 import Image from 'next/image'
 
 function PopupSearch({ lang, onClose }) {
   const [text, setText] = useState('')
-  function handleInput(e) {
-    setText(e.target.value)
+  const refSearch = useRef(null)
+  
+  const handleInput = (e) => {
+    if (refSearch.current) {
+        clearTimeout(refSearch.current);
+    }
+    refSearch.current = setTimeout(() => {
+      setText(e.target.value)
+    }, 500)
   }
 
   const { data, loading } = useQuery(DATA_SEARCH_TEXT_TOUR, {
@@ -21,22 +28,25 @@ function PopupSearch({ lang, onClose }) {
     }
   })
   const allTours = data?.allTours?.nodes
+  const listTours = allTours?.filter((tour,index) => tour?.translation !== null)
   return (
     <div className='w-[80vw] h-[80vh] bg-white relative z-10 overflow-y-auto'>
-      <input
-        type='text'
-        placeholder='Search...'
-        className='w-full border-none p-[1.25vw] outline-none text-[1.12vw]'
-        onInput={handleInput}
-      />
-      <Image
-        src={btnClose}
-        alt='close'
-        width={20}
-        height={20}
-        className='absolute md:top-[1.5vw] right-[2.53vw]'
-        onClick={onClose}
-      />
+      <div className='sticky top-0'>
+        <input
+          type='text'
+          placeholder='Search...'
+          className='w-full border-none p-[1.25vw] outline-none text-[1.12vw]'
+          onInput={handleInput}
+        />
+        <Image
+          src={btnClose}
+          alt='close'
+          width={20}
+          height={20}
+          className='absolute md:top-[1.5vw] cursor-pointer right-[2.53vw]'
+          onClick={onClose}
+        />
+      </div>
       <hr />
       <div className='p-[1.25vw]'>
         {loading ? (
@@ -45,10 +55,10 @@ function PopupSearch({ lang, onClose }) {
           </div>
         ) : (
           <div className='flex flex-col gap-[1vw]'>
-            {allTours?.length === 0 ? (
+            {listTours?.length === 0 ? (
               <h4 className='text-[1.1vw]'>No result for this search !!</h4>
             ) : (
-              allTours?.map((tour, index) => (
+              listTours?.map((tour, index) => (
                 <TourSearch
                   onClose={onClose}
                   data={tour}

@@ -1,14 +1,19 @@
 "use client"
 import Image from "next/image"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import closeIcon from "@/assets/images/close-white.svg"
 import Link from "next/link"
 
 function PopupPromotion({lang,data}) {
-  const [showPopup,setShowPopup] = useState(true)
+  const [showPopup,setShowPopup] = useState(false)
   const handleCloseImg = (e) => {
     e.stopPropagation();
   }
+  useEffect(() => {
+    setTimeout(() => {
+      setShowPopup(true)
+    },3000)
+  },[])
   return (
     <div>
       {showPopup && <div className="fixed w-full h-full z-[199] inset-0" style={{background: 'rgba(0,0,0,0.65)'}} onClick={() => setShowPopup(false)}>
