@@ -28,7 +28,7 @@ const Placeholder = ({ item, icon }) => (
   </div>
 )
 
-export default function OptionBudget({ icon, list, defaultValue, onSelect }) {
+export default function OptionBudget({ icon, list, defaultValue, onSelect, lang }) {
   const [personName, setPersonName] = useState('Budget')
   useEffect(() => {
     if (defaultValue) {
@@ -53,6 +53,15 @@ export default function OptionBudget({ icon, list, defaultValue, onSelect }) {
   }
   
   handleSort(list)
+
+  let price = 'USD'
+  let budget = 'Budget'
+  if(lang === 'fr' || lang === 'it') {
+    price = 'EUR'
+  }
+  if (lang === 'it') {
+    budget = 'Bilancio'
+  }
   return (
     <div>
       <FormControl className='mb-[0.94vw] max-md:rounded-[1.06vw] bg-[#F0F0F0] 
@@ -89,7 +98,7 @@ export default function OptionBudget({ icon, list, defaultValue, onSelect }) {
                 src={icon}
                 alt='Money Image'
               />
-              <span className='px-2 py-[0.25vw] md:text-[0.875vw] text-[3.73vw] font-normal'>Budget</span>
+              <span className='px-2 py-[0.25vw] md:text-[0.875vw] text-[3.73vw] font-normal'>{budget}</span>
             </div>
           </MenuItem>
           {list?.map((item) => (
@@ -102,7 +111,7 @@ export default function OptionBudget({ icon, list, defaultValue, onSelect }) {
                   src={icon}
                   alt='Money Image'
                 />
-                <div className='px-2 py-[0.25vw] text-[0.875vw] font-normal max-md:text-[3.73vw]'>{item?.name}</div>
+                <div className='px-2 py-[0.25vw] text-[0.875vw] font-normal max-md:text-[3.73vw]'>{item?.name} {price}</div>
               </div>
             </MenuItem>
           ))}

@@ -23,8 +23,8 @@ function ExemptVisa({ title, desc, dataInfo }) {
                   {dataInfo?.whyapply}
                 </h3>
                 {dataInfo?.listreason?.map((item, index) => (
-                  <div key={index} className='flex items-center md:gap-[1vw] gap-[2.13vw] md:mb-[1vw] mb-[3.73vw]'>
-                    <Image src={checkIcon} width={'100%'} height={'100%'} alt="check icon" />
+                  <div key={index} className='flex md:gap-[1vw] gap-[2.13vw] md:mb-[1vw] mb-[3.73vw]'>
+                    <Image src={checkIcon} width={'100%'} height={'100%'} alt="check icon" className="w-[1vw] h-[1vw] max-md:w-[3.73vw] max-md:h-[3.73vw]" />
                     <p className='text-textColor md:text-[0.875vw] whitespace-normal leading-[150%]'>{item.reason}</p>
                   </div>
                 ))}
@@ -34,10 +34,10 @@ function ExemptVisa({ title, desc, dataInfo }) {
                 <h3 className='text-textColor md:text-[1.25vw] font-medium leading-[1.5] md:mb-[1.5vw] mb-[4.27vw]'>
                   {dataInfo?.contactus}
                 </h3>
-                <div className='flex  md:gap-[0.5vw] gap-[2.13vw] md:mb-[1vw] mb-[3.73vw] '>
+                <div className='flex md:gap-[0.5vw] gap-[2.13vw] md:mb-[1vw] mb-[3.73vw] '>
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
-                    className='md:w-[1vw] md:h-[1vw] flex flex-shrink-0'
+                    className='md:w-[1.4vw] md:h-[1.4vw] flex flex-shrink-0 mt-[2px]'
                     width='16'
                     height='17'
                     viewBox='0 0 16 17'
@@ -53,10 +53,10 @@ function ExemptVisa({ title, desc, dataInfo }) {
                     dangerouslySetInnerHTML={{ __html: `${dataInfo?.listcontact?.phone}` }}
                   ></p>
                 </div>
-                <div className='flex  md:gap-[0.5vw] gap-[2.13vw] md:mb-[1vw] mb-[3.73vw]'>
+                <div className='flex md:gap-[0.5vw] gap-[2.13vw] md:mb-[1vw] mb-[3.73vw]'>
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
-                    className='md:w-[1vw] md:h-[1vw] flex flex-shrink-0'
+                    className='md:w-[1.3vw] md:h-[1.3vw] flex flex-shrink-0 mt-[2px]'
                     width='16'
                     height='17'
                     viewBox='0 0 16 17'
@@ -68,13 +68,13 @@ function ExemptVisa({ title, desc, dataInfo }) {
                     />
                   </svg>
                   <div
-                    className='emailContact'
+                    className='emailContact text-editor'
                     dangerouslySetInnerHTML={{ __html: `${dataInfo?.listcontact?.email}` }}
                   ></div>
                 </div>
-                <div className='flex  md:gap-[0.5vw] gap-[2.13vw] md:mb-[1vw] mb-[3.73vw]'>
+                <div className='flex md:gap-[0.5vw] gap-[2.13vw] md:mb-[1vw] mb-[3.73vw]'>
                   <svg
-                    className='md:w-[1vw] md:h-[1.125vw] flex flex-shrink-0'
+                    className='md:w-[1.4vw] md:h-[1.4vw] flex flex-shrink-0 mt-[2px]'
                     xmlns='http://www.w3.org/2000/svg'
                     width='16'
                     height='18'
@@ -87,7 +87,7 @@ function ExemptVisa({ title, desc, dataInfo }) {
                     />
                   </svg>
                   <div
-                    className='addressContact'
+                    className='addressContact text-editor'
                     dangerouslySetInnerHTML={{ __html: `${dataInfo?.listcontact?.address}` }}
                   ></div>
                 </div>

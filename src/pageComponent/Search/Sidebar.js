@@ -18,7 +18,8 @@ export default function Sidebar({
   onDestination,
   onTravelStyle,
   onBudget,
-  isOpenModal
+  isOpenModal,
+  lang
 }) {
   const [travelStyle, setTravelStyle] = useState([])
   const refStyle = useRef()
@@ -131,6 +132,7 @@ export default function Sidebar({
             icon={moneyIcon}
             defaultValue={params?.budget}
             list={dataTaxonomiesBudget?.data?.allBudget?.nodes}
+            lang ={lang}
           />
         </div>
       </div>

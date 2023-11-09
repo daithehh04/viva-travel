@@ -74,13 +74,13 @@ function FilterTour({
     style: 'Travel Style',
     duration: 'Duration',
     day: 'day',
-    price: '$'
+    price: 'USD'
   }
   if(lang === 'fr') {
     option.duration = 'Durée'
     option.style ='Style de voyage'
     option.day ='Jours'
-    option.price= '€'
+    option.price= 'EUR'
   }
   if(lang === 'it') {
     option.style = 'Stile di viaggio'
@@ -88,7 +88,7 @@ function FilterTour({
     option.budget = 'Bilancio'
     option.destination = 'Destinazione'
     option.day ='Jours'
-    option.price= '€'
+    option.price= 'EUR'
   }
 
   const theme = createTheme({
@@ -397,7 +397,7 @@ function FilterTour({
                 }}
                 >
                   <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
-                    {item?.name}{option.price}
+                    {item?.name} {option.price}
                   </span>
                 </MenuItem>
               ))}

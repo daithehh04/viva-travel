@@ -17,15 +17,18 @@ function TourItem({ data, menu, lang, loading, className, onCloseMenu }) {
   const pathName = usePathname()
   const isPromotion = pathName.includes('hot-deals')
   let bestTour = false
+  let priceTour = 'USD'
   if (checkBestTour?.length > 0) {
     bestTour = true
   }
   let tag = 'Best Tour'
   if (lang === 'fr') {
     tag = 'Meilleur vendeur'
+    priceTour = 'EUR'
   }
   if (lang === 'it') {
     tag = 'Miglior venditore'
+    priceTour = 'EUR'
   }
   return (
     <Link
@@ -124,7 +127,7 @@ function TourItem({ data, menu, lang, loading, className, onCloseMenu }) {
         </div>
         <div className={`${menu ? 'md:mt-[0.3vw]' : 'md:mt-[0.81vw]'} flex items-center justify-between mt-[2.13vw]`}>
           {!loading ? (
-            <span className='text-primaryColor max-lg:text-[1.2vw] text-[1vw] max-md:text-[2.67vw]'>${price}</span>
+            <span className='text-primaryColor max-lg:text-[1.2vw] text-[1vw] max-md:text-[2.67vw]'>{price} {priceTour}</span>
           ) : (
             <Skeleton
               variant='rectangular'

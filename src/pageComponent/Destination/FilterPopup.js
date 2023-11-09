@@ -139,7 +139,7 @@ function FilterPopup({ lang, dataFilter, slug }) {
     style: 'Travel Style',
     duration: 'Duration',
     day: 'day',
-    price: '$',
+    price: 'USD',
     search: 'Search',
     filter: 'Filter tour'
   }
@@ -147,7 +147,7 @@ function FilterPopup({ lang, dataFilter, slug }) {
     option.duration = 'Durée'
     option.style ='Style de voyage'
     option.day ='Jours'
-    option.price= '€'
+    option.price= 'EUR'
     option.search = 'Recherche'
     option.filter = 'Visite guidée des filtres'
   }
@@ -157,7 +157,7 @@ function FilterPopup({ lang, dataFilter, slug }) {
     option.budget = 'Bilancio'
     option.destination = 'Destinazione'
     option.day ='Jours'
-    option.price= '€'
+    option.price= 'EUR'
     option.search = 'Ricerca'
     option.filter = 'Filtra tour'
   }
@@ -403,7 +403,7 @@ function FilterPopup({ lang, dataFilter, slug }) {
                 {arrBudget?.map((item, index) => (
                   <MenuItem value={item?.name} key={index} className='filter-item'>
                     <span className='filter-item md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
-                      {item?.name}{option.price}
+                      {item?.name} {option.price}
                     </span>
                   </MenuItem>
                 ))}

@@ -4,7 +4,6 @@ import Box from '@mui/material/Box'
 import Slider from '@mui/material/Slider'
 import theme from '../ThemeRegistry/theme'
 import { useMediaQuery } from '@mui/material'
-import { useEffect } from 'react'
 
 function getValue(value) {
   return value

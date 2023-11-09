@@ -94,14 +94,14 @@ function FilterBanner({ lang, dataFilter,slug }) {
     duration: 'Duration',
     day: 'day',
     search: 'Search',
-    price: '$'
+    price: 'USD'
   }
   if(lang === 'fr') {
     option.duration = 'Durée'
     option.style ='Style de voyage'
     option.day ='Jour'
     option.search = 'Recherche'
-    option.price= '€'
+    option.price= 'EUR'
   }
   if(lang === 'it') {
     option.style = 'Stile di viaggio'
@@ -110,7 +110,7 @@ function FilterBanner({ lang, dataFilter,slug }) {
     option.destination = 'Destinazione'
     option.day ='Giorno'
     option.search = 'Ricerca'
-    option.price= '€'
+    option.price= 'EUR'
   }
 
   const theme = createTheme({
@@ -318,7 +318,7 @@ function FilterBanner({ lang, dataFilter,slug }) {
                 {arrBudget?.map((item, index) => (
                   <MenuItem value={item?.name} key={index}>
                     <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
-                      {item?.name}{option.price}
+                      {item?.name} {option.price}
                     </span>
                   </MenuItem>
                 ))}
