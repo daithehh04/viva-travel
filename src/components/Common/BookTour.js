@@ -51,6 +51,16 @@ function BookTour({ data, setOpenModal, lang,detail }) {
     setIsConfirm(true)
     setOpenNoti(true)
   };
+  let arrValueStyle = ""
+  let arrStyle =[]
+  let arrValueCountry = ""
+  let arrCountry =[]
+  if(detail?.detail === true) {
+    detail?.styleTourArr?.forEach((item,index) =>{arrStyle.push(item?.name)})
+    arrValueStyle = arrStyle.join(", ")
+    detail?.countriesTourArr?.forEach((item,index) =>{arrCountry.push(item?.name)})
+    arrValueCountry = arrCountry.join(", ")
+  }
   // init value
   const INITAL_FORM_STATE = {
     nationality: '',
@@ -61,9 +71,9 @@ function BookTour({ data, setOpenModal, lang,detail }) {
     numberAdult: '',
     numberChildren: '',
     date: null,
-    destination: [],
+    destination: arrCountry,
     accommodation: '',
-    typeOfTrip: '',
+    typeOfTrip: arrValueStyle,
     message: '',
     budget: '',
     confirm: false
@@ -95,17 +105,6 @@ function BookTour({ data, setOpenModal, lang,detail }) {
   const dataBooktourAge = data?.data?.page?.booktour?.participantage
   const dataParticipant = data?.data?.page?.booktour?.participants
 
-  let arrValueStyle = ""
-  let arrStyle =[]
-  let arrValueCountry = ""
-  let arrCountry =[]
-  if(detail?.detail === true) {
-    detail?.styleTourArr?.forEach((item,index) =>{arrStyle.push(item?.name)})
-    arrValueStyle = arrStyle.join(", ")
-
-    detail?.countriesTourArr?.forEach((item,index) =>{arrCountry.push(item?.name)})
-    arrValueCountry = arrCountry.join(", ")
-  }
   const handleForm = (values, resetForm) => {
     if(capcha) {
       mutate({
@@ -122,7 +121,7 @@ function BookTour({ data, setOpenModal, lang,detail }) {
               { id: 21, value: values.date },
               { id: 24, value: detail?.detail === true ? arrValueCountry : values.destination.join(', ') },
               { id: 22, value: values.accommodation },
-              { id: 23, value: detail?.detail === true ? arrValueStyle : values.typeOfTrip},
+              { id: 25, value: detail?.detail === true ? arrValueStyle : values.typeOfTrip},
               { id: 14, value: values.message },
               { id: 15, value: values.budget },
               { id: 16, value: values.confirm }
@@ -400,7 +399,7 @@ function BookTour({ data, setOpenModal, lang,detail }) {
                                     <Field
                                       type='checkbox'
                                       name='destination'
-                                      value={des?.slug}
+                                      value={des?.name}
                                     />
                                     <span className='md:text-[1vw] text-white font-[500] leading-[150%] whitespace-nowrap'>
                                       {des?.name}
@@ -457,7 +456,7 @@ function BookTour({ data, setOpenModal, lang,detail }) {
                               <Field
                                 type='radio'
                                 name='typeOfTrip'
-                                value={tour?.slug}
+                                value={tour?.name}
                               />
                               <span className='md:text-[1rem] font-medium md:leading-[1.5]'>{tour?.name}</span>
                             </label>
