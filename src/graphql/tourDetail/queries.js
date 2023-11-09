@@ -8,6 +8,11 @@ export const GET_TOUR_DETAIL = `query GetTourDetail($slug: ID!, $language: Langu
           name
         }
       }
+      countries {
+        nodes {
+          name
+        }
+      }
       tourDetail {
         priceTour
         banner {

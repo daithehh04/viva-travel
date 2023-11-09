@@ -22,7 +22,7 @@ import vw from '@/helpers/convertToVw'
 import Link from 'next/link'
 
 export default function AboutTour(props) {
-  const { type, data, headerData = {}, relatedTours = [], lang, dataBookTour, price, tourContent,styleTourArr } = props
+  const { type, data, headerData = {}, relatedTours = [], lang, dataBookTour, price, tourContent,styleTourArr,countriesTourArr } = props
   const { contentHeader, relatedTourHeader, bannerHeaders } = headerData
   const { reviews, banner, content = {} } = data || []
 
@@ -682,7 +682,7 @@ export default function AboutTour(props) {
         >
           <div className='w-full h-full overflow-y-auto md:rounded-[16px] overflow-x-hidden'>
             <BookTour
-              detail={{detail: true, styleTourArr}}
+              detail={{detail: true, styleTourArr, countriesTourArr}}
               data={dataBookTour}
               setOpenModal={setOpenModal}
             />

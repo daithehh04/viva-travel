@@ -97,9 +97,14 @@ function BookTour({ data, setOpenModal, lang,detail }) {
 
   let arrValueStyle = ""
   let arrStyle =[]
+  let arrValueCountry = ""
+  let arrCountry =[]
   if(detail?.detail === true) {
     detail?.styleTourArr?.forEach((item,index) =>{arrStyle.push(item?.name)})
     arrValueStyle = arrStyle.join(", ")
+
+    detail?.countriesTourArr?.forEach((item,index) =>{arrCountry.push(item?.name)})
+    arrValueCountry = arrCountry.join(", ")
   }
   const handleForm = (values, resetForm) => {
     if(capcha) {
@@ -115,7 +120,7 @@ function BookTour({ data, setOpenModal, lang,detail }) {
               { id: 19, value: values.ageChildren },
               { id: 20, value: values.ageAdult },
               { id: 21, value: values.date },
-              { id: 24, value: values.destination.join(', ') },
+              { id: 24, value: detail?.detail === true ? arrValueCountry : values.destination.join(', ') },
               { id: 22, value: values.accommodation },
               { id: 23, value: detail?.detail === true ? arrValueStyle : values.typeOfTrip},
               { id: 14, value: values.message },
@@ -379,7 +384,7 @@ function BookTour({ data, setOpenModal, lang,detail }) {
 
                             {/* checkboxx */}
 
-                            <div className='flex flex-col md:gap-[0.5vw] gap-[3.2vw] max-md:w-full'>
+                            {detail?.detail ? "" : (<div className='flex flex-col md:gap-[0.5vw] gap-[3.2vw] max-md:w-full'>
                               <h4
                                 className='md:text-[1.125vw] text-[3.73333vw] text-[#fff] leading-[150%]'
                                 dangerouslySetInnerHTML={{ __html: `${dataParticipant?.destinationchoice}` }}
@@ -408,7 +413,8 @@ function BookTour({ data, setOpenModal, lang,detail }) {
                                   className='md:text-[0.8vw] text-[3.2vw] text-[red]'
                                 />
                               </div>
-                            </div>
+                            </div>)}
+                            
 
                             {/* radio group */}
                             <div className='flex flex-col md:gap-[0.5vw] gap-[3.2vw] max-md:w-full'>
