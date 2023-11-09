@@ -107,7 +107,7 @@ function TourItem({ data, menu, lang, loading, className, onCloseMenu }) {
           </Link>
         </h3>
         {/* icons*/}
-        <div className='flex md:gap-[0.35vw] gap-[1vw] mt-[1.33vw] flex-wrap'>
+        <div className='flex md:gap-[0.35vw] gap-[1vw] mt-[0.75vw] flex-wrap'>
           {tourData?.icons?.map((icon, index) => {
             return (
               <div
