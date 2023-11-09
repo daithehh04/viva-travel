@@ -130,6 +130,12 @@ body {
     list-style: disc;
     margin-left: 1.5vw;
   }
+  i,em {
+    font-style: italic;
+  }
+  b {
+    font-style: bold;
+  }
 }
 
 @media screen and (max-width: 768.9px) {
