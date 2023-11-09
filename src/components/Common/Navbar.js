@@ -3,8 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
-import logo from '@/assets/images/logo.svg'
-import star from '@/assets/images/star.svg'
+import logo from '@/assets/images/VIVA-LOGO-02.png'
 import bookTourIcon from '@/assets/images/bookTourIcon.svg'
 import SelectLang from '../Language/SelectLang'
 import MenuDestinations from '@/components/Menu/Destinations'
@@ -15,7 +14,6 @@ import InputSearchMb from './InputSearchMb'
 import MenuAbout from '../Menu/AboutUs/MenuAbout'
 import MenuMb from '../Menu/MenuMb'
 import planeF from '@/assets/images/planeF.svg'
-import starF from '@/assets/images/starF.svg'
 import HotDeal from './HotDeal'
 import BookTour from './BookTour'
 import ModalCustom from './ModalCustom'
@@ -236,7 +234,7 @@ export default function Navbar({
                   width={100}
                   height={100}
                   alt='viva-travel'
-                  className='nav-logo w-[3.5625vw] object-cover max-lg:w-[10.4vw]'
+                  className='nav-logo w-[4.5vw] object-cover max-lg:w-[10.4vw]'
                 />
               </Link>
               <div

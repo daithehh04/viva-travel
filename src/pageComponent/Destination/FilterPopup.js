@@ -156,7 +156,7 @@ function FilterPopup({ lang, dataFilter, slug }) {
     option.duration ='Durata'
     option.budget = 'Bilancio'
     option.destination = 'Destinazione'
-    option.day ='Jours'
+    option.day ='Giorni'
     option.price= 'EUR'
     option.search = 'Ricerca'
     option.filter = 'Filtra tour'

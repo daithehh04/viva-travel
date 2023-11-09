@@ -1,4 +1,4 @@
-import logo from '@/assets/images/logoF.png'
+import logo from '@/assets/images/viva-logo.png'
 import location from '@/assets/images/route-squareB.svg'
 import Image from 'next/image'
 import SlidePartners from './SlidePartners'
@@ -29,7 +29,7 @@ async function Footer({ lang }) {
             width={1000}
             height={1000}
             alt='logo'
-            className='w-[12.1875vw] h-[9.625vw] object-cover max-md:w-[39.2vw] max-md:h-[30.7vw]'
+            className='w-[12.1875vw] h-[9.625vw] object-contain max-md:w-[39.2vw] max-md:h-[30.7vw]'
           />
           <div className='mt-[1.25vw] max-md:mt-[6.63vw]'></div>
           {col1?.contact?.map((item, index) => (

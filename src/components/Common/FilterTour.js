@@ -87,7 +87,7 @@ function FilterTour({
     option.duration ='Durata'
     option.budget = 'Bilancio'
     option.destination = 'Destinazione'
-    option.day ='Jours'
+    option.day ='Giorni'
     option.price= 'EUR'
   }
 
