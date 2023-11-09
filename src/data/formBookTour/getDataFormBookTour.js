@@ -13,7 +13,7 @@ export default async function getDataFormBookTour(query, id, lang) {
       query: query,
       variables: { id: id, language: lang?.toUpperCase() }
     }),
-    next: { revalidate: 120 }
+    next: { revalidate: 60 }
   })
   if (!res.ok) {
     throw new Error('Failed to fetch data')

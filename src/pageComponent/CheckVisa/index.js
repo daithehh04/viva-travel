@@ -37,7 +37,9 @@ async function index({ lang }) {
     return newArrDataTaxonomies
   }
   const arrCountryFrom = handleTaxonomies(dataCountryFrom?.data?.allFromCountry?.nodes)
+  const listArrCountryFrom = arrCountryFrom.filter((item,index) => item !== null)
   const arrCountryTo = handleTaxonomies(dataCountryTo?.data?.allToCountry?.nodes)
+  const listArrCountryTo = arrCountryTo.filter((item,index) => item !== null)
   const handleFilter = (fn) => {
     fn?.sort(function(a, b) {
       var numA = parseInt(a?.description) || 100;
@@ -45,11 +47,11 @@ async function index({ lang }) {
       return numA - numB;
     });
   }
-  handleFilter(arrCountryFrom)
-  handleFilter(arrCountryTo)
+  handleFilter(listArrCountryFrom)
+  handleFilter(listArrCountryTo)
   const dataFilter = {
-    countryFrom: arrCountryFrom,
-    countryTo: arrCountryTo
+    countryFrom: listArrCountryFrom,
+    countryTo: listArrCountryTo
   }
   return (
     <DataProvider>
