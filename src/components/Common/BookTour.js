@@ -58,8 +58,8 @@ function BookTour({ data, setOpenModal, lang,detail }) {
     telephone: '',
     email: '',
     confirmEmail: '',
-    ageAdult: '',
-    ageChildren: '',
+    numberAdult: '',
+    numberChildren: '',
     date: null,
     destination: [],
     accommodation: '',
@@ -79,8 +79,8 @@ function BookTour({ data, setOpenModal, lang,detail }) {
       .required(lang === 'en' ? 'Please fill in the blank' : lang === 'it' ? 'Per favore, compila il campo vuoto qui.' : 'Veuillez remplir le champ vide ici.'),
     email: Yup.string().email('Invalid email.'),
     confirmEmail: Yup.string().oneOf([Yup.ref('email'), null], 'Email must match'),
-    ageAdult: Yup.number().min(1),
-    ageChildren: Yup.number().min(1),
+    numberAdult: Yup.number().min(0),
+    numberChildren: Yup.number().min(0),
     date: Yup.date().required(lang === 'en' ? 'Please fill in the blank' : lang === 'it' ? 'Per favore, compila il campo vuoto qui.' : 'Veuillez remplir le champ vide ici.'),
     destination: Yup.array().required(lang === 'en' ? 'Please fill in the blank' : lang === 'it' ? 'Per favore, compila il campo vuoto qui.' : 'Veuillez remplir le champ vide ici.'),
     accommodation: Yup.string().required(lang === 'en' ? 'Please fill in the blank' : lang === 'it' ? 'Per favore, compila il campo vuoto qui.' : 'Veuillez remplir le champ vide ici.'),
@@ -117,8 +117,8 @@ function BookTour({ data, setOpenModal, lang,detail }) {
               { id: 3, value: values.fullName },
               { id: 17, value: values.telephone },
               { id: 6, value: values.email },
-              { id: 19, value: values.ageChildren },
-              { id: 20, value: values.ageAdult },
+              { id: 19, value: values.numberChildren },
+              { id: 20, value: values.numberAdult },
               { id: 21, value: values.date },
               { id: 24, value: detail?.detail === true ? arrValueCountry : values.destination.join(', ') },
               { id: 22, value: values.accommodation },
@@ -325,13 +325,13 @@ function BookTour({ data, setOpenModal, lang,detail }) {
                               <span className='md:text-white text-[#DFDFDF] md:text-[0.9375vw] text-[3.73333vw] md:font-[500] font-[400] leading-[150%]'>
                                 {dataBooktourAge?.adult?.labeladult}
                               </span>
-                              <TextFiledWrapper name='ageAdult' />
+                              <TextFiledWrapper name='numberAdult' />
                             </div>
                             <div className='flex flex-col md:gap-[0.5vw] gap-[2.13vw]'>
                               <span className='md:text-white text-[#DFDFDF] md:text-[0.9375vw] text-[3.73333vw] md:font-[500] font-[400] leading-[150%]'>
                                 {dataBooktourAge?.children?.labelchild}
                               </span>
-                              <TextFiledWrapper name='ageChildren' />
+                              <TextFiledWrapper name='numberChildren' />
                             </div>
                           </div>
                         </div>
