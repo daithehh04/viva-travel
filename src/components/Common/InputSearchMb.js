@@ -32,6 +32,12 @@ function InputSearchMb({ lang, dataFilter, onCloseNav }) {
     }
   })
   const allTours = data?.allTours?.nodes
+  const listTours = allTours?.filter((tour,index) => tour?.translation !== null)
+  const uniqueObjects = listTours?.filter((obj, index, self) => {
+    return index === self?.findIndex((item) => (
+      item?.translation?.slug === obj?.translation?.slug
+    ));
+  });
   let noResult = 'No result for this search !!'
   if (lang === 'fr') {
     noResult = 'Aucun résultat pour cette recherche !!'
@@ -57,10 +63,10 @@ function InputSearchMb({ lang, dataFilter, onCloseNav }) {
             </div>
           ) : (
             <div className='flex flex-col gap-[3.2vw] max-h-[54.4vw] overflow-y-auto content'>
-              {allTours?.length === 0 ? (
+              {uniqueObjects?.length === 0 ? (
                 <h4 className='text-[3.2vw]'>{noResult}</h4>
               ) : (
-                allTours?.map((tour, index) => (
+                uniqueObjects?.map((tour, index) => (
                   <Link
                     onClick={handleClose}
                     href={`/${lang}/tours/${encodeURIComponent(tour?.translation?.slug)}`}

@@ -34,6 +34,14 @@ function PopupSearch({ lang, onClose }) {
       item?.translation?.slug === obj?.translation?.slug
     ));
   });
+
+  let result = 'No result for this search !!'
+  if(lang === 'fr') {
+    result = 'Aucun résultat pour cette recherche !!'
+  }
+  if(lang === 'it') {
+    result = 'Nessun risultato per questa ricerca!!'
+  }
   return (
     <div className='w-[80vw] h-[80vh] bg-white relative z-10 overflow-y-auto'>
       <div className='sticky top-0'>
@@ -60,8 +68,8 @@ function PopupSearch({ lang, onClose }) {
           </div>
         ) : (
           <div className='flex flex-col gap-[1vw]'>
-            {listTours?.length === 0 ? (
-              <h4 className='text-[1.1vw]'>No result for this search !!</h4>
+            {uniqueObjects?.length === 0 ? (
+              <h4 className='text-[1.1vw]'>{result}</h4>
             ) : (
               uniqueObjects?.map((tour, index) => (
                 <TourSearch

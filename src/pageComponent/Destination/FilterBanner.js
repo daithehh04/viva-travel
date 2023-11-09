@@ -146,7 +146,8 @@ function FilterBanner({ lang, dataFilter,slug }) {
                 [theme.breakpoints.down('sm')]: {
                   '& .MuiSelect-select': {
                     fontSize: '3.73vw',
-                    lineHeight: '1.3'
+                    lineHeight: '1.5',
+                    marginLeft: '4px'
                   }
                 },
               }}
@@ -213,7 +214,8 @@ function FilterBanner({ lang, dataFilter,slug }) {
                 [theme.breakpoints.down('sm')]: {
                   '& .MuiSelect-select': {
                     fontSize: '3.73vw',
-                    lineHeight: '1.3'
+                    lineHeight: '1.5',
+                    marginLeft: '4px'
                   }
                 },
               }}
@@ -280,7 +282,8 @@ function FilterBanner({ lang, dataFilter,slug }) {
                 [theme.breakpoints.down('sm')]: {
                   '& .MuiSelect-select': {
                     fontSize: '3.73vw',
-                    lineHeight: '1.3'
+                    lineHeight: '1.5',
+                    marginLeft: '4px'
                   }
                 },
               }}
