@@ -11,6 +11,7 @@ import Select from '@mui/material/Select'
 import { useRef, useState } from 'react'
 import Button from '@/components/Common/Button'
 import { useRouter } from 'next/navigation'
+import { createTheme } from '@mui/material'
 function FilterBanner({ lang, dataFilter, onClose }) {
   const refLink = useRef()
   const [destination, setDestination] = useState('')
@@ -124,6 +125,13 @@ function FilterBanner({ lang, dataFilter, onClose }) {
     option.price= '€'
     option.search = 'Ricerca'
   }
+  const theme = createTheme({
+    breakpoints: {
+      values: {
+        sm: 768
+      }
+    }
+  })
   return (
     <div className='flex gap-x-[1.75vw] max-lg:flex-col '>
       <div className='max-md:w-[91.46%] filterbanner-tablet max-md:m-auto flex max-md:grid max-md:grid-cols-2 max-md:gap-[2.67vw] md:gap-x-[1.87vw] gap-y-[3.2vw] gap-x-[2.67vw] md:flex-nowrap flex-wrap md:justify-normal justify-between'>
@@ -146,6 +154,12 @@ function FilterBanner({ lang, dataFilter, onClose }) {
                 '& .MuiInputBase-root': {
                   fontSize: '1.0625vw',
                   fontWeight: 500
+                },
+                [theme.breakpoints.down('sm')]: {
+                  '& .MuiSelect-select': {
+                    fontSize: '3.73vw',
+                    lineHeight: '1.3'
+                  }
                 },
               }}
             >
@@ -217,6 +231,12 @@ function FilterBanner({ lang, dataFilter, onClose }) {
                   fontSize: '1.0625vw',
                   fontWeight: 500
                 },
+                [theme.breakpoints.down('sm')]: {
+                  '& .MuiSelect-select': {
+                    fontSize: '3.73vw',
+                    lineHeight: '1.3'
+                  }
+                },
               }}
             >
               <Select
@@ -284,6 +304,12 @@ function FilterBanner({ lang, dataFilter, onClose }) {
                   fontSize: '1.0625vw',
                   fontWeight: 500
                 },
+                [theme.breakpoints.down('sm')]: {
+                  '& .MuiSelect-select': {
+                    fontSize: '3.73vw',
+                    lineHeight: '1.3'
+                  }
+                },
               }}
             >
               <Select
@@ -350,6 +376,12 @@ function FilterBanner({ lang, dataFilter, onClose }) {
                 '& .MuiInputBase-root': {
                   fontSize: '1.0625vw',
                   fontWeight: 500
+                },
+                [theme.breakpoints.down('sm')]: {
+                  '& .MuiSelect-select': {
+                    fontSize: '3.73vw',
+                    lineHeight: '1.3'
+                  }
                 },
               }}
             >

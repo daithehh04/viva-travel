@@ -8,6 +8,7 @@ import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
 import { useState } from 'react'
+import { createTheme } from '@mui/material'
 function FilterTour({
   onSelectDes,
   dataFilter,
@@ -90,6 +91,14 @@ function FilterTour({
     option.price= '€'
   }
 
+  const theme = createTheme({
+    breakpoints: {
+      values: {
+        sm: 768
+      }
+    }
+  })
+
   return (
     <div
       className={`flex max-md:grid max-md:grid-cols-2 max-md:gap-[2.67vw] md:gap-x-[1.87vw] gap-y-[3.2vw] gap-x-[2.67vw] md:flex-nowrap flex-wrap md:justify-normal justify-between ${className}`}
@@ -114,6 +123,11 @@ function FilterTour({
               '& .MuiInputBase-root': {
                 fontSize: '1.0625vw',
                 fontWeight: 500
+              },[theme.breakpoints.down('sm')]: {
+                '& .MuiSelect-select': {
+                  fontSize: '3.73vw',
+                  lineHeight: '1.3'
+                }
               },
             }}
           >
@@ -182,6 +196,12 @@ function FilterTour({
               '& .MuiInputBase-root': {
                 fontSize: '1.0625vw',
                 fontWeight: 500
+              },
+              [theme.breakpoints.down('sm')]: {
+                '& .MuiSelect-select': {
+                  fontSize: '3.73vw',
+                  lineHeight: '1.3'
+                }
               },
             }}
           >
@@ -255,6 +275,12 @@ function FilterTour({
                 fontSize: '1.0625vw',
                 fontWeight: 500
               },
+              [theme.breakpoints.down('sm')]: {
+                '& .MuiSelect-select': {
+                  fontSize: '3.73vw',
+                  lineHeight: '1.3'
+                }
+              },
             }}
           >
             <Select
@@ -322,6 +348,12 @@ function FilterTour({
               '& .MuiInputBase-root': {
                 fontSize: '1.0625vw',
                 fontWeight: 500
+              },
+              [theme.breakpoints.down('sm')]: {
+                '& .MuiSelect-select': {
+                  fontSize: '3.73vw',
+                  lineHeight: '1.3'
+                }
               },
             }}
           >

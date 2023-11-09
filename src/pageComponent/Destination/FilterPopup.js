@@ -11,6 +11,7 @@ import { useEffect, useRef, useState } from 'react'
 import Button from '@/components/Common/Button'
 import { useRouter } from 'next/navigation'
 import { useClickOutside } from '@/helpers/customHooks'
+import { createTheme } from '@mui/material'
 function FilterPopup({ lang, dataFilter, slug }) {
   const refLink = useRef()
   const searchRef = useRef()
@@ -160,6 +161,14 @@ function FilterPopup({ lang, dataFilter, slug }) {
     option.search = 'Ricerca'
     option.filter = 'Filtra tour'
   }
+
+  const theme = createTheme({
+    breakpoints: {
+      values: {
+        sm: 768
+      }
+    }
+  })
   return (
     <div>
       <div className='fixed bottom-[6.44vw] z-[10] right-0 md:flex items-center h-12vw hidden'>
@@ -218,6 +227,12 @@ function FilterPopup({ lang, dataFilter, slug }) {
                 '& .MuiInputBase-root': {
                   fontSize: '1.0625vw',
                   fontWeight: 500
+                },
+                [theme.breakpoints.down('sm')]: {
+                  '& .MuiSelect-select': {
+                    fontSize: '3.73vw',
+                    lineHeight: '1.3'
+                  }
                 },
               }}
             >
@@ -280,6 +295,12 @@ function FilterPopup({ lang, dataFilter, slug }) {
                   fontSize: '1.0625vw',
                   fontWeight: 500
                 },
+                [theme.breakpoints.down('sm')]: {
+                  '& .MuiSelect-select': {
+                    fontSize: '3.73vw',
+                    lineHeight: '1.3'
+                  }
+                },
               }}
             >
               <Select
@@ -340,6 +361,12 @@ function FilterPopup({ lang, dataFilter, slug }) {
                 '& .MuiInputBase-root': {
                   fontSize: '1.0625vw',
                   fontWeight: 500
+                },
+                [theme.breakpoints.down('sm')]: {
+                  '& .MuiSelect-select': {
+                    fontSize: '3.73vw',
+                    lineHeight: '1.3'
+                  }
                 },
               }}
             >

@@ -103,7 +103,11 @@ function Banner({ data, dataFilter, lang }) {
           sx={{
             maxWidth: '35.875vw',
             [theme.breakpoints.down('sm')]: {
-              maxWidth: '100%'
+              maxWidth: '100%',
+              '& .MuiSelect-select': {
+                fontSize: '3.733vw',
+                lineHeight: '1.3'
+              }
             },
             '&.MuiFormControl-root': {
               margin: 0
@@ -163,7 +167,11 @@ function Banner({ data, dataFilter, lang }) {
           sx={{
             maxWidth: '35.875vw',
             [theme.breakpoints.down('sm')]: {
-              maxWidth: '100%'
+              maxWidth: '100%',
+              '& .MuiSelect-select': {
+                fontSize: '3.73vw',
+                lineHeight: '1.3'
+              }
             },
             '&.MuiFormControl-root': {
               margin: 0
