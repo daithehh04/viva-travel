@@ -37,7 +37,7 @@ function ExemptVisa({ title, desc, dataInfo }) {
                 <div className='flex md:gap-[0.5vw] gap-[2.13vw] md:mb-[1vw] mb-[3.73vw] '>
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
-                    className='md:w-[1.4vw] md:h-[1.4vw] flex flex-shrink-0 mt-[0.25vw]'
+                    className='md:w-[1.4vw] md:h-[1.4vw] flex flex-shrink-0'
                     width='16'
                     height='17'
                     viewBox='0 0 16 17'
@@ -49,14 +49,14 @@ function ExemptVisa({ title, desc, dataInfo }) {
                     />
                   </svg>
                   <p
-                    className='phoneContact text-editor md:text-[0.875vw]'
+                    className='phoneContact text-editor md:!text-[0.875vw]'
                     dangerouslySetInnerHTML={{ __html: `${dataInfo?.listcontact?.phone}` }}
                   ></p>
                 </div>
                 <div className='flex md:gap-[0.5vw] gap-[2.13vw] md:mb-[1vw] mb-[3.73vw]'>
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
-                    className='md:w-[1.3vw] md:h-[1.3vw] flex flex-shrink-0 mt-[0.25vw]'
+                    className='md:w-[1.3vw] md:h-[1.3vw] flex flex-shrink-0'
                     width='16'
                     height='17'
                     viewBox='0 0 16 17'
@@ -68,13 +68,13 @@ function ExemptVisa({ title, desc, dataInfo }) {
                     />
                   </svg>
                   <div
-                    className='emailContact text-editor md:text-[0.875vw]'
+                    className='emailContact text-editor md:!text-[0.875vw]'
                     dangerouslySetInnerHTML={{ __html: `${dataInfo?.listcontact?.email}` }}
                   ></div>
                 </div>
                 <div className='flex md:gap-[0.5vw] gap-[2.13vw] md:mb-[1vw] mb-[3.73vw]'>
                   <svg
-                    className='md:w-[1.4vw] md:h-[1.4vw] flex flex-shrink-0 mt-[0.25vw]'
+                    className='md:w-[1.4vw] md:h-[1.4vw] flex flex-shrink-0'
                     xmlns='http://www.w3.org/2000/svg'
                     width='16'
                     height='18'
@@ -87,7 +87,7 @@ function ExemptVisa({ title, desc, dataInfo }) {
                     />
                   </svg>
                   <div
-                    className='addressContact text-editor md:text-[0.875vw]'
+                    className='addressContact text-editor md:!text-[0.875vw]'
                     dangerouslySetInnerHTML={{ __html: `${dataInfo?.listcontact?.address}` }}
                   ></div>
                 </div>
