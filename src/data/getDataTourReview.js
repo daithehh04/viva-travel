@@ -11,7 +11,7 @@ export default async function getDataTourReview(data, query) {
         countrySlug: data?.countrySlug
       }
     }),
-    next: { revalidate: 120 }
+    next: { revalidate: 60 }
   })
   if (!res.ok) {
     throw new Error('Failed to fetch data')

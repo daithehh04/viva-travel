@@ -1,10 +1,10 @@
 import { gql } from "@apollo/client"
 
 const COUNTRY_TO = `
-query {
-  allToCountry(first: 50) {
+query($language: LanguageCodeFilterEnum!) {
+  allToCountry(first: 50, where : {language: $language}) {
     nodes {
-      name
+     name
       slug
       description
     }
@@ -12,10 +12,10 @@ query {
 }`
 
 const COUNTRY_FROM = `
-query {
-  allFromCountry(first: 50) {
+query($language: LanguageCodeFilterEnum!) {
+  allFromCountry(first: 50, where : {language: $language}) {
     nodes {
-      name
+     name
       slug
       description
     }
