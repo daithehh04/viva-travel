@@ -24,20 +24,20 @@ function TourItemMobile({ data, lang, loading }) {
   let priceTour = 'USD'
 
   if(lang === 'fr') {
-    tag = 'Meilleur vendeur'
+    tag = 'Best Tour'
     priceTour = 'EUR'
   }
   if (lang === 'it') {
-    tag = 'Miglior venditore'
+    tag = 'Best Tour'
     priceTour = 'EUR'
   }
   
   return (
     <Link
       href={`/${lang}/${isPromotion ? 'hot-deals' : 'tours'}/${encodeURIComponent(data?.translation?.slug)}`}
-      className={` p-[4.27vw] h-[46.4vw] flex gap-[4.27vw] bg-white`}
+      className={` p-[4.27vw] min-h-[46.4vw] h-auto flex gap-[4.27vw] bg-white`}
     >
-      <div className='h-full w-[45%] rounded-[1.067vw]'>
+      <div className='h-[46vw] w-[45%] rounded-[1.067vw]'>
         {!loading ? (
           <div className='relative w-full h-full'>
             <Image

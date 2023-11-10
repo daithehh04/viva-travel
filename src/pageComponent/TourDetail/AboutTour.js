@@ -355,7 +355,7 @@ export default function AboutTour(props) {
 
                             <span
                               className={`${activeIcon === index && 'text-[#138140]'
-                                } md:text-[1.125vw] text-[2.67vw] font-medium leading-normal md:max-w-[9vw] max-w-[18vw] line-clamp-1 md:line-clamp-none text-center`}
+                                } md:text-[1.125vw] text-[2.67vw] font-medium leading-normal md:max-w-[9vw] max-w-[18vw] md:line-clamp-none text-center`}
                             >
                               {step.title}
                             </span>

@@ -86,7 +86,7 @@ export default function Statistics({ data }) {
           data-aos-disabled='true'
           data-aos='fade-up'
           data-aos-duration='1000'
-          className='statistic-desc md:w-[56.4375vw] w-full text-[#414141] font-optima font-semibold xl:text-[2.5625vw] md:text-[3.5625vw] text-[6.4vw] leading-[150%] md:tracking-[-2.05px] tracking-[-1.2px]'
+          className='statistic-desc md:w-[56.4375vw] w-full text-justify text-[#414141] font-optima font-semibold xl:text-[2.5625vw] md:text-[3.5625vw] text-[5.4vw] leading-[150%] md:tracking-[-2.05px] tracking-[-1.2px]'
           dangerouslySetInnerHTML={{ __html: `${data?.description}` }}
         ></div>
       </div>
@@ -249,12 +249,23 @@ export default function Statistics({ data }) {
           </div>
         </div>
         <div className='hidden max-md:flex max-md:flex-col text-center mt-[6.1vw]'>
-          <h2 className='text-[7.26vw] leading-[8.96vw] mb-[2.1vw] whitespace-nowrap font-semibold font-optima uppercase'>
+          <h3 className='text-[7.26vw] leading-[8.96vw] mb-[2.1vw] whitespace-nowrap font-semibold font-optima uppercase'>
             {data?.slogan?.line1}
-          </h2>
-          <p className='text-[4.26vw] leading-[6.4vw]'>
+          </h3>
+          <p className='max-md:hidden text-[4.26vw] leading-[6.4vw]'>
             {`${data?.slogan?.line2} ${data?.slogan?.line3} ${data?.slogan?.line4}`}
           </p>
+          <div className='hidden max-md:block'>
+            <p className='max-md:hidden text-[4.26vw] leading-[6.4vw]'>
+              {`${data?.slogan?.line2} `}
+            </p>
+            <p className='max-md:hidden text-[4.26vw] leading-[6.4vw]'>
+              {`${data?.slogan?.line3} `}
+            </p>
+            <p className='max-md:hidden text-[4.26vw] leading-[6.4vw]'>
+              {`${data?.slogan?.line4} `}
+            </p>
+          </div>
         </div>
       </div>
     </section>

@@ -155,7 +155,7 @@ function MenuMb({
                       className='w-[10.8vw] h-[10.8vw]  object-contain object-center'
                     />
                   </div>
-                  <span className='uppercase text-[2.67vw] mt-[1.6vw] block whitespace-nowrap'>{item?.name}</span>
+                  <span className='uppercase text-[2.67vw] mt-[1.6vw] block text-center'>{item?.name}</span>
                 </Link>
               </div>
             ))}

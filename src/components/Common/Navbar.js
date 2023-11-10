@@ -209,17 +209,17 @@ export default function Navbar({
     }
   }
 
-  let book = 'Book Tour'
+  let book = 'Request A Quote'
   let hot = 'Hot'
   let listTour = 'Tour List'
   if (lang === 'fr') {
-    book = 'Visite guidée'
-    hot = 'épicé'
+    book = 'Demander Un Devis'
+    hot = 'Hot'
     listTour = 'Liste des tournées'
   }
   if (lang === 'it') {
-    book = 'Prenota il tour'
-    hot = 'forte'
+    book = ' Richiedi Un Preventivo'
+    hot = 'speciali'
     listTour = 'Elenco dei tour'
   }
 

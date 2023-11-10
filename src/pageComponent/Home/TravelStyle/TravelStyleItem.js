@@ -46,7 +46,7 @@ function TravelStyleItem({ data, lang }) {
         />
         <Link
           href={`/${lang}/travel-style/${data?.slug}`}
-          className='w-[5.9375vw] h-[5.9375vw] rounded-full bg-primaryColor text-textColor text-[0.875vw] font-[500] flex items-center justify-center max-lg:max-lg:text-[1.1vw] cursor-pointer'
+          className='w-[5.9375vw] h-[5.9375vw] text-center rounded-full bg-primaryColor text-textColor text-[0.875vw] font-[500] flex items-center justify-center max-lg:max-lg:text-[1.1vw] cursor-pointer'
         >
           {view}
         </Link>

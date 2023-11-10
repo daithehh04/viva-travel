@@ -38,12 +38,12 @@ const CountDown = ({ data, time }) => {
 
   return (
     <div className='text-center stat-detail w-[47.81%] md:w-fit mb-[8.53vw] md:mb-0'>
-      <div
+      {data?.value && <div
         className='md:text-[8vw] xl:text-[6.25vw] text-[14.93vw] font-optima font-semibold uppercase leading-[100%]'
         ref={numberRef}
       >
         {number < 10 ? `0${number}` : number}
-      </div>
+      </div>}
       <div className='md:text-[2vw] xl:text-[1.6875vw] text-[4.8vw] font-optima font-semibold uppercase leading-[100%] md:tracking-[-1.35px] tracking-[-0.9px] mt-[1vw] mb-[0.5vw]'>
         {data?.title}
       </div>

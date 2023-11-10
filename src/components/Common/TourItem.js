@@ -23,11 +23,11 @@ function TourItem({ data, menu, lang, loading, className, onCloseMenu }) {
   }
   let tag = 'Best Tour'
   if (lang === 'fr') {
-    tag = 'Meilleur vendeur'
+    tag = 'Best Tour'
     priceTour = 'EUR'
   }
   if (lang === 'it') {
-    tag = 'Miglior venditore'
+    tag = 'Best Tour'
     priceTour = 'EUR'
   }
   return (

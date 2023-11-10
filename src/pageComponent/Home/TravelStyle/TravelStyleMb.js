@@ -11,7 +11,7 @@ function TravelStyleMb({ data, title, lang }) {
           <div key={index}>
             <Link
               href={`/${lang}/travel-style/${item?.slug}`}
-              className='flex flex-col items-center'
+              className='flex flex-col items-center justify-center'
             >
               <div className='w-[17.3vw] h-[17.3vw] rounded-full border border-solid border-primaryColor flex items-center justify-center bg-[#FFFBE9]'>
                 <Image
@@ -22,8 +22,8 @@ function TravelStyleMb({ data, title, lang }) {
                   className='w-[10.8vw] h-[10.8vw] object-center object-contain'
                 />
               </div>
-              <span className='uppercase text-[2.93333vw] text-textColor font-[500] leading-[120%] mt-[1.6vw] block'>
-                {item?.banner?.travelStyleInfo?.travelStyleName?.split(',')[0]?.length > 8 ? `${item?.banner?.travelStyleInfo?.travelStyleName?.split(',')[0].slice(0,10)}...` : item?.banner?.travelStyleInfo?.travelStyleName?.split(',')[0] }
+              <span className='uppercase text-center text-[2.93333vw] text-textColor font-[500] leading-[120%] mt-[1.6vw] block'>
+                {item?.banner?.travelStyleInfo?.travelStyleName}
               </span>
             </Link>
           </div>
