@@ -26,7 +26,7 @@ export default function Responsible({ data = {} }) {
         {/* title */}
         <div className='text-textColor md:w-[65vw] m-auto mb-[0.6vw] md:mb-[5.25vw] md:pt-[6.125vw] pt-[13.6vw] text-center'>
           <h2
-            className='md:text-[4vw] text-[5.86667vw] font-optima font-semibold md:leading-[110%] leading-[120%] capitalize mb-[1vw]'
+            className='md:text-[4vw] text-[5.86667vw] font-optima font-semibold md:leading-[110%] leading-[120%] mb-[1vw]'
             data-aos-once='true'
             data-aos='fade-up'
             data-aos-duration='1000'
@@ -63,11 +63,11 @@ export default function Responsible({ data = {} }) {
                   data-aos='fade-right'
                   data-aos-disabled='true'
                 >
-                  <div className='items-end max-md:flex'>
-                    <div className='text-primaryColor md:text-[6vw] max-md:mr-[3vw] text-[17.07vw] leading-[110%] font-optima font-semibold opacity-60'>
+                  <div className='items-end max-md:flex md:mb-[2vw] max-md:mb-[4.27vw]'>
+                    <div className='text-primaryColor md:text-[6vw] leading-[1] max-md:mr-[3vw] text-[17.07vw] font-optima font-semibold opacity-60'>
                       {index < 10 ? `0${index + 1}` : index}
                     </div>
-                    <h3 className='text-textColor md:text-[2.8vw] xl:text-[2.5vw] text-[4.27vw] font-optima font-semibold md:leading-[110%] leading-[120%] md:mb-[2vw] mb-[4.27vw]'>
+                    <h3 className='text-textColor md:text-[2.8vw] xl:text-[2.5vw] text-[4.27vw] font-optima font-semibold md:leading-[110%] leading-[120%]'>
                       {post.title}
                     </h3>
                   </div>

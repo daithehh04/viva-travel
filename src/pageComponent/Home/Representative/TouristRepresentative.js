@@ -2,6 +2,7 @@
 import { useEffect } from 'react'
 import SlideRepresent from './SlideRepresentative'
 import AOS from 'aos'
+import SlideRepresentMb from './SlideRepresentMb'
 
 function TouristRepresentative({ data }) {
   useEffect(() => {
@@ -40,8 +41,14 @@ function TouristRepresentative({ data }) {
         data-aos-disabled='true'
         data-aos='fade-up'
         data-aos-duration='1000'
+        className='max-md:hidden'
       >
         <SlideRepresent
+          data={data?.members}
+        />
+      </div>
+      <div className='hidden max-md:block'>
+        <SlideRepresentMb 
           data={data?.members}
         />
       </div>

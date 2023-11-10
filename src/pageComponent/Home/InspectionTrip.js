@@ -51,7 +51,7 @@ function InspectionTrip({ data, lang, dataSlide }) {
               loop: true
             }
           }}
-          // initialSlide={Math.floor(dataSlide?.length / 2)}
+          initialSlide={Math.floor(dataSlide?.length / 2)}
           slidesPerView={1.2}
           spaceBetween={0}
           loop={true}
