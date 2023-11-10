@@ -21,7 +21,7 @@ function SlideRepresentMb({ data }) {
     setIndexSlider(swiper.activeIndex)
   }
   return (
-    <div className='box-border relative hidden md:block'>
+    <div className='box-border relative'>
       <Swiper
         slidesPerView={2.1}
         spaceBetween={0}

@@ -32,7 +32,7 @@ function SlideRepresent({ data, dataInfo }) {
   }, [])
 
   return (
-    <div className='box-border relative slide-represent max-md:hidden'>
+    <div className='box-border relative slide-represent'>
       <Swiper
         breakpoints={{
           768: {
