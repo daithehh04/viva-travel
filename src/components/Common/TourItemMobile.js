@@ -21,12 +21,17 @@ function TourItemMobile({ data, lang, loading }) {
     bestTour = true
   }
   let tag = 'Best Tour'
+  let priceTour = 'USD'
+
   if(lang === 'fr') {
     tag = 'Meilleur vendeur'
+    priceTour = 'EUR'
   }
   if (lang === 'it') {
     tag = 'Miglior venditore'
+    priceTour = 'EUR'
   }
+  
   return (
     <Link
       href={`/${lang}/${isPromotion ? 'hot-deals' : 'tours'}/${encodeURIComponent(data?.translation?.slug)}`}
@@ -114,7 +119,7 @@ function TourItemMobile({ data, lang, loading }) {
         </div>
         {!loading ? (
           <span className='text-[#171717] text-justify font-sans text-[4.27vw] font-bold leading-[150%] capitalize mb-[6.4vw]'>
-            ${price}
+            {price} {priceTour}
           </span>
         ) : (
           <Skeleton
@@ -124,7 +129,7 @@ function TourItemMobile({ data, lang, loading }) {
         )}
 
         {!loading ? (
-          <div className='flex gap-[1.448vw]'>
+          <div className='flex gap-[1.448vw] flex-wrap'>
             {tourData?.icons?.map((icon, index) => (
               <div
                 key={index}

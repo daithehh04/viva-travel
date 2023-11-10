@@ -391,7 +391,7 @@ function BookTour({ data, setOpenModal, lang,detail }) {
                                 id='checkbox-group'
                                 role='group'
                                 aria-labelledby='checkbox-group'
-                                className='grid md:grid-cols-3 grid-cols-2 grid-rows-2 md:gap-y-[1vw] md:gap-x-[1vw] gap-[4.27vw] items-center max-md:w-full '
+                                className='grid grid-cols-2 grid-rows-2 md:gap-y-[1vw] md:gap-x-[1vw] gap-[4.27vw] items-center max-md:w-full '
                               >
                                 {data?.data?.allCountries?.nodes?.map((des, index) => (
                                   <label key={index}>
