@@ -1,6 +1,6 @@
 'use client'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination, FreeMode } from 'swiper/modules'
+import { Pagination } from 'swiper/modules'
 import { useRef, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -51,14 +51,14 @@ function InspectionTrip({ data, lang, dataSlide }) {
               loop: true
             }
           }}
-          initialSlide={Math.floor(dataSlide?.length / 2)}
+          // initialSlide={Math.floor(dataSlide?.length / 2)}
           slidesPerView={1.2}
           spaceBetween={0}
           loop={true}
           speed={800}
           onSlideChange={handleSlideChange}
-          freeMode={true}
-          modules={[Pagination, FreeMode]}
+          freeMode={false}
+          modules={[Pagination]}
           onBeforeInit={(swiper) => {
             swiperRef.current = swiper
           }}

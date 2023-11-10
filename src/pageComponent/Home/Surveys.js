@@ -7,6 +7,7 @@ import AOS from 'aos'
 import Link from 'next/link'
 import ModalCustom from '@/components/Common/ModalCustom'
 import BookTour from '@/components/Common/BookTour'
+import bgTourItemMB from '@/assets/images/bg-fb-mb.jpg'
 
 function Surveys({ data, button, lang, dataBookTour }) {
   const [openModal, setOpenModal] = useState(false)
@@ -22,7 +23,13 @@ function Surveys({ data, button, lang, dataBookTour }) {
     AOS.refresh()
   }, [])
   return (
-    <div className='surveys h-[auto] relative'>
+    <div className='surveys h-[auto] relative max-md:pt-[18vw]'>
+      <Image
+        alt='img'
+        src={bgTourItemMB}
+        quality={100}
+        className='absolute w-full h-[90vw] object-cover top-0 z-[-1] md:hidden'
+      />
       <div className='flex content pt-[6.38vw] max-md:flex-col max-md:pt-[14.93vw] relative z-10'>
         <div className='w-[43vw] max-md:w-full'>
           <h2

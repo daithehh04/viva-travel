@@ -17,7 +17,7 @@ function PopupPromotion({lang,data}) {
   return (
     <div>
       {showPopup && <div className="fixed w-full h-full z-[199] inset-0" style={{background: 'rgba(0,0,0,0.65)'}} onClick={() => setShowPopup(false)}>
-        <div className="max-w-[75rem] w-[65%] max-md:w-[90%] max-h-[50rem] h-[90vh] z-[200] absolute top-[50%] left-[50%] -translate-y-1/2 -translate-x-1/2" onClick={handleCloseImg}>
+        <div className="max-w-[65rem] w-[50%] max-md:w-[90%] max-h-[50rem] h-[90vh] max-md:h-[60vh] z-[200] absolute top-[50%] left-[50%] -translate-y-1/2 -translate-x-1/2" onClick={handleCloseImg}>
           <Link href={`/${lang}/voucher/${data?.popupPromotion?.voucher?.slug}`}>
             <Image src={data?.popupPromotion?.thumbPopup?.sourceUrl} width={500} height={500} className="object-cover w-full h-full rounded-[2vw]" alt={data?.popupPromotion?.thumbPopup?.altText || "thumb voucher"}/> 
           </Link>

@@ -49,12 +49,12 @@ function BestTour({
   return (
     <div className='best-tours pt-[8.13vw] relative'>
       <div className='absolute top-0 h-[50vw] w-full bg-white md:hidden'></div>
-      <Image
+      {/* <Image
         alt='img'
         src={bgTourItemMB}
         quality={100}
         className='absolute w-full h-[171vw] object-cover bottom-[-18%] z-[-1] md:hidden'
-      />
+      /> */}
       <div className='max-md:pl-[4.27vw] pl-[8.125vw] max-md:pr-[4.27vw] '>
         <h2
           className='heading-1 max-md:relative max-md:text-center'
@@ -150,7 +150,7 @@ function BestTour({
           <Loading />
         </div>
       )} */}
-      <div className='flex justify-center md:hidden mt-[8.53vw] mb-[14.93vw]'>
+      <div className='flex justify-center md:hidden mt-[8.53vw] mb-[7.93vw]'>
         <Link href={`/${lang}/search`}>
           <Button className='btn-secondary'>{button?.buttonseemore}</Button>
         </Link>

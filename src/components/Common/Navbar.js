@@ -212,16 +212,20 @@ export default function Navbar({
   let book = 'Request A Quote'
   let hot = 'Hot'
   let listTour = 'Tour List'
+  let x = 8.125
   if (lang === 'fr') {
     book = 'Demander Un Devis'
     hot = 'Hot'
     listTour = 'Liste des tournées'
+    x = 6
   }
   if (lang === 'it') {
     book = ' Richiedi Un Preventivo'
     hot = 'speciali'
     listTour = 'Elenco dei tour'
   }
+
+
 
   return (
     <DataProvider>
@@ -230,7 +234,7 @@ export default function Navbar({
           className={`bg-white w-[100vw] navbar h-[5.375vw] max-lg:h-[14.93vw]`}
           ref={refNav}
         >
-          <div className='bg-trans flex items-center h-full w-full px-[8.125%] bg-white'>
+          <div className={`bg-trans flex items-center h-full w-full bg-white ${lang === 'fr' ? 'px-[6.125%]' : 'px-[8.125%]'}`}>
             <div className='flex items-center gap-x-[2vw]'>
               <Link href={`/${lang}`}>
                 <Image
