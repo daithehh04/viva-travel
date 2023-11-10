@@ -2,7 +2,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, EffectCoverflow } from 'swiper/modules'
 import { useEffect, useRef, useState } from 'react'
-import img from '@/assets/images/represent.png'
 import Image from 'next/image'
 import icon from '@/assets/images/route-square.svg'
 import callIcon from '@/assets/images/call-calling.svg'
@@ -28,7 +27,6 @@ function SlideRepresent({ data }) {
     handleNextSlide()
   }, [])
   
-
   return (
     <div className='box-border relative slide-represent'>
       <Swiper
