@@ -22,6 +22,7 @@ async function page({ params: { lang, slug } }) {
           <DetailVocher
             headerData={hotDeals?.voucherHeader?.detailHeader}
             data={dataVoucher}
+            lang ={lang}
           />
         </div>
         </>

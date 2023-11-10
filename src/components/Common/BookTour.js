@@ -542,6 +542,7 @@ function BookTour({ data, setOpenModal, lang,detail }) {
 
 
       <Notification
+        lang = {lang}
         openNoti={openNoti}
         setOpenNoti={setOpenNoti}
         msg={msg}

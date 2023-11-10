@@ -9,7 +9,6 @@ import * as Yup from 'yup'
 import { gql, useMutation } from '@apollo/client'
 import Notification from '@/components/Common/Notification'
 import { useRef, useState } from 'react'
-import { useClickOutside } from '@/helpers/customHooks'
 
 // css for label + placeholder + error msg
 const labelStyle =
@@ -46,7 +45,7 @@ const SUBMIT_FORM = gql`
   }
 `
 
-const DetailVocher = ({ headerData = {}, data }) => {
+const DetailVocher = ({ headerData = {}, data, lang }) => {
   const itemRef = useRef()
   const [openNoti, setOpenNoti] = useState(false)
   const [msg, setMsg] = useState('')
@@ -280,6 +279,7 @@ const DetailVocher = ({ headerData = {}, data }) => {
       </div>
 
       <Notification
+        lang = {lang}
         openNoti={openNoti}
         setOpenNoti={setOpenNoti}
         msg={msg}
