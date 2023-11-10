@@ -1,6 +1,14 @@
-import { TextField, MenuItem, Select } from '@mui/material'
+import { MenuItem, Select } from '@mui/material'
 import { useField, useFormikContext } from 'formik'
 function SelectField({ name, options }) {
+  const handleFilter = (fn) => {
+    fn?.sort(function(a, b) {
+      var numA = parseInt(a?.description) || 100;
+      var numB = parseInt(b?.description) || 100;
+      return numA - numB;
+    });
+  }
+  handleFilter(options)
   const { setFieldValue } = useFormikContext()
   const [field, meta] = useField(name)
   const handleChange = (event) => {

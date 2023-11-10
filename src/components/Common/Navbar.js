@@ -118,7 +118,9 @@ export default function Navbar({
         if (menuItems) {
           menuItems.forEach((item) => {
             item.style.display = 'block'
-            refOverlay.current.style.display = 'block'
+            if(refOverlay.current) {
+              refOverlay.current.style.display = 'block'
+            }
           })
         }
       } else {
@@ -126,7 +128,9 @@ export default function Navbar({
         if (menuItems) {
           menuItems.forEach((item) => {
             item.style.display = 'none'
-            refOverlay.current.style.display = 'none'
+            if(refOverlay.current) {
+              refOverlay.current.style.display = 'none'
+            }
           })
         }
       }

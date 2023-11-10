@@ -50,7 +50,14 @@ query getInfoCountry($taxonomyValue: ID!,$language: LanguageCodeEnum!) {
           nameCountry
           text
         }
-        
+        info {
+          population
+          area
+          language
+          currency
+          wheather
+          timze
+        }
         blogs {
           ... on Post {
             title
@@ -80,7 +87,6 @@ const DATA_ICONS_COUNTRY = `query($language: LanguageCodeEnum!){
             sourceUrl
           }
           name
-          desc
         }
       }
     }

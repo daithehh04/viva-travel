@@ -74,10 +74,11 @@ query ($id: ID!, $language: LanguageCodeFilterEnum!) {
     }
   }
 
-  allFromCountry(first:50){
+  allFromCountry(first:50,where:{language:$language}){
     nodes{
       name
       slug
+      description
       taxonomyName
     }
   }

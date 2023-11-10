@@ -15,6 +15,10 @@ function SlideDestination({ data, dataOtherType, dataTitle, lang }) {
     }
   })
   const onlySmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
+  let dataTours = data
+  if(data?.length > 8) {
+    dataTours = data?.slice(0,8)
+  }
   return (
     <div className='relative'>
       <div className='absolute inset-0 z-[-1] slideDestination md:block hidden'></div>
@@ -36,7 +40,7 @@ function SlideDestination({ data, dataOtherType, dataTitle, lang }) {
         <div className='flex flex-col md:mt-[7.5vw] mt-[11.2vw] '>
           <span className='heading-1 md:mb-[3vw] md:pl-0 pl-[4.27vw]'>{dataTitle?.ourTour?.titleTours}</span>
           <div className='grid md:grid-cols-4 gap-x-[2.5vw] gap-y-[3vw] md:bg-transparent bg-[#F3F6FB]'>
-            {data?.map((tour, index) => (
+            {dataTours?.map((tour, index) => (
               <div key={index}>
                 {onlySmallScreen ? (
                   <TourItemMobile
@@ -84,7 +88,6 @@ function SlideDestination({ data, dataOtherType, dataTitle, lang }) {
           </div>
         </div>
         <div className='flex justify-center md:mt-[3.5vw] mt-[10.1vw]'>
-
           <Link href={`/${lang}/search`}>
             <Button className='btn-secondary' content={dataTitle?.ourTour?.btn}><span>{dataTitle?.ourTour?.btn}</span></Button>
           </Link>

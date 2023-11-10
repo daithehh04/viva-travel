@@ -111,7 +111,7 @@ async function index({ lang, slug }) {
         slug={slug}
         lang={lang}
       />
-      <SectionActions listActions={dataIcons?.data?.page?.translation} />
+      <SectionActions listActions={dataIcons?.data?.page?.translation} infoCountry={data?.country?.info}/>
       <SlideDestination
         // data={dataOtherTrip?.data?.allTours?.nodes}
         data={dataBestSellerNoNull}
