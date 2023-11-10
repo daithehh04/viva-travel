@@ -579,7 +579,7 @@ export default function AboutTour(props) {
               />
             )}
 
-            <div className='bg-[#fff] md:block hidden w-full md:h-[30vw] h-[130vw] object-contain  rounded shadow-lg'>
+            <div className='bg-[#fff] md:block hidden w-full md:h-[30vw] h-[130vw] object-contain  rounded shadow-sm'>
               <Image
                 src={data?.map?.image?.sourceUrl}
                 alt={data?.map?.image?.altText}
