@@ -8,15 +8,8 @@ import directIcon from '@/assets/images/direct.svg'
 
 function SlideRepresentMb({ data }) {
   const [indexSlider, setIndexSlider] = useState(0)
-  const slideData = data?.concat(data)?.concat(data)
+  const slideData = data
   const swiperRef = useRef()
-  const handleNextSlide = () => {
-    swiperRef.current?.slideNext()
-  }
-  const handlePrevSlide = () => {
-    swiperRef.current?.slidePrev()
-  }
-
   const handleSlideChange = (swiper) => {
     setIndexSlider(swiper.activeIndex)
   }

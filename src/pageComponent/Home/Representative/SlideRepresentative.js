@@ -8,7 +8,7 @@ import icon from '@/assets/images/route-square.svg'
 import callIcon from '@/assets/images/call-calling.svg'
 import directIcon from '@/assets/images/direct.svg'
 
-function SlideRepresent({ data, dataInfo }) {
+function SlideRepresent({ data }) {
   const [indexSlider, setIndexSlider] = useState(0)
   // const [slideData, setSlideData] = useState(data)
   const slideData = data?.concat(data)?.concat(data)
@@ -24,12 +24,10 @@ function SlideRepresent({ data, dataInfo }) {
     setIndexSlider(swiper.activeIndex)
   }
 
-  if (data) {
-    handleNextSlide()
-  }
   useEffect(() => {
     handleNextSlide()
   }, [])
+  
 
   return (
     <div className='box-border relative slide-represent'>
