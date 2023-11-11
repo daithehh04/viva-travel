@@ -30,8 +30,8 @@ function ReviewItem({ className, data, lang }) {
     >
       <div className='overflow-hidden rounded-lg max-md:rounded-[2.33vw]'>
         <Image
-          src={(tourData?.banner?.gallery && tourData?.banner?.gallery[0]?.sourceUrl) || imgReview}
-          alt={(tourData?.banner?.gallery && tourData?.banner?.gallery[0]?.altText) || 'img'}
+          src={(tourData?.banner?.gallery && tourData?.banner?.gallery?.[0]?.sourceUrl) || imgReview}
+          alt={(tourData?.banner?.gallery && tourData?.banner?.gallery?.[0]?.altText) || 'img'}
           width={1000}
           height={1000}
           className={`review-item-img md:w-[18.0625vw] w-full md:h-[19.125vw] h-[60vw] rounded-[8px] max-md:rounded-[2.33vw] object-cover`}
