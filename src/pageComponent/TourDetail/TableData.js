@@ -31,7 +31,7 @@ export default function TableData({ data, header = [], type }) {
               >
                 {values?.map((rowItem, rowIndex) => {
                   return (<td
-                    className={`break-all min-w-[5vw] px-[1vw] lg:text-[1vw] md:text-[12px]  text-[2.93vw] leading-normal opacity-80 text-textColor border border-[#EBEBEB] border-solid text-center align-middle ${(index === data?.length - 1 && rowIndex === 0 && 'rounded-bl-2xl') || ''
+                    className={`min-w-[5vw] px-[1vw] lg:text-[1vw] md:text-[12px]  text-[2.93vw] leading-normal opacity-80 text-textColor border border-[#EBEBEB] border-solid text-center align-middle ${(index === data?.length - 1 && rowIndex === 0 && 'rounded-bl-2xl') || ''
                       } ${(index === data?.length - 1 && rowIndex === values?.length - 1 && 'rounded-br-2xl') || ''}`}
                     key={rowIndex}
                   >

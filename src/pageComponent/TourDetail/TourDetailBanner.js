@@ -148,7 +148,7 @@ export default function TourDetailBanner({ data = {}, headerData, price }) {
           <span className='text-[1.5vw] leading-normal text-primaryColor select-none'>{location}</span>
         </div>
 
-        <div className='select-none w-[37.0625vw] text-[2.5vw] font-optima font-semibold leading-[1.2] text-white'>
+        <div className='select-none w-[39.0625vw] text-[2.5vw] font-optima font-semibold leading-[1.2] text-white'>
           {title || ''}
         </div>
       </div>
