@@ -37,17 +37,24 @@ function PopupSearch({ lang, onClose }) {
 
   let result = 'No result for this search !!'
   if(lang === 'fr') {
-    result = 'Aucun résultat pour cette recherche !!'
+    result = 'Aucun résultat pour cette Rechercher !!'
   }
   if(lang === 'it') {
     result = 'Nessun risultato per questa Cerca!!'
+  }
+  let search = 'Search...'
+  if(lang === 'fr') {
+    search = 'Rechercher...'
+  }
+  if(lang === 'it') {
+    search = 'Cerca...'
   }
   return (
     <div className='w-[80vw] h-[80vh] bg-white relative z-10 overflow-y-auto'>
       <div className='sticky top-0'>
         <input
           type='text'
-          placeholder='Search...'
+          placeholder={search}
           className='w-full border-none p-[1.25vw] outline-none text-[1.12vw]'
           onInput={handleInput}
         />

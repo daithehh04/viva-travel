@@ -40,7 +40,7 @@ function InputSearchMb({ lang, dataFilter, onCloseNav }) {
   });
   let noResult = 'No result for this search !!'
   if (lang === 'fr') {
-    noResult = 'Aucun résultat pour cette recherche !!'
+    noResult = 'Aucun résultat pour cette Rechercher !!'
   }
   if (lang === 'it') {
     noResult = 'Nessun risultato per questa Cerca!!'

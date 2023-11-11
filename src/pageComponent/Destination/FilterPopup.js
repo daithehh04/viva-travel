@@ -148,7 +148,7 @@ function FilterPopup({ lang, dataFilter, slug }) {
     option.style =' Types de voyages'
     option.day ='Jours'
     option.price= 'EUR'
-    option.search = 'Recherche'
+    option.search = 'Rechercher'
     option.filter = 'Visite guidée des filtres'
   }
   if(lang === 'it') {

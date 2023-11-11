@@ -113,6 +113,14 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
     setIsOpenModal(false)
   }
 
+  let search = 'Search'
+  if(lang === 'it') {
+    search = 'Cerca'
+  }
+  if(lang === 'fr') {
+    search = 'Rechercher'
+  }
+
   return (
     <div className='max-md:mt-[21.6vw] mt-[6.56vw] md:px-[8.13vw] search__page'>
       <div className='flex justify-between max-md:px-[4.27vw] items-center'>
@@ -191,7 +199,7 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
                 color='primary'
                 variant='contained'
               >
-                Apply with us
+                {search}
               </Button>
             </div>
           </SwipeableDrawer>

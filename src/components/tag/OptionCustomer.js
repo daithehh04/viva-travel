@@ -24,10 +24,13 @@ const Placeholder = ({ item, icon }) => (
     <span className='text-[0.875vw] font-normal max-md:text-[3.73vw]'>{item}</span>
   </div>
 )
-const placeholderDefault = "Destination"
-export default function OptionCustomer({ icon, list, defaultValue, onSelect }) {
+export default function OptionCustomer({ icon, list, defaultValue, onSelect,lang }) {
+ 
   const onlySmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
-
+  let placeholderDefault = "Destination"
+  if(lang === 'it') {
+    placeholderDefault = 'Destinazione'
+  }
   const [personName, setPersonName] = useState(placeholderDefault)
   useEffect(() => {
     if (defaultValue) {

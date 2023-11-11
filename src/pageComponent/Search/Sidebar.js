@@ -124,6 +124,7 @@ export default function Sidebar({
             icon={locationIcon}
             list={dataMenuCountry?.data?.allCountries?.nodes}
             defaultValue={params?.country}
+            lang = {lang}
           />
         </div>
         <div className='mb-[0.94vw] max-md:mb-[7.29vw]'>

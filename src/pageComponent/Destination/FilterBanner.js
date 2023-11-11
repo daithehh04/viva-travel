@@ -100,7 +100,7 @@ function FilterBanner({ lang, dataFilter,slug }) {
     option.duration = 'Durée'
     option.style =' Types de voyages'
     option.day ='Jour'
-    option.search = 'Recherche'
+    option.search = 'Rechercher'
     option.price= 'EUR'
   }
   if(lang === 'it') {

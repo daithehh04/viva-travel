@@ -27,7 +27,7 @@ export default function SearchButton({ lang }) {
   }
   let search = 'Search'
   if(lang === 'fr') {
-    search = 'Recherche'
+    search = 'Rechercher'
   }
   if(lang === 'it') {
     search = 'Cerca'
@@ -44,7 +44,7 @@ export default function SearchButton({ lang }) {
             src={searchIcon}
             width={50}
             height={50}
-            alt='search'
+            alt={search}
             className='w-[1.25vw] h-[1.25vw]'
           />
           {/* {search} */}

@@ -114,7 +114,7 @@ function FilterBanner({ lang, dataFilter, onClose }) {
     option.style = ' Types de voyages'
     option.day = 'Jours'
     option.price= 'EUR'
-    option.search = 'Recherche'
+    option.search = 'Rechercher'
   }
   if (lang === 'it') {
     option.style = 'Tipo di viaggio'
