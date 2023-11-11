@@ -254,9 +254,11 @@ const GET_HOME_PAGE = `query getHomePageData($id:ID!) {
               altText
             }
             titleForum
-            imgsGallery {
-              sourceUrl
-              altText
+            imgsForum {
+              img {
+                sourceUrl
+              }
+              link
             }
           }
         }

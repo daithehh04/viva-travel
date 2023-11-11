@@ -88,6 +88,7 @@ function Index({ data1, lang, initTopic, initCategories, allCountries, slug }) {
           metaDestination={metaDestination}
           metaCategories={metaCategories}
           slug={slug}
+          lang={lang}
         />
       </div>
 

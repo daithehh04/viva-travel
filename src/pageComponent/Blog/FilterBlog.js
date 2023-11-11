@@ -1,14 +1,13 @@
 'use client'
 import locationIcon from '@/assets/images/route-square-gr.svg'
 import styleIcon from '@/assets/images/budgetBlog.svg'
-import durationIcon from '@/assets/images/menuBlog.svg'
 import Image from 'next/image'
 import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
 import { useState } from 'react'
 
-function FilterBlog({ handleDes, handleTopic, handleCate, metaTopic, metaDestination, slug }) {
+function FilterBlog({ handleDes, handleTopic, metaTopic, lang, metaDestination, slug }) {
   const [destination, SetDestination] = useState('')
   const [topic, SetTopic] = useState('')
   const [category, SetCategory] = useState(slug ? slug : '')
@@ -22,6 +21,15 @@ function FilterBlog({ handleDes, handleTopic, handleCate, metaTopic, metaDestina
     handleTopic(event.target.value)
   }
 
+  let country = 'Destination'
+  let topicFilter = 'Topic'
+  if(lang === 'it') {
+    country = 'Destination'
+    topicFilter = 'Tema'
+  }
+  if(lang === 'fr') {
+    topicFilter = ' Thème'
+  }
   return (
     <div className='flex gap-[3.2vw] md:pt-[1.2vw] md:justify-normal justify-between md:mt-[3.5vw] ourBlog relative'>
       <div className='background max-md:hidden md:block'></div>
@@ -64,7 +72,7 @@ function FilterBlog({ handleDes, handleTopic, handleCate, metaTopic, metaDestina
             >
               <MenuItem value=''>
                 <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
-                  Country
+                  {country}
                 </span>
               </MenuItem>
               {metaDestination?.map((destination, index) => (
@@ -118,7 +126,7 @@ function FilterBlog({ handleDes, handleTopic, handleCate, metaTopic, metaDestina
             >
               <MenuItem value=''>
                 <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
-                  Travel Guide
+                  {topicFilter}
                 </span>
               </MenuItem>
               {metaTopic?.map((topic, index) => (
