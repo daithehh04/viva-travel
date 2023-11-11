@@ -94,7 +94,7 @@ const Reviews = ({ lang, data, arrYear, arrCountry }) => {
             return (
               <div
                 key={index}
-                className={`${index === 0 && !onlySmallScreen && 'md:col-span-2 big-item md:gap-[2.5vw]'}`}
+                className={`${index === 0 && !onlySmallScreen && 'md:col-span-2 big-item md:gap-[2.5vw] review-full'}`}
               >
                 <ReviewItem
                   data={item}

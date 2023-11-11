@@ -9,17 +9,17 @@ export default function Banner({ data = {} }) {
   const outsideRef = useRef()
 
   return (
-    <section className='about-banner w-full relative font-manrope'>
+    <section className='relative w-full about-banner font-manrope'>
       <Image
         src={data?.backgroundImage?.sourceUrl || bannerAbout}
         alt={data?.backgroundImage?.altText || 'Who We Are'}
         width={1600}
         height={1000}
-        className='w-full h-[74.4vw] md:h-[100vh]'
+        className='w-full h-[74.4vw] md:h-[100vh] object-cover'
       />
       <div className='about-banner-mask w-full md:h-[12.4375vw] h-[7.2vw] absolute bottom-0 right-0'></div>
 
-      <div className='absolute top-0 left-0 flex flex-col items-center w-full h-full justify-center text-white'>
+      <div className='absolute top-0 left-0 flex flex-col items-center justify-center w-full h-full text-white'>
         <h4 className='md:text-[3vw] xl:text-[1.9375vw] text-[3.2vw] font-medium '>{data?.heading}</h4>
         {/* use slug to change data of h2 el */}
         <h2 className='md:text-[5.5vw] xl:text-[4.5vw] text-[6.4vw] font-semibold text-justify uppercase leading-[120%] font-optima'>

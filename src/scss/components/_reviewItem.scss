@@ -41,3 +41,16 @@
     }
   }
 }
+.review-full {
+  .review-item-wrapper {
+    .review-item-content{
+      .text-review {
+        font-size: 1.25vw;
+      }
+      .link-see_more {
+        margin-bottom: 0;
+        line-height: 1;
+      }
+    }
+  }
+}

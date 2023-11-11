@@ -308,7 +308,7 @@ export default function AboutTour(props) {
 
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [activeIcon, accomRef, briefRef, overviewRef, roleRef, tourDetailRef])
+  }, [activeIcon, accomRef, briefRef, overviewRef, roleRef, tourDetailRef,onlySmallScreen])
   
   const handleClickMap = (e) => {
     e.stopPropagation();
@@ -331,14 +331,14 @@ export default function AboutTour(props) {
                 </h2>
 
                 {/* Step */}
-                <div className='py-[3.3vw] w-full'>
+                <div className='pt-[3.3vw] w-full'>
                   <div className='flex justify-between w-full'>
                     {stepData.map((step, index) => {
                       return (
                         <div
                           className='step-icon flex md:gap-[0.5vw] gap-[1vw] cursor-pointer md:px-0 px-[2vw]'
                           key={index}
-                          onClick={() => scrollDown(sectionRefs[step.key])}
+                          onClick={() => scrollDown(sectionRefs[step.key],'start')}
                         >
                           <div className='flex flex-col items-center justify-start'>
                             <svg
@@ -416,7 +416,7 @@ export default function AboutTour(props) {
                         <div
                           className='step-icon flex md:gap-[0.5vw] gap-[1vw] cursor-pointer'
                           key={index}
-                          onClick={() => scrollDown(sectionRefs[step.key])}
+                          onClick={() => scrollDown(sectionRefs[step.key],'start')}
                         >
                           <div className='flex flex-col items-center justify-start'>
                             <svg
@@ -440,7 +440,7 @@ export default function AboutTour(props) {
             )}
 
             {/* overview */}
-            <div ref={overviewRef}>
+            <div ref={overviewRef} className='pt-[5vw]'>
               <h4 className='tour-detail-header '>01 - {contentHeader?.sectionHeader?.overviewHeader}</h4>
 
               <div className='text-textColor lg:text-[1vw] md:text-[14px] text-editor text-[3.73vw] text-justify leading-normal opacity-80 flex flex-col md:gap-[0.5vw] gap-[4.27vw]'>
@@ -457,7 +457,7 @@ export default function AboutTour(props) {
 
             {/* Brief */}
             <div
-              className='mb-[4vw] mt-[3vw] max-lg:mx-[-4.27vw]'
+              className='pt-[5vw] max-lg:mx-[-4.27vw]'
               ref={briefRef}
             >
               <h4 className='tour-detail-header max-lg:ml-[4.27vw]'>
@@ -471,7 +471,7 @@ export default function AboutTour(props) {
 
             {/* Tour Detail */}
             <div
-              className=' text-textColor mb-[5.5vw]'
+              className=' text-textColor pt-[5vw] '
               ref={tourDetailRef}
             >
               <h4 className='tour-detail-header'>03 - {contentHeader?.sectionHeader?.tourDetailedHeader}</h4>
@@ -483,13 +483,13 @@ export default function AboutTour(props) {
             </div>
 
             {/* inclusion & exclusion */}
-            <div ref={roleRef}>
+            <div ref={roleRef} className='pt-[5.5vw]'>
               <h4 className='tour-detail-header'>
                 04 -{' '}
                 {`${contentHeader?.sectionHeader?.inclusionExclusionHeader?.inclusionHeader} & ${contentHeader?.sectionHeader?.inclusionExclusionHeader?.exclusionHeader}`}
               </h4>
               <div className='md:w-full md:m-auto w-[100vw]'>
-                <div className='flex md:flex-row flex-col text-textColor lg:text-[1vw] md:text-[1.2vw] text-[3.2vw] leading-normal mb-[4.5vw] ml-[-4.267vw] md:ml-[0] md:border border-solid border-[#2e2e2e1a] md:rounded-[10px]'>
+                <div className='flex md:flex-row flex-col text-textColor lg:text-[1vw] md:text-[1.2vw] text-[3.2vw] leading-normal ml-[-4.267vw] md:ml-[0] md:border border-solid border-[#2e2e2e1a] md:rounded-[10px]'>
                   {/* inclusion */}
                   <div className='md:w-1/2 w-full md:border-r border-solid border-[#2e2e2e0f]'>
                     <div
@@ -550,7 +550,7 @@ export default function AboutTour(props) {
             </div>
             <div
               ref={accomRef}
-              className='max-lg:mx-[-4.27vw]'
+              className='max-lg:mx-[-4.27vw] pt-[5vw]'
             >
               <TableData
                 type={true}

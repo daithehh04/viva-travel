@@ -57,7 +57,7 @@ export default function Responsible({ data = {} }) {
                 } md:flex justify-between gap-[4.6875vw] items-end`}
               >
                 <main
-                  className='capitalize mb-[6.4vw] md:mb-0'
+                  className='mb-[6.4vw] md:mb-0'
                   data-aos-once='true'
                   data-aos-duration='1000'
                   data-aos='fade-right'
@@ -75,13 +75,12 @@ export default function Responsible({ data = {} }) {
                     {post.content}
                   </p>
                 </main>
-
                 <Image
                   src={post?.image?.sourceUrl}
                   alt={post?.image?.altText}
                   width={1000}
                   height={1000}
-                  className='md:w-[35.93vw] w-full md:h-[35.93vw] h-[91.47vw]'
+                  className='md:w-[35.93vw] w-full md:h-[35.93vw] h-[91.47vw] object-cover'
                   data-aos-once='true'
                   data-aos-duration='1000'
                   data-aos='fade-left'

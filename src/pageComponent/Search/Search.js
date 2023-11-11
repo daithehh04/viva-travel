@@ -194,7 +194,9 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
                   width: '89.48vw',
                   borderRadius: '2.13vw',
                   padding: '3.2vw',
-                  textAlign: 'center'
+                  textAlign: 'center',
+                  fontSize: '3.73vw',
+                  fontWeight: '600'
                 }}
                 color='primary'
                 variant='contained'

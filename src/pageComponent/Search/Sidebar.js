@@ -65,7 +65,7 @@ export default function Sidebar({
         <h3 className='flex mb-[0.69vw] font-bold text-[1.25vw] leading-[1.64288vw] max-md:text-[5.33vw] max-md:leading-normal'>{
           searchInfo?.navbar?.duration?.title
         }</h3>
-        <div className='flex justify-between mb-[0.94vw] max-md:mb-[2.93vw]'>
+        <div className='flex justify-between mb-[0.94vw] max-md:mb-[2.93vw] items-center'>
           <p className='text-[0.875vw] max-md:text-[3.73vw]'>
             <span className='font-bold'>{searchInfo?.navbar?.duration?.min}</span>
             <span className='font-normal'>{" "}{searchInfo?.navbar?.duration?.minValue}</span>

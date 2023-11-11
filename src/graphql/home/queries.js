@@ -320,9 +320,12 @@ const GET_FOOTER = `query getHomePageData($language: LanguageCodeEnum!) {
               altText
             }
             titleForum
-            imgsGallery {
-              sourceUrl
-              altText
+            imgsForum {
+              img {
+                sourceUrl
+                altText
+              }
+              link
             }
           }
         }

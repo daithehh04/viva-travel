@@ -49,7 +49,7 @@ async function Footer({ lang }) {
             >
               <svg
                 xmlns='http://www.w3.org/2000/svg'
-                className='md:w-[2.67vw] md:h-[2.67vw]'
+                className='w-full h-full'
                 width='43'
                 height='43'
                 viewBox='0 0 43 43'
@@ -196,15 +196,16 @@ async function Footer({ lang }) {
             {col4?.titleForum}
           </h4>
           <div className='flex items-center mt-[1.25vw] gap-[1.5vw] max-md:gap-[8.53vw] max-md:mt-[3.73vw] max-md:justify-center'>
-            {col4?.imgsGallery?.map((item, index) => (
-              <Image
-                key={index}
-                src={item?.sourceUrl}
+            {col4?.imgsForum?.map((item, index) => (
+              <Link key={index} href={`${item?.link}`} target='_blank'>
+                <Image
+                src={item?.img?.sourceUrl}
                 width={100}
                 height={100}
-                alt={item?.altText}
+                alt={item?.img?.altText}
                 className='h-[3.125vw] w-[3.125vw] object-contain max-md:w-[13.13vw] max-md:h-[13.13vw]'
               />
+              </Link>
             ))}
           </div>
         </div>

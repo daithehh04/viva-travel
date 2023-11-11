@@ -33,10 +33,10 @@ function Banner({ data }) {
           <span className='md:w-[70vw] w-[67vw] font-optima text-[#fff] md:text-[4.5vw] text-[6.4vw] text-center font-semibold leading-[120%] uppercase '>
             {data?.heading}
           </span>
-          <span className='md:w-[43vw] w-[66.27vw] text-center font-sans md:text-[1.5vw] text-[2.67vw] font-medium leading-[151%] text-[#fff] pb-[2.5vw]'>
+          <span className='md:w-[43vw] w-[66.27vw] max-md:w-[90%] text-center font-sans md:text-[1.5vw] text-[2.67vw] font-medium leading-[151%] text-[#fff] pb-[2.5vw]'>
             <span
               dangerouslySetInnerHTML={{ __html: data?.desc }}
-              className='whitespace-pre-wrap travel-style-desc max-lg:text-[2vw]'
+              className='whitespace-pre-wrap travel-style-desc max-lg:text-[2vw] max-md:text-[3.773vw]'
             ></span>
           </span>
 

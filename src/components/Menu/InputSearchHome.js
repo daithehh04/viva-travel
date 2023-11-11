@@ -3,18 +3,25 @@ import Image from 'next/image'
 import searchIcon from '@/assets/images/search-mb.svg'
 import { useData } from './DataContextMenu';
 
-function InputSearchHome() {
+function InputSearchHome({lang}) {
   const { dataInput, setDataInput } = useData(null);
   function handleInput(e){
     setDataInput(e.target.value)
   }
 
+  let placeHolder = 'Please enter keywords'
+  if(lang === 'it') {
+    placeHolder = 'Inserisci le parole chiave'
+  }
+  if(lang === 'fr') {
+    placeHolder = 'Ecrivez les mots clés'
+  }
   return (
     <div className='ml-[3.73vw] mr-[5.33vw] relative'>
       <input
         type='text'
         className='rounded-full search-mb w-full h-[9.3vw] border border-solid border-[#eee] outline-none pl-[4.27vw] text-[3.2vw]'
-        placeholder='Please enter keywords'
+        placeholder={placeHolder}
         onInput={handleInput}
         autoFocus = {true}
       />

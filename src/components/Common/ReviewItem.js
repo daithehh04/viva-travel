@@ -75,14 +75,14 @@ function ReviewItem({ className, data, lang }) {
           </div>
 
           <div className='relative'>
-            <p className='lg:text-[0.875vw] md:text-[1.1vw] text-[3.73vw] opacity-60 md:opacity-70 leading-normal mt-[3.2vw] md:mt-0 lg:line-clamp-4 line-clamp-3' dangerouslySetInnerHTML={{ __html: `${data?.translation?.customerReview?.content}`}}>
+            <p className='lg:text-[0.875vw] md:text-[1.1vw] text-[3.73vw] opacity-60 md:opacity-70 leading-normal mt-[3.2vw] md:mt-0 lg:line-clamp-4 line-clamp-3 text-review' dangerouslySetInnerHTML={{ __html: `${data?.translation?.customerReview?.content}`}}>
             </p>
             <Image
               src={commaRes}
               alt='commaRes'
               className='review-icon-comma md:hidden block w-[8.2136vw] h-[5.866vw] absolute top-[37.5%] left-0'
             />
-            <Link href={`/${lang}/reviews/${data?.translation?.slug}`} className='text-[1vw] max-md:text-[3.73vw] font-[500] link-see_more mt-[2vw] w-max ml-auto !hidden max-md:block'>{see}</Link>
+            <Link href={`/${lang}/reviews/${data?.translation?.slug}`} className='text-[1vw] max-md:text-[3.73vw] font-[500] link-see_more mt-[2vw] w-max ml-auto !hidden max-md:!block'>{see}</Link>
           </div>
         </div>
         <div className='review-item-user'>
