@@ -173,7 +173,7 @@ export default function Statistics({ data }) {
               alt={data?.slogan?.image?.altText}
               width={1000}
               height={1000}
-              className='slogan-img max-md:w-[73.32vw] max-md:h-[73.32vw]'
+              className='slogan-img max-md:w-[73.32vw] max-md:h-[73.32vw] object-cover'
             />
             <div
               className='slogan-des up text-[2.7vw] absolute bottom-0 left-0 font-manrope font-extrabold tracking-[-0.96px] leading-[140%]
