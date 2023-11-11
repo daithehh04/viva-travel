@@ -43,7 +43,7 @@ function InputSearchMb({ lang, dataFilter, onCloseNav }) {
     noResult = 'Aucun résultat pour cette recherche !!'
   }
   if (lang === 'it') {
-    noResult = 'Nessun risultato per questa ricerca!!'
+    noResult = 'Nessun risultato per questa Cerca!!'
   }
   return (
     <div className='ml-[3.73vw] mr-[5.33vw] relative'>

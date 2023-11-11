@@ -30,7 +30,7 @@ export default function SearchButton({ lang }) {
     search = 'Recherche'
   }
   if(lang === 'it') {
-    search = 'Ricerca'
+    search = 'Cerca'
   }
 
   return (

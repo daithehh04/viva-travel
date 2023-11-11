@@ -36,13 +36,13 @@ function SlideDayTour({ data }) {
           return (
             <SwiperSlide key={index}>
               {({ isActive }) => (
-                <Image src={item} width={1000} height={1000} alt={item} className='object-cover w-full h-full' />
+                <Image src={item} width={1000} height={1000} alt={item} className='object-contain w-full h-full rounded-md'/>
               )}
             </SwiperSlide>
           )
         })}
       </Swiper>
-      <div className='md:flex hidden absolute top-[50%] -translate-y-2/4 z-10 w-full justify-between'>
+      {/* <div className='md:flex hidden absolute top-[50%] -translate-y-2/4 z-10 w-full justify-between'>
         <button
           onClick={handlePrevSlide}
           className='w-[3.625vw] h-[3.625vw] rounded-full flex justify-center items-center bg-primaryColor button-slide__tour absolute left-[-1.8125vw] top-[50%] -translate-y-2/4'
@@ -79,7 +79,7 @@ function SlideDayTour({ data }) {
             />
           </svg>
         </button>
-      </div>
+      </div> */}
     </div>
   )
 }

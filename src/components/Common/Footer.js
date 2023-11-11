@@ -35,9 +35,9 @@ async function Footer({ lang }) {
           {col1?.contact?.map((item, index) => (
             <div
               key={index}
-              className='text-[1vw] max-lg:whitespace-nowrap max-lg:text-[1.4vw] max-md:text-[3.73vw] mt-[0.5vw] max-md:mt-[1.07vw]'
+              className='text-[1vw] max-lg:whitespace-nowrap flex gap-1 max-lg:text-[1.4vw] max-md:text-[3.73vw] mt-[0.5vw] max-md:mt-[1.07vw]'
             >
-              <strong>{item?.title}: </strong>
+              <strong>{item?.title} </strong>
 
               <Link href={`${typeof parseInt(col1?.contact[0]?.content.split(" ").join("").slice(1)) === 'number' ? `tel:${item?.content}` : `mailto:${item?.content}`}`} >{item?.content}</Link>
             </div>

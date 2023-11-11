@@ -57,7 +57,7 @@ function ReviewDetail({data,lang,dataTour}) {
               alt='style'
               className='md:w-[1.875vw] md:h-[1.875vw] w-[3.73333vw] h-[3.73333vw] object-cover mr-[0.25vw]'
             />
-            <span>{dataReview?.tours?.tourDetail?.numberDay} {day}</span>
+            <span>{dataReview?.time}</span>
           </div>
           <Link href={`/${lang}/tours/${dataReview?.tours?.slug}`} className="hidden ml-auto max-md:block">
             <Button className='btn-primary' content={view}><span>{view}</span> </Button>

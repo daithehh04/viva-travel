@@ -132,6 +132,7 @@ query getReviewDetail($slug: ID!, $language: LanguageCodeEnum!){
             title
           }
           content
+          time
           authorInformation {
             name
             country

@@ -40,7 +40,7 @@ function PopupSearch({ lang, onClose }) {
     result = 'Aucun résultat pour cette recherche !!'
   }
   if(lang === 'it') {
-    result = 'Nessun risultato per questa ricerca!!'
+    result = 'Nessun risultato per questa Cerca!!'
   }
   return (
     <div className='w-[80vw] h-[80vh] bg-white relative z-10 overflow-y-auto'>

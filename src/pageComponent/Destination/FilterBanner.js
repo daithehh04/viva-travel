@@ -98,18 +98,18 @@ function FilterBanner({ lang, dataFilter,slug }) {
   }
   if(lang === 'fr') {
     option.duration = 'Durée'
-    option.style ='Style de voyage'
+    option.style =' Types de voyages'
     option.day ='Jour'
     option.search = 'Recherche'
     option.price= 'EUR'
   }
   if(lang === 'it') {
-    option.style = 'Stile di viaggio'
+    option.style = 'Tipo di viaggio'
     option.duration ='Durata'
-    option.budget = 'Bilancio'
+    option.budget = 'Budget'
     option.destination = 'Destinazione'
     option.day ='Giorno'
-    option.search = 'Ricerca'
+    option.search = 'Cerca'
     option.price= 'EUR'
   }
 

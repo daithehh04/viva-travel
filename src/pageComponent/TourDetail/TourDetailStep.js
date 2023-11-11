@@ -58,7 +58,7 @@ export default function TourDetailStep({ data: tourDetailData,iconsDefault }) {
                   })}
                 </div>
                 {/* icon */}
-                <div className='flex md:gap-[1.5vw] gap-[3.13vw]'>
+                <div className='flex md:gap-[1.5vw] gap-[3.13vw] flex-wrap'>
                   {icons &&
                     icons?.length > 0 &&
                     icons?.map((icon, index) => {

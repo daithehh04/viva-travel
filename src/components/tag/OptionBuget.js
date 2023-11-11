@@ -60,7 +60,7 @@ export default function OptionBudget({ icon, list, defaultValue, onSelect, lang 
     price = 'EUR'
   }
   if (lang === 'it') {
-    budget = 'Bilancio'
+    budget = 'Budget'
   }
   return (
     <div>

@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 function ListAction({ icon, title, desc }) {
   return (
-    <div className='flex flex-col justify-end items-center'>
+    <div className='flex flex-col items-center justify-start'>
       <Image
         src={icon}
         alt='icon'

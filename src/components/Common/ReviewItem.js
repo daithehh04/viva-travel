@@ -82,10 +82,11 @@ function ReviewItem({ className, data, lang }) {
               alt='commaRes'
               className='review-icon-comma md:hidden block w-[8.2136vw] h-[5.866vw] absolute top-[37.5%] left-0'
             />
+            <Link href={`/${lang}/reviews/${data?.translation?.slug}`} className='text-[1vw] max-md:text-[3.73vw] font-[500] link-see_more mt-[2vw] w-max ml-auto !hidden max-md:block'>{see}</Link>
           </div>
         </div>
         <div className='review-item-user'>
-          <div className='flex items-center gap-x-[0.63vw]'>
+          <div className='flex items-center gap-x-[0.63vw] max-md:gap-x-[2vw]'>
             <Image
               src={authorInfo?.thumbnail?.sourceUrl}
               width={100}
@@ -127,7 +128,7 @@ function ReviewItem({ className, data, lang }) {
                 <span className='leading-normal ml-[0.3vw]'>{tourData?.numberDay} {day}</span>
               </div>
             </div>
-            <Link href={`/${lang}/reviews/${data?.translation?.slug}`} className='text-[1vw] max-md:text-[3.73vw] font-[500] link-see_more'>{see}</Link>
+            <Link href={`/${lang}/reviews/${data?.translation?.slug}`} className='text-[1vw] max-md:text-[3.73vw] font-[500] link-see_more max-md:hidden'>{see}</Link>
           </div>
         </div>
       </div>

@@ -111,19 +111,19 @@ function FilterBanner({ lang, dataFilter, onClose }) {
   }
   if (lang === 'fr') {
     option.duration = 'Durée'
-    option.style = 'Style de voyage'
+    option.style = ' Types de voyages'
     option.day = 'Jours'
     option.price= 'EUR'
     option.search = 'Recherche'
   }
   if (lang === 'it') {
-    option.style = 'Stile di viaggio'
+    option.style = 'Tipo di viaggio'
     option.duration = 'Durata'
-    option.budget = 'Bilancio'
+    option.budget = 'Budget'
     option.destination = 'Destinazione'
     option.day = 'Giorni'
     option.price= 'EUR'
-    option.search = 'Ricerca'
+    option.search = 'Cerca'
   }
   const theme = createTheme({
     breakpoints: {

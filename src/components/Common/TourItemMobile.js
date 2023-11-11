@@ -37,7 +37,7 @@ function TourItemMobile({ data, lang, loading }) {
       href={`/${lang}/${isPromotion ? 'hot-deals' : 'tours'}/${encodeURIComponent(data?.translation?.slug)}`}
       className={` p-[4.27vw] min-h-[46.4vw] h-auto flex gap-[4.27vw] bg-white`}
     >
-      <div className='h-[46vw] w-[45%] rounded-[1.067vw]'>
+      <div className='max-h-[54vw] w-[45%] rounded-[1.067vw]'>
         {!loading ? (
           <div className='relative w-full h-full'>
             <Image
@@ -93,7 +93,7 @@ function TourItemMobile({ data, lang, loading }) {
         )}
 
         {!loading ? (
-          <span className=' font-sans text-[#171717] line-clamp-2 text-[3.2vw] font-bold leading-[120%] tracking-[-0.064vw] max-w-[45vw]'>
+          <span className=' font-sans text-[#171717] text-[3.2vw] font-bold leading-[120%] tracking-[-0.064vw] max-w-[45vw]'>
             {tourData?.title}
           </span>
         ) : (

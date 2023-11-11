@@ -32,7 +32,7 @@ function Banner({ data, dataFilter, slug, lang }) {
           <span className='font-optima text-[#fff] md:text-[4.5vw] text-[6.4vw] text-justify font-semibold leading-[120%] uppercase '>
             {data?.nameCountry}
           </span>
-          <span className='md:w-[43vw] w-[66.27vw] text-center font-sans md:text-[1.5vw] text-[2.67vw] font-medium leading-[151%] text-[#fff] '>
+          <span className='md:w-[43vw] max-md:w-[90%] max-md:mt-[1.6vw] w-[66.27vw] text-center font-sans md:text-[1.5vw] text-[3.773vw] font-medium leading-[151%] text-[#fff] '>
             {data?.text}
           </span>
 
