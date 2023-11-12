@@ -39,15 +39,20 @@ function InputSearchMb({ lang, dataFilter, onCloseNav }) {
     ));
   });
   let noResult = 'No result for this search !!'
+  let search = 'Search...'
   if (lang === 'fr') {
     noResult = 'Aucun résultat pour cette Rechercher !!'
+    search = 'Rechercher...'
   }
   if (lang === 'it') {
     noResult = 'Nessun risultato per questa Cerca!!'
+    search ='Cerca...'
   }
   return (
     <div className='ml-[3.73vw] mr-[5.33vw] relative'>
-      <div className='input-search__mobile w-full h-[9.3vw]' onClick={handleOpen}></div>
+      <div className='input-search__mobile w-full h-[9.3vw] leading-[2.5] pl-[9.6vw] relative text-[3.2vw]' onClick={handleOpen}>
+        {search}
+      </div>
       <div
         className='fixed inset-0 bg-white home-search__mb !z-[200] overflow-auto w-full'
         ref={refMenu}

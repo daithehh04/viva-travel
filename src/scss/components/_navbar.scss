@@ -13,19 +13,21 @@
 }
 
 .input-search__mobile {
-  background-image: url('../../assets/images/img-input-h.svg');
+  background-image: url('../../assets/images/searchMb_Black.svg');
   background-repeat: no-repeat;
   background-size: contain;
   width: 100%;
+  color: #848282 ;
 }
 
 .nav-mb-special {
   background-color: transparent !important;
   .input-search__mobile {
-    background-image: url('../../assets/images/img-input-trans.svg');
+    background-image: url('../../assets/images/searchMb_White.svg');
     background-repeat: no-repeat;
     background-size: contain;
     width: 100%;
+    color: #fff;
   }
   .bg-trans {
     background-color: transparent;
