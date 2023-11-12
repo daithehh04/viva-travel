@@ -26,6 +26,9 @@ function SlideRepresent({ data }) {
   useEffect(() => {
     handleNextSlide()
   }, [])
+  useEffect(() => {
+    handleNextSlide()
+  }, [slideData])
   
   return (
     <div className='box-border relative slide-represent'>
@@ -40,7 +43,7 @@ function SlideRepresent({ data }) {
             zoom: true,
             spaceBetween: 0,
             loop: true,
-            loopFillGroupWithBlank: true
+            loopFillGroupWithBlank: true,
           }
         }}
         effect='coverflow'

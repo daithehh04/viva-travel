@@ -50,7 +50,7 @@ function InputSearchMb({ lang, dataFilter, onCloseNav }) {
   }
   return (
     <div className='ml-[3.73vw] mr-[5.33vw] relative'>
-      <div className='input-search__mobile w-full h-[9.3vw] leading-[2.5] pl-[9.6vw] relative text-[3.2vw]' onClick={handleOpen}>
+      <div className='input-search__mobile w-full h-[9.3vw] leading-[9.025vw] pl-[9.6vw] relative text-[3.2vw]' onClick={handleOpen}>
         {search}
       </div>
       <div

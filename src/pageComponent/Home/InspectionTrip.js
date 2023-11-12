@@ -9,15 +9,16 @@ import calendarIcon from '@/assets/images/calendarY.svg'
 import restaurantIcon from '@/assets/images/restauY.svg'
 
 function InspectionTrip({ data, lang, dataSlide }) {
-  const dataTrip = dataSlide?.concat(dataSlide)?.concat(dataSlide)
+  let dataTrip = dataSlide?.concat(dataSlide)
+  
   const [indexSlider, setIndexSlider] = useState(0)
-  const swiperRef = useRef()
+  const swiperRef1 = useRef()
   const handleNextSlide = () => {
-    swiperRef.current?.slideNext()
+    swiperRef1.current?.slideNext()
   }
 
   const handlePrevSlide = () => {
-    swiperRef.current?.slidePrev()
+    swiperRef1.current?.slidePrev()
   }
 
   const handleSlideChange = (swiper) => {
@@ -45,6 +46,8 @@ function InspectionTrip({ data, lang, dataSlide }) {
         <Swiper
           breakpoints={{
             768: {
+              observer: true,
+              observeParents: true,
               spaceBetween: 20,
               freeMode: false,
               slidesPerView: 2,
@@ -53,6 +56,8 @@ function InspectionTrip({ data, lang, dataSlide }) {
           }}
           initialSlide={Math.floor(dataSlide?.length / 2)}
           slidesPerView={1.2}
+          observer={true}
+          observeParents = {true}
           spaceBetween={0}
           loop={true}
           speed={800}
@@ -60,7 +65,7 @@ function InspectionTrip({ data, lang, dataSlide }) {
           freeMode={false}
           modules={[Pagination]}
           onBeforeInit={(swiper) => {
-            swiperRef.current = swiper
+            swiperRef1.current = swiper
           }}
           className='relative flex flex-col'
         >
