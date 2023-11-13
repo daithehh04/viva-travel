@@ -22,10 +22,7 @@ const nextConfig = {
   // },
   images: {
     loader: 'custom',
-    loaderFile: './loader.js',
-  },
-  experimental: {
-    appDir: true
+    loaderFile: './loader.js'
   }
 }
 
