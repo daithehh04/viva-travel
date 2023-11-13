@@ -101,7 +101,8 @@ export default async function RootLayout({ children, params }) {
   contactInfo = contactInfo?.data?.page?.translation?.home?.footer?.column1?.contact
 
   const dataPopupVoucher = await getDataPost(params.lang, DATA_POPUP_VOUCHER)
-  return (
+  const isPopup = dataPopupVoucher?.data?.page?.translation?.popupPromotion?.thumbPopup === null
+  return (  
     <html lang={params.lang}>
       <body suppressHydrationWarning={true}>
         <ApolloClientProvider>
@@ -128,7 +129,7 @@ export default async function RootLayout({ children, params }) {
                 }}
               />
               <SearchButton lang={params.lang} />
-              <PopupPromotion lang={params.lang} data={dataPopupVoucher?.data?.page?.translation}/>
+              {!isPopup && <PopupPromotion lang={params.lang} data={dataPopupVoucher?.data?.page?.translation}/>}
               {children}
               <Footer lang={params.lang} />
             </Suspense>
