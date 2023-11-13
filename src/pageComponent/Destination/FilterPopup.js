@@ -13,7 +13,7 @@ import { useRouter } from 'next/navigation'
 import { useClickOutside } from '@/helpers/customHooks'
 import { createTheme } from '@mui/material'
 function FilterPopup({ lang, dataFilter, slug }) {
-  const refLink = useRef()
+  // const refLink = useRef(null)
   const searchRef = useRef()
   const popUp = useRef(null)
   const filterTourRef = useRef()
@@ -411,7 +411,7 @@ function FilterPopup({ lang, dataFilter, slug }) {
             </FormControl>
           </div>
         </div>
-        <Button ref={refLink} onClick={handleSearch} className='btn-primary w-fit '>
+        <Button onClick={handleSearch} className='btn-primary w-fit '>
           <Image src={searchIcon} width={50} height={50} alt='search' className='w-[1.25vw] h-[1.25vw]' />
           {option.search}
         </Button>
