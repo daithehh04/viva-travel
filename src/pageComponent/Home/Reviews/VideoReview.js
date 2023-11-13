@@ -35,7 +35,7 @@ function VideoReview({ data, videoInfo, className, lang }) {
         />
       </video>
       <Image
-        src={videoInfo?.tours?.tourDetail?.banner?.gallery[0]?.sourceUrl}
+        src={videoInfo?.tours?.tourDetail?.banner?.gallery[0]?.sourceUrl || 'https://res.cloudinary.com/asiavivatravel/images/v1699760680/La-baie-Vinh-Hy-Vietnam-1/La-baie-Vinh-Hy-Vietnam-1.jpg?_i=AA'}
         width={500}
         height={500}
         alt={videoInfo?.tours?.tourDetail?.banner?.gallery[0]?.altText || "thumb video"}
@@ -81,10 +81,10 @@ function VideoReview({ data, videoInfo, className, lang }) {
         <div className='flex items-center gap-[0.75vw]'>
           <div className='border-[2px] border-white border-solid w-[3.5vw] h-[3.5vw] rounded-full max-lg:w-[5vw] max-lg:h-[5vw]'>
             <Image
-              src={videoInfo?.authorInformation?.thumbnail?.sourceUrl}
+              src={videoInfo?.authorInformation?.thumbnail?.sourceUrl || 'https://res.cloudinary.com/asiavivatravel/images/v1699760680/La-baie-Vinh-Hy-Vietnam-1/La-baie-Vinh-Hy-Vietnam-1.jpg?_i=AA'}
               width={100}
               height={100}
-              alt={videoInfo?.authorInformation?.thumbnail?.altText || ''}
+              alt={videoInfo?.authorInformation?.thumbnail?.altText || 'img'}
               className='object-cover w-full h-full rounded-full'
             />
           </div>

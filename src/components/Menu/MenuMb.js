@@ -148,7 +148,7 @@ function MenuMb({
                 >
                   <div className='w-[17.3vw] h-[17.3vw] rounded-full border border-solid border-primaryColor flex items-center justify-center bg-[#FFFBE9]'>
                     <Image
-                      src={item?.banner?.travelStyleInfo?.travelStyleImage?.sourceUrl}
+                      src={item?.banner?.travelStyleInfo?.travelStyleImage?.sourceUrl || 'https://res.cloudinary.com/asiavivatravel/images/v1699760680/La-baie-Vinh-Hy-Vietnam-1/La-baie-Vinh-Hy-Vietnam-1.jpg?_i=AA'}
                       width={50}
                       height={50}
                       alt='img'

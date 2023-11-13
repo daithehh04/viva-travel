@@ -9,7 +9,7 @@ function AboutItem({ data, slug, onCloseMenu, lang }) {
       onClick={onCloseMenu}
     >
       <Image
-        src={data?.backgroundMenu?.sourceUrl}
+        src={data?.backgroundMenu?.sourceUrl || 'https://res.cloudinary.com/asiavivatravel/images/v1699760680/La-baie-Vinh-Hy-Vietnam-1/La-baie-Vinh-Hy-Vietnam-1.jpg?_i=AA'}
         width={200}
         height={200}
         alt={data?.backgroundMenu?.altText}
