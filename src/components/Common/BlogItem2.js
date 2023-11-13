@@ -15,7 +15,7 @@ function BlogItem2({ className, data, lang, isHomePage }) {
           <div className='overlay-blog'></div>
           <div className='overlay-blog-left'></div>
           <Image
-            src={data?.featuredImage?.node?.sourceUrl}
+            src={data?.featuredImage?.node?.sourceUrl || 'https://res.cloudinary.com/asiavivatravel/images/w_2560,h_1708,c_scale/v1699806445/cover_02/cover_02.jpg?_i=AA'}
             width={1000}
             height={1000}
             alt={data?.featuredImage?.node?.altText || 'img blog'}
