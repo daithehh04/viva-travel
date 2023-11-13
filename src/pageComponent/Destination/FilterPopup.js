@@ -147,7 +147,7 @@ function FilterPopup({ lang, dataFilter, slug }) {
     option.duration = 'Durée'
     option.style =' Types de voyages'
     option.day ='Jours'
-    option.price= 'EUR'
+    option.price= '€'
     option.search = 'Rechercher'
     option.filter = 'Visite guidée des filtres'
   }
@@ -157,7 +157,7 @@ function FilterPopup({ lang, dataFilter, slug }) {
     option.budget = 'Budget'
     option.destination = 'Destinazione'
     option.day ='Giorni'
-    option.price= 'EUR'
+    option.price= '€'
     option.search = 'Cerca'
     option.filter = 'Filtra tour'
   }

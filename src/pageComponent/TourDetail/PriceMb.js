@@ -12,12 +12,12 @@ import imageTest from '@/assets/images/banner-about.png'
 export default function PriceMb({ data, onClick }) {
   const [openModal, setOpenModal] = useState(false)
   const lang = data?.lang
-  let person = 'Person'
+  let person = 'Pax'
   if(lang === 'fr') {
-    person = 'Personne'
+    person = 'Pax'
   }
   if(lang === 'it') {
-    person = 'Persona'
+    person = 'Pax'
   }
   return (
     <div className='fixed bottom-0 left-0 z-[100000]'>

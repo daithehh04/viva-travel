@@ -5,18 +5,18 @@ import Image from 'next/image'
 
 export default function Price({ type, className, data, onClick }) {
   const lang = data?.lang
-  let person = 'Person'
+  let person = 'Pax'
   let sale = 'Hot Sale'
-  let price = 'EUR'
+  let price = '€'
   if(lang === 'en') {
     price = 'USD'
   }
   if(lang === 'fr') {
-    person = 'Personne'
+    person = 'Pax'
     sale = 'Les ventes chaudes'
   }
   if(lang === 'it') {
-    person = 'Persona'
+    person = 'Pax'
     sale = 'Vendita calda'
   }
   return (

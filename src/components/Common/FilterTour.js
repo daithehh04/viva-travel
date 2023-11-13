@@ -80,7 +80,7 @@ function FilterTour({
     option.duration = 'Durée'
     option.style =' Types de voyages'
     option.day ='Jours'
-    option.price= 'EUR'
+    option.price= '€'
   }
   if(lang === 'it') {
     option.style = 'Tipo di viaggio'
@@ -88,7 +88,7 @@ function FilterTour({
     option.budget = 'Budget'
     option.destination = 'Destinazione'
     option.day ='Giorni'
-    option.price= 'EUR'
+    option.price= '€'
   }
 
   const theme = createTheme({

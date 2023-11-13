@@ -101,7 +101,7 @@ function FilterBanner({ lang, dataFilter,slug }) {
     option.style =' Types de voyages'
     option.day ='Jour'
     option.search = 'Rechercher'
-    option.price= 'EUR'
+    option.price= '€'
   }
   if(lang === 'it') {
     option.style = 'Tipo di viaggio'
@@ -110,7 +110,7 @@ function FilterBanner({ lang, dataFilter,slug }) {
     option.destination = 'Destinazione'
     option.day ='Giorno'
     option.search = 'Cerca'
-    option.price= 'EUR'
+    option.price= '€'
   }
 
   const theme = createTheme({

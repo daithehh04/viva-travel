@@ -25,11 +25,11 @@ function TourItemMobile({ data, lang, loading }) {
 
   if(lang === 'fr') {
     tag = 'Best Tour'
-    priceTour = 'EUR'
+    priceTour = '€'
   }
   if (lang === 'it') {
     tag = 'Best Tour'
-    priceTour = 'EUR'
+    priceTour = '€'
   }
   
   return (

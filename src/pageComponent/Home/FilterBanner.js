@@ -113,7 +113,7 @@ function FilterBanner({ lang, dataFilter, onClose }) {
     option.duration = 'Durée'
     option.style = ' Types de voyages'
     option.day = 'Jours'
-    option.price= 'EUR'
+    option.price= '€'
     option.search = 'Rechercher'
   }
   if (lang === 'it') {
@@ -122,7 +122,7 @@ function FilterBanner({ lang, dataFilter, onClose }) {
     option.budget = 'Budget'
     option.destination = 'Destinazione'
     option.day = 'Giorni'
-    option.price= 'EUR'
+    option.price= '€'
     option.search = 'Cerca'
   }
   const theme = createTheme({
