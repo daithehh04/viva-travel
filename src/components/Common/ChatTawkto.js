@@ -16,7 +16,7 @@ function ChatTawkto({url}) {
       s1.setAttribute('crossorigin', '*');
       s0.parentNode.insertBefore(s1, s0);
     })();
-  }, []); // Empty dependency array ensures the effect runs once when the component mounts
+  }, [url]); // Empty dependency array ensures the effect runs once when the component mounts
 
   return (
     <div className='fixed !z-[999]'>

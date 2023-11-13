@@ -41,7 +41,7 @@ export default function TourDetailBanner({ data = {}, headerData, price, lang })
 
   useEffect(() => {
     isPlay && slider.slickPause()
-  }, [isPlay])
+  }, [isPlay,slider])
 
   let priceT = '$'
   if(lang === 'it' || lang === 'fr') {
