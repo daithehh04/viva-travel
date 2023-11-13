@@ -11,11 +11,6 @@ import closeImg from '@/assets/images/close.svg'
 import { useEffect, useRef, useState } from 'react'
 import TourDetailStep from './TourDetailStep'
 import scrollDown from '@/helpers/scrollDown'
-import {
-  TransformWrapper,
-  TransformComponent,
-  useControls
-} from "react-zoom-pan-pinch";
 import Price from './Price'
 import { ACCOM_REF, BRIEF_REF, OVERVIEW_REF, ROLE_REF, TOUR_DETAIL_REF } from '../../lib/constants'
 import { createTheme, useMediaQuery } from '@mui/material'

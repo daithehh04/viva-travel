@@ -58,26 +58,28 @@ query getInfoCountry($taxonomyValue: ID!,$language: LanguageCodeEnum!) {
           wheather
           timze
         }
-        blogs {
-          ... on Post {
-            title
-            slug
-            featuredImage{
-              node{
-                sourceUrl
-              }
-            }
-            blogdetail{
-              subtitle1
-            }
-            dateGmt
-          }
-        }
+        
       }
     }
   }
 }
 `
+const DATA_BLOG = `blogs {
+  ... on Post {
+    title
+    slug
+    featuredImage{
+      node{
+        sourceUrl
+      }
+    }
+    blogdetail{
+      subtitle1
+    }
+    dateGmt
+  }
+}`
+
 const DATA_ICONS_COUNTRY = `query($language: LanguageCodeEnum!){
   page(id:"cG9zdDozMDQ1" idType:ID){
     translation(language:$language){
