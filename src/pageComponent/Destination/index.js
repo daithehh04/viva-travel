@@ -87,7 +87,6 @@ async function index({ lang, slug }) {
   const newArrDataTaxonomiesBudget = handleTaxonomies(arrDataTaxonomiesBudget)
   const newArrDataTaxonomiesDuration = handleTaxonomies(arrDataTaxonomiesDuration)
   const newArrDataTaxonomiesCountry = handleTaxonomies(arrDataTaxonomiesCountry)
-
   const dataFilter = {
     style: newArrDataTaxonomiesStyleTravel,
     budget: newArrDataTaxonomiesBudget,
