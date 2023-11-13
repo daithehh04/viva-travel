@@ -28,11 +28,13 @@ export default function TourDetail({
         data={banner || {}}
         headerData={bannerHeaders}
         price={priceTour}
+        lang={lang}
       />
       <TourDetailBannerMobile
         data={banner || {}}
         headerData={bannerHeaders}
         price={priceTour}
+        lang={lang}
       />
       <div className='md:my-[7.5vw] relative'>
         <div className='hidden md:block'>

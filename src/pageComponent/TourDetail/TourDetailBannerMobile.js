@@ -11,13 +11,17 @@ import ModalCustom from '@/components/Common/ModalCustom'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper/modules'
 
-export default function TourDetailBannerMobile({ data = {}, price }) {
+export default function TourDetailBannerMobile({ data = {}, price, lang }) {
   const { gallery, location, rate, video, title } = data
   const starIcons = new Array(Math.ceil(rate || 5)).fill(0)
   const [isPlay, setIsPlay] = useState(false)
 
   const [openModal, setOpenModal] = useState(false)
   const listGallery = gallery?.concat(gallery)
+  let priceT = '$'
+  if(lang === 'it' || lang === 'fr') {
+    priceT = '€'
+  }
   return (
     <section className='md:hidden block relative mb-[6.4vw] text-textColor'>
       <div className='w-full h-[72.8vw] relative'>
@@ -30,7 +34,7 @@ export default function TourDetailBannerMobile({ data = {}, price }) {
             delay: 3000,
             disableOnInteraction: false
           }}
-          className='mySwiper2 w-full h-full'
+          className='w-full h-full mySwiper2'
         >
           <>
             {video?.uploadVideo?.mediaItemUrl && (
@@ -51,14 +55,14 @@ export default function TourDetailBannerMobile({ data = {}, price }) {
           {listGallery?.map((img, index) => {
             return (
               <SwiperSlide key={index}>
-                <div className='w-full h-full relative'>
+                <div className='relative w-full h-full'>
                   <Image
                     src={img?.sourceUrl}
                     alt={img?.altText}
                     width={1000}
                     height={1000}
                     priority
-                    className='w-full h-full object-cover select-none'
+                    className='object-cover w-full h-full select-none'
                   />
                   <div className='bg-[#00000033] w-full h-full absolute top-0 left-0'></div>
                 </div>
@@ -113,7 +117,7 @@ export default function TourDetailBannerMobile({ data = {}, price }) {
               })}
             </span>
           </div>
-          <div className='w-full text-[5.33vw] font-bold leading-normal'>${price}</div>
+          <div className='w-full text-[5.33vw] font-bold leading-normal'>{price} {priceT}</div>
         </div>
       </div>
 

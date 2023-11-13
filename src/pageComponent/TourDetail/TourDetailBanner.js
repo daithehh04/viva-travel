@@ -15,7 +15,7 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
-export default function TourDetailBanner({ data = {}, headerData, price }) {
+export default function TourDetailBanner({ data = {}, headerData, price, lang }) {
   const { gallery, location, rate, video, title } = data
   let listGallery = gallery ?? [];
   if (gallery === null || gallery === undefined) {
@@ -43,6 +43,10 @@ export default function TourDetailBanner({ data = {}, headerData, price }) {
     isPlay && slider.slickPause()
   }, [isPlay])
 
+  let priceT = '$'
+  if(lang === 'it' || lang === 'fr') {
+    priceT = '€'
+  }
   return (
     <section className='w-full h-[100vh] max-lg:h-[50vh] tour-banner-wrapper relative overflow-hidden md:block hidden '>
       <Slider
@@ -160,7 +164,7 @@ export default function TourDetailBanner({ data = {}, headerData, price }) {
               <div className='flex gap-[10px] items-center font-bold leading-normal'>
                 <span className='max-lg:text-[1.75vw] text-[1.25vw]'>{headerData?.priceHeader}:</span>
                 <span className=' max-w-[20vw] text-[1.875vw] max-lg:text-[2.5vw] capitalize line-clamp-1'>
-                  ${price}
+                  {price} {priceT}
                 </span>
               </div>
               <div className='flex items-center gap-2'>

@@ -9,7 +9,7 @@ export default function Price({ type, className, data, onClick }) {
   let sale = 'Hot Sale'
   let price = '€'
   if(lang === 'en') {
-    price = 'USD'
+    price = '$'
   }
   if(lang === 'fr') {
     person = 'Pax'

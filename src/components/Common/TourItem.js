@@ -17,7 +17,7 @@ function TourItem({ data, menu, lang, loading, className, onCloseMenu }) {
   const pathName = usePathname()
   const isPromotion = pathName.includes('hot-deals')
   let bestTour = false
-  let priceTour = 'USD'
+  let priceTour = '$'
   if (checkBestTour?.length > 0) {
     bestTour = true
   }

@@ -74,7 +74,7 @@ function FilterTour({
     style: 'Travel Style',
     duration: 'Duration',
     day: 'day',
-    price: 'USD'
+    price: '$'
   }
   if(lang === 'fr') {
     option.duration = 'Durée'

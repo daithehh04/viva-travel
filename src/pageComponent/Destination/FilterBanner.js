@@ -94,7 +94,7 @@ function FilterBanner({ lang, dataFilter,slug }) {
     duration: 'Duration',
     day: 'day',
     search: 'Search',
-    price: 'USD'
+    price: '$'
   }
   if(lang === 'fr') {
     option.duration = 'Durée'

@@ -107,7 +107,7 @@ function FilterBanner({ lang, dataFilter, onClose }) {
     duration: 'Duration',
     day: 'day',
     search: 'Search',
-    price: 'USD'
+    price: '$'
   }
   if (lang === 'fr') {
     option.duration = 'Durée'

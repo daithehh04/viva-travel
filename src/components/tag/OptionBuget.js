@@ -54,7 +54,7 @@ export default function OptionBudget({ icon, list, defaultValue, onSelect, lang 
   
   handleSort(list)
 
-  let price = 'USD'
+  let price = '$'
   let budget = 'Budget'
   if(lang === 'fr' || lang === 'it') {
     price = '€'

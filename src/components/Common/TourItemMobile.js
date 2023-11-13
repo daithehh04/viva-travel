@@ -21,7 +21,7 @@ function TourItemMobile({ data, lang, loading }) {
     bestTour = true
   }
   let tag = 'Best Tour'
-  let priceTour = 'USD'
+  let priceTour = '$'
 
   if(lang === 'fr') {
     tag = 'Best Tour'

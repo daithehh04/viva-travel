@@ -139,7 +139,7 @@ function FilterPopup({ lang, dataFilter, slug }) {
     style: 'Travel Style',
     duration: 'Duration',
     day: 'day',
-    price: 'USD',
+    price: '$',
     search: 'Search',
     filter: 'Filter tour'
   }
