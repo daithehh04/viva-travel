@@ -43,6 +43,8 @@ import Loader from '@/components/Common/Loader'
 import SearchButton from '@/pageComponent/Home/SearchButton'
 import PopupPromotion from '@/components/Common/PopupPromotion'
 import { DATA_POPUP_VOUCHER } from '@/graphql/hotDeal/queries'
+import ChatTawkto from '@/components/Common/ChatTawkto'
+
 
 const idEnBook = 'cG9zdDoxNDIy'
 const idFrBook = 'cG9zdDoxODQ1'
@@ -135,8 +137,8 @@ export default async function RootLayout({ children, params }) {
               />
               <SearchButton lang={params.lang} />
               {!isPopup && <PopupPromotion lang={params.lang} data={dataPopupVoucher?.data?.page?.translation}/>}
-              {/* {params.lang === 'fr' && <ChatTawkto url={linkChatFr}/>}
-              {params.lang === 'it' && <ChatTawkto url={linkChatIt}/>} */}
+              {params.lang === 'fr' && <ChatTawkto url={linkChatFr}/>}
+              {params.lang === 'it' && <ChatTawkto url={linkChatIt}/>}
               {children}
               <Footer lang={params.lang} />
             </Suspense>
