@@ -55,8 +55,11 @@ const linkChatIt = 'https://embed.tawk.to/6551cfd4958be55aeaaefe8f/1hf3p7lvq'
 export async function generateStaticParams() {
   return [{ lang: 'en' }, { lang: 'it' }, { lang: 'fr' }]
 }
-export const metadata = {
-  viewport: 'width=device-width, initial-scale=1, maximum-scale=1'
+
+export function generateViewport() {
+  return {
+    viewport: 'width=device-width, initial-scale=1, maximum-scale=1'
+  }
 }
 export default async function RootLayout({ children, params }) {
   let data

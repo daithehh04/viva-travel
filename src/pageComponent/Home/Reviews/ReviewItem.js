@@ -18,7 +18,7 @@ function ReviewItem({ data, lang }) {
       className='block relative h-[31.9375vw] rounded-[1vw] max-md:rounded-[3.2vw] max-md:h-[104.8vw] max-md:ml-[4vw] customer-review__item'
     >
       <Image
-        src={tourData?.banner?.gallery?.[0]?.sourceUrl}
+        src={tourData?.banner?.gallery?.[0]?.sourceUrl || 'https://res.cloudinary.com/asiavivatravel/images/v1699582207/La-cascata-grande-Khone-Phapheng-laos/La-cascata-grande-Khone-Phapheng-laos.jpg?_i=AA'}
         alt={tourData?.banner?.gallery?.[0]?.altText || 'thumb review'}
         width={500}
         height={500}
@@ -61,7 +61,7 @@ function ReviewItem({ data, lang }) {
         <div className='flex items-center gap-[0.75vw] max-md:gap-[2.5vw]'>
           <div className='border-[2px] border-white border-solid w-[3.5vw] h-[3.5vw] max-md:w-[11.46vw] max-md:h-[11.46vw] rounded-full'>
             <Image
-              src={authorInfo?.thumbnail?.sourceUrl}
+              src={authorInfo?.thumbnail?.sourceUrl || 'https://res.cloudinary.com/asiavivatravel/images/v1699582207/La-cascata-grande-Khone-Phapheng-laos/La-cascata-grande-Khone-Phapheng-laos.jpg?_i=AA'}
               width={100}
               height={100}
               alt={authorInfo?.thumbnail?.altText || 'avatar'}
