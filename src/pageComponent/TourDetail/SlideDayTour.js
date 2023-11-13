@@ -42,7 +42,8 @@ function SlideDayTour({ data }) {
           )
         })}
       </Swiper>
-      {/* <div className='md:flex hidden absolute top-[50%] -translate-y-2/4 z-10 w-full justify-between'>
+      {data.length > 1 && (
+        <div className='md:flex hidden absolute top-[50%] -translate-y-2/4 z-10 w-full justify-between'>
         <button
           onClick={handlePrevSlide}
           className='w-[3.625vw] h-[3.625vw] rounded-full flex justify-center items-center bg-primaryColor button-slide__tour absolute left-[-1.8125vw] top-[50%] -translate-y-2/4'
@@ -79,7 +80,9 @@ function SlideDayTour({ data }) {
             />
           </svg>
         </button>
-      </div> */}
+      </div>
+      )}
+      
     </div>
   )
 }
