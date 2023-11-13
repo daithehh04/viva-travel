@@ -192,7 +192,9 @@ export default function Home({
         <div className='represent-wrapper'>
           <TouristRepresentative data={representative} />
         </div>
-        <AboutVideo data={aboutVideo} />
+        <div>
+          <AboutVideo data={aboutVideo} />
+        </div>
         <div className='review-wrapper'>
           <Review
             data={customerReview}

@@ -20,7 +20,7 @@ function Review({ data, button, lang }) {
     AOS.refresh()
   }, [])
   return (
-    <>
+    <div>
       <div className='flex gap-x-[2vw] items-end overflow-hidden relative custom-review pt-[9.37vw]'>
         <Image
           alt='tree'
@@ -73,7 +73,7 @@ function Review({ data, button, lang }) {
           </Button>
         </Link>
       </div>
-    </>
+    </div>
   )
 }
 
