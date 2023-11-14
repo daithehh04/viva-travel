@@ -43,7 +43,7 @@ import Loader from '@/components/Common/Loader'
 import SearchButton from '@/pageComponent/Home/SearchButton'
 import PopupPromotion from '@/components/Common/PopupPromotion'
 import { DATA_POPUP_VOUCHER } from '@/graphql/hotDeal/queries'
-import ChatTawkto from '@/components/Common/ChatTawkto'
+// import ChatTawkto from '@/components/Common/ChatTawkto'
 
 
 const idEnBook = 'cG9zdDoxNDIy'
