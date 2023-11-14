@@ -42,58 +42,54 @@ import { DATA_POPUP_VOUCHER } from '@/graphql/hotDeal/queries'
 import ChatTawkto from '@/components/Common/ChatTawkto'
 import Footer from '@/components/Common/Footer'
 
-
-const idEnBook = 'cG9zdDoxNDIy'
-const idFrBook = 'cG9zdDoxODQ1'
-const idItBook = 'cG9zdDoxODQz'
+const IDS = {
+  en: 'cG9zdDoxNDIy',
+  fr: 'cG9zdDoxODQ1',
+  it: 'cG9zdDoxODQz',
+}
 
 const linkChatFr = 'https://embed.tawk.to/6551cf91958be55aeaaefe7b/1hf3p5kpr'
 const linkChatIt = 'https://embed.tawk.to/6551cfd4958be55aeaaefe8f/1hf3p7lvq'
 
 
 export default async function MainLayout({ children, params }) {
-  let data
-  let dataBookTour
-  let dataMenuCountry
-  let recommendserviceList
-  let socialMobile
-  if (params.lang === 'en') {
-    data = await getDataPage(idEn, DATA_HEADER)
-    dataMenuCountry = await getDataPost('EN', DATA_MENU_COUNTRY)
-    recommendserviceList = await getDataPost('EN', GET_SERVICE_BY_CATEGORY)
-    dataBookTour = await getDataFormBookTour(GET_DATA_FORM_BOOKTOUR, idEnBook, params.lang)
-    socialMobile = await getDataPost('EN', GET_SOCIAL_MOBILE)
-  }
-  if (params.lang === 'it') {
-    data = await getDataPage(idIt, DATA_HEADER)
-    dataMenuCountry = await getDataPost('IT', DATA_MENU_COUNTRY)
-    recommendserviceList = await getDataPost('IT', GET_SERVICE_BY_CATEGORY)
-    dataBookTour = await getDataFormBookTour(GET_DATA_FORM_BOOKTOUR, idItBook, params.lang)
-    socialMobile = await getDataPost('IT', GET_SOCIAL_MOBILE)
-  }
-  if (params.lang === 'fr') {
-    data = await getDataPage(idFr, DATA_HEADER)
-    dataMenuCountry = await getDataPost('FR', DATA_MENU_COUNTRY)
-    recommendserviceList = await getDataPost('FR', GET_SERVICE_BY_CATEGORY)
-    dataBookTour = await getDataFormBookTour(GET_DATA_FORM_BOOKTOUR, idFrBook, params.lang)
-    socialMobile = await getDataPost('FR', GET_SOCIAL_MOBILE)
-  }
+  const [
+    data, 
+    dataBookTour, 
+    dataMenuCountry, 
+    recommendserviceList, 
+    socialMobile,
+    travelStylesList,
+    result,
+    wwrRes,
+    rtRes,
+    rvRes,
+    dataTaxonomiesCountry,
+    dataTaxonomiesStyleTour,
+    dataTaxonomiesBudget,
+    dataTaxonomiesDuration
+  ] = await Promise.all([
+    getDataPage(idEn, DATA_HEADER),
+    getDataFormBookTour(GET_DATA_FORM_BOOKTOUR, IDS[params.lang], params.lang),
+    getDataPost(params.lang?.toUpperCase(), DATA_MENU_COUNTRY),
+    getDataPost(params.lang?.toUpperCase(), GET_SERVICE_BY_CATEGORY),
+    getDataPost(params.lang?.toUpperCase(), GET_SOCIAL_MOBILE),
+    getDataWithTaxonomy({ lang: params.lang || 'EN' }, GET_LIST_TRAVEL_STYLE_NAME),
+    getHotDealHeader(params.lang),
+    getAboutUsData(GET_DATA_MENU_WWR, params.lang),
+    getAboutUsData(GET_DATA_MENU_RT, params.lang),
+    getAboutUsData(GET_DATA_MENU_RV, params.lang),
+    getDataPost(params.lang, DATA_TAXONOMIES_COUNTRY),
+    getDataPost(params.lang, DATA_TAXONOMIES_TOUR_STYLE),
+    getDataPost(params.lang, DATA_TAXONOMIES_BUDGET),
+    getDataPost(params.lang, DATA_TAXONOMIES_DURATION)
+  ])
 
   const dataHome = data?.data?.page?.home
-  const travelStylesList = await getDataWithTaxonomy({ lang: params.lang || 'EN' }, GET_LIST_TRAVEL_STYLE_NAME)
-
   //get header of hotDeal
-  const result = await getHotDealHeader(params.lang)
   const hotDeals = result?.data?.page?.translation?.hotDeals
   // get data of menu - about-us
-  const wwrRes = await getAboutUsData(GET_DATA_MENU_WWR, params.lang)
-  const rtRes = await getAboutUsData(GET_DATA_MENU_RT, params.lang)
-  const rvRes = await getAboutUsData(GET_DATA_MENU_RV, params.lang)
   //
-  const dataTaxonomiesCountry = await getDataPost(params.lang, DATA_TAXONOMIES_COUNTRY)
-  const dataTaxonomiesStyleTour = await getDataPost(params.lang, DATA_TAXONOMIES_TOUR_STYLE)
-  const dataTaxonomiesBudget = await getDataPost(params.lang, DATA_TAXONOMIES_BUDGET)
-  const dataTaxonomiesDuration = await getDataPost(params.lang, DATA_TAXONOMIES_DURATION)
   let contactInfo = await getDataPost(params.lang, GET_INFO_CONTACT)
   contactInfo = contactInfo?.data?.page?.translation?.home?.footer?.column1?.contact
 
