@@ -76,8 +76,8 @@ export default function Responsible({ data = {} }) {
                   </p>
                 </main>
                 <Image
-                  src={post?.image?.sourceUrl}
-                  alt={post?.image?.altText}
+                  src={post?.image?.sourceUrl || 'https://res.cloudinary.com/asiavivatravel/images/v1699670076/Baia-di-Halong/Baia-di-Halong.jpg?_i=AA'}
+                  alt={post?.image?.altText || 'post img'}
                   width={1000}
                   height={1000}
                   className='md:w-[35.93vw] w-full md:h-[35.93vw] h-[91.47vw] object-cover'

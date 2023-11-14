@@ -10,7 +10,7 @@ export default function NotFound() {
     <div className='not-found w-[100vw] h-[100vh] flex items-center text-[40px] justify-center fixed top-0 left-0 z-[10]'>
       <Image
         src={notFound}
-        alt=''
+        alt='not found'
         width={1000}
         height={1000}
         quality={100}
@@ -24,7 +24,7 @@ export default function NotFound() {
           </div>
           <Image
             src={notFoundImg}
-            alt=''
+            alt='not found'
             width={500}
             height={500}
             className='md:w-[22vw] w-[38.1344vw] md:h-[18.4373vw] h-[33.1344vw]'
