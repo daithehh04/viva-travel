@@ -13,11 +13,14 @@ export default function PriceMb({ data, onClick }) {
   const [openModal, setOpenModal] = useState(false)
   const lang = data?.lang
   let person = 'Pax'
+  let price ='$'
   if(lang === 'fr') {
     person = 'Pax'
+    price = '€'
   }
   if(lang === 'it') {
     person = 'Pax'
+    price = '€'
   }
   return (
     <div className='fixed bottom-0 left-0 z-[100000]'>
@@ -49,7 +52,7 @@ export default function PriceMb({ data, onClick }) {
       <div className='px-[4.27vw] pt-[4.2vw] pb-[3.2vw] w-[100vw] bg-[#fff]'>
         <div className='flex justify-between items-center mb-[2.27vw] text-[#171717]'>
           <div className='text-[3.73vw] font-medium'>{data?.price?.header}:</div>
-          <div className='text-[4.26vw] capitalize leading-[1.5] font-bold'>${data?.price?.value} / {person}</div>
+          <div className='text-[4.26vw] capitalize leading-[1.5] font-bold'>{data?.price?.value} {price}/ {person}</div>
         </div>
 
         <Button
