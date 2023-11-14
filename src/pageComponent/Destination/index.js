@@ -105,11 +105,11 @@ async function index({ lang, slug }) {
         dataFilter={dataFilter}
         lang={lang}
       />
-      <FilterPopup
+      {/* <FilterPopup
         dataFilter={dataFilter}
         slug={slug}
         lang={lang}
-      />
+      /> */}
       <SectionActions listActions={dataIcons?.data?.page?.translation} infoCountry={data?.country?.info}/>
       <SlideDestination
         // data={dataOtherTrip?.data?.allTours?.nodes}
