@@ -62,7 +62,7 @@ async function index({ lang, slug }) {
     GET_DATA_BEST_SELLER_OURTOUR
   )
 
-  const dataBestSellerNoNull = dataBestSeller?.data?.allTours?.nodes.filter(item => {
+  const dataBestSellerNoNull = dataBestSeller?.data?.allTours?.nodes?.filter(item => {
     return item?.translation !== null && item?.translation?.slug !== null
   })
   
@@ -105,11 +105,11 @@ async function index({ lang, slug }) {
         dataFilter={dataFilter}
         lang={lang}
       />
-      {/* <FilterPopup
+      <FilterPopup
         dataFilter={dataFilter}
         slug={slug}
         lang={lang}
-      /> */}
+      />
       <SectionActions listActions={dataIcons?.data?.page?.translation} infoCountry={data?.country?.info}/>
       <SlideDestination
         // data={dataOtherTrip?.data?.allTours?.nodes}

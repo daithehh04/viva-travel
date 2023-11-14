@@ -136,33 +136,15 @@ export default async function RootLayout({ children, params }) {
                 }}
               />
               <SearchButton lang={params.lang} />
-              {/* {!isPopup && <PopupPromotion lang={params.lang} data={dataPopupVoucher?.data?.page?.translation}/>}
+              {!isPopup && <PopupPromotion lang={params.lang} data={dataPopupVoucher?.data?.page?.translation}/>}
               {params.lang === 'fr' && <ChatTawkto url={linkChatFr}/>}
-              {params.lang === 'it' && <ChatTawkto url={linkChatIt}/>} */}
+              {params.lang === 'it' && <ChatTawkto url={linkChatIt}/>}
               {children}
               <Footer lang={params.lang} />
             </Suspense>
           </ThemeRegistry>
         </ApolloClientProvider>
-        {/* <div className='flex items-center justify-center w-full h-screen overflow-hidden'>
-          <div className='relative w-[25vw] h-[25vw]'>
-            <h1 className='text-[2vw] font-bold absolute bottom-[-2vw] left-1/2 -translate-x-1/2 w-fit whitespace-nowrap'>
-              Something big is coming ...
-            </h1>
-            <Image
-              className='object-contain z-[5]'
-              src={src}
-              alt='bao tri'
-              fill
-              sizes='100vw'
-            />
-          </div>
-          <Image
-            className='absolute top-[2vw] left-[2vw] w-[5vw] h-[5vw] object-contain'
-            src={logoSrc}
-            alt='logo viva'
-          />
-        </div> */}
+       
       </body>
     </html>
   )
