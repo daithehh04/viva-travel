@@ -136,9 +136,9 @@ export default async function RootLayout({ children, params }) {
                 }}
               />
               <SearchButton lang={params.lang} />
-              {!isPopup && <PopupPromotion lang={params.lang} data={dataPopupVoucher?.data?.page?.translation}/>}
+              {/* {!isPopup && <PopupPromotion lang={params.lang} data={dataPopupVoucher?.data?.page?.translation}/>}
               {params.lang === 'fr' && <ChatTawkto url={linkChatFr}/>}
-              {params.lang === 'it' && <ChatTawkto url={linkChatIt}/>}
+              {params.lang === 'it' && <ChatTawkto url={linkChatIt}/>} */}
               {children}
               <Footer lang={params.lang} />
             </Suspense>
