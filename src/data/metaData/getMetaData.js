@@ -1,5 +1,6 @@
-export default async function getMetaDataTour(query, lang, slug) {
-  const res = await fetch(process.env.NEXT_PUBLIC_API, {
+import fetchPonyfill from 'fetch-ponyfill'
+export default async function getMetaDataTour(query, lang, slug, usePonyfill = true) {
+  const res = await (usePonyfill ? fetchPonyfill() : { fetch }).fetch(process.env.NEXT_PUBLIC_API, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

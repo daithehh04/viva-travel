@@ -1,10 +1,11 @@
-export default async function getDataFormBookTour(query, id, lang) {
+import fetchPonyfill from 'fetch-ponyfill'
+export default async function getDataFormBookTour(query, id, lang, usePonyfill = true) {
   if (lang === 'it') {
     id = "cG9zdDoxODQz"
   } else if (lang === 'fr') {
     id = 'cG9zdDoxODQ1'
   }
-  const res = await fetch(process.env.NEXT_PUBLIC_API, {
+  const res = await (usePonyfill ? fetchPonyfill() : { fetch }).fetch(process.env.NEXT_PUBLIC_API, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

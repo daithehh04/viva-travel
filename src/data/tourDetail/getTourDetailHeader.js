@@ -1,7 +1,8 @@
 import { GET_TOUR_DETAIL_HEADER } from '@/graphql/tourDetail/queries'
+import fetchPonyfill from 'fetch-ponyfill'
 
-export default async function getTourDetailHeader(lang) {
-  const res = await fetch(process.env.NEXT_PUBLIC_API, {
+export default async function getTourDetailHeader(lang, usePonyfill = true) {
+  const res = await (usePonyfill ? fetchPonyfill() : { fetch }).fetch(process.env.NEXT_PUBLIC_API, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

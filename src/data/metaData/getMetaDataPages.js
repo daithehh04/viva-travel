@@ -1,5 +1,6 @@
-async function getMetaDataPages(query, lang) {
-  const res = await fetch(process.env.NEXT_PUBLIC_API, {
+import fetchPonyfill from 'fetch-ponyfill'
+async function getMetaDataPages(query, lang, usePonyfill = true) {
+  const res = await (usePonyfill ? fetchPonyfill() : { fetch }).fetch(process.env.NEXT_PUBLIC_API, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

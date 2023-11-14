@@ -1,8 +1,10 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useEffect } from 'react'
 
 function TravelStyleMb({ data, title, lang }) {
+
   return (
     <div className='hidden max-md:block pt-[10.67vw] pb-[15.73vw]'>
       <h2 className='heading-1 pb-[5.33vw] border-b border-solid border-[#ccc] text-center mx-[4.27vw]'>{title}</h2>

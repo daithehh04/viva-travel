@@ -11,7 +11,7 @@ function StyleItem({ id, title, image, lang, onCloseMenu }) {
       onClick={onCloseMenu}
     >
       <Image
-        src={image?.sourceUrl}
+        src={image?.sourceUrl | ""}
         width={100}
         height={100}
         alt={image?.altText}

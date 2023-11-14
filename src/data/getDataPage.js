@@ -1,9 +1,10 @@
+import fetchPonyfill from 'fetch-ponyfill'
 export const idFr = 'cG9zdDoyOTk='
 export const idEn = 'cG9zdDoxOQ=='
 export const idIt = 'cG9zdDozMDE='
 
-export default async function getDataPage(slug, query) {
-  const res = await fetch(process.env.NEXT_PUBLIC_API, {
+export default async function getDataPage(slug, query, usePonyfill = true) {
+  const res = await (usePonyfill ? fetchPonyfill() : { fetch }).fetch(process.env.NEXT_PUBLIC_API, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

@@ -1,7 +1,8 @@
 import { GET_RELATED_TOUR } from '@/graphql/tourDetail/queries'
+import fetchPonyfill from 'fetch-ponyfill'
 
-export default async function getRelatedTour(taxonomyValue, taxonomyName, lang) {
-  const res = await fetch(process.env.NEXT_PUBLIC_API, {
+export default async function getRelatedTour(taxonomyValue, taxonomyName, lang, usePonyfill = true) {
+  const res = await (usePonyfill ? fetchPonyfill() : { fetch }).fetch(process.env.NEXT_PUBLIC_API, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
