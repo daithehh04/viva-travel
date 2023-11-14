@@ -11,7 +11,7 @@ export default function IndexAboutUs({ res, lang, arrYear, arrCountry }) {
   const subBannerStep = res?.data?.page?.translation?.aboutUsReviews?.subBanner
   const reviewData = res?.data?.page?.translation?.aboutUsReviews?.main
   return (
-    <>
+    <div>
       <Banner data={bannerData} />
       <div className='md:pb-[8.125vw] mt-[-7.2vw] md:mt-0 md:bg-white bg-[#F3F6FB] z-10  relative rounded-2xl md:rounded-none'>
         <Reviews lang={lang} data={reviewData} arrYear={arrYear} arrCountry={arrCountry}/>
@@ -27,6 +27,6 @@ export default function IndexAboutUs({ res, lang, arrYear, arrCountry }) {
         </div>
         <SubBanner data={subBannerStep} lang={lang} />
       </div>
-    </>
+    </div>
   )
 }

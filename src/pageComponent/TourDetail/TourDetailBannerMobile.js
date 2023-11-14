@@ -36,7 +36,7 @@ export default function TourDetailBannerMobile({ data = {}, price, lang }) {
           }}
           className='w-full h-full mySwiper2'
         >
-          <>
+          <div>
             {video?.uploadVideo?.mediaItemUrl && (
               <SwiperSlide className='relative w-full h-full'>
                 <TourDetailVideo
@@ -51,7 +51,7 @@ export default function TourDetailBannerMobile({ data = {}, price, lang }) {
                 />
               </SwiperSlide>
             )}
-          </>
+          </div>
           {listGallery?.map((img, index) => {
             return (
               <SwiperSlide key={index}>

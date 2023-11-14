@@ -135,10 +135,12 @@ export default async function RootLayout({ children, params }) {
                   rvRes: rvRes?.data?.page?.translation
                 }}
               />
-              <SearchButton lang={params.lang} />
-              {!isPopup && <PopupPromotion lang={params.lang} data={dataPopupVoucher?.data?.page?.translation}/>}
-              {params.lang === 'fr' && <ChatTawkto url={linkChatFr}/>}
-              {params.lang === 'it' && <ChatTawkto url={linkChatIt}/>}
+              <div>
+                <SearchButton lang={params.lang} />
+                {!isPopup && <PopupPromotion lang={params.lang} data={dataPopupVoucher?.data?.page?.translation}/>}
+                {params.lang === 'fr' && <ChatTawkto url={linkChatFr}/>}
+                {params.lang === 'it' && <ChatTawkto url={linkChatIt}/>}
+              </div>
               {children}
               <Footer lang={params.lang} />
             </Suspense>

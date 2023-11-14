@@ -155,7 +155,7 @@ function BookTour({ data, setOpenModal, lang,detail }) {
     }
   })
   return (
-    <>
+    <div>
       <Dialog
         open={open}
         onClose={handleClose}
@@ -561,7 +561,7 @@ function BookTour({ data, setOpenModal, lang,detail }) {
 
         }}
       />
-    </>
+    </div>
   )
 }
 

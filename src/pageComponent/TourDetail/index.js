@@ -23,7 +23,7 @@ export default function TourDetail({
   const { bannerHeaders, content: contentHeader, relatedTour: relatedTourHeader, subBanner } = headerData
   const reviews = reviewsList?.filter((item) => item?.customerReview?.tours?.slug === slug)
   return (
-    <>
+    <div>
       <TourDetailBanner
         data={banner || {}}
         headerData={bannerHeaders}
@@ -70,6 +70,6 @@ export default function TourDetail({
           />
         </main>
       </div>
-    </>
+    </div>
   )
 }

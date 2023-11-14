@@ -46,7 +46,7 @@ function BestSeller({ isBlogItem, listBlog, lang }) {
           return (
             <SwiperSlide key={index}>
               {({ isActive }) => (
-                <>
+                <div>
                   {isBlogItem ? (
                     <BlogItem
                       data={item}
@@ -56,7 +56,7 @@ function BestSeller({ isBlogItem, listBlog, lang }) {
                   ) : (
                     <TourItem lang={lang} />
                   )}
-                </>
+                </div>
               )}
             </SwiperSlide>
           )

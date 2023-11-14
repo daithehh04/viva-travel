@@ -20,7 +20,7 @@ export default function TourDetailStep({ data: tourDetailData,iconsDefault }) {
     setOpen(true)
   }
   return (
-    <>
+    <div>
       <div>
         {tourDetailData?.map((tour, indexTour) => {
           let icons = []
@@ -109,6 +109,6 @@ export default function TourDetailStep({ data: tourDetailData,iconsDefault }) {
         </div>
         }
       </div>
-    </>
+    </div>
   )
 }

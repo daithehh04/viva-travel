@@ -17,7 +17,6 @@ async function page({ params: { lang, slug } }) {
   const data = await getTourDetail(DATA_VOUCHER_DETAIL,slug,lang)
   const dataVoucher = data?.data?.vouchers?.translation?.voucher
   return (
-      <>
         <div className='w-full h-full bg-white overflow-y-auto md:rounded-[16px] overflow-x-hidden'>
           <DetailVocher
             headerData={hotDeals?.voucherHeader?.detailHeader}
@@ -25,7 +24,6 @@ async function page({ params: { lang, slug } }) {
             lang ={lang}
           />
         </div>
-        </>
   )
 }
 

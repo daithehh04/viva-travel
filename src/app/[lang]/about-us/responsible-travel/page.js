@@ -19,9 +19,9 @@ export default async function page({ params: { lang } }) {
   const bannerData = res?.data?.page?.translation?.responsibleTravel?.banner
   const contentData = res?.data?.page?.translation?.responsibleTravel?.main
   return (
-    <>
+    <div>
       <Banner data={bannerData} />
       <Responsible data={contentData} />
-    </>
+    </div>
   )
 }
